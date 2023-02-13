@@ -3,11 +3,11 @@
 #contents{height: 950px;}
 
 /* 레이아웃 */
-#header {height: 325px;}
-#footer {border-top: 1px solid #eee;}
+header {height: 325px;}
+footer {border-top: 1px solid #eee;}
 #banner{height: 450px;line-height: 450px; background: #4dd0e1;}
-#header-nav {height: 50px;line-height: 450px; background: #71d8d8;}
-#header-nav li {list-style:none; width: 20%; float: left; text-align: center; line-height: 50px;}
+nav {height: 50px;line-height: 450px; background: #71d8d8;}
+nav li {list-style:none; width: 20%; float: left; text-align: center; line-height: 50px;}
 
 /* 컨텐츠 레이아웃 */
 #content1{height: 90px;line-height: 90px;background: #26c6da;}
@@ -15,23 +15,24 @@
 #content3{height: 380px;line-height: 380px;background: #00acc1;}
 
 /* 컨테이너 */
-.container {width: 990px; margin: 0 auto; height: inherit; background: rgba(0, 0, 0, 0.3); text-align: center;}
+.container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);}
 
 /* 헤더 */
-.header .header-menu {text-align: right;}
-.header .header-menu a {color: #666; padding: 10px 0px 10px 13px; display: inline-block;}
-.header .header-menu a:hover {color: #666;}
-.header .header-tit {text-align: center;}
-.header .header-tit h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px 20px 6px 20px; display: inline-block; color: #fff; margin-top: 40px; font-weight: normal; text-transform: uppercase;}
-.header .header-tit a {display: inline-block; background-color: #2698cb; font-size: 18px; color:#fff; padding: 5px 20px 6px 20px; margin-top: -5px;}
+header .menu {text-align: center;}
+header .menu a {color: #666; padding: 10px 0px 10px 13px; display: inline-block;}
+header .menu a:hover {color: #666;}
+header .header-main {text-align: center;}
+header .header-main h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px 20px 6px 20px; display: inline-block; color: #fff; margin-top: 40px; font-weight: normal; text-transform: uppercase;}
 
 /* 푸터 */
-.footer {padding: 25px 0; text-align: center;}
-.footer ul {margin-bottom: 20px;}
-.footer li {position: relative; display: inline; padding: 0 7px 0 10px;}
-.footer li:before {content: ''; width: 1px; height: 12px; background: #ccc; position: absolute; left: 0; top: 2px;}
-.footer li:first-child:before {width: 0; height: 0;}
-.footer .w3c {margin-top: 15px;}
+.footer-text {padding: 25px 0; text-align: center;}
+.footer-text ul {margin-bottom: 20px;}
+.footer-text li {position: relative; display: inline; padding: 0 7px 0 10px;}
+.footer-text li:before {content: ''; width: 1px; height: 12px; background: #ccc; position: absolute; left: 0; top: 2px;}
+.footer-text li:first-child:before {width: 0; height: 0;}
+.footer-text .w3c {margin-top: 15px;}
+
+#buisness-info {padding-left: 10%;}
 
 
 
