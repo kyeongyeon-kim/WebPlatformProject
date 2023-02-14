@@ -1,0 +1,26 @@
+#menu > a {
+    margin: 30px 12px;
+    font-size: 13px;
+    color: black;
+}
+a > img {
+    float: left; 
+    height: 25px; 
+
+}
+.menu a {
+    color: #666; 
+    padding: 10px; 
+    display: inline-block;
+}
+.menu a:hover {
+    color: #666;
+}
+#teacher-join {
+    background-color: rgb(51, 180, 153); 
+    border-radius: 10%; 
+    padding: 0.5em 0.5em;
+}
+#teacher-join > strong {
+    color: white;
+}

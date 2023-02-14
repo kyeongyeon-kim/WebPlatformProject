@@ -1,0 +1,51 @@
+footer {
+    border-top: 1px solid #eee;
+    color: black;
+    font-size: 13px;
+    /* position : absolute;
+    bottom: 0; */
+}
+.buisness-info {
+    padding: 20px 0px 0px 30px; 
+    margin-bottom: 20px; 
+    font-size: 17px;
+}
+#phone-num {
+    font-size: 28px;
+}
+.footer-logo > img {
+    padding: 60px 30px 100px 30px;
+    float: left; 
+    height: 25px; 
+}
+.footer-text {
+    padding: 15px 0 25px; 
+    text-align: left;
+}
+.footer-text ul {
+    margin-bottom: 5px;
+}
+.footer-text li {
+    color: black;
+    position: relative; 
+    display: inline; 
+    padding: 0 8px 0 5px;
+}
+li > a {
+    color: black;
+}
+.footer-text li:before {
+    content: ''; 
+    width: 1px; 
+    height: 12px; 
+    background: #ccc; 
+    position: absolute; 
+    left: 0; 
+    top: 2px;
+}
+.footer-text li:first-child:before {
+    width: 0; 
+    height: 0;
+}
+
+
