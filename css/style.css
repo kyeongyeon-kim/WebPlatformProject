@@ -30,6 +30,8 @@ nav li {list-style:none; width: 20%; float: left; text-align: center; line-heigh
 .container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);}
 
 /* 헤더 */
+
+
 .menu {text-align: center; height: 15%; margin-top: 15px;}
 .menu a {color: #666; padding: 10px; display: inline-block;}
 .menu a:hover {color: #666;}
@@ -60,17 +62,26 @@ nav li {list-style:none; width: 20%; float: left; text-align: center; line-heigh
 #buisness-hour {font-size: 13px;}
 
 
+/*버튼속성*/
+#infochange{ background-color: white; display: inline-block; padding: 5px 10px; border-radius: 5px;
+  color: #747373; border: 1px solid #747373; font-size: 1px;
+ }
+#infochange:hover{ 
+    color: #080808;background-color: #ccc; }
 
+/*마이페이지,고객 컨텐츠*/    
+#mypageContents{height: 1200px;}
+#heartZone{}
+#requestZone{}
+#useZone{}
 
+/* height: 350px; */
 
-
-
-
-
-
-
-
-
+.mypageTitle{font-size:15px; display: inline;  font-size: 18px; font-weight: bold; margin: 100px 0px 0px 40px;}
+.box{ margin: 10px 20px 10px 20px;
+    padding: 150px; ; border-radius: 10px; background-color: #c5ffe76c; }
+.name{background-color: red; display: inline;}
+.minibox{background-color:#c10000; padding:50px; margin: 0px 60px 50px 0px; display: inline;}
 
 
 
