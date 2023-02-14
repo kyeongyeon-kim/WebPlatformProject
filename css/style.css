@@ -1,6 +1,11 @@
 @charset "utf-8";
 
-#contents{height: 950px;}
+/* * { outline: 1px solid #333;} */
+
+
+
+
+#contents{height: 1050px;}
 
 /* 레이아웃 */
 header {height: 325px;}
@@ -23,6 +28,7 @@ header .menu a {color: #666; padding: 10px 0px 10px 13px; display: inline-block;
 header .menu a:hover {color: #666;}
 header .header-main {text-align: center;}
 header .header-main h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px 20px 6px 20px; display: inline-block; color: #fff; margin-top: 40px; font-weight: normal; text-transform: uppercase;}
+#client{ color:#4e4d4d; font-size: 25px; margin: 120px 20px 10px 50px;font-weight: bold;display: inline-block;}
 
 /* 푸터 */
 .footer-text {padding: 25px 0; text-align: center;}
@@ -36,17 +42,26 @@ header .header-main h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px
 
 
 
+/*버튼속성*/
+#infochange{ background-color: white; display: inline-block; padding: 5px 10px; border-radius: 5px;
+  color: #747373; border: 1px solid #747373; font-size: 1px;
+ }
+#infochange:hover{ 
+    color: #080808;background-color: #ccc; }
 
+/*마이페이지,고객 컨텐츠*/    
+#mypageContents{height: 1200px;}
+#heartZone{}
+#requestZone{}
+#useZone{}
 
+/* height: 350px; */
 
-
-
-
-
-
-
-
-
+.mypageTitle{font-size:15px; display: inline;  font-size: 18px; font-weight: bold; margin: 100px 0px 0px 40px;}
+.box{ margin: 10px 20px 10px 20px;
+    padding: 150px; ; border-radius: 10px; background-color: #c5ffe76c; }
+.name{background-color: red; display: inline;}
+.minibox{background-color:#c10000; padding:50px; margin: 0px 60px 50px 0px; display: inline;}
 
 
 
