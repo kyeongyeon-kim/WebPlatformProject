@@ -5,7 +5,6 @@
 /* 레이아웃 */
 header {height: 325px;}
 footer {border-top: 1px solid #eee;}
-#banner{height: 450px;line-height: 450px; background: #4dd0e1;}
 nav {height: 50px;line-height: 450px; background: #71d8d8;}
 nav li {list-style:none; width: 20%; float: left; text-align: center; line-height: 50px;}
 
@@ -18,22 +17,30 @@ nav li {list-style:none; width: 20%; float: left; text-align: center; line-heigh
 .container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);}
 
 /* 헤더 */
-header .menu {text-align: center;}
-header .menu a {color: #666; padding: 10px 0px 10px 13px; display: inline-block;}
-header .menu a:hover {color: #666;}
-header .header-main {text-align: center;}
-header .header-main h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px 20px 6px 20px; display: inline-block; color: #fff; margin-top: 40px; font-weight: normal; text-transform: uppercase;}
+.menu {text-align: center; height: 15%; margin-top: 15px;}
+.menu a {color: #666; padding: 10px; display: inline-block;}
+.menu a:hover {color: #666;}
+.header-main {text-align: center; height: 85%;}
+.header-main h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px 20px 6px 20px; display: inline-block; color: #fff; margin-top: 40px; font-weight: normal; text-transform: uppercase;}
+#teacher-join {background-color: rgb(51, 180, 153); color: white; border-radius: 10%; padding: 0.5em 0.5em;}
+
+/*배너*/
+#banner{height: 450px; background: #4dd0e1;}
+.field {float: auto; height: 30px; text-align: center;}
+.field img {float: auto; height: 100px;}
 
 /* 푸터 */
-.footer-text {padding: 25px 0; text-align: center;}
-.footer-text ul {margin-bottom: 20px;}
-.footer-text li {position: relative; display: inline; padding: 0 7px 0 10px;}
+.footer-text {padding: 15px 0 25px 185px; text-align: left;}
+.footer-text ul {margin-bottom: 5px;}
+.footer-text li {position: relative; display: inline; padding: 0 3px 0 5px;}
 .footer-text li:before {content: ''; width: 1px; height: 12px; background: #ccc; position: absolute; left: 0; top: 2px;}
 .footer-text li:first-child:before {width: 0; height: 0;}
 .footer-text .w3c {margin-top: 15px;}
+#footer-logo {height: 25px; float: left; padding: 45px 0px 70px 30px;}
 
-#buisness-info {padding-left: 10%;}
-
+.buisness-info {padding: 20px 0px 0px 30px; margin-bottom: 20px; font-size: 17px;}
+#phone-num {font-size: 28px;}
+#buisness-hour {font-size: 13px;}
 
 
 
