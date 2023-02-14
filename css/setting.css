@@ -1,0 +1,50 @@
+@charset "utf-8";
+@media (min-width: 950px) {
+    .container {
+        width: 950px; 
+        margin: 0 auto;
+
+    } 
+    header, footer, main {
+        width: 950px; 
+        padding: 10px;
+        margin: 10px auto;
+    }
+}
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form {
+    margin: 0; 
+    padding: 0;
+}
+
+/* a 링크 초기화 */
+a {
+    color: #222; 
+    text-decoration: none;
+}
+a:hover {
+    color: #390;
+}
+
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {
+    font-family:'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; 
+    color: #222; 
+    font-size: 13px; 
+    line-height: 1.5;}
+
+/* 폰트 스타일 초기화 */
+em, address {
+    font-style: normal;
+}
+
+/* 블릿기호 초기화 */    
+dl, ul, li, ol, menu {
+    list-style: none;
+}
+
+/* 테두리 초기화 */
+img, fieldset {
+    border: 0 none;
+}
