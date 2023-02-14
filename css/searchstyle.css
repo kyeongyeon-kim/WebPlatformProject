@@ -2,12 +2,21 @@ main {
     height: 800px;
     /* border: 1px solid; */
     padding: 20px;
-    width: 700px;
+    /* width: 700px; */
+}
+.search {
+    display: inline-block;
+    text-align: center;
 }
 .search > input {
-    width: 600px;
+    min-width: 60vw;
+    float: left;
+    max-width: 400px;
+    padding: 4px 6px 3px 5px;
+    border-radius: 0.6em;
 }
 .search > button {
+    margin-left: 5px;
     width: 50px;
 }
 .profile {
