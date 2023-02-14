@@ -1,15 +1,40 @@
 @charset "utf-8";
-@media (min-width: 950px) {
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@media (min-width: 1000px) {
     .container {
-        width: 950px; 
+        width: 1000px; 
         margin: 0 auto;
 
     } 
-    header, footer, main {
-        width: 950px; 
-        padding: 10px;
-        margin: 10px auto;
+   header {
+        height: 40px;
     }
+   #menu > #logo {
+        display: inline-block;
+        float: left;
+    }
+}
+@media (max-width: 1000px) {
+    header {
+        height: 120px;
+    }
+    #menu > #logo {
+        padding-bottom: 20px;
+        display: block;
+    }
+}
+
+* {
+    font-family: 'NanumSquareNeo-Variable';
+}
+header, footer, main {
+    padding: 10px;
+    margin: 10px;
 }
 
 /* 여백 초기화 */
@@ -29,7 +54,6 @@ a:hover {
 
 /* 폰트 초기화 */
 body, input, textarea, select, button, table {
-    font-family:'Nanum Gothic', AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif; 
     color: #222; 
     font-size: 13px; 
     line-height: 1.5;}

@@ -1,26 +1,46 @@
-#menu > a {
-    margin: 30px 12px;
-    font-size: 13px;
-    color: black;
+header {
+    text-align: center;
+    border-bottom: 1px solid #eee;
 }
 a > img {
-    float: left; 
-    height: 25px; 
-
+    height: 30px; 
 }
-.menu a {
-    color: #666; 
-    padding: 10px; 
+#menu-bar, #login {
     display: inline-block;
 }
-.menu a:hover {
+#menu-bar > a, #login > a {
+    margin: 6px 12px;
+    font-size: 13px;
+    color: black;
+    font-weight: 500;
+    display: inline-block;
+}
+#menu-bar > a {
+    margin-right: 12px;
+}
+#menu-bar > input {
+    padding: 4px 6px 3px 5px;
+    border: 0.5px solid #c6c6c6;
+    background-color: #dddddd;
+    border-radius: 0.6em;
+    margin-left: 20px;
+}
+#menu-bar > a:hover, #login > a:hover {
     color: #666;
 }
-#teacher-join {
-    background-color: rgb(51, 180, 153); 
-    border-radius: 10%; 
-    padding: 0.5em 0.5em;
+#login {
+    float: right;
 }
-#teacher-join > strong {
+#teacher-join {
     color: white;
+    border: none;
+    margin-top: 0;
+    margin-left: 15px;
+    background-color: rgb(51, 180, 153); 
+    border-radius: 0.9em; 
+    padding: 0.5em 0.9em;
+}
+#teacher-join:hover {
+    background-color: rgb(91, 206, 184);
+    cursor: pointer;
 }

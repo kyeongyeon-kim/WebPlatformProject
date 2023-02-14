@@ -2,37 +2,36 @@ footer {
     border-top: 1px solid #eee;
     color: black;
     font-size: 13px;
-    /* position : absolute;
-    bottom: 0; */
 }
 .buisness-info {
     padding: 20px 0px 0px 30px; 
+    margin-left: 20px;
     margin-bottom: 20px; 
     font-size: 17px;
 }
 #phone-num {
     font-size: 28px;
+    font-weight: 500;
 }
 .footer-logo > img {
-    padding: 60px 30px 100px 30px;
+    padding: 40px 30px 30px 0px;
     float: left; 
-    height: 25px; 
+    height: 30px; 
 }
 .footer-text {
-    padding: 15px 0 25px; 
+    padding: 15px 0 0; 
     text-align: left;
 }
 .footer-text ul {
     margin-bottom: 5px;
 }
 .footer-text li {
-    color: black;
     position: relative; 
     display: inline; 
-    padding: 0 8px 0 5px;
+    padding: 0 8px 0;
 }
-li > a {
-    color: black;
+#li1 {
+    padding-left: 0;
 }
 .footer-text li:before {
     content: ''; 
@@ -47,5 +46,3 @@ li > a {
     width: 0; 
     height: 0;
 }
-
-

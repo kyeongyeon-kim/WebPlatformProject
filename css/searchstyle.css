@@ -1,8 +1,6 @@
 main {
     height: 800px;
-    border: 1px solid;
-}
-.search {
+    /* border: 1px solid; */
     padding: 20px;
     width: 700px;
 }
@@ -11,4 +9,14 @@ main {
 }
 .search > button {
     width: 50px;
+}
+.profile {
+    background-color: rgb(242, 252, 248);
+    border-radius: 0.5rem;
+    margin-top: 20px;
+    padding: 20px;
+}
+#name {
+    font-weight: 600;
+    margin
 }
