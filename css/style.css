@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-#contents{height: 950px;}
+#contents{height: auto;}
 
 /* 레이아웃 */
 header {height: 325px;}
@@ -9,9 +9,22 @@ nav {height: 50px;line-height: 450px; background: #71d8d8;}
 nav li {list-style:none; width: 20%; float: left; text-align: center; line-height: 50px;}
 
 /* 컨텐츠 레이아웃 */
-#content1{height: 90px;line-height: 90px;background: #26c6da;}
-#content2{height: 480px;line-height: 480px;background: #00bcd4}
-#content3{height: 380px;line-height: 380px;background: #00acc1;}
+#content1{background: #26c6da;}
+.region-btn {border-radius: 15px; padding: 0.4em; background-color: rgb(234,250,249); color: #00c7ae; border: 0;}
+.region-btns {width: 40%; float: right; margin-right: 15%;}
+.region-btns ul {display: inline; width: 75%; width: unset;
+    display: flex; flex-wrap: wrap;}
+.region-btns li {margin: 3px;}
+#region-text {width: auto; margin: 0; display: inline-block; margin-left: 30px;}
+#region-text p:nth-child(1) {font-size: 25px; margin-bottom: 5px; color: black;}
+#region-text p {font-size: 17px; color: #666;}
+
+
+#tip-page {margin: 5% auto; text-align: center; width: 800px; height: 400px; background-color: rgb(234,250,249); border-radius: 15px;}
+
+#content3{height: 380px;}
+#suggest-join {font-size: 25px;}
+#suggest-join-btn {padding: 1em 2em; font-size: 15px; background-color: #00c7ae; color: white; border-radius: 3px; border: 0;}
 
 /* 컨테이너 */
 .container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);}
@@ -22,12 +35,16 @@ nav li {list-style:none; width: 20%; float: left; text-align: center; line-heigh
 .menu a:hover {color: #666;}
 .header-main {text-align: center; height: 85%;}
 .header-main h1 {background-color: #4e4d4d; font-size: 28px; padding: 5px 20px 6px 20px; display: inline-block; color: #fff; margin-top: 40px; font-weight: normal; text-transform: uppercase;}
-#teacher-join {background-color: rgb(51, 180, 153); color: white; border-radius: 10%; padding: 0.5em 0.5em;}
+#teacher-join {background-color: #00c7ae; color: white; border-radius: 10%; padding: 0.5em 0.5em;}
 
 /*배너*/
 #banner{height: 450px; background: #4dd0e1;}
-.field {float: auto; height: 30px; text-align: center;}
+#fields {margin: 0px 60px 100px 60px; padding-top: 50px;}
+.field {height: 30px; text-align: center;overflow: hidden; border-radius: 8px; border: 0.0625rem solid #e1e1e1; width: 150px; height: 130px; background-color: #e1e1e1;
+        margin: 0.5rem; display: inline-block;}
+.field p {font-size: 17px;}
 .field img {float: auto; height: 100px;}
+
 
 /* 푸터 */
 .footer-text {padding: 15px 0 25px 185px; text-align: left;}
