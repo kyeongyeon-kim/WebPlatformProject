@@ -1,0 +1,29 @@
+/* * { outline: 1px/ solid #333;} */
+
+#title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: rgb(53, 52, 52);
+}
+
+.infoTitle {
+    margin: 0px 150px;
+    padding-left: 140px;
+}
+
+.infoTitle > input {
+    width: 70%;
+    border-radius: 5px;
+}
+
+.infoTitle > p { 
+    margin-top:  10px;
+}
+
+.infoTitle >  #manual { 
+    margin-top: 0;
+    font-size: 3px;
+    color: rgb(68, 68, 68);
+}
