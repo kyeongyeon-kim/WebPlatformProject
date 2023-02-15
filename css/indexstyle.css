@@ -21,7 +21,7 @@
 #suggest-join-btn {padding: 1em 2em; font-size: 15px; background-color: #00c7ae; color: white; border-radius: 3px; border: 0;}
 
 /* 컨테이너 */
-.container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);}
+/* .container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);} */
 
 /* 헤더 */
 /* .menu {text-align: center; height: 15%; margin-top: 15px;}
