@@ -1,4 +1,4 @@
-/* * { outline: 1px solid #333;} */
+* { outline: 1px solid #333;}
 
 #title {
     text-align: center;
@@ -51,8 +51,9 @@
 .box { 
     /* padding: 120px; */
     margin: 0px 50px 0px 50px;
-    background-color: rgba(211, 252, 239, 0.493);
+    /* background-color: rgba(211, 252, 239, 0.493); */
     border-radius: 10px;
+    border: 1px solid #eee;
 
 }
 
@@ -82,9 +83,9 @@
     overflow: hidden;
     /* border-radius: 8px; */
     /* border: 0.0625rem solid #e1e1e1;  */
-    width: 150px;
-    height: 130px; 
-    /* background-color: #e1e1e1; */
+    width: 250px;
+    height: 180px; 
+    background-color: white;
     margin: 10px; 
     display: inline-block;
 }
