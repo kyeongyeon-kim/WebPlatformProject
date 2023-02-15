@@ -171,31 +171,6 @@
             </div>
         </footer>
     </div>
+    <script src="js/search.js"></script>
 </body>
-<script>
-    import mysql from 'mysql';
-    // var mysql = require('mysql');
-    const mysql = require('mysql');
-
-    // createConnection : 접속하고 싶은 DB정보 입력
-    var connection = mysql.createConnection({
-        host: '192.168.0.104',
-        user: 'ohgym',
-        password: 'root',
-        database:'ohgym'
-        });
-    // DB 연결
-    connection.connect();
-    // 쿼리문 사용하기
-    connection.query('SELECT * FROM user WHERE usercheck = 2', function(results) {
-        console.log(results)
-
-    });
-
-
-
-
-    // DB 종료
-    connection.end();
-</script>
 </html>
