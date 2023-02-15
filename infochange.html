@@ -7,10 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/css/setting.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="/css/mypage.css">
+    <link rel="stylesheet" type="text/css" href="/css/infochange.css">
     <!-- 웹 폰트(미정) -->
 </head>
-
 <body>
     <div class="container">
         <header> 
@@ -33,36 +32,31 @@
         </header>
         <!-- 메인 태그 안에다 내용 작성 -->
         <main>
-          <div id="title">
-                <h1>마이페이지</h1>
+            <div id="title">
+                <h1>회원정보 수정</h1>
           </div>
-          <div id="clientName">
-                <p class="name">김경태</p> <p> 고객님</p>
-                <button>정보수정</button>
+          <div class="infoTitle">
+                <p>아이디</p>
+                <input type="text">
+                <button>중복확인</button>
+                <p>비밀번호</p>
+                <input type="password">
+                <p id="manual">* 8자 이상이면서 최소한 숫자 하나와 글자 하나를 포함해야 합니다. </p>
+                <p>비밀번호 재확인</p>
+                <input type="password">
+                <p id="manual">* 비밀번호를 다시 입력해주세요.</p>
+                <p>이름</p>
+                <input type="text">
+                <p>휴대폰 번호</p>
+                <input type="text">
+                <p>생년월일</p>
+                <input type="date">
+                <button id="gender">남자</button>
+                <button id="gender">여자</button>
           </div>
-          <div class ="history">
-                <h3><a href="#">요청 내역</a></h3>
-                <div class ="box">
-                    <div class="minibox">
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                    </div>
-                </div>
-                <h3><a href="#">찜한 내역</a></h3>
-                <div class ="box">
-                    <div class="minibox">
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                    </div>
-                </div>
-                <h3><a href="#">이용내역</a></h3>
-          </div>     
-          <div class="notice">    
-                <h3><a href="#">알림</a></h3>
-                <h3><a href="#">공지사항</a></h3>
-                <h3><a href="#">Oh!GYM 안내</a></h3>
+          <div>
+                <button>수정완료</button>
+                <p>계정탈퇴</p>
           </div>
         </main>
 
@@ -81,7 +75,7 @@
                     <li><a href="#">개발자소개</a></li>
                     <li><a href="#">서비스 이용약관</a></li>
                     <li><a href="#">개인정보 처리방침</a></li>
-                    <li><a href="#">영상정보 처리방침</strong></a></li>
+                    <li><a href="#">영상정보 처리방침</a></li>
                     <li><a href="#">사이트맵</a></li>
                     <li><a href="#">전자공고</a></li>
                     <li><a href="#">광고문의</a></li>
@@ -98,5 +92,4 @@
         </footer>
     </div>
 </body>
-
 </html>
