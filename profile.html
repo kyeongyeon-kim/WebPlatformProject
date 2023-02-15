@@ -163,21 +163,33 @@
     let valuesArr = [...values];
     let compsArr = [...comps];
     let value = [];
-    compsArr.forEach((elem) => {
+    modifyArr.forEach((elem) => {
         elem.addEventListener("click", function (e) {
-            let index = compsArr.indexOf(elem);
+            let index = modifyArr.indexOf(elem);
             let modifyStr = modifyArr[index].innerText;
+            let valueText = valuesArr[index].innerText;
             if (modifyStr !== "저장") {
                 modifyArr[index].innerText = "저장";
                 modifyArr[index].style.color = "RED";
-                let valueText = valuesArr[index].innerText;
+
                 let importTemplate = document.importNode(template.content, true);
                 value[index] = valuesArr[index];
                 valuesArr[index].remove();
+                let input = importTemplate.querySelector("input");
+                input.value = valueText;
                 comps[index].append(importTemplate);
             } else {
-                let article = document.querySelectorAll("#comps > .info-comp > article");
-                console.log(article);
+                let article = document.querySelector("#comps > .info-comp:nth-child(" + (index + 1) + ") > article");
+                article.remove();
+                let className = modifyArr[index].getAttribute("class");
+
+                if (className === "modify") {
+                    modifyArr[index].innerText = "수정";
+                } else {
+                    modifyArr[index].innerText = "등록하기";
+                }
+                
+                modifyArr[index].style.color = "#00c7ae";
                 compsArr[index].append(value[index]);
             }
         })
