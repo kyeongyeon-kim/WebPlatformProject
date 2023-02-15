@@ -32,16 +32,93 @@
         </header>
         <!-- 메인 태그 안에다 내용 작성 -->
         <main>
+            <h1>근선생 찾기</h1>
+            <select name="type" >
+                <option value="none">서비스 선택</option>
+                <option value="pt">퍼스널트레이닝</option>
+                <option value="~">피트니스</option>
+                <option value="~">~</option>
+                <option value="~">~</option>
+            </select>
+            <select name="location" >
+                <option value="none">지역</option>
+                <option value="seoul">서울</option>
+                <option value="~">부산</option>
+                <option value="~">~</option>
+                <option value="~">~</option>
+            </select>
             <div class="search">
                 <input type="search" placeholder="내 주변 근선생은 누가 있지?"/>
                 <button>검색</button>
             </div>
-            <div class="profile">
-                <h3 id="name">김경태</h3>
-                <p id="introduction">소개하기~~ 김경태 퍼스널트레이닝 서비스</p>
-                <img src="" alt="">
-                <span id="score">4.8</s pan>
-            </div>
+
+            <section class="profile">
+                <div class="info">
+                    <h3 id="name">김경태</h3>
+                    <p id="introduction">
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                    </p>
+                    <div class="score">
+                        <img src="img/star.png" alt="">
+                        <span id="score">4.8</span>
+                    </div>
+                </div>
+                <div class="profile-img">
+                    <img src="img/health.png" alt="profile-img">
+                </div>
+            </section>
+
+            <section class="profile">
+                <div class="info">
+                    <h3 id="name">김경태</h3>
+                    <p id="introduction">
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                    </p>
+                    <div class="score">
+                        <img src="img/star.png" alt="">
+                        <span id="score">4.8</span>
+                    </div>
+                </div>
+                <div class="profile-img">
+                    <img src="img/health.png" alt="profile-img">
+                </div>
+            </section>
+
+            <section class="profile">
+                <div class="info">
+                    <h3 id="name">김경태</h3>
+                    <p id="introduction">
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                    </p>
+                    <div class="score">
+                        <img src="img/star.png" alt="">
+                        <span id="score">4.8</span>
+                    </div>
+                </div>
+                <div class="profile-img">
+                    <img src="img/health.png" alt="profile-img">
+                </div>
+            </section>
+
+            <section class="profile">
+                <div class="info">
+                    <h3 id="name">김경태</h3>
+                    <p id="introduction">
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
+                    </p>
+                    <div class="score">
+                        <img src="img/star.png" alt="">
+                        <span id="score">4.8</span>
+                    </div>
+                </div>
+                <div class="profile-img">
+                    <img src="img/health.png" alt="profile-img">
+                </div>
+            </section>
         </main>
 
         <footer>
@@ -76,4 +153,30 @@
         </footer>
     </div>
 </body>
+<script>
+    import mysql from 'mysql';
+    // var mysql = require('mysql');
+    const mysql = require('mysql');
+
+    // createConnection : 접속하고 싶은 DB정보 입력
+    var connection = mysql.createConnection({
+        host: '192.168.0.104',
+        user: 'ohgym',
+        password: 'root',
+        database:'ohgym'
+        });
+    // DB 연결
+    connection.connect();
+    // 쿼리문 사용하기
+    connection.query('SELECT * FROM user WHERE usercheck = 2', function(results) {
+        console.log(results)
+
+    });
+
+
+
+
+    // DB 종료
+    connection.end();
+</script>
 </html>

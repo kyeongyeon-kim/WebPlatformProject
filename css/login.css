@@ -1,3 +1,5 @@
+/* * { outline: 1px solid #333;} */
+
 *{
     padding: 0;
     margin: 0;
@@ -148,4 +150,17 @@ body{
   
   .field.gender div label {
     margin-right: 16px;
+  }
+
+  .infochange, #signup-page { 
+    /* background-color: red; */
+    margin: 0px 270px;
+  }
+
+  #userChangeTitle { 
+    text-align: center;
+    font-size: 18px;
+    color: rgb(51, 180, 153);
+    margin-bottom: 20px;
+    margin-top:20px;
   }
