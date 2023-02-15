@@ -20,7 +20,7 @@
 #suggest-join {font-size: 25px;}
 #suggest-join-btn {display: inline-block; padding: 1em 2em; font-size: 15px; background-color: #00c7ae; color: white; border-radius: 3px; border: 0;}
 /* 컨테이너 */
-.container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);}
+/* .container {width: 990px; margin: 0 auto; height: inherit; background: rgba(255, 255, 255, 0.3);} */
 
 /*배너*/
 #banner{height: 450px; background: #4dd0e1;}
