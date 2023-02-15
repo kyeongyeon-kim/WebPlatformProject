@@ -39,6 +39,15 @@
     font-size: 16px;
 }
 
+#history > h3 {
+    color: rgb(53, 52, 52);
+    width: 80px;
+    text-align: center;
+    margin-left: 60px;
+    padding: 10px 0px 10px 0px;
+    font-size: 16px;
+}
+
 .box { 
     /* padding: 120px; */
     margin: 0px 50px 0px 50px;
@@ -56,7 +65,7 @@
     font-size: 16px;
     width: 130px;
     margin-left: 60px;
-    padding: 8px 0px 8px 10px;
+    padding: 8px 0px 8px 8px;
     color: rgb(92, 92, 92) !important;
 }
 

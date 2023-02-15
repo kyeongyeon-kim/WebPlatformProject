@@ -1,0 +1,51 @@
+<html lang="ko">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Oh!GYM</title>
+      <!-- style -->
+
+      <link rel="stylesheet" type="text/css" href="/css/setting.css">
+      <link rel="stylesheet" type="text/css" href="/css/userOut.css">
+
+      <!-- 웹 폰트(미정) -->
+</head>
+
+<body>
+      <button id="show">팝업열기</button>
+      <div class="background">
+            <div class="window">
+                  <div class="popup">
+                              <img src="img/logo.png" alt="logo"></a>
+                              
+                              <p id ="out">떠나실 건가요?</p>
+                              <p id = "context">계정 탈퇴 시 모든 개인정보가 삭제되며<br>
+                                    삭제된 데이터는 다시 복구할 수 없습니다. </p>
+                                    <button id="close">다시 생각해 볼게요</button><br>
+                                    <button id="userout">계정탈퇴</button>
+                                    
+                              </div>
+                                    <div>
+                        <div></div>
+                  </div>
+            </div>
+      </div>
+
+
+
+      <script>
+            function show() {
+                  document.querySelector(".background").className = "background show";
+            }
+            function close() {
+                  document.querySelector(".background").className = "background";
+            }
+
+            document.querySelector("#show").addEventListener("click", show);
+            document.querySelector("#close").addEventListener("click", close);
+      </script>
+
+</body>
+
+</html>
