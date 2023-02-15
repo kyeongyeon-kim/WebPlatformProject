@@ -7,18 +7,22 @@
     <link rel="stylesheet" type="text/css" href="/css/setting.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="/css/infochange.css">
+    <link rel="stylesheet" type="text/css" href="/css/userOut.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+
+
     <!-- 웹 폰트(미정) -->
 </head>
+
 <body>
     <div class="container">
-        <header> 
+        <header>
             <div id="menu">
                 <div id="logo">
                     <a href=""><img src="img/logo.png" alt="logo"></a>
                 </div>
                 <div id="menu-bar">
-                    <a href="">고수매칭</a> 
+                    <a href="">고수매칭</a>
                     <a href="">고수찾기</a>
                     <a href="">커뮤니티</a>
                     <input type="search" placeholder="어떤 서비스가 필요하세요?">
@@ -31,33 +35,69 @@
             </div>
         </header>
         <!-- 메인 태그 안에다 내용 작성 -->
-        <main>
-            <div id="title">
-                <h1>회원정보 수정</h1>
-          </div>
-          <div class="infoTitle">
-                <p>아이디</p>
-                <input type="text">
-                <button>중복확인</button>
-                <p>비밀번호</p>
-                <input type="password">
-                <p id="manual">* 8자 이상이면서 최소한 숫자 하나와 글자 하나를 포함해야 합니다. </p>
-                <p>비밀번호 재확인</p>
-                <input type="password">
-                <p id="manual">* 비밀번호를 다시 입력해주세요.</p>
-                <p>이름</p>
-                <input type="text">
-                <p>휴대폰 번호</p>
-                <input type="text">
-                <p>생년월일</p>
-                <input type="date">
-                <button id="gender">남자</button>
-                <button id="gender">여자</button>
-          </div>
-          <div>
-                <button>수정완료</button>
-                <p>계정탈퇴</p>
-          </div>
+       <main>
+            <div id="userChangeTitle">
+                <h2>회원정보수정</h2>
+            </div>
+            <form method="post" action="경태야url넣자" id="signup-form" class="infochange">
+                <h4> 아이디 </h4>
+                <input type="text" name="userId" placeholder=" 아이디를 입력하세요">
+                <h4> 비밀번호 </h4>
+                <input type="password" name="userPassword" placeholder=" 비밀번호를 입력하세요">
+                <h4> 비밀번호 재확인 </h4>
+                <input type="password" name="userPasswordTest" placeholder=" 비밀번호 재확인">
+                <h4> 이름</h4>
+                    <input type="text" name="userName" placeholder=" 이름을 입력하세요">
+                    <h4> 전화번호 </h4>
+                    <input type="text" name="userPhone" placeholder=" 전화번호를 입력하세요">
+                    <h4> 생년월일 </h4>
+                    <div class="field gender" style="width: 100%; height: 80px;;">
+                        <div>
+                            <label><input type="radio" name="gender">남자</label>
+                            <label><input type="radio" name="gender">여자</label>
+                        </div>
+                        <div>
+                            <input type="date" name="userBirthday" placeholder=" 생년월일 6자리를 입력하세요">
+                        </div>
+                    </div>   
+                    <input type="submit" value="가입하기"> 
+                </form>
+                
+                <div style="display: flex;justify-content: space-evenly;">
+                    <button id="showOut" >계정 탈퇴</button>
+                </div>
+               
+            <div class="background">
+                <div class="window">
+                    <div class="popup">
+                        <img id="popupImg" src="img/logo.png" alt="logo"></a>
+
+                        <p id="out">떠나실 건가요?</p>
+                        <p id="context">계정 탈퇴 시 모든 개인정보가 삭제되며<br>
+                            삭제된 데이터는 다시 복구할 수 없습니다. </p>
+                        <button id="close">다시 생각해 볼게요</button><br>
+                        <button id="userout">계정탈퇴</button>
+
+                    </div>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                function show() {
+                    document.querySelector(".background").className = "background show";
+                }
+                function close() {
+                    document.querySelector(".background").className = "background";
+                }
+
+                document.querySelector("#showOut").addEventListener("click", show);
+                document.querySelector("#close").addEventListener("click", close);
+            </script>
+
+
         </main>
 
         <footer>
@@ -75,7 +115,7 @@
                     <li><a href="#">개발자소개</a></li>
                     <li><a href="#">서비스 이용약관</a></li>
                     <li><a href="#">개인정보 처리방침</a></li>
-                    <li><a href="#">영상정보 처리방침</a></li>
+                    <li><a href="#">영상정보 처리방침</strong></a></li>
                     <li><a href="#">사이트맵</a></li>
                     <li><a href="#">전자공고</a></li>
                     <li><a href="#">광고문의</a></li>
@@ -84,7 +124,8 @@
             </div>
             <div class="footer-info">
                 <p id="company-name">(주) 오짐</p>
-                <p>대표이사 : 김경태&nbsp;&nbsp;&nbsp;&nbsp;주소 : 부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 000-00-00000</p>
+                <p>대표이사 : 김경태&nbsp;&nbsp;&nbsp;&nbsp;주소 : 부산 부산진구 중앙대로 749 혜도빌딩 4층
+                    그린컴퓨터아카데미&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 000-00-00000</p>
                 <address>
                     Copyright© All Right Reserved
                 </address>
@@ -92,4 +133,5 @@
         </footer>
     </div>
 </body>
+
 </html>
