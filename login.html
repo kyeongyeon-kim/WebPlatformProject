@@ -7,10 +7,10 @@
     <link rel="stylesheet" type="text/css" href="/css/setting.css">
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="/css/mypage.css">
+    <link rel="stylesheet" type="text/css" href="/css/indexstyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
     <!-- 웹 폰트(미정) -->
 </head>
-
 <body>
     <div class="container">
         <header> 
@@ -32,39 +32,23 @@
             </div>
         </header>
         <!-- 메인 태그 안에다 내용 작성 -->
+        <div style="display: flex; justify-content: center; align-items: center;">
         <main>
-          <div id="title">
-                <h1>마이페이지</h1>
-          </div>
-          <div id="clientName">
-                <p class="name">김경태</p> <p> 고객님</p>
-                <button>정보수정</button>
-          </div>
-          <div class ="history">
-                <h3><a href="#">요청 내역</a></h3>
-                <div class ="box">
-                    <div class="minibox">
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                    </div>
-                </div>
-                <h3><a href="#">찜한 내역</a></h3>
-                <div class ="box">
-                    <div class="minibox">
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                        <a href="#"><img src="img/health.png" alt="">크로스핏</a>
-                    </div>
-                </div>
-                <h3><a href="#">이용내역</a></h3>
-          </div>     
-          <div class="notice">    
-                <h3><a href="#">알림</a></h3>
-                <h3><a href="#">공지사항</a></h3>
-                <h3><a href="#">Oh!GYM 안내</a></h3>
-          </div>
+           <body>
+            <div class="login-page" style="align-items: center;">
+                <h2>로그인</h2>
+                <form method="post" action="경태야url넣자" id="sig-form">
+                    <input type="text" name="userId" placeholder=" 아이디를 입력하세요">
+                    <input type="password" name="userPassword" placeholder=" 비밀번호를 입력하세요">
+                    <label for="remember-check">
+                        <input type="checkbox" id="remember-check">    아이디 저장하기
+                    </label>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </body>
         </main>
+    </div>
 
         <footer>
             <div class="business-info">
@@ -98,5 +82,4 @@
         </footer>
     </div>
 </body>
-
 </html>
