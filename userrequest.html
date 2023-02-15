@@ -1,0 +1,208 @@
+<html lang="ko">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oh!GYM</title>
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="/css/setting.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/indexstyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/userrequest.css">
+    <!-- 웹 폰트(미정) -->
+</head>
+
+<body>
+    <div class="container">
+        <header> 
+            <div id="menu">
+                <div id="logo">
+                    <a href=""><img src="/img/logo.png" alt="logo"></a>
+                </div>
+                <div id="menu-bar">
+                    <a href="">고수매칭</a> 
+                    <a href="">고수찾기</a>
+                    <a href="">커뮤니티</a>
+                    <input type="search" placeholder="어떤 서비스가 필요하세요?">
+                </div>
+                <div id="login">
+                    <a href="">로그인</a>
+                    <a href="">회원가입</a>
+                    <input id="teacher-join" type="submit" value="고수가입">
+                </div>
+            </div>
+        </header>
+    <!-- //header -->
+    <main>
+        <section id="banner">
+            <section class="container">
+                <article id="fields">
+                </article>
+            </section>
+        </section>
+        <!--//banner-->
+        <section id="contents">
+            <section id="content1">
+                <article class="container">
+
+                    <div id="contentdiv">
+                        <div style="margin-bottom: 50px; text-align: center;">
+                            <p>진행상황</p>
+                            <progress id="progress" value="1" min="0" max="9"></progress>
+                            <label style="margin-left: 15px;">1/9</label>
+                        </div>      
+
+                        <div style="margin-bottom: 80px;">
+                            <p style="font-size: 30px; font-weight: bold; text-align: center;">레슨 받는 목적이 무엇인가요?</p>
+                        </div>                    
+
+                        <div class="checkbtndiv">
+                            <label for="checkbox1" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox1"/><label id="checklbl" for="checkbox1">다이어트</label>
+                            </label>
+                            <label for="checkbox2" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox2"/><label id="checklbl" for="checkbox2">근력강화</label>
+                            </label>
+                        </div>
+                        <div class="checkbtndiv">
+                            <label for="checkbox3" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox3"/><label id="checklbl" for="checkbox3">체중증가</label>
+                            </label>
+                            <label for="checkbox4" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox4"/><label id="checklbl" for="checkbox4">체력증진</label>
+                            </label>
+                        </div>
+                        <div class="checkbtndiv">
+                            <label for="checkbox5" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox5"/><label id="checklbl" for="checkbox5">체형 교정</label>
+                            </label>
+                            <label for="checkbox6" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox6"/><label id="checklbl" for="checkbox6">재활/통증케어</label>
+                            </label>
+                        </div>
+                        <div class="checkbtndiv">
+                            <label for="checkbox7" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox7"/><label id="checklbl" for="checkbox7">바디프로필</label>
+                            </label>
+                            <label for="checkbox8" class="checkboxlbl">
+                                <input type='checkbox' id="checkbox8"/><label id="checklbl" for="checkbox8">대회준비</label>
+                            </label>
+                        </div>
+
+                        <div class="checkbtndiv">
+                            <label for="textcheckbox" class="textlbl">
+                                <input type='checkbox' id="textcheckbox"/><label id="checklbl" for="textcheckbox">기타</label>
+                                <input type='text' id="inputtext"/>
+                            </label>
+                        </div>
+
+                        <div class="pagebtn">
+                            <button id="prev"></button>
+                            <button id="next" style="margin-left: 10px;"></button>
+                        </div>
+
+                    </div>
+                </article>
+            </section>
+            <section id="content2">
+                <article class="container">
+                    
+                </article>
+            </section>
+            <section id="content3">
+                <article class="container">
+                    
+                </article>
+            </section>
+        </section>
+        <!--//contents-->
+    </main>
+    <footer>
+        <div class="business-info">
+            <p>고객상담센터</p>
+            <p id="phone-num">070-012-3456</p>
+            <p id="buisness-hour">평일 09:30 ~ 17:30 (점심11:30 ~ 13:00)</p>
+        </div>
+        <div class="footer-logo">
+            <img src="/img/logo2.png" alt="logo">
+        </div>
+        <div class="footer-text">
+            <ul>
+                <li id="li1"><a href="#">회사소개</a></li>
+                <li><a href="#">개발자소개</a></li>
+                <li><a href="#">서비스 이용약관</a></li>
+                <li><a href="#">개인정보 처리방침</a></li>
+                <li><a href="#">영상정보 처리방침</strong></a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">전자공고</a></li>
+                <li><a href="#">광고문의</a></li>
+                <li><a href="#">고객의 소리</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <p id="company-name">(주) 오짐</p>
+            <p>대표이사 : 김경태&nbsp;&nbsp;&nbsp;&nbsp;주소 : 부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 000-00-00000</p>
+            <address>
+                Copyright© All Right Reserved
+            </address>
+        </div>
+    </footer>
+</div>
+</body>
+<script>
+    var pagenum = 1;
+    var pagedata = {
+        page1: [],
+        page2: [],
+        page3: [],
+        page4: [],
+        page5: [],
+        page6: [],
+        page7: [],
+        page8: [],
+        page9: [],
+    };
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+
+    var textcheckbox = document.getElementById("textcheckbox");
+    var inputtext = document.getElementById("inputtext");
+
+    textcheckbox.addEventListener("click", function (e){
+        console.log(textcheckbox.getAttribute("checked"));
+        if (textcheckbox.getAttribute("checked")) {
+            inputtext.style.display = "block";
+        } else if (!textcheckbox.getAttribute("checked")) {
+            inputtext.style.display = "none";
+        }
+    });
+
+    next.addEventListener("click", function(e){
+        switch (pagenum) {
+            case 1:
+                
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            default:
+                break;
+        }
+        pagenum++;
+    });
+</script>    
+</html>
