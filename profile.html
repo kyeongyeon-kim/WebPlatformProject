@@ -57,8 +57,8 @@
                     </ul>
                 </section>
             </section>
-            <article id="info-comp">
-                <article>
+            <section id="comps">
+                <article class="info-comp">
                     <div class="heading">
                         <div>
                             <h2>이름</h2>
@@ -67,9 +67,7 @@
                     </div>
                     <div class="value">김경연</div>
                 </article>
-            </article>
-            <article id="info-comp">
-                <article>
+                <article class="info-comp">
                     <div class="heading">
                         <div>
                             <h2>대표서비스</h2>
@@ -78,9 +76,7 @@
                     </div>
                     <div class="value">iOS 개발</div>
                 </article>
-            </article>
-            <article id="info-comp">
-                <article>
+                <article class="info-comp">
                     <div class="heading">
                         <div>
                             <h2>한줄소개</h2>
@@ -89,9 +85,7 @@
                     </div>
                     <div class="value">김경연 고수의 게임 개발, iOS 개발 서비스</div>
                 </article>
-            </article>
-            <article id="info-comp">
-                <article>
+                <article class="info-comp">
                     <div class="heading">
                         <div>
                             <h2>센터명 및 위치</h2>
@@ -100,9 +94,7 @@
                     </div>
                     <div class="value">[오짐] 부산 부산진구 부전로4</div>
                 </article>
-            </article>
-            <article id="info-comp">
-                <article>
+                <article class="info-comp">
                     <div class="heading">
                         <div>
                             <h2>직원수</h2>
@@ -111,9 +103,7 @@
                     </div>
                     <div class="value">20명</div>
                 </article>
-            </article>
-            <article id="info-comp">
-                <article>
+                <article class="info-comp">
                     <div class="heading">
                         <div>
                             <h2>경력</h2>
@@ -123,10 +113,8 @@
                     <div class="value">상세한 경력을 작성하고
                         경쟁력있는 프로필을 만들어보세요.</div>
                 </article>
-            </article>
-            
+            </section>
         </main>
-
         <footer>
             <div class="business-info">
                 <p>고객상담센터</p>
@@ -159,6 +147,28 @@
             </div>
         </footer>
     </div>
+    <template id="input-form">
+        <input type="text" class="input-form" value="" placeholder="내용을 입력해 주세요">
+        <p>내용을 입력해 주세요</p>
+        </article>
+    </template>
 </body>
+<script>
+    let value = document.querySelectorAll(".value");
+    let comps = document.querySelectorAll("#comps > .info-comp");
+    let template = document.getElementById("input-form");
+    let values = [...value];
+    let compsArr = [...comps];
+    compsArr.forEach((elem) => {
+        elem.addEventListener("click", function (e) {
+            let index = compsArr.indexOf(elem);
+            console.log(index);
+            let valueText = values[index].innerText;
+            let importTemplate = document.importNode(template.content, true);
+            values[index].innerText = "";
+            comps[index].append(importTemplate);
+        })
+    });
+</script>
 
 </html>
