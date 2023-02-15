@@ -3,7 +3,7 @@
 progress {
     width: 500px;
     height: 5px;
-    -webkit-appearance: none;
+    appearance: none;
     margin: 5px 0px;
 }
 progress::-webkit-progress-bar {
@@ -44,6 +44,7 @@ progress::-webkit-progress-value {
     cursor:pointer
 }
 #inputtext {
+    display: none;
     margin-left: 20px;
     width: 430px;
 }
@@ -52,10 +53,6 @@ progress::-webkit-progress-value {
     justify-content: right;
     padding: 50px 0px 50px 0px;
 }
-#textcheckbox:checked + #inputtext{display:contents}
-
-#inputtext{display:block}
-
 .checkbtndiv {
     display: flex;
     justify-content: center;

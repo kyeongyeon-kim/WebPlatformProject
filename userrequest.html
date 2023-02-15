@@ -92,8 +92,8 @@
 
                         <div class="checkbtndiv">
                             <label for="textcheckbox" class="textlbl">
-                                <input type='checkbox' id="textcheckbox"/><label id="checklbl" for="textcheckbox">기타</label>
-                                <input type='text' id="inputtext"/>
+                                <input type='checkbox' id="textcheckbox" /><label id="checklbl" for="textcheckbox">기타</label>
+                                <input type='text' id="inputtext" style="display: none;"/>
                             </label>
                         </div>
 
@@ -168,12 +168,10 @@
 
     var textcheckbox = document.getElementById("textcheckbox");
     var inputtext = document.getElementById("inputtext");
-
     textcheckbox.addEventListener("click", function (e){
-        console.log(textcheckbox.getAttribute("checked"));
-        if (textcheckbox.getAttribute("checked")) {
+        if (textcheckbox.checked) {
             inputtext.style.display = "block";
-        } else if (!textcheckbox.getAttribute("checked")) {
+        } else if (!textcheckbox.checked) {
             inputtext.style.display = "none";
         }
     });
