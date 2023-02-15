@@ -154,19 +154,31 @@
     </template>
 </body>
 <script>
-    let value = document.querySelectorAll(".value");
+    let modify = document.querySelectorAll(".heading div:nth-child(2)");
+    let values = document.querySelectorAll(".value");
     let comps = document.querySelectorAll("#comps > .info-comp");
     let template = document.getElementById("input-form");
-    let values = [...value];
+    let modifyArr = [...modify];
+    let valuesArr = [...values];
     let compsArr = [...comps];
+    let value = null;
+    console.log(modifyArr);
     compsArr.forEach((elem) => {
         elem.addEventListener("click", function (e) {
             let index = compsArr.indexOf(elem);
-            console.log(index);
-            let valueText = values[index].innerText;
-            let importTemplate = document.importNode(template.content, true);
-            values[index].innerText = "";
-            comps[index].append(importTemplate);
+            let modifyStr = modifyArr[index].innerText;
+            console.log();
+            if (modifyStr !== "저장") {
+                modifyArr[index].innerText = "저장";
+                modifyArr[index].style.color = "RED";
+                let valueText = valuesArr[index].innerText;
+                let importTemplate = document.importNode(template.content, true);
+                value = valuesArr[index];
+                valuesArr[index].remove();
+                comps[index].append(importTemplate);
+            } else {
+                console.log(value);
+            }
         })
     });
 </script>
