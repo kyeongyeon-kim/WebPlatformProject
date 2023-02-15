@@ -148,6 +148,7 @@
         </footer>
     </div>
     <template id="input-form">
+        <article>
         <input type="text" class="input-form" value="" placeholder="내용을 입력해 주세요">
         <p>내용을 입력해 주세요</p>
         </article>
@@ -161,26 +162,25 @@
     let modifyArr = [...modify];
     let valuesArr = [...values];
     let compsArr = [...comps];
-    let value = null;
-    console.log(modifyArr);
+    let value = [];
     compsArr.forEach((elem) => {
         elem.addEventListener("click", function (e) {
             let index = compsArr.indexOf(elem);
             let modifyStr = modifyArr[index].innerText;
-            console.log();
             if (modifyStr !== "저장") {
                 modifyArr[index].innerText = "저장";
                 modifyArr[index].style.color = "RED";
                 let valueText = valuesArr[index].innerText;
                 let importTemplate = document.importNode(template.content, true);
-                value = valuesArr[index];
+                value[index] = valuesArr[index];
                 valuesArr[index].remove();
                 comps[index].append(importTemplate);
             } else {
-                console.log(value);
+                let article = document.querySelectorAll("#comps > .info-comp > article");
+                console.log(article);
+                compsArr[index].append(value[index]);
             }
         })
     });
 </script>
-
 </html>
