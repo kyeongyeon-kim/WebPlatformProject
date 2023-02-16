@@ -3,7 +3,7 @@ let userId = document.getElementById("userId");
 userId.innerText = "경연";
 window.addEventListener("load", (e) => {
   userId.innerText = userId.innerText + "근선생님!";
-  fetch("http://192.168.0.104:8080/ohgym-back/profile")
+  fetch("http://192.168.0.104:8080/ohgym/profile")
     .then((resp) => resp.text())
     .then((text) => {
       console.log(text);

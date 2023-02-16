@@ -70,33 +70,30 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public int updateInfo(Connection conn, TeacherInfo info) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteInfo(Connection conn, String id) {
-		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	// teacher_exercise 
+	@Override
+	public int insertExercise(Connection conn, String id, String type) {
+		return 0;
+	}
+	@Override
+	public int updateExercise(Connection conn, String id, String type) {
+		return 0;
+	}
+	@Override
+	public int deleteExercise(Connection conn, String id, String type) {
 		return 0;
 	}
 
-	// teacher_service
 	@Override
-	public int insertService(Connection conn, TeacherExercise service) {
-		String sql = "INSERT INTO teacher_service (teacher_no, location, career, introduction) VALUES (?, ?, ?, ?)";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, getTeacherServiceNo(conn, service.getId(), service.getExercise_type()));
-			stmt.setString(2, service.getLocation());
-			stmt.setString(3, service.getCareer());
-			stmt.setString(3, service.getIntroduction());
-			
-			return stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("추가 작업 중 예외 발생", e);
-		}
-	}
-	public String getTeacherServiceNo(Connection conn, String id, String type) {
+	public String getTeacherExerciseNo(Connection conn, String id, String type) {
 		String sql = "SELECT * FROM teacher_exercise WHERE id = ? AND exercise_type = ?";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setString(1, id);
@@ -113,59 +110,67 @@ public class TeacherDAOImpl implements TeacherDAO {
 		}
 		return null;
 	}
+
+	// teacher_service
 	@Override
-	public List<TeacherExercise> selectService(Connection conn) {
-		// TODO Auto-generated method stub
+	public int insertExerciseInfo(Connection conn, TeacherExercise service) {
+		String sql = "INSERT INTO teacher_service (teacher_no, location, career, introduction) VALUES (?, ?, ?, ?)";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setString(1, getTeacherExerciseNo(conn, service.getId(), service.getExercise_type()));
+			stmt.setString(2, service.getLocation());
+			stmt.setString(3, service.getCareer());
+			stmt.setString(3, service.getIntroduction());
+			
+			return stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("추가 작업 중 예외 발생", e);
+		}
+	}
+	
+	@Override
+	public List<TeacherExercise> selectExerciseInfo(Connection conn) {
 		return null;
 	}
 
 	@Override
-	public TeacherExercise selectServiceById(Connection conn, String id) {
-		// TODO Auto-generated method stub
+	public TeacherExercise selectExerciseInfoById(Connection conn, String id) {
 		return null;
 	}
 
 	@Override
-	public TeacherExercise selectServiceByType(Connection conn, String type) {
-		// TODO Auto-generated method stub
+	public TeacherExercise selectExerciseInfoByType(Connection conn, String type) {
 		return null;
 	}
 
 	@Override
-	public int updateService(Connection conn, TeacherExercise service) {
-		// TODO Auto-generated method stub
+	public int updateExerciseInfo(Connection conn, TeacherExercise exercise) {
 		return 0;
 	}
-
+	
 	@Override
-	public int deleteService(Connection conn, TeacherExercise service) {
-		// TODO Auto-generated method stub
+	public int deleteExerciseInfo(Connection conn, String id, String type) {
 		return 0;
 	}
 
 	// teacher_image
 	@Override
 	public int insertImage(Connection conn, TeacherImage image) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public Image selectImageById(Connection conn, String id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int updateImage(Connection conn, Image image) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteImage(Connection conn, String id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }

@@ -9,6 +9,17 @@ public interface TeacherService {
 	TeacherInfo updateTeacherInfo(TeacherInfo info);
 	TeacherInfo deleteTeacherInfo(String id);
 	
+	// teacher_exercise 
+	String createExercise(String id, String type);
+	String updateExercise(String id, String type);
+	String deleteExercise(String id, String type);
+	
 	// teacher_service
+	TeacherExercise createTeacherExercise(TeacherExercise exercise);
+	List<TeacherExercise> readTeacherExercise();
+	TeacherExercise updateTeacherExercise(TeacherExercise exercise);
+	TeacherExercise deleteTeacherExercise(String id, String type);
+	
 	// teacher_image
+
 }

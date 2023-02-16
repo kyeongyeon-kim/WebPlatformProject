@@ -25,15 +25,9 @@ public class TeacherServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
 
-		
-		TeacherDAO dao = new TeacherDAOImpl();
+		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<TeacherInfo> list = null;
-		try {
-			list = dao.selectInfo(ConnectionProvider.getConnection());
-		} catch (SQLException e) {
-			System.out.println("예외");
-			e.printStackTrace();
-		}
+		list = service.readTeacherInfo();
 		resp.getWriter().println(list);
 	}
 }
