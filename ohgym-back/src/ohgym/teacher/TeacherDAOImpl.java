@@ -173,7 +173,6 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public int deleteImage(Connection conn, String id) {
 		return 0;
 	}
-<<<<<<< HEAD
 
 	@Override
 	public int insertExercise(Connection conn, String type) {
@@ -182,11 +181,9 @@ public class TeacherDAOImpl implements TeacherDAO {
 	}
 
 	@Override
-	public int insertExerciseInfo(Connection conn, TeacherExercise exercise) {
+	public int insertService(Connection conn, TeacherExercise service) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-=======
->>>>>>> branch 'master' of https://github.com/yeon966/WebFlatformProject.git
 }
