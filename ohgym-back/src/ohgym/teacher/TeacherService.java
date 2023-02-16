@@ -20,6 +20,9 @@ public interface TeacherService {
 	TeacherExercise updateTeacherExercise(TeacherExercise exercise);
 	TeacherExercise deleteTeacherExercise(String id, String type);
 	
+	// teacher_profile
+	TeacherProfile readTeacherProfile(String id);
+	
 	// teacher_image
-
+	
 }

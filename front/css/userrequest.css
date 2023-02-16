@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 progress {
-    width: 500px;
+    width: 100%;
     height: 5px;
     appearance: none;
     margin: 5px 0px;
@@ -17,6 +17,7 @@ progress::-webkit-progress-value {
     /* background-color: black;  */
     padding: 50px 100px 0px 100px; 
     margin: 0px 100px 200px 100px;
+    box-sizing: border-box;
 }
 #prev {
     background:url(../img/prev.png);
@@ -34,19 +35,13 @@ progress::-webkit-progress-value {
     border: 0;
     cursor:pointer;
 }
-.textlbl {
-    width: 600px; 
-    padding: 25px;
-    background-color: #ffffff;
-    border: 1px lightgray solid;
-    cursor:pointer
-}
-#inputtext {
+.inputtext {
     display: none;
-    height: 50px;
-    margin: 30px 0px 0px 80px;
-    width: 300px;
+    height: 70px;
+    width: 80%;
     border: 1px solid lightgray;
+    margin: 30px 0px 30px 0px;
+    resize: none;
 }
 .pagebtn {
     display: flex;
@@ -57,8 +52,34 @@ progress::-webkit-progress-value {
     display: flex;
     justify-content: center;
 }
+#textlbl {
+    width: 100%;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px lightgray solid;
+    cursor:pointer
+}
+#textlbl2 {
+    width: 100%;
+    padding: 50px;
+    background-color: #ffffff;
+    border: 1px lightgray solid;
+    display: inline-block;
+}
+#adressdiv {
+    text-align: center;
+}
+.addresstext {
+    height: 30px;
+    margin: 30px 0px 0px 30px;
+    width: 200px;
+    border: 1px solid lightgray;
+}
+.addresslbl {
+    font-size: 18px;
+}
 .checkboxlbl {
-    width: 330px; 
+    width: 50%;
     height: 25px; 
     padding: 25px;
     background-color: #ffffff;
