@@ -15,14 +15,18 @@ public interface TeacherDAO {
 	
 	// teacher_exercise 
 	int insertExercise(Connection conn, String type);
+	int insertExercise(Connection conn, String id, String type);
+	int updateExercise(Connection conn, String id, String type);
+	int deleteExercise(Connection conn, String id, String type);
+	String getTeacherExerciseNo(Connection conn, String id, String type);
 	
 	// teacher_service
 	int insertExerciseInfo(Connection conn, TeacherExercise exercise);
-	List<TeacherExercise> selectService(Connection conn);
-	TeacherExercise selectServiceById(Connection conn, String id);
-	TeacherExercise selectServiceByType(Connection conn, String type);
-	int updateService(Connection conn, TeacherExercise exercise);
-	int deleteService(Connection conn, TeacherExercise exercise);
+	List<TeacherExercise> selectExerciseInfo(Connection conn);
+	TeacherExercise selectExerciseInfoById(Connection conn, String id);
+	TeacherExercise selectExerciseInfoByType(Connection conn, String type);
+	int updateExerciseInfo(Connection conn, TeacherExercise exercise);
+	int deleteExerciseInfo(Connection conn, String id, String type);
 	
 	// teacher_image
 	int insertImage(Connection conn, TeacherImage image);
