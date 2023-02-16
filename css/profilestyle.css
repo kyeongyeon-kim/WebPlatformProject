@@ -1,0 +1,102 @@
+* {
+    /* border: 1px solid; */
+}
+
+#profile-overview {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.heading div:nth-child(2) {
+    cursor: pointer;
+}
+.heading div:nth-child(2):hover {
+    font-weight: bold;
+}
+
+#welcome {
+    margin: 0 0 0 10%;
+    display: inline-block;
+    width: 25%;
+    background-color: #00c7ae;
+    padding: 15px 5px;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+}
+
+#welcome > p {
+    font-size: 25px;
+}
+
+#teacher-info {
+    margin: 0 0 0 5%;
+    width: auto;
+    padding: 1rem 0;
+    display: inline-block;
+}
+
+#teacher-info ul > li {
+    margin-left: 20px;
+    float: left;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.divider {
+    height: 1.25rem;
+    width: 0.0625rem;
+    background-color: #e1e1e1;
+    margin: 0.5rem 0.5rem;
+}
+
+.info-comp {
+    padding: 1.5rem 1.5rem;
+    border-radius: 10px;
+    border-bottom: 0.0625rem solid #f2f2f2;
+    border: 1.5px solid #00c7ae;
+    margin: 5% 0;
+    background-color: rgb(234, 250, 249);
+    
+}
+
+.heading {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #00c7ae;
+}
+
+.modify {
+    display: inline-block;
+}
+
+.value {
+    font-size: 20px;
+}
+
+.input-form {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.5rem);
+    padding: 0.6875rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #323232;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.0625rem solid #e1e1e1;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.info-comp > article > p {
+    margin-top: 5px;
+    color: #00c7ae;
+}

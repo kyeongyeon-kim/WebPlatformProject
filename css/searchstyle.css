@@ -1,34 +1,71 @@
 main {
-    height: 800px;
-    /* border: 1px solid; */
     padding: 20px;
-    /* width: 700px; */
 }
-.search {
-    display: inline-block;
+h1 {
     text-align: center;
+    margin: 20px 0 30px 0;
+}
+select {
+    margin: 10px 0 20px;
+    padding: 10px;
+    border-radius: 1.5rem;
+    border: 0.5px solid #c6c6c6;
+    background-color: #727271;
+    color: white;
+
+    font-weight: 550;
 }
 .search > input {
-    min-width: 60vw;
-    float: left;
-    max-width: 400px;
-    padding: 4px 6px 3px 5px;
+    min-width: 300px;
+    width: 73vw;
+    max-width: 880px;
+    font-size: 0.9rem;
+    padding: 6px 6px 5px 10px;
     border-radius: 0.6em;
     border: 0.5px solid #c6c6c6;
 }
 .search > button {
+    font-size: 0.9rem;
     margin-left: 5px;
-    width: 50px;
-    padding: 4px 10px 3px 10px;
+    padding: 5px 10px 4px 10px;
     border-radius: 0.6em;
     border: 0.5px solid #c6c6c6;
 }
 .profile {
-    background-color: rgb(242, 252, 248);
+    background-color: rgb(245, 250, 248);
     border-radius: 0.5rem;
     margin-top: 20px;
     padding: 20px;
+    min-height: 130px;
+}
+.info, .profile-img {
+    display: inline-block;
+}
+.profile-img {
+    float: right;
+}
+#introduction {
+    min-height: 60px;
+    width: 48vw;
+    max-width: 720px;
 }
 #name {
+    font-size: 1rem;
     font-weight: 600;
+    margin-bottom: 8px;
+}
+.score > img {
+    margin-top: 10px;
+}
+.profile-img {
+    display: inline-block;
+    align-items: right;
+    text-align: right;
+}
+.profile-img > img {
+    text-align: right;
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+    text-align: right;
 }

@@ -1,15 +1,9 @@
 @charset "utf-8";
 
-
-
-
-.imagediv {text-align: center; display: flex;}
-.imagebtn {margin: 8px; cursor: pointer;}
-
 progress {
     width: 500px;
     height: 5px;
-    -webkit-appearance: none;
+    appearance: none;
     margin: 5px 0px;
 }
 progress::-webkit-progress-bar {
@@ -18,19 +12,84 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
     background-color: rgb(15, 255, 195);
 }
-
-.checkboxblock {
-    margin: 60px;
-    font-size: 30px;
-    font-weight: bold; 
-    border: 1px solid lightgray;
-    width: 250px;
-    height: 70px;
-    padding-top: 30px;
+#contentdiv {
+    border: 1px lightgray solid;
+    /* background-color: black;  */
+    padding: 50px 100px 0px 100px; 
+    margin: 0px 100px 200px 100px;
 }
-
-
-input[type="checkbox"] {
-    width: 20px; 
-    height: 20px; 
+#prev {
+    background:url(/img/prev.png);
+    background-repeat: no-repeat;
+    width:120px;
+    height:50px;
+    border: 0;
+    cursor:pointer;
+}
+#next {
+    background:url(/img/next.png);
+    background-repeat: no-repeat;
+    width:120px;
+    height:50px;
+    border: 0;
+    cursor:pointer;
+}
+.textlbl {
+    width: 600px; 
+    height: 25px; 
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px lightgray solid;
+    display: flex;
+    cursor:pointer
+}
+#inputtext {
+    display: none;
+    margin-left: 20px;
+    width: 430px;
+}
+.pagebtn {
+    display: flex;
+    justify-content: right;
+    padding: 50px 0px 50px 0px;
+}
+.checkbtndiv {
+    display: flex;
+    justify-content: center;
+}
+.checkboxlbl {
+    width: 330px; 
+    height: 25px; 
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px lightgray solid;
+    display: flex;
+    cursor:pointer
+}
+input[type='checkbox']{
+    width: 2rem !important;
+    height: 2rem !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance:none;
+    outline: none;
+    box-shadow: none;
+    background: url(/img/off.png)no-repeat;
+    cursor:pointer
+}
+input[type='checkbox']:checked{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance:none;
+    box-shadow: none;
+    background: url(/img/on.png) no-repeat;
+}
+input[type="checkbox"]:checked + #checklbl{color:rgb(0, 199, 174);}
+#checklbl {
+    color:#000;
+    font-size: 18px;
+    margin-left: 20px;
+    cursor:pointer
 }
