@@ -168,4 +168,16 @@ public class TeacherDAOImpl implements TeacherDAO {
 		return 0;
 	}
 
+	@Override
+	public int insertExercise(Connection conn, String type) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insertExerciseInfo(Connection conn, TeacherExercise exercise) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

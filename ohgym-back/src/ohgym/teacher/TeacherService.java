@@ -10,5 +10,6 @@ public interface TeacherService {
 	TeacherInfo deleteTeacherInfo(String id);
 	
 	// teacher_service
+	
 	// teacher_image
 }

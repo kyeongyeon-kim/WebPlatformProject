@@ -15,7 +15,6 @@ public interface TeacherDAO {
 	
 	// teacher_exercise 
 	int insertExercise(Connection conn, String type);
-	List<String> select
 	
 	// teacher_service
 	int insertExerciseInfo(Connection conn, TeacherExercise exercise);
@@ -30,4 +29,6 @@ public interface TeacherDAO {
 	Image selectImageById(Connection conn, String id);
 	int updateImage(Connection conn, Image image);
 	int deleteImage(Connection conn, String id);
+	int insertService(Connection conn, TeacherExercise service);
+	
 }

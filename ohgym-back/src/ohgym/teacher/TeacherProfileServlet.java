@@ -9,31 +9,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import ohgym.dbutil.ConnectionProvider;
 
 
-@WebServlet("/find")
-public class TeacherServlet extends HttpServlet {
+@WebServlet("/profile")
+public class TeacherProfileServlet extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setHeader("Access-Control-Allow-Origin", "*");
 		resp.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
 		resp.setHeader("Access-Control-Allow-Headers", "*");
+		HttpSession session = req.getSession();
+		String userId = (String) session.getAttribute("userId");
+		userId = "경연";
 		
-		req.setCharacterEncoding("UTF-8");
-		resp.setCharacterEncoding("UTF-8");
-		
-		
-		TeacherDAO dao = new TeacherDAOImpl();
-		List<TeacherInfo> list = null;
-		try {
-			list = dao.selectInfo(ConnectionProvider.getConnection());
-		} catch (SQLException e) {
-			System.out.println("예외");
-			e.printStackTrace();
-		}
-		resp.getWriter().println(list);
+		resp.getWriter().println(userId);
 	}
 }
