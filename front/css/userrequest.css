@@ -10,7 +10,7 @@ progress::-webkit-progress-bar {
     background-color: #e9e9e9;
 }
 progress::-webkit-progress-value {
-    background-color: rgb(15, 255, 195);
+    background-color: #00c7ae;
 }
 #contentdiv {
     border: 1px lightgray solid;
@@ -36,17 +36,17 @@ progress::-webkit-progress-value {
 }
 .textlbl {
     width: 600px; 
-    height: 25px; 
     padding: 25px;
     background-color: #ffffff;
     border: 1px lightgray solid;
-    display: flex;
     cursor:pointer
 }
 #inputtext {
     display: none;
-    margin-left: 20px;
-    width: 430px;
+    height: 50px;
+    margin: 30px 0px 0px 80px;
+    width: 300px;
+    border: 1px solid lightgray;
 }
 .pagebtn {
     display: flex;
@@ -86,7 +86,8 @@ input[type='checkbox']:checked{
     box-shadow: none;
     background: url(../img/on.png) no-repeat;
 }
-input[type="checkbox"]:checked + #checklbl{color:rgb(0, 199, 174);}
+/* input[type="checkbox"]:checked + #checklbl{color:#eafaf9;} */
+input[type="checkbox"]:checked + #checklbl{color:#00c7ae;}
 #checklbl {
     color:#000;
     font-size: 18px;

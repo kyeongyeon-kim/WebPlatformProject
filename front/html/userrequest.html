@@ -57,44 +57,55 @@
                             <p style="font-size: 30px; font-weight: bold; text-align: center;">레슨 받는 목적이 무엇인가요?</p>
                         </div>                    
 
-                        <div class="checkbtndiv">
-                            <label for="checkbox1" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox1"/><label id="checklbl" for="checkbox1">다이어트</label>
-                            </label>
-                            <label for="checkbox2" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox2"/><label id="checklbl" for="checkbox2">근력강화</label>
-                            </label>
-                        </div>
-                        <div class="checkbtndiv">
-                            <label for="checkbox3" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox3"/><label id="checklbl" for="checkbox3">체중증가</label>
-                            </label>
-                            <label for="checkbox4" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox4"/><label id="checklbl" for="checkbox4">체력증진</label>
-                            </label>
-                        </div>
-                        <div class="checkbtndiv">
-                            <label for="checkbox5" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox5"/><label id="checklbl" for="checkbox5">체형 교정</label>
-                            </label>
-                            <label for="checkbox6" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox6"/><label id="checklbl" for="checkbox6">재활/통증케어</label>
-                            </label>
-                        </div>
-                        <div class="checkbtndiv">
-                            <label for="checkbox7" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox7"/><label id="checklbl" for="checkbox7">바디프로필</label>
-                            </label>
-                            <label for="checkbox8" class="checkboxlbl">
-                                <input type='checkbox' id="checkbox8"/><label id="checklbl" for="checkbox8">대회준비</label>
-                            </label>
-                        </div>
+                        <div id="scriptadd">
+                            <div class="checkbtndiv">
+                                <label for="checkbox1" class="checkboxlbl" id="checkboxlbl1">
+                                    <input type='checkbox' id="checkbox1"/><label id="checklbl" class="checklbl1" for="checkbox1">다이어트</label>
+                                </label>
+                                <label for="checkbox2" class="checkboxlbl" id="checkboxlbl2">
+                                    <input type='checkbox' id="checkbox2"/><label id="checklbl" class="checklbl2" for="checkbox2">근력강화</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="checkbox3" class="checkboxlbl" id="checkboxlbl3">
+                                    <input type='checkbox' id="checkbox3"/><label id="checklbl" class="checklbl3" for="checkbox3">체중증가</label>
+                                </label>
+                                <label for="checkbox4" class="checkboxlbl" id="checkboxlbl4">
+                                    <input type='checkbox' id="checkbox4"/><label id="checklbl" class="checklbl4" for="checkbox4">체력증진</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="checkbox5" class="checkboxlbl" id="checkboxlbl5">
+                                    <input type='checkbox' id="checkbox5"/><label id="checklbl" class="checklbl5" for="checkbox5">체형 교정</label>
+                                </label>
+                                <label for="checkbox6" class="checkboxlbl" id="checkboxlbl6">
+                                    <input type='checkbox' id="checkbox6"/><label id="checklbl" class="checklbl6" for="checkbox6">재활/통증케어</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="checkbox7" class="checkboxlbl" id="checkboxlbl7">
+                                    <input type='checkbox' id="checkbox7"/><label id="checklbl" class="checklbl7" for="checkbox7">바디프로필</label>
+                                </label>
+                                <label for="checkbox8" class="checkboxlbl" id="checkboxlbl8">
+                                    <input type='checkbox' id="checkbox8"/><label id="checklbl" class="checklbl8" for="checkbox8">대회준비</label>
+                                </label>
+                            </div>
+    
+                            <div class="checkbtndiv">
+                                <label for="textcheckbox" class="textlbl">
+                                    <input type='checkbox' id="textcheckbox" /><label id="checklbl" class="checklbl9" for="textcheckbox">기타</label>
+                                    <input type='text' id="inputtext" style="display: none;"/>
+                                </label>
+                            </div>
 
-                        <div class="checkbtndiv">
-                            <label for="textcheckbox" class="textlbl">
-                                <input type='checkbox' id="textcheckbox" /><label id="checklbl" for="textcheckbox">기타</label>
-                                <input type='text' id="inputtext" style="display: none;"/>
-                            </label>
+                            <div class="checkbtndiv">
+                                <!-- <label class="textlbl2" style="display: none;"> -->
+                                <label class="textlbl">
+                                    <label>희망사항은?</label>
+                                    <input type='text' id="inputtext2" style="margin: 15px 0px 0px 25px; height: 100px; width: 400px;"/>
+                                </label>
+                            </div>
+
                         </div>
 
                         <div class="pagebtn">
@@ -163,8 +174,57 @@
         page8: [],
         page9: [],
     };
+
+
+    var scriptadd = document.getElementById("scriptadd");
     var prev = document.getElementById("prev");
     var next = document.getElementById("next");
+
+    var checkboxlbl1 = document.getElementById("checkboxlbl1");
+    var checkboxlbl2 = document.getElementById("checkboxlbl2");
+    var checkboxlbl3 = document.getElementById("checkboxlbl3");
+    var checkboxlbl4 = document.getElementById("checkboxlbl4");
+    var checkboxlbl5 = document.getElementById("checkboxlbl5");
+    var checkboxlbl6 = document.getElementById("checkboxlbl6");
+    var checkboxlbl7 = document.getElementById("checkboxlbl7");
+    var checkboxlbl8 = document.getElementById("checkboxlbl8");
+    var textlbl = document.getElementsByClassName("textlbl");
+    // checkboxlbl1 id textlbl 흰테두리(영역) class
+    
+    var checkbox1 = document.getElementById("checkbox1");
+    var checkbox5 = document.getElementById("checkbox2");
+    var checkbox2 = document.getElementById("checkbox3");
+    var checkbox3 = document.getElementById("checkbox4");
+    var checkbox4 = document.getElementById("checkbox5");
+    var checkbox6 = document.getElementById("checkbox6");
+    var checkbox7 = document.getElementById("checkbox7");
+    var checkbox8 = document.getElementById("checkbox8");
+    var textcheckbox = document.getElementById("textcheckbox");
+    // checkbox8 체크박스 id
+    // textcheckbox 체크박스 id
+    var checklbl1 = document.getElementsByClassName("checklbl1");
+    var checklbl2 = document.getElementsByClassName("checklbl2");
+    var checklbl3 = document.getElementsByClassName("checklbl3");
+    var checklbl4 = document.getElementsByClassName("checklbl4");
+    var checklbl5 = document.getElementsByClassName("checklbl5");
+    var checklbl6 = document.getElementsByClassName("checklbl6");
+    var checklbl7 = document.getElementsByClassName("checklbl7");
+    var checklbl8 = document.getElementsByClassName("checklbl8");
+    var checklbl9 = document.getElementsByClassName("checklbl9");
+    // var checkboxlbl1 글 class
+    var inputtext = document.getElementById("inputtext");
+    // 9번째 +글
+    
+    // checklbl1 글 클래스
+    var checklbl1 = document.getElementsByClassName("checklbl1");
+    var checklbl2 = document.getElementsByClassName("checklbl2");
+    var checklbl3 = document.getElementsByClassName("checklbl3");
+    var checklbl4 = document.getElementsByClassName("checklbl4");
+    var checklbl5 = document.getElementsByClassName("checklbl5");
+    var checklbl6 = document.getElementsByClassName("checklbl6");
+    var checklbl7 = document.getElementsByClassName("checklbl7");
+    var checklbl8 = document.getElementsByClassName("checklbl8");
+
 
     var textcheckbox = document.getElementById("textcheckbox");
     var inputtext = document.getElementById("inputtext");
@@ -177,9 +237,12 @@
     });
 
     next.addEventListener("click", function(e){
+    //     81
+    //     41
+    // 8 6 3 6 api text
         switch (pagenum) {
             case 1:
-                
+
                 break;
             case 2:
                 break;
