@@ -173,4 +173,17 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public int deleteImage(Connection conn, String id) {
 		return 0;
 	}
+
+	@Override
+	public int insertExercise(Connection conn, String type) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insertService(Connection conn, TeacherExercise service) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
