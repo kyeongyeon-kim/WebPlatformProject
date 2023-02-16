@@ -1,6 +1,7 @@
 package ohgym.teacher;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ohgym.dbutil.ConnectionProvider;
 
@@ -26,8 +28,12 @@ public class TeacherServlet extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-		List<TeacherInfo> list = null;
-		list = service.readTeacherInfo();
-		resp.getWriter().println(list);
+		List<TeacherInfo> list = service.readTeacherInfo();
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(list); 
+      
+		PrintWriter pw = resp.getWriter();
+		resp.getWriter().println(json);
+		pw.flush();
 	}
 }
