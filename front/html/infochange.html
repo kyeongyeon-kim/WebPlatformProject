@@ -41,7 +41,7 @@
             </div>
             <form method="post" action="경태야url넣자" id="signup-form" class="infochange">
                 <h4> 아이디 </h4>
-                <input type="text" name="userId" placeholder=" 아이디를 입력하세요">
+                <input type="text"  id="userId" value=0/>
                 <h4> 비밀번호 </h4>
                 <input type="password" name="userPassword" placeholder=" 비밀번호를 입력하세요">
                 <h4> 비밀번호 재확인 </h4>
@@ -60,7 +60,7 @@
                             <input type="date" name="userBirthday" placeholder=" 생년월일 6자리를 입력하세요">
                         </div>
                     </div>   
-                    <input type="submit" value="가입하기"> 
+                    <input type="submit" value="수정"> 
                 </form>
                 
                 <div style="display: flex;justify-content: space-evenly;">
@@ -85,17 +85,6 @@
                 </div>
             </div>
 
-            <script>
-                function show() {
-                    document.querySelector(".background").className = "background show";
-                }
-                function close() {
-                    document.querySelector(".background").className = "background";
-                }
-
-                document.querySelector("#showOut").addEventListener("click", show);
-                document.querySelector("#close").addEventListener("click", close);
-            </script>
 
 
         </main>
@@ -134,4 +123,31 @@
     </div>
 </body>
 
+            <script>
+                function show() {
+                    document.querySelector(".background").className = "background show";
+                }
+                function close() {
+                    document.querySelector(".background").className = "background";
+                }
+
+                document.querySelector("#showOut").addEventListener("click", show);
+                document.querySelector("#close").addEventListener("click", close);
+
+
+                fetch("http://localhost:8080/ohgym-back/change") 
+            .then((resp) => resp.text())
+            .then((text) => {
+                // makeObj(text);
+                // console.log(text);
+                // const infoStr = text;
+                // const infoSplit = infoStr.split(", ");
+             
+                userId.value=text;
+                
+            });
+
+
+
+            </script>
 </html>
