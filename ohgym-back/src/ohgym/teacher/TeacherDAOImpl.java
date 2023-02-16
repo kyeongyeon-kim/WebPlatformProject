@@ -173,4 +173,43 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public int deleteImage(Connection conn, String id) {
 		return 0;
 	}
+
+	@Override
+	public List<String> selectExserciseTypeById(Connection conn, String id) {
+		String sql = "SELECT exercise_type FROM teacher_exercise WHERE id = ?";
+		
+		try (PreparedStatement stmt = conn.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery()) {
+			List<String> exerciseTypeList = new ArrayList<>();
+			
+			while (rs.next()) {
+				exerciseTypeList.add(rs.getString("exercise_type"));
+			}
+			
+			return exerciseTypeList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> selectExserciseByType(Connection conn, String type) {
+		String sql = "SELECT * FROM exercise_type WHERE `no` = ?";
+		
+		try (PreparedStatement stmt = conn.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery()) {
+			List<String> exerciseList = new ArrayList<>();
+			
+			while (rs.next()) {
+				exerciseList.add(rs.getString("exercise"));
+			}
+			
+			return exerciseList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
