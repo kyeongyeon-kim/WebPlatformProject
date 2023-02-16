@@ -14,6 +14,7 @@ public interface TeacherDAO {
 	int deleteInfo(Connection conn, String id);
 	
 	// teacher_exercise 
+	int insertExercise(Connection conn, String type);
 	int insertExercise(Connection conn, String id, String type);
 	int updateExercise(Connection conn, String id, String type);
 	int deleteExercise(Connection conn, String id, String type);
@@ -32,4 +33,6 @@ public interface TeacherDAO {
 	Image selectImageById(Connection conn, String id);
 	int updateImage(Connection conn, Image image);
 	int deleteImage(Connection conn, String id);
+	int insertService(Connection conn, TeacherExercise service);
+	
 }
