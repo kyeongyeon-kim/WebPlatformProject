@@ -1,6 +1,9 @@
 header {
     text-align: center;
+    top: 0;
     border-bottom: 1px solid #eee;
+    position: sticky;
+    background-color: white;
 }
 a > img {
     height: 30px; 

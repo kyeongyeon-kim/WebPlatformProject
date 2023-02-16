@@ -19,7 +19,7 @@ progress::-webkit-progress-value {
     margin: 0px 100px 200px 100px;
 }
 #prev {
-    background:url(/img/prev.png);
+    background:url(../img/prev.png);
     background-repeat: no-repeat;
     width:120px;
     height:50px;
@@ -27,7 +27,7 @@ progress::-webkit-progress-value {
     cursor:pointer;
 }
 #next {
-    background:url(/img/next.png);
+    background:url(../img/next.png);
     background-repeat: no-repeat;
     width:120px;
     height:50px;
@@ -75,7 +75,7 @@ input[type='checkbox']{
     appearance:none;
     outline: none;
     box-shadow: none;
-    background: url(/img/off.png)no-repeat;
+    background: url(../img/off.png)no-repeat;
     cursor:pointer
 }
 input[type='checkbox']:checked{
@@ -84,7 +84,7 @@ input[type='checkbox']:checked{
     -o-appearance: none;
     appearance:none;
     box-shadow: none;
-    background: url(/img/on.png) no-repeat;
+    background: url(../img/on.png) no-repeat;
 }
 /* input[type="checkbox"]:checked + #checklbl{color:#eafaf9;} */
 input[type="checkbox"]:checked + #checklbl{color:#00c7ae;}
