@@ -1,6 +1,6 @@
 let name = document.getElementById("name");
 let introduction = document.getElementById("introduction");
-fetch("http://localhost:8080/ohgym-back/find") 
+fetch("http://192.168.0.104:8080/ohgym-back/find") 
             .then((resp) => resp.text())
             .then((text) => {
                 // makeObj(text);
