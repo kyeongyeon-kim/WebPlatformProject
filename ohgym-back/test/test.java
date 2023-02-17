@@ -14,7 +14,6 @@ public class test {
 
 	@BeforeClass
 	public static void setup() {
-		dao = new TeacherDAO();
 	}
 
 	@Before

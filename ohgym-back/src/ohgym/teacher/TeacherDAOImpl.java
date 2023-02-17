@@ -12,27 +12,17 @@ import ohgym.user.User;
 
 
 public class TeacherDAOImpl implements TeacherDAO {
-	// teacher_introduction
-	@Override
-	public int insertIntroduction(Connection conn, TeacherInfo info) {
-		String sql = "INSERT INTO teacher_introduction (id, contact_time, appeal) VALUES (?, ?, ?)";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, info.getId());
-			stmt.setString(2, info.getContact_time());
-			stmt.setString(3, info.getAppeal());
-			return stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("추가 작업 중 예외 발생", e);
-		}
-	}
 
 	@Override
-	public List<TeacherInfo> selectInfo(Connection conn) {
-		String sql = "SELECT * FROM teacher_introduction";
+	public List<TeacherProfile> readTeacherProfile(Connection conn) {
+		String sql = "select * from teacher_exercise as A" + 
+				" left outer join teacher_introduction as B on A.id = B.id" + 
+				" left outer join teacher_image as C on A.id = C.id" + 
+				" left outer join exercise_type as D on A.exercise_type = D.no" + 
+				" left outer join teacher_service as E on A.no = E.teacher_no;";
 		try (PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
-			List<TeacherInfo> list = new ArrayList<>();
+			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
 				list.add(resultMapping(rs));
 			}
@@ -43,177 +33,68 @@ public class TeacherDAOImpl implements TeacherDAO {
 		}
 	}
 	
-	private TeacherInfo resultMapping(ResultSet rs) throws SQLException {
-		TeacherInfo info = new TeacherInfo();
+	private TeacherProfile resultMapping(ResultSet rs) throws SQLException {
+		TeacherProfile info = new TeacherProfile();
 		info.setId(rs.getString("id"));
-		info.setContact_time(rs.getString("contact_time"));
 		info.setAppeal(rs.getString("appeal"));
+		info.setContactTime(rs.getString("contact_time"));
+		info.setExercise(rs.getString("exercise"));
+		info.setIntroduction(rs.getString("introduction"));
+		info.setCenterName(rs.getString("center_name"));
+		info.setLocation(rs.getString("location"));
+		info.setCareer(rs.getString("career"));	
+		info.setImage(rs.getString("image"));
 		return info;
 	}
 
 	@Override
-	public TeacherInfo selectInfoById(Connection conn, String id) {
-		String sql = "SELECT * FROM teacher_introduction WHERE id = ?";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, id);	
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
-					return resultMapping(rs);
-				}
+	public List<TeacherProfile> readTeacherProfileByLocation(Connection conn, String location) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TeacherProfile> readTeacherProfileByType(Connection conn, String type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TeacherProfile> readTeacherProfileById(Connection conn, String id) {
+		String sql = "select * from teacher_exercise as A" + 
+				" left outer join teacher_introduction as B on A.id = B.id" + 
+				" left outer join teacher_image as C on A.id = C.id" + 
+				" left outer join exercise_type as D on A.exercise_type = D.no" + 
+				" left outer join teacher_service as E on A.no = E.teacher_no" +
+				" where A.id = " + id +";";
+		try (PreparedStatement stmt = conn.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery()) {
+			List<TeacherProfile> list = new ArrayList<>();
+			while (rs.next()) {
+				list.add(resultMapping(rs));
 			}
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException("조회 작업 중 예외 발생", e);
 		}
-		return null;
 	}
 
 	@Override
-	public int updateInfo(Connection conn, TeacherInfo info) {
+	public int insertTeacherProfile(Connection conn, TeacherProfile profile) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteInfo(Connection conn, String id) {
-		return 0;
-	}
-	
-	// teacher_exercise 
-	@Override
-	public int insertExercise(Connection conn, String id, String type) {
-		return 0;
-	}
-	@Override
-	public int updateExercise(Connection conn, String id, String type) {
-		return 0;
-	}
-	@Override
-	public int deleteExercise(Connection conn, String id, String type) {
+	public int updateTeacherProfile(Connection conn, TeacherProfile profile) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public String getTeacherExerciseNo(Connection conn, String id, String type) {
-		String sql = "SELECT * FROM teacher_exercise WHERE id = ? AND exercise_type = ?";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, id);
-			stmt.setString(2, type);
-			
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
-					return rs.getString("no");
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("조회 작업 중 예외 발생", e);
-		}
-		return null;
-	}
-
-	// teacher_service
-	@Override
-	public int insertExerciseInfo(Connection conn, TeacherExercise service) {
-		String sql = "INSERT INTO teacher_service (teacher_no, location, career, introduction) VALUES (?, ?, ?, ?)";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, getTeacherExerciseNo(conn, service.getId(), service.getExercise_type()));
-			stmt.setString(2, service.getLocation());
-			stmt.setString(3, service.getCareer());
-			stmt.setString(3, service.getIntroduction());
-			
-			return stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("추가 작업 중 예외 발생", e);
-		}
-	}
-	
-	@Override
-	public List<TeacherExercise> selectExerciseInfo(Connection conn) {
-		return null;
-	}
-
-	@Override
-	public TeacherExercise selectExerciseInfoById(Connection conn, String id) {
-		return null;
-	}
-
-	@Override
-	public TeacherExercise selectExerciseInfoByType(Connection conn, String type) {
-		return null;
-	}
-
-	@Override
-	public int updateExerciseInfo(Connection conn, TeacherExercise exercise) {
+	public int deleteTeacherProfile(Connection conn, String id, String type) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
-	
-	@Override
-	public int deleteExerciseInfo(Connection conn, String id, String type) {
-		return 0;
-	}
-
-	// teacher_image
-	@Override
-	public int insertImage(Connection conn, TeacherImage image) {
-		return 0;
-	}
-
-	@Override
-	public Image selectImageById(Connection conn, String id) {
-		return null;
-	}
-
-	@Override
-	public int updateImage(Connection conn, Image image) {
-		return 0;
-	}
-
-	@Override
-	public int deleteImage(Connection conn, String id) {
-		return 0;
-	}
-
-	@Override
-	public String selectExserciseTypeById(Connection conn, String id) {
-		String sql = "SELECT exercise_type FROM teacher_exercise WHERE id = ?";
-		
-		try (PreparedStatement stmt = conn.prepareStatement(sql);
-				ResultSet rs = stmt.executeQuery()) {
-			stmt.setString(1, id);
-			
-			String exerciseType = null;
-			
-			if (rs.next()) {
-				 exerciseType = rs.getString("exercise_type");
-			}
-			
-			return exerciseType;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	@Override
-	public String selectExserciseByType(Connection conn, String type) {
-		String sql = "SELECT * FROM exercise_type WHERE `no` = ?";
-		
-		try (PreparedStatement stmt = conn.prepareStatement(sql);
-				ResultSet rs = stmt.executeQuery()) {
-			stmt.setString(1, type);
-			
-			String exercise = null;
-			
-			if (rs.next()) {
-				exercise = rs.getString("exercise");
-			}
-			
-			return exercise;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 }

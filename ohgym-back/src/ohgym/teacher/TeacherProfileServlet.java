@@ -26,7 +26,7 @@ public class TeacherProfileServlet extends HttpServlet {
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		
 		
-		TeacherProfile teacherprofile = new TeacherProfile("경태", "경태의 PT세계로 컴온", "09:00-18:00", "퍼스널 트레이닝", "김경태 퍼스널트레이닝", "스포애니 강남역2호점", "부산 부산진구 부전로4", "5년 6개월");
+		TeacherProfile teacherprofile = new TeacherProfile("경태", "경태의 PT세계로 컴온", "09:00-18:00", "퍼스널 트레이닝", "김경태 퍼스널트레이닝", "스포애니 강남역2호점", "부산 부산진구 부전로4", "5년 6개월","");
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(teacherprofile); 
 		PrintWriter pw = resp.getWriter();
