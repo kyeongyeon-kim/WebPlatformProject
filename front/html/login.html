@@ -9,45 +9,48 @@
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
     <!-- 웹 폰트(미정) -->
+    <script src="/js/login.js" async></script>
 </head>
+
+
 <body>
-    <div class="container">
-        <header> 
-            <div id="menu">
-                <div id="logo">
-                    <a href=""><img src="img/logo.png" alt="logo"></a>
+        <div class="container">
+            <header> 
+                <div id="menu">
+                    <div id="logo">
+                        <a href=""><img src="img/logo.png" alt="logo"></a>
+                    </div>
+                    <div id="menu-bar">
+                        <a href="">고수매칭</a> 
+                        <a href="">고수찾기</a>
+                        <a href="">커뮤니티</a>
+                        <input type="search" placeholder="어떤 서비스가 필요하세요?">
+                    </div>
+                    <div id="login">
+                        <a href="">로그인</a>
+                        <a href="">회원가입</a>
+                        <input id="teacher-join" type="submit" value="고수가입">
+                    </div>
                 </div>
-                <div id="menu-bar">
-                    <a href="">고수매칭</a> 
-                    <a href="">고수찾기</a>
-                    <a href="">커뮤니티</a>
-                    <input type="search" placeholder="어떤 서비스가 필요하세요?">
-                </div>
-                <div id="login">
-                    <a href="">로그인</a>
-                    <a href="">회원가입</a>
-                    <input id="teacher-join" type="submit" value="고수가입">
-                </div>
-            </div>
-        </header>
-        <!-- 메인 태그 안에다 내용 작성 -->
-        <div style="display: flex; justify-content: center; align-items: center;">
-        <main>
-           <body>
-            <div class="login-page" style="align-items: center;">
-                <h2>로그인</h2>
-                <form method="post" action="경태야url넣자" id="login-form">
-                    <input type="text" name="userId" placeholder=" 아이디를 입력하세요">
-                    <input type="password" name="userPassword" placeholder=" 비밀번호를 입력하세요">
-                    <label for="remember-check">
-                        <input type="checkbox" id="remember-check">    아이디 저장하기
-                    </label>
-                    <input type="submit" value="Login">
-                </form>
-            </div>
-        </body>
-        </main>
-    </div>
+            </header>
+            <!-- 메인 태그 안에다 내용 작성 -->
+            <div style="display: flex; justify-content: center; align-items: center;">
+            <main>
+            <body>
+                <div class="login-page" style="align-items: center;">
+                    <h2>로그인</h2>
+                    <form method="post" id="login-form" >
+                      <input type="text" id="id" name="userId" placeholder=" 아이디를 입력하세요" maxlength="20">
+                      <input type="password" id="password" name="userPassword" placeholder=" 비밀번호를 입력하세요" maxlength="20">
+                      <label for="remember-check">
+                        <input type="checkbox" id="remember-check">아이디 저장하기
+                      </label>
+                      <input type="submit" value="Login">
+                    </form>
+                  </div>
+            </body>
+            </main>
+        </div>
 
         <footer>
             <div class="business-info">
