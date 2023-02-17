@@ -4,9 +4,28 @@ function show() {
 function close() {
     document.querySelector(".background").className = "background";
 }
+function out(){
+    console.log("눌렷어");
+    fetch("http://localhost:8080/ohgym/out")
+    .then((resp) => resp.text())
+    .then((text)=>{
+        console.log(text);
+    })
+
+    
+    document.querySelector(".background").className = "background";
+    var link = "../html/login.html";
+ 
+    location.href=link;
+    location.replace(link);
+    window.open(link);
+
+}
 
 document.querySelector("#showOut").addEventListener("click", show);
 document.querySelector("#close").addEventListener("click", close);
+document.querySelector("#userout").addEventListener("click",out);
+
 
 window.addEventListener("load", onload);
 
