@@ -8,10 +8,12 @@ import ohgym.dbutil.ConnectionProvider;
 
 public class TeacherServiceImpl implements TeacherService {
 	private TeacherDAO dao;
+
 	public TeacherServiceImpl(TeacherDAO dao) {
 		super();
 		this.dao = dao;
 	}
+
 	@Override
 	public TeacherInfo createTeacherInfo(TeacherInfo info) {
 		return null;
@@ -81,32 +83,32 @@ public class TeacherServiceImpl implements TeacherService {
 	public TeacherExercise deleteTeacherExercise(String id, String type) {
 		return null;
 	}
+
 	// TeacherProfileRead
 	@Override
 	public TeacherProfile readTeacherProfile(String id) {
 
-		try(Connection conn = ConnectionProvider.getConnection()) {
+		try (Connection conn = ConnectionProvider.getConnection()) {
 			TeacherInfo teacherInfo = dao.selectInfoById(conn, id);
-			TeacherExercise teacherExercise =  dao.selectExerciseInfoById(conn, id);
-			List<String> typeList = dao.selectExserciseTypeById(conn, id);
-			List<String> exerciseList = null;
-			for (String type : typeList) {
-				exerciseList = dao.selectExserciseByType(conn, type);
-				
-			}
+			TeacherExercise teacherExercise = dao.selectExerciseInfoById(conn, id);
+			String type = dao.selectExserciseTypeById(conn, id);
+			
+			String exerciseList = dao.selectExserciseByType(conn, type);
+			
 			String career = teacherExercise.getCareer();
 			String centerName = teacherExercise.getCenter_name();
 			String introduction = teacherExercise.getIntroduction();
 			String location = teacherExercise.getLocation();
 			String appeal = teacherInfo.getAppeal();
 			String contactTime = teacherInfo.getContact_time();
-			
-			return new TeacherProfile(id, appeal, contactTime, exerciseList, introduction, centerName, location, career);
-			
+
+			return new TeacherProfile(id, appeal, contactTime, exerciseList, introduction, centerName, location,
+					career);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
-		
+
 	}
 }

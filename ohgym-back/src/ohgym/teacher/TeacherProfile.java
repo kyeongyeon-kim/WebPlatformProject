@@ -1,13 +1,11 @@
 
 package ohgym.teacher;
 
-import java.util.List;
-
 public class TeacherProfile {
 	private String id;
 	private String appeal;
 	private String contactTime;
-	private List<String> exercise;
+	private String exercise;
 	private String introduction;
 	private String centerName;
 	private String location;
@@ -15,7 +13,7 @@ public class TeacherProfile {
 	
 	public TeacherProfile() {}
 
-	public TeacherProfile(String id, String appeal, String contactTime, List<String> exercise, String introduction,
+	public TeacherProfile(String id, String appeal, String contactTime, String exercise, String introduction,
 			String centerName, String location, String career) {
 		super();
 		this.id = id;
@@ -52,11 +50,11 @@ public class TeacherProfile {
 		this.contactTime = contactTime;
 	}
 
-	public List<String> getExercise() {
+	public String getExercise() {
 		return exercise;
 	}
 
-	public void setExercise(List<String> exercise) {
+	public void setExercise(String exercise) {
 		this.exercise = exercise;
 	}
 
@@ -98,6 +96,7 @@ public class TeacherProfile {
 				+ exercise + ", introduction=" + introduction + ", centerName=" + centerName + ", location=" + location
 				+ ", career=" + career + "]";
 	}
-
+	
+	
 	
 }

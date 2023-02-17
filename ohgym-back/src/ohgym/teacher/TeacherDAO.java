@@ -28,8 +28,8 @@ public interface TeacherDAO {
 	int deleteExerciseInfo(Connection conn, String id, String type);
 	
 	// exercise_type
-	List<String> selectExserciseTypeById (Connection conn, String id);
-	List<String> selectExserciseByType (Connection conn, String type);
+	String selectExserciseTypeById (Connection conn, String id);
+	String selectExserciseByType (Connection conn, String type);
 	
 	// teacher_image
 	int insertImage(Connection conn, TeacherImage image);

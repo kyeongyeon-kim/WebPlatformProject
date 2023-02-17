@@ -175,18 +175,18 @@ public class TeacherDAOImpl implements TeacherDAO {
 	}
 
 	@Override
-	public List<String> selectExserciseTypeById(Connection conn, String id) {
+	public String selectExserciseTypeById(Connection conn, String id) {
 		String sql = "SELECT exercise_type FROM teacher_exercise WHERE id = ?";
 		
 		try (PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
-			List<String> exerciseTypeList = new ArrayList<>();
+			String exerciseType = null;
 			
-			while (rs.next()) {
-				exerciseTypeList.add(rs.getString("exercise_type"));
+			if (rs.next()) {
+				 exerciseType = rs.getString("exercise_type");
 			}
 			
-			return exerciseTypeList;
+			return exerciseType;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -194,18 +194,18 @@ public class TeacherDAOImpl implements TeacherDAO {
 	}
 
 	@Override
-	public List<String> selectExserciseByType(Connection conn, String type) {
+	public String selectExserciseByType(Connection conn, String type) {
 		String sql = "SELECT * FROM exercise_type WHERE `no` = ?";
 		
 		try (PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
-			List<String> exerciseList = new ArrayList<>();
+			String exercise = null;
 			
-			while (rs.next()) {
-				exerciseList.add(rs.getString("exercise"));
+			if (rs.next()) {
+				exercise = rs.getString("exercise");
 			}
 			
-			return exerciseList;
+			return exercise;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
