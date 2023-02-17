@@ -5,7 +5,6 @@ window.addEventListener("load", (e) => {
     .then((resp) => resp.json())
     .then((profile) => {
       this.profile = profile;
-      console.log(JSON.stringify(this.profile));
       let {
         id,
         appeal,
@@ -15,6 +14,7 @@ window.addEventListener("load", (e) => {
         centerName,
         location,
         career,
+        image,
       } = profile;
       userId.innerText = id + " 근선생님!";
 
@@ -26,6 +26,7 @@ window.addEventListener("load", (e) => {
         centerName,
         location,
         career,
+        image,
       ];
 
       for (let i = 0; i < valuesArr.length; i++) {
@@ -44,10 +45,19 @@ let comps = document.querySelectorAll("#comps > .info-comp");
 let template = document.getElementById("input-form");
 let modifyArr = [...modify];
 let valuesArr = [...values];
+let keys = [
+  "appeal",
+  "contactTime",
+  "exercise",
+  "introduction",
+  "centerName",
+  "location",
+  "career",
+  "image",
+];
 let compsArr = [...comps];
 let value = [];
 let input;
-// 템플릿 임포트
 
 modifyArr.forEach((elem) => {
   elem.addEventListener("click", function (e) {
@@ -70,18 +80,20 @@ modifyArr.forEach((elem) => {
         "#comps > .info-comp:nth-child(" + (index + 1) + ") > article"
       );
       article.remove();
-      let className = modifyArr[index].getAttribute("class");
 
+      let className = modifyArr[index].getAttribute("class");
       if (className === "modify") {
         modifyArr[index].innerText = "수정";
       } else {
         modifyArr[index].innerText = "등록하기";
       }
-
       modifyArr[index].style.color = "#00c7ae";
+
+      // input요소 값 프로필 삽입
 
       let temp = value[index];
       temp.innerText = input.value;
+      console.log(input.value);
       compsArr[index].append(temp);
 
       fetch("http://localhost:8080/ohgym/profile", {
