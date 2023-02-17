@@ -39,13 +39,13 @@
             <body>
                 <div class="login-page" style="align-items: center;">
                     <h2>로그인</h2>
-                    <form method="post" action="http://01021411750.tshome.co.kr/" id="login-form" >
-                      <input type="text" id="id" name="userId" placeholder=" 아이디를 입력하세요">
-                      <input type="password" id="password" name="userPassword" placeholder=" 비밀번호를 입력하세요">
+                    <form method="post" id="login-form" >
+                      <input type="text" id="id" name="userId" placeholder=" 아이디를 입력하세요" maxlength="20">
+                      <input type="password" id="password" name="userPassword" placeholder=" 비밀번호를 입력하세요" maxlength="20">
                       <label for="remember-check">
                         <input type="checkbox" id="remember-check">아이디 저장하기
                       </label>
-                      <input type="submit" value="Login">   
+                      <input type="submit" value="Login">
                     </form>
                   </div>
             </body>

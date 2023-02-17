@@ -57,6 +57,31 @@ phoneNumInput.addEventListener('input', function() {
 });
 
 
+
+const rememberCheck = document.getElementById("remember-check");
+    const userIdInput = document.getElementById("id");
+
+    // 로드 시,  아이디 체크박스 업데이트
+    window.onload = () => {
+      const storedId = localStorage.getItem("userId");
+      if (storedId) {
+        userIdInput.value = storedId;
+        rememberCheck.checked = true;
+      }
+    };
+
+    // 클릭할 때마다 아이디 저장 삭제
+    rememberCheck.addEventListener("click", () => {
+      if (rememberCheck.checked) {
+        localStorage.setItem("userId", userIdInput.value);
+      } else {
+        localStorage.removeItem("userId");
+      }
+    });
+
+
+
+
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit', function(event) {
   if (!this.checkValidity()) {
