@@ -57,8 +57,10 @@ modifyArr.forEach((elem) => {
     if (modifyStr !== "저장") {
       modifyArr[index].innerText = "저장";
       modifyArr[index].style.color = "RED";
+
       let importTemplate = document.importNode(template.content, true);
       input = importTemplate.querySelector("input");
+
       value[index] = valuesArr[index];
       valuesArr[index].remove();
       input.value = valueText;
