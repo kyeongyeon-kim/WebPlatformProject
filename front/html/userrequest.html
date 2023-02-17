@@ -1,0 +1,524 @@
+<html lang="ko">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oh!GYM</title>
+    <!-- style -->
+    <link rel="stylesheet" type="text/css" href="../css/setting.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/indexstyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/userrequest.css">
+    <!-- 웹 폰트(미정) -->
+</head>
+
+<body>
+    <div class="container">
+        <header> 
+            <div id="menu">
+                <div id="logo">
+                    <a href=""><img src="../img/logo.png" alt="logo"></a>
+                </div>
+                <div id="menu-bar">
+                    <a href="">고수매칭</a> 
+                    <a href="">고수찾기</a>
+                    <a href="">커뮤니티</a>
+                    <input type="search" placeholder="어떤 서비스가 필요하세요?">
+                </div>
+                <div id="login">
+                    <a href="">로그인</a>
+                    <a href="">회원가입</a>
+                    <input id="teacher-join" type="submit" value="고수가입">
+                </div>
+            </div>
+        </header>
+    <!-- //header -->
+    <main>
+        <section id="banner">
+            <section class="container">
+                <article id="fields">
+                    <div style="position: relative; display: flex; justify-content: center;">
+                        <img src="../img/임시 배너.png" id="bannerimg" style="width: 100%; height: 440px; position: absolute; z-index: -2;">
+                        <div style="position: absolute; z-index: -1; margin-top: 200px;">
+                            <p style="font-size: 50px; font-weight: bold;" id="category">수영</p>
+                            <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="scope">4.5</p>
+                            <div style="display: flex;">
+                                <div>
+                                    <p style="font-size: 25px;" id="active">00,000</p>
+                                    <p style="font-size: 14px;">활동 고수</p>
+                                </div>
+                                <p style="margin: 0px 30px 0px 30px;font-size: 40px; ">ㅣ</p>
+                                <div>
+                                    <p style="font-size: 25px;" id="accreq">00,000</p>
+                                    <p style="font-size: 14px;">누적 요청서</p>
+                                </div>
+                                <p style="margin: 0px 30px 0px 30px;font-size: 40px;">ㅣ</p>
+                                <div>
+                                    <p style="font-size: 25px;" id="reviewnum">00,000</p>
+                                    <p style="font-size: 14px;">리뷰 수</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </section>
+        <!--//banner-->
+        <section id="contents">
+            <section id="content1">
+                <article class="container">
+
+                    <div id="contentdiv">
+                        <div style="margin-bottom: 50px; text-align: center;">
+                            <p>진행상황</p>
+                            <progress id="progress" value="1" min="0" max="8"></progress>
+                            <label id="progresslbl" style="margin-left: 15px;">1/8</label>
+                        </div>      
+
+                        <div style="margin-bottom: 80px;">
+                            <p id="question" style="font-size: 30px; font-weight: bold; text-align: center;">레슨을 받는 목적이 무엇인가요?</p>
+                        </div>                    
+
+                        <div id="page1">
+                            <div class="checkbtndiv">
+                                <label for="page1checkbox1" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox1"/><label id="checklbl" for="page1checkbox1">다이어트</label>
+                                </label>
+                                <label for="page1checkbox2" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox2"/><label id="checklbl" for="page1checkbox2">근력강화</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page1checkbox3" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox3"/><label id="checklbl" for="page1checkbox3">체중증가</label>
+                                </label>
+                                <label for="page1checkbox4" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox4"/><label id="checklbl" for="page1checkbox4">체력증진</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page1checkbox5" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox5"/><label id="checklbl" for="page1checkbox5">체형 교정</label>
+                                </label>
+                                <label for="page1checkbox6" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox6"/><label id="checklbl" for="page1checkbox6">재활/통증케어</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page1checkbox7" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox7"/><label id="checklbl" for="page1checkbox7">바디프로필</label>
+                                </label>
+                                <label for="page1checkbox8" class="checkboxlbl">
+                                    <input type='checkbox' id="page1checkbox8"/><label id="checklbl" for="page1checkbox8">대회준비</label>
+                                </label>
+                            </div>
+    
+                            <div class="checkbtndiv">
+                                <label for="textcheckbox" id="textlbl">
+                                    <div style="display: flex;">
+                                        <input type='checkbox' id="textcheckbox" /><label id="checklbl" for="textcheckbox">기타</label>
+                                    </div>
+                                    <div style="display: flex; justify-content: center;">
+                                        <textarea id="inputtext" class="inputtext" ></textarea>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="page2" style="display: none;">
+                            <div class="checkbtndiv">
+                                <label for="page2checkbox1" class="checkboxlbl">
+                                    <input type='checkbox' id="page2checkbox1"/><label id="checklbl" for="page2checkbox1">개인 레슨</label>
+                                </label>
+                                <label for="page2checkbox2" class="checkboxlbl">
+                                    <input type='checkbox' id="page2checkbox2"/><label id="checklbl" for="page2checkbox2">그룹 레슨</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page2checkbox3" class="checkboxlbl">
+                                    <input type='checkbox' id="page2checkbox3"/><label id="checklbl" for="page2checkbox3">온라인/화상 레슨</label>
+                                </label>
+                                <label for="page2checkbox4" class="checkboxlbl">
+                                    <input type='checkbox' id="page2checkbox4"/><label id="checklbl" for="page2checkbox4">무관</label>
+                                </label>
+                            </div>
+    
+                            <div class="checkbtndiv">
+                                <label for="textcheckbox2" id="textlbl">
+                                    <div style="display: flex;">
+                                        <input type='checkbox' id="textcheckbox2" /><label id="checklbl" for="textcheckbox2">기타</label>
+                                    </div>
+                                    <div style="display: flex; justify-content: center;">
+                                        <textarea id="inputtext2" class="inputtext" ></textarea>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="page3" style="display: none;">
+                            <div class="checkbtndiv">
+                                <label for="page3checkbox1" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox1"/><label id="checklbl" for="page3checkbox1">월요일</label>
+                                </label>
+                                <label for="page3checkbox2" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox2"/><label id="checklbl" for="page3checkbox2">화요일</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page3checkbox3" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox3"/><label id="checklbl" for="page3checkbox3">수요일</label>
+                                </label>
+                                <label for="page3checkbox4" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox4"/><label id="checklbl" for="page3checkbox4">목요일</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page3checkbox5" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox5"/><label id="checklbl" for="page3checkbox5">금요일</label>
+                                </label>
+                                <label for="page3checkbox6" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox6"/><label id="checklbl" for="page3checkbox6">토요일</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page3checkbox7" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox7"/><label id="checklbl" for="page3checkbox7">일요일</label>
+                                </label>
+                                <label for="page3checkbox8" class="checkboxlbl">
+                                    <input type='checkbox' id="page3checkbox8"/><label id="checklbl" for="page3checkbox8">무관</label>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="page4" style="display: none;">
+                            <div class="checkbtndiv">
+                                <label for="page4checkbox1" class="checkboxlbl">
+                                    <input type='checkbox' id="page4checkbox1"/><label id="checklbl" for="page4checkbox1">09시 이전</label>
+                                </label>
+                                <label for="page4checkbox2" class="checkboxlbl">
+                                    <input type='checkbox' id="page4checkbox2"/><label id="checklbl" for="page4checkbox2">09~12시</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page4checkbox3" class="checkboxlbl">
+                                    <input type='checkbox' id="page4checkbox3"/><label id="checklbl" for="page4checkbox3">12~15시</label>
+                                </label>
+                                <label for="page4checkbox4" class="checkboxlbl">
+                                    <input type='checkbox' id="page4checkbox4"/><label id="checklbl" for="page4checkbox4">15~18시</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page4checkbox5" class="checkboxlbl">
+                                    <input type='checkbox' id="page4checkbox5"/><label id="checklbl" for="page4checkbox5">18~21시</label>
+                                </label>
+                                <label for="page4checkbox6" class="checkboxlbl">
+                                    <input type='checkbox' id="page4checkbox6"/><label id="checklbl" for="page4checkbox6">21시 이후</label>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="page5" style="display: none;">
+                            <div class="checkbtndiv">
+                                <label for="page5checkbox1" class="checkboxlbl">
+                                    <input type='checkbox' id="page5checkbox1"/><label id="checklbl" for="page5checkbox1">남자</label>
+                                </label>
+                                <label for="page5checkbox2" class="checkboxlbl">
+                                    <input type='checkbox' id="page5checkbox2"/><label id="checklbl" for="page5checkbox2">여자</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page5checkbox3" class="checkboxlbl">
+                                    <input type='checkbox' id="page5checkbox3"/><label id="checklbl" for="page5checkbox3">혼성</label>
+                                </label>
+                                <label class="checkboxlbl" >
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="page6" style="display: none;">
+                            <div class="checkbtndiv">
+                                <label for="page6checkbox1" class="checkboxlbl">
+                                    <input type='checkbox' id="page6checkbox1"/><label id="checklbl" for="page6checkbox1">10대 미만</label>
+                                </label>
+                                <label for="page6checkbox2" class="checkboxlbl">
+                                    <input type='checkbox' id="page6checkbox2"/><label id="checklbl" for="page6checkbox2">10대</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page6checkbox3" class="checkboxlbl">
+                                    <input type='checkbox' id="page6checkbox3"/><label id="checklbl" for="page6checkbox3">20대</label>
+                                </label>
+                                <label for="page6checkbox4" class="checkboxlbl">
+                                    <input type='checkbox' id="page6checkbox4"/><label id="checklbl" for="page6checkbox4">30대</label>
+                                </label>
+                            </div>
+                            <div class="checkbtndiv">
+                                <label for="page6checkbox5" class="checkboxlbl">
+                                    <input type='checkbox' id="page6checkbox5"/><label id="checklbl" for="page6checkbox5">40대</label>
+                                </label>
+                                <label for="page6checkbox6" class="checkboxlbl">
+                                    <input type='checkbox' id="page6checkbox6"/><label id="checklbl" for="page6checkbox6">50대 이상</label>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="page7" style="display: none;">
+                            <div id="adressdiv">
+                                <div>
+                                    <label class="addresslbl" style="margin-right: 34px;">주소</label><input type="text" class="addresstext" id="address_kakao" name="address" readonly />
+                                </div>
+                                <div style="margin-bottom: 30px;">
+                                    <label class="addresslbl">상세주소</label><input type="text" class="addresstext" name="address_detail" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="page8" style="display: none;">
+                            <div style="display: flex;">
+                                <label id="textlbl2">
+                                    <textarea style="height: 100px; width: 100%; border: 1px solid lightgray; resize: none;" ></textarea>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="pagebtn">
+                            <button id="prev"></button>
+                            <button id="next" style="margin-left: 10px;"></button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section id="content2">
+                <article class="container">
+                    
+                </article>
+            </section>
+            <section id="content3">
+                <article class="container">
+                    
+                </article>
+            </section>
+        </section>
+        <!--//contents-->
+    </main>
+    <footer>
+        <div class="business-info">
+            <p>고객상담센터</p>
+            <p id="phone-num">070-012-3456</p>
+            <p id="buisness-hour">평일 09:30 ~ 17:30 (점심11:30 ~ 13:00)</p>
+        </div>
+        <div class="footer-logo">
+            <img src="../img/logo2.png" alt="logo">
+        </div>
+        <div class="footer-text">
+            <ul>
+                <li id="li1"><a href="#">회사소개</a></li>
+                <li><a href="#">개발자소개</a></li>
+                <li><a href="#">서비스 이용약관</a></li>
+                <li><a href="#">개인정보 처리방침</a></li>
+                <li><a href="#">영상정보 처리방침</strong></a></li>
+                <li><a href="#">사이트맵</a></li>
+                <li><a href="#">전자공고</a></li>
+                <li><a href="#">광고문의</a></li>
+                <li><a href="#">고객의 소리</a></li>
+            </ul>
+        </div>
+        <div class="footer-info">
+            <p id="company-name">(주) 오짐</p>
+            <p>대표이사 : 김경태&nbsp;&nbsp;&nbsp;&nbsp;주소 : 부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 000-00-00000</p>
+            <address>
+                Copyright© All Right Reserved
+            </address>
+        </div>
+    </footer>
+</div>
+</body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+
+    window.onload = function(){
+        document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+                    document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        });
+    }
+
+    var category = document.getElementById("category");
+    var reviewnum = document.getElementById("reviewnum");
+    var scope = document.getElementById("scope");
+    var active = document.getElementById("active");
+    var accreq = document.getElementById("accreq");
+    // switch (){
+    //     case :
+    //         category.src = '../img/.png';
+    //         scope.textContent = "";
+    //         active.textContent = "";
+    //         accreq.textContent = "";
+    //         reviewnum.textContent = "";
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    // }
+
+    var pagenum = 1;
+
+    var question = document.getElementById("question");
+
+    var page1 = document.getElementById("page1");
+    var page2 = document.getElementById("page2");
+    var page3 = document.getElementById("page3");
+    var page4 = document.getElementById("page4");
+    var page5 = document.getElementById("page5");
+    var page6 = document.getElementById("page6");
+    var page7 = document.getElementById("page7");
+    var page8 = document.getElementById("page8");
+    
+    var progress = document.getElementById("progress");
+    var progresslbl = document.getElementById("progresslbl");
+
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+
+
+    var textcheckbox = document.getElementById("textcheckbox");
+    var inputtext = document.getElementById("inputtext");
+    textcheckbox.addEventListener("click", function (e){
+        if (textcheckbox.checked) {
+            inputtext.style.display = "block";
+        } else if (!textcheckbox.checked) {
+            inputtext.style.display = "none";
+        }
+    });
+
+    var textcheckbox2 = document.getElementById("textcheckbox2");
+    var inputtext2 = document.getElementById("inputtext2");
+    textcheckbox2.addEventListener("click", function (e){
+        if (textcheckbox2.checked) {
+            inputtext2.style.display = "block";
+        } else if (!textcheckbox2.checked) {
+            inputtext2.style.display = "none";
+        }
+    });
+    
+    
+
+    prev.addEventListener("click", function(e){
+        switch (pagenum) {
+            case 1:
+                break;
+            case 2:
+                question.textContent = '레슨을 받는 목적이 무엇인가요?';
+                page1.style.display = "block";
+                page2.style.display = "none";
+                break;
+            case 3:
+                question.textContent = '어떤 형태의 레슨을 원하시나요?';
+                page2.style.display = "block";
+                page3.style.display = "none";
+                break;
+            case 4:
+                question.textContent = '가능한 요일을 모두 선택해주세요';
+                page3.style.display = "block";
+                page4.style.display = "none";
+                break;
+            case 5:
+                question.textContent = '희망하는 시간대를 선택해주세요';
+                page4.style.display = "block";
+                page5.style.display = "none";
+                break;
+            case 6:
+                question.textContent = '레슨생의 성별을 선택해주세요';
+                page5.style.display = "block";
+                page6.style.display = "none";
+                break;
+            case 7:
+                question.textContent = '레슨생의 연령대를 선택해주세요';
+                page6.style.display = "block";
+                page7.style.display = "none";
+                break;
+            case 8:
+                question.textContent = '지역을 선택해주세요';
+                page7.style.display = "block";
+                page8.style.display = "none";
+                break;
+            default:
+                break;
+        }
+        if (pagenum >= 2){
+            pagenum--;
+            progress.value = pagenum;
+            progresslbl.textContent = pagenum + '/8';
+        }
+    });
+    next.addEventListener("click", function(e){
+        switch (pagenum) {
+            case 1:
+                question.textContent = '어떤 형태의 레슨을 원하시나요?';
+                page1.style.display = "none";
+                page2.style.display = "block";
+                break;
+            case 2:
+                question.textContent = '가능한 요일을 모두 선택해주세요';
+                page2.style.display = "none";
+                page3.style.display = "block";
+                break;
+            case 3:
+                question.textContent = '희망하는 시간대를 선택해주세요';
+                page3.style.display = "none";
+                page4.style.display = "block";
+                break;
+            case 4:
+                question.textContent = '레슨생의 성별을 선택해주세요';
+                page4.style.display = "none";
+                page5.style.display = "block";
+                break;
+            case 5:
+                question.textContent = '레슨생의 연령대를 선택해주세요';
+                page5.style.display = "none";
+                page6.style.display = "block";
+                break;
+            case 6:
+                question.textContent = '지역을 선택해주세요';
+                page6.style.display = "none";
+                page7.style.display = "block";
+                break;
+            case 7:
+                question.textContent = '희망사항을 입력해주세요';
+                page7.style.display = "none";
+                page8.style.display = "block";
+                break;
+            case 8:
+                // href
+                break;
+            default:
+                break;
+        }
+        if (pagenum <= 7){
+            pagenum++;
+            progress.value = pagenum;
+            progresslbl.textContent = pagenum + '/8';
+        }
+    });
+</script>    
+</html>

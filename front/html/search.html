@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Oh!GYM</title>
     <!-- style -->
-    <link rel="stylesheet" type="text/css" href="/css/setting.css">
-    <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="/css/searchstyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/setting.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/searchstyle.css">
     <!-- 웹 폰트(미정) -->
 </head>
 <body>
@@ -15,7 +15,7 @@
         <header> 
             <div id="menu">
                 <div id="logo">
-                    <a href=""><img src="img/logo.png" alt="logo"></a>
+                    <a href=""><img src="../img/logo.png" alt="logo"></a>
                 </div>
                 <div id="menu-bar">
                     <a href="">고수매칭</a> 
@@ -70,74 +70,24 @@
                 <input type="search" placeholder="내 주변 근선생은 누가 있지?"/>
                 <button>검색</button>
             </div>
-
-            <section class="profile">
-                <div class="info">
-                    <h3 id="name">김경태</h3>
-                    <p id="introduction">
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                    </p>
-                    <div class="score">
-                        <img src="img/star.png" alt="">
-                        <span id="score">4.8</span>
-                    </div>
-                </div>
-                <div class="profile-img">
-                    <img src="img/health.png" alt="profile-img">
-                </div>
+            <section id="profile-container">
             </section>
-
-            <section class="profile">
-                <div class="info">
-                    <h3 id="name">김경태</h3>
-                    <p id="introduction">
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                    </p>
-                    <div class="score">
-                        <img src="img/star.png" alt="">
-                        <span id="score">4.8</span>
+            <template id="profile-temp">
+                <article class="profile">
+                    <div class="info">
+                        <h3 id="name"></h3>
+                        <p id="introduction"></p>
+                        <div class="score">
+                            <img src="../img/star.png" alt="">
+                            <span id="score">4.8</span>
+                        </div>
                     </div>
-                </div>
-                <div class="profile-img">
-                    <img src="img/health.png" alt="profile-img">
-                </div>
-            </section>
-
-            <section class="profile">
-                <div class="info">
-                    <h3 id="name">김경태</h3>
-                    <p id="introduction">
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                    </p>
-                    <div class="score">
-                        <img src="img/star.png" alt="">
-                        <span id="score">4.8</span>
+                    <div class="profile-img">
+                        <img src="../img/health.png" alt="profile-img">
                     </div>
-                </div>
-                <div class="profile-img">
-                    <img src="img/health.png" alt="profile-img">
-                </div>
-            </section>
+                </article>
+            </template>
 
-            <section class="profile">
-                <div class="info">
-                    <h3 id="name">김경태</h3>
-                    <p id="introduction">
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                        소개하기~~ 김경태 퍼스널트레이닝 서비스 소개하기~~ 김경태 퍼스널트레이닝 서비스
-                    </p>
-                    <div class="score">
-                        <img src="img/star.png" alt="">
-                        <span id="score">4.8</span>
-                    </div>
-                </div>
-                <div class="profile-img">
-                    <img src="img/health.png" alt="profile-img">
-                </div>
-            </section>
         </main>
 
         <footer>
@@ -147,7 +97,7 @@
                 <p id="buisness-hour">평일 09:30 ~ 17:30 (점심11:30 ~ 13:00)</p>
             </div>
             <div class="footer-logo">
-                <img src="img/logo2.png" alt="logo">
+                <img src="../img/logo2.png" alt="logo">
             </div>
             <div class="footer-text">
                 <ul>
@@ -171,31 +121,6 @@
             </div>
         </footer>
     </div>
+    <script src="../js/search.js"></script>
 </body>
-<script>
-    import mysql from 'mysql';
-    // var mysql = require('mysql');
-    const mysql = require('mysql');
-
-    // createConnection : 접속하고 싶은 DB정보 입력
-    var connection = mysql.createConnection({
-        host: '192.168.0.104',
-        user: 'ohgym',
-        password: 'root',
-        database:'ohgym'
-        });
-    // DB 연결
-    connection.connect();
-    // 쿼리문 사용하기
-    connection.query('SELECT * FROM user WHERE usercheck = 2', function(results) {
-        console.log(results)
-
-    });
-
-
-
-
-    // DB 종료
-    connection.end();
-</script>
 </html>

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Oh!GYM</title>
     <!-- style -->
-    <link rel="stylesheet" type="text/css" href="/css/setting.css">
-    <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link rel="stylesheet" type="text/css" href="/css/userOut.css">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/setting.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <link rel="stylesheet" type="text/css" href="../css/userOut.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
 
 
     <!-- 웹 폰트(미정) -->
@@ -19,7 +19,7 @@
         <header>
             <div id="menu">
                 <div id="logo">
-                    <a href=""><img src="img/logo.png" alt="logo"></a>
+                    <a href=""><img src="../img/logo.png" alt="logo"></a>
                 </div>
                 <div id="menu-bar">
                     <a href="">고수매칭</a>
@@ -41,7 +41,7 @@
             </div>
             <form method="post" action="경태야url넣자" id="signup-form" class="infochange">
                 <h4> 아이디 </h4>
-                <input type="text" name="userId" placeholder=" 아이디를 입력하세요">
+                <input type="text"  id="userId" value="0"/>
                 <h4> 비밀번호 </h4>
                 <input type="password" name="userPassword" placeholder=" 비밀번호를 입력하세요">
                 <h4> 비밀번호 재확인 </h4>
@@ -60,7 +60,7 @@
                             <input type="date" name="userBirthday" placeholder=" 생년월일 6자리를 입력하세요">
                         </div>
                     </div>   
-                    <input type="submit" value="가입하기"> 
+                    <input type="submit" value="수정"> 
                 </form>
                 
                 <div style="display: flex;justify-content: space-evenly;">
@@ -70,7 +70,7 @@
             <div class="background">
                 <div class="window">
                     <div class="popup">
-                        <img id="popupImg" src="img/logo.png" alt="logo"></a>
+                        <img id="popupImg" src="../img/logo.png" alt="logo"></a>
 
                         <p id="out">떠나실 건가요?</p>
                         <p id="context">계정 탈퇴 시 모든 개인정보가 삭제되며<br>
@@ -85,17 +85,6 @@
                 </div>
             </div>
 
-            <script>
-                function show() {
-                    document.querySelector(".background").className = "background show";
-                }
-                function close() {
-                    document.querySelector(".background").className = "background";
-                }
-
-                document.querySelector("#showOut").addEventListener("click", show);
-                document.querySelector("#close").addEventListener("click", close);
-            </script>
 
 
         </main>
@@ -107,7 +96,7 @@
                 <p id="buisness-hour">평일 09:30 ~ 17:30 (점심11:30 ~ 13:00)</p>
             </div>
             <div class="footer-logo">
-                <img src="img/logo2.png" alt="logo">
+                <img src="../img/logo2.png" alt="logo">
             </div>
             <div class="footer-text">
                 <ul>
@@ -134,4 +123,32 @@
     </div>
 </body>
 
+            <script>
+                function show() {
+                    document.querySelector(".background").className = "background show";
+                }
+                function close() {
+                    document.querySelector(".background").className = "background";
+                }
+
+                document.querySelector("#showOut").addEventListener("click", show);
+                document.querySelector("#close").addEventListener("click", close);
+
+                window.addEventListener("load", onload);
+
+                let container = document.getElementById("profile-container");
+                function onload(e) {
+                                 console.log("페이지 로딩 후 호출됩니다.");
+                fetch("http://192.168.0.104:8080/ohgym/change") 
+            .then((resp) => resp.text())
+            .then((text) => {
+              
+             
+                userId.value=text;
+                
+            });
+        }
+
+
+            </script>
 </html>
