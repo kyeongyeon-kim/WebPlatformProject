@@ -180,6 +180,8 @@ public class TeacherDAOImpl implements TeacherDAO {
 		
 		try (PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
+			stmt.setString(1, id);
+			
 			String exerciseType = null;
 			
 			if (rs.next()) {
@@ -199,6 +201,8 @@ public class TeacherDAOImpl implements TeacherDAO {
 		
 		try (PreparedStatement stmt = conn.prepareStatement(sql);
 				ResultSet rs = stmt.executeQuery()) {
+			stmt.setString(1, type);
+			
 			String exercise = null;
 			
 			if (rs.next()) {
