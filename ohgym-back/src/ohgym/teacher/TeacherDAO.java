@@ -1,39 +1,28 @@
 package ohgym.teacher;
 
-import java.awt.Image;
 import java.sql.Connection;
 import java.util.List;
 
 
 public interface TeacherDAO {
-	// teacher_introduction
-	int insertIntroduction(Connection conn, TeacherInfo info);
-	List<TeacherInfo> selectInfo(Connection conn);	
-	TeacherInfo selectInfoById(Connection conn, String id);
-	int updateInfo(Connection conn, TeacherInfo info);
-	int deleteInfo(Connection conn, String id);
+	// TeacherProfile 정보 가져오기
+	List<TeacherProfile> readTeacherProfile(Connection conn);
 	
-	// teacher_exercise 
-	int insertExercise(Connection conn, String id, String type);
-	int updateExercise(Connection conn, String id, String type);
-	int deleteExercise(Connection conn, String id, String type);
-	String getTeacherExerciseNo(Connection conn, String id, String type);
+	// TeacherProfile 정보 가져오기(지역별)
+	List<TeacherProfile> readTeacherProfileByLocation(Connection conn, String location);
 	
-	// teacher_service
-	int insertExerciseInfo(Connection conn, TeacherExercise exercise);
-	List<TeacherExercise> selectExerciseInfo(Connection conn);
-	TeacherExercise selectExerciseInfoById(Connection conn, String id);
-	TeacherExercise selectExerciseInfoByType(Connection conn, String type);
-	int updateExerciseInfo(Connection conn, TeacherExercise exercise);
-	int deleteExerciseInfo(Connection conn, String id, String type);
+	// TeacherProfile 정보 가져오기(종목별)
+	List<TeacherProfile> readTeacherProfileByType(Connection conn, String type);
 	
-	// exercise_type
-	List<String> selectExserciseTypeById (Connection conn, String id);
-	List<String> selectExserciseByType (Connection conn, String type);
+	// TeacherProfile 정보 가져오기(아이디검색)
+	List<TeacherProfile> readTeacherProfileById(Connection conn, String id);
 	
-	// teacher_image
-	int insertImage(Connection conn, TeacherImage image);
-	Image selectImageById(Connection conn, String id);
-	int updateImage(Connection conn, Image image);
-	int deleteImage(Connection conn, String id);
+	// TeacherProfile 정보 등록
+	int insertTeacherProfile(Connection conn, TeacherProfile profile);
+	
+	// TeacherProfile 정보 업데이트
+	int updateTeacherProfile(Connection conn, TeacherProfile profile);
+	
+	// TeacherProfile 삭제하기
+	int deleteTeacherProfile(Connection conn, String id, String type);
 }
