@@ -10,18 +10,19 @@ import java.util.List;
 
 import ohgym.user.User;
 
-
 public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public List<TeacherProfile> readTeacherProfile(Connection conn) {
-		String sql = "select * from teacher_exercise as A" + 
+		String sql = "UPDATE teacher_exercise as A" + 
 				" left outer join teacher_introduction as B on A.id = B.id" + 
 				" left outer join teacher_image as C on A.id = C.id" + 
 				" left outer join exercise_type as D on A.exercise_type = D.no" + 
-				" left outer join teacher_service as E on A.no = E.teacher_no;";
-		try (PreparedStatement stmt = conn.prepareStatement(sql);
-				ResultSet rs = stmt.executeQuery()) {
+				" left outer join teacher_service as E on A.no = E.teacher_no" + 
+				" SET B.appeal = ?, B.contact_time = ?, A.exercise_type = ?," + 
+				" E.introduction = ?, E.center_name = ?, E.location = ?, E.career = ?" + 
+				" WHERE A.id = ?";
+		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
 				list.add(resultMapping(rs));
@@ -32,7 +33,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 			throw new RuntimeException("조회 작업 중 예외 발생", e);
 		}
 	}
-	
+
 	private TeacherProfile resultMapping(ResultSet rs) throws SQLException {
 		TeacherProfile info = new TeacherProfile();
 		info.setId(rs.getString("id"));
@@ -42,7 +43,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 		info.setIntroduction(rs.getString("introduction"));
 		info.setCenterName(rs.getString("center_name"));
 		info.setLocation(rs.getString("location"));
-		info.setCareer(rs.getString("career"));	
+		info.setCareer(rs.getString("career"));
 		info.setImage(rs.getString("image"));
 		return info;
 	}
@@ -61,14 +62,11 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public List<TeacherProfile> readTeacherProfileById(Connection conn, String id) {
-		String sql = "select * from teacher_exercise as A" + 
-				" left outer join teacher_introduction as B on A.id = B.id" + 
-				" left outer join teacher_image as C on A.id = C.id" + 
-				" left outer join exercise_type as D on A.exercise_type = D.no" + 
-				" left outer join teacher_service as E on A.no = E.teacher_no" +
-				" where A.id = " + id +";";
-		try (PreparedStatement stmt = conn.prepareStatement(sql);
-				ResultSet rs = stmt.executeQuery()) {
+		String sql = "select * from teacher_exercise as A" + " left outer join teacher_introduction as B on A.id = B.id"
+				+ " left outer join teacher_image as C on A.id = C.id"
+				+ " left outer join exercise_type as D on A.exercise_type = D.no"
+				+ " left outer join teacher_service as E on A.no = E.teacher_no" + " where A.id = " + id + ";";
+		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
 				list.add(resultMapping(rs));
@@ -88,7 +86,27 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public int updateTeacherProfile(Connection conn, TeacherProfile profile) {
-		// TODO Auto-generated method stub
+		String sql = "UPDATE teacher_exercise as A" + 
+				" left outer join teacher_introduction as B on A.id = B.id" + 
+				" left outer join teacher_image as C on A.id = C.id" + 
+				" left outer join exercise_type as D on A.exercise_type = D.no" + 
+				" left outer join teacher_service as E on A.no = E.teacher_no" + 
+				" SET B.appeal = ?, B.contact_time = ?, A.exercise_type = ?," + 
+				" E.introduction = ?, E.center_name = ?, E.location = ?, E.career = ?" + 
+				" WHERE A.id = ?";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setString(1, profile.getAppeal());
+			stmt.setString(2, profile.getContactTime());
+			stmt.setString(3, "e5");
+			stmt.setString(4, profile.getIntroduction());
+			stmt.setString(5, profile.getCenterName());
+			stmt.setString(6, profile.getLocation());
+			stmt.setString(7, profile.getId());
+			
+			return stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return 0;
 	}
 

@@ -7,6 +7,7 @@ public interface TeacherService {
 	List<TeacherProfile> readTeacherProfile(String id);
 	List<TeacherProfile> readAllTeacherProfile();
 	
-	
+	// (U)teacher_profile
+	int updateTeacherProfile(TeacherProfile teacherProfile);
 	
 }
