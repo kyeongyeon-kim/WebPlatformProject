@@ -4,6 +4,7 @@ package ohgym.teacher;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,11 +22,12 @@ public class TeacherProfileServlet extends HttpServlet {
 		resp.setContentType("application/json");
 
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-
-		TeacherProfile teacherprofile = new TeacherProfile("경태", "경태의 PT세계로 컴온", "09:00-18:00", "퍼스널 트레이닝",
-				"김경태 퍼스널트레이닝", "스포애니 강남역2호점", "부산 부산진구 부전로4", "5년 6개월", "");
+		String id = "경연";
+		
+		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
+		System.out.println(teacherprofile);
 		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(teacherprofile);
+		String json = mapper.writeValueAsString(teacherprofile.get(0));
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
@@ -33,17 +35,19 @@ public class TeacherProfileServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		BufferedReader reader = req.getReader(); // 요청 데이터를 읽어옵니다.
+		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
 		String line;
 		while ((line = reader.readLine()) != null) {
 			sb.append(line);
 		}
 		ObjectMapper mapper = new ObjectMapper();
-
 		String strProfile = sb.toString();
 		TeacherProfile teacherProfile = mapper.readValue(strProfile, TeacherProfile.class);
-
+		
+		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
+		service.updateTeacherProfile(teacherProfile);
+		
 		System.out.println(teacherProfile);
 	}
 }

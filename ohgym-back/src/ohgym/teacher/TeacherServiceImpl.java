@@ -54,4 +54,25 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 		return null;
 	}
+	
+	// updateTeacherProfile
+	@Override
+	public int updateTeacherProfile(TeacherProfile teacherProfile) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.updateTeacherProfile(conn, teacherProfile);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
 }
