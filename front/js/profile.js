@@ -90,11 +90,14 @@ modifyArr.forEach((elem) => {
       modifyArr[index].style.color = "#00c7ae";
 
       // input요소 값 프로필 삽입
+      updateProfile(index);
 
       let temp = value[index];
       temp.innerText = input.value;
-      console.log(input.value);
       compsArr[index].append(temp);
+      console.log(profile);
+      console.log(JSON.stringify(profile));
+      
 
       fetch("http://localhost:8080/ohgym/profile", {
         method: "POST",
@@ -105,7 +108,39 @@ modifyArr.forEach((elem) => {
       })
         .then((resp) => resp.json())
         .then((profile) => console.log(profile))
-        .catch((error) => console.log(error), console.log(profile));
+        .catch((error) => console.log(error));
     }
   });
 });
+
+function updateProfile(index) {
+  switch (index) {
+    case 0:
+      profile.appeal = input.value;
+      break;
+    case 1:
+      profile.contactTime = input.value;
+      break;
+    case 2:
+      profile.exercise = input.value;
+      break;
+    case 3:
+      profile.introduction = input.value;
+      break;
+    case 4:
+      profile.centerName = input.value;
+      break;
+    case 5:
+      profile.location = input.value;
+      break;
+    case 6:
+      profile.career = input.value;
+      break;
+    case 7:
+      profile.image = input.value;
+      break;
+  
+    default:
+      break;
+  }
+}
