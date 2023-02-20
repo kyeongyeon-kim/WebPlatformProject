@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/footer.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
     <!-- 웹 폰트(미정) -->
-    <script src="/js/login.js" async></script>
+    
 </head>
 
 
@@ -18,7 +18,7 @@
             <header> 
                 <div id="menu">
                     <div id="logo">
-                        <a href=""><img src="img/logo.png" alt="logo"></a>
+                        <a href=""><img src="../img/logo.png" alt="logo"></a>
                     </div>
                     <div id="menu-bar">
                         <a href="">고수매칭</a> 
@@ -39,7 +39,7 @@
             <body>
                 <div class="login-page" style="align-items: center;">
                     <h2>로그인</h2>
-                    <form method="post" id="login-form" >
+                    <form method="post" action="http://localhost:8080/ohgym/login" id="login-form" >
                       <input type="text" id="id" name="userId" placeholder=" 아이디를 입력하세요" maxlength="20">
                       <input type="password" id="password" name="userPassword" placeholder=" 비밀번호를 입력하세요" maxlength="20">
                       <label for="remember-check">
@@ -59,7 +59,7 @@
                 <p id="buisness-hour">평일 09:30 ~ 17:30 (점심11:30 ~ 13:00)</p>
             </div>
             <div class="footer-logo">
-                <img src="img/logo2.png" alt="logo">
+                <img src="../img/logo.png" alt="logo">
             </div>
             <div class="footer-text">
                 <ul>
@@ -83,5 +83,6 @@
             </div>
         </footer>
     </div>
+    <script src="..js/login.js"></script>
 </body>
 </html>
