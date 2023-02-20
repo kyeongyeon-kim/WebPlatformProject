@@ -70,14 +70,14 @@
     color: rgb(92, 92, 92) !important;
 }
 
-.requestList {
+#requestList {
     display: flex ;
     flex-wrap: wrap;
     padding: 30px 0px; 
     font-size: 17px;
 }
 
-.requestList img {
+#requestList img {
     float: auto; 
     height: 100px;
     flex-direction: row;
@@ -85,7 +85,7 @@
     justify-content: flex-start;
 }
 
-.requestList > li {
+#requestList > li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,7 +98,7 @@
     margin: 10px 22px;
 }
 
-.top {
+#request-card {
     line-height: 30px;
 }
 
