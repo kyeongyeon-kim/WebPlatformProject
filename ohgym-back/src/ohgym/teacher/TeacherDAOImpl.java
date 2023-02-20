@@ -108,7 +108,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 		}
 		return 0;
 	}
-
+	
 	@Override
 	public int deleteTeacherProfile(Connection conn, String id, String type) {
 		// TODO Auto-generated method stub
