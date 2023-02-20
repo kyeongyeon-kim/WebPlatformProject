@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 import ohgym.dbutil.ConnectionProvider;
 
-public class UserRequestDAO {
+public class UserRequestDAO { 
 	public void requestAdd(String user_id, String exercise_type, String str) {
         LocalDateTime RequestDate = LocalDateTime.now();
         LocalDateTime DeadlineDate = RequestDate.plusHours(72);

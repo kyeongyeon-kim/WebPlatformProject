@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import ohgym.dbutil.ConnectionProvider;
 
 public class UserResponseDAO {
-	// 카테고리
+	// 카테고리 
 	public String categoryName(String str) {
 		String sql = "SELECT exercise FROM exercise_type WHERE no = " + str;
 		try (Connection conn = ConnectionProvider.getConnection();

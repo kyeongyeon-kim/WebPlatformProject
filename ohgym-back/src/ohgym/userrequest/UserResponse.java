@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class UserResponse extends HttpServlet {
 	@Override
 	  protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-	    try {
+	    try {  
 	    	UserResponseDAO userRespDao = new UserResponseDAO();
 	    	String category = request.getParameter("category");
 	    	String categoryName = userRespDao.categoryName(category);
