@@ -1,0 +1,176 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@media (min-width: 1000px) {
+    .container {
+        width: 1000px; 
+        margin: 0 auto;
+
+    } 
+    header {
+        height: 40px;
+    }
+   #menu > #logo {
+        display: inline-block;
+        float: left;
+    }
+}
+@media (max-width: 1000px) {
+    header {
+        height: 120px;
+    }
+    #menu > #logo {
+        padding-bottom: 20px;
+        display: block;
+    }
+}
+
+* {
+    font-family: 'NanumSquareNeo-Variable';
+    /* border: 1px solid; */
+}
+header, footer, main {
+    padding: 10px;
+    margin: 10px;
+}
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form {
+    margin: 0; 
+    padding: 0;
+}
+
+/* a 링크 초기화 */
+a {
+    color: #222; 
+    text-decoration: none;
+}
+a:hover {
+    color: #390;
+}
+
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {
+    color: #222; 
+    font-size: 13px; 
+    line-height: 1.5;}
+
+/* 폰트 스타일 초기화 */
+em, address {
+    font-style: normal;
+}
+
+/* 블릿기호 초기화 */    
+dl, ul, li, ol, menu {
+    list-style: none;
+}
+
+/* 테두리 초기화 */
+img, fieldset {
+    border: 0 none;
+}
+
+/* header */
+header {
+    text-align: center;
+    top: 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    background-color: white;
+}
+a > img {
+    height: 30px; 
+}
+#menu-bar, #login {
+    display: inline-block;
+}
+#menu-bar > a, #login > a {
+    margin: 6px 12px;
+    font-size: 13px;
+    color: black;
+    font-weight: 500;
+    display: inline-block;
+}
+#menu-bar > a {
+    margin-right: 12px;
+}
+#menu-bar > input {
+    padding: 4px 6px 3px 5px;
+    border: 0.5px solid #c6c6c6;
+    background-color: #f3f3f3;
+    border-radius: 0.6em;
+    margin-left: 20px;
+}
+#menu-bar > a:hover, #login > a:hover {
+    color: #666;
+}
+#login {
+    float: right;
+}
+#teacher-join {
+    color: white;
+    border: none;
+    margin-top: 0;
+    margin-left: 15px;
+    background-color: rgb(51, 180, 153); 
+    border-radius: 0.9em; 
+    padding: 0.5em 0.9em;
+}
+#teacher-join:hover {
+    background-color: rgb(91, 206, 184);
+    cursor: pointer;
+}
+
+/* footer */
+footer {
+    border-top: 1px solid #eee;
+    color: black;
+    font-size: 13px;
+}
+.buisness-info {
+    padding: 20px 0px 0px 30px; 
+    margin-left: 20px;
+    margin-bottom: 20px; 
+    font-size: 17px;
+}
+#phone-num {
+    font-size: 28px;
+    font-weight: 500;
+}
+.footer-logo > img {
+    padding: 40px 30px 30px 0px;
+    float: left; 
+    height: 30px; 
+}
+.footer-text {
+    padding: 15px 0 0; 
+    text-align: left;
+}
+.footer-text ul {
+    margin-bottom: 5px;
+}
+.footer-text li {
+    position: relative; 
+    display: inline; 
+    padding: 0 8px 0;
+}
+#li1 {
+    padding-left: 0;
+}
+.footer-text li:before {
+    content: ''; 
+    width: 1px; 
+    height: 12px; 
+    background: #ccc; 
+    position: absolute; 
+    left: 0; 
+    top: 2px;
+}
+.footer-text li:first-child:before {
+    width: 0; 
+    height: 0;
+}
