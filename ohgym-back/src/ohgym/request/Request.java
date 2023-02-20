@@ -1,4 +1,4 @@
-package ohgym.Request;
+package ohgym.request;
 
 public class Request {
 	private String no;

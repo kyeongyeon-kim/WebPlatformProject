@@ -1,4 +1,4 @@
-package ohgym.Request;
+package ohgym.request;
 
 import java.io.IOException;
 import java.io.PrintWriter;

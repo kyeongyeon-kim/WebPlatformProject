@@ -1,4 +1,4 @@
-package ohgym.Request;
+package ohgym.request;
 
 import java.util.List;
 
