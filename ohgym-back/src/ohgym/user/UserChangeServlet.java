@@ -1,4 +1,4 @@
-package ohgym.teacher;
+package ohgym.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ohgym.teacher.TeacherDAOImpl;
+import ohgym.teacher.TeacherService;
+import ohgym.teacher.TeacherServiceImpl;
 
-@WebServlet("/find")
-public class TeacherFindServlet extends HttpServlet {
+@WebServlet("/change")
+public class UserChangeServlet extends HttpServlet {
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setHeader("Access-Control-Allow-Origin", "*");
@@ -23,15 +27,19 @@ public class TeacherFindServlet extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-
-		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-		List<TeacherProfile> list = service.readAllTeacherProfile();
-		System.out.println(list);
+		
+		String id ="도연";
+				
+		
+		UserService service = new UserServiceImpl(new UserDAOImpl());
+		User user = service.readUserInfo(id);
+		
 		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(list); 
-      
+		String json = mapper.writeValueAsString(user);
+		
 		PrintWriter pw = resp.getWriter();
-		pw.println(json);
+		resp.getWriter().print(json);
 		pw.flush();
 	}
+
 }
