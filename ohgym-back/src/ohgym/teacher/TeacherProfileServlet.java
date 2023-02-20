@@ -25,7 +25,6 @@ public class TeacherProfileServlet extends HttpServlet {
 		String id = "경연";
 		
 		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
-		System.out.println(teacherprofile);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(teacherprofile.get(0));
 		PrintWriter pw = resp.getWriter();
@@ -46,8 +45,6 @@ public class TeacherProfileServlet extends HttpServlet {
 		TeacherProfile teacherProfile = mapper.readValue(strProfile, TeacherProfile.class);
 		
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-		service.updateTeacherProfile(teacherProfile);
-		
-		System.out.println(teacherProfile);
+		int result = service.updateTeacherProfile(teacherProfile);
 	}
 }

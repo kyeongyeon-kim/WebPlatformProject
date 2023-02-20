@@ -12,9 +12,9 @@ public class ConnectionProvider {
 	
 	static {
 		BasicDataSource ds = new BasicDataSource();
-		ds.setUrl("jdbc:mysql://192.168.0.104:3306/ohgym");
+		ds.setUrl("jdbc:mysql://localhost:3306/ohgym");
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUsername("ohgym");
+		ds.setUsername("root");
 		ds.setPassword("root");
 		
 		dataSource = ds;
