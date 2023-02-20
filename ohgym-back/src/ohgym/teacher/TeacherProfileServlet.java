@@ -1,37 +1,53 @@
 
 package ohgym.teacher;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 @WebServlet("/profile")
 public class TeacherProfileServlet extends HttpServlet {
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		resp.setContentType("application/json");
+
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
+		String id = "경연";
 		
-		HttpSession session = req.getSession();
-		String userid = (String) session.getAttribute("userid");
-		userid = "경태";
-		
-		TeacherProfile teacherprofile = service.readTeacherProfile(userid);
+		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
 		System.out.println(teacherprofile);
 		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(teacherprofile); 
-		System.out.println(json);
+		String json = mapper.writeValueAsString(teacherprofile.get(0));
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
+		pw.flush();
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = reader.readLine()) != null) {
+			sb.append(line);
+		}
+		ObjectMapper mapper = new ObjectMapper();
+		String strProfile = sb.toString();
+		TeacherProfile teacherProfile = mapper.readValue(strProfile, TeacherProfile.class);
+		
+		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
+		service.updateTeacherProfile(teacherProfile);
+		
+		System.out.println(teacherProfile);
 	}
 }
