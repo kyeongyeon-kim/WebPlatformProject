@@ -14,14 +14,11 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public List<TeacherProfile> readTeacherProfile(Connection conn) {
-		String sql = "UPDATE teacher_exercise as A" + 
+		String sql = "select * from teacher_exercise as A" + 
 				" left outer join teacher_introduction as B on A.id = B.id" + 
 				" left outer join teacher_image as C on A.id = C.id" + 
 				" left outer join exercise_type as D on A.exercise_type = D.no" + 
-				" left outer join teacher_service as E on A.no = E.teacher_no" + 
-				" SET B.appeal = ?, B.contact_time = ?, A.exercise_type = ?," + 
-				" E.introduction = ?, E.center_name = ?, E.location = ?, E.career = ?" + 
-				" WHERE A.id = ?";
+				" left outer join teacher_service as E on A.no = E.teacher_no;";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
@@ -65,7 +62,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 		String sql = "select * from teacher_exercise as A" + " left outer join teacher_introduction as B on A.id = B.id"
 				+ " left outer join teacher_image as C on A.id = C.id"
 				+ " left outer join exercise_type as D on A.exercise_type = D.no"
-				+ " left outer join teacher_service as E on A.no = E.teacher_no" + " where A.id = " + id + ";";
+				+ " left outer join teacher_service as E on A.no = E.teacher_no" + " where A.id = '" + id + "';";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
@@ -101,7 +98,8 @@ public class TeacherDAOImpl implements TeacherDAO {
 			stmt.setString(4, profile.getIntroduction());
 			stmt.setString(5, profile.getCenterName());
 			stmt.setString(6, profile.getLocation());
-			stmt.setString(7, profile.getId());
+			stmt.setString(7, profile.getCareer());
+			stmt.setString(8, profile.getId());
 			
 			return stmt.executeUpdate();
 		} catch (SQLException e) {
