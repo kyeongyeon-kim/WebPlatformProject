@@ -99,3 +99,23 @@
     background-color: white;
     cursor: pointer;
 }
+
+#submit {
+  display: flex;
+   justify-content: space-evenly;
+}
+
+
+#submit > button {
+    color: #fff;
+    font-size: 16px;
+    background-color: rgb(51, 180, 153);
+    width: 420px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
