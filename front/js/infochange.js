@@ -94,6 +94,7 @@ document.querySelector("#userout").addEventListener("click",out);
         console.log(userId.value);
         console.log(userName.value);
         console.log(userPassword.value);
+        console.log(userPhone.value);
         console.log(userBirthday.value);
        const genderNodeList = document.getElementsByName('gender');
        genderNodeList.forEach((node) => {
@@ -102,17 +103,29 @@ document.querySelector("#userout").addEventListener("click",out);
         }
       }) 
 
+    //   var a =userId.value;
+    //   var b = userName.value;
+    //   var c = userPassword.value;
+    //   var d = userPhone.value;
+    //   var e = userBirthday.value;
+    //   var f = node.value;
+      var user = new Object( );
+      user.id=userId.value;
+      user.name=userName.value;
+      user.pw=userPassword.value;
+      user.phone=userPhone.value;
+      user.birthday=birthday.value;
+      user.gender=node.value;
 
-        // if(man.checked=true){
-        //     console.log()
-        // }
 
+       
         // var user = {
-        //     id:userid.value,
-        //     name:userName.value,
-        //     pw:userPassword.value,
-        //     birthday:userBirthday.value,
-        //     gender:gender.value,
+        //     id: a,
+        //     name: b,
+        //     pw: c ,
+        //     phone: d,
+        //     birthday: e,
+        //     gender: f,
         // }
         console.log(user);
 
