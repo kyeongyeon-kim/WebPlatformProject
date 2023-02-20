@@ -1,21 +1,18 @@
-<html lang="ko">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Oh!GYM</title>
-    <!-- style -->
-    <link rel="stylesheet" type="text/css" href="../css/setting.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
-    <link rel="stylesheet" type="text/css" href="../css/userOut.css">
-
-
-    <!-- 웹 폰트(미정) -->
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/setting.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/header.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/login.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/userOut.css">
 </head>
-
 <body>
-    <div class="container">
+<div class="container">
         <header>
             <div id="menu">
                 <div id="logo">
@@ -27,6 +24,7 @@
                     <a href="">커뮤니티</a>
                     <input type="search" placeholder="어떤 서비스가 필요하세요?">
                 </div>
+                
                 <div id="login">
                     <a href="../html/login.html">로그인</a>
                     <a href="../html/signup.html">회원가입</a>
@@ -122,7 +120,5 @@
         </footer>
     </div>
 </body>
-
-<script src="../js/infochange.js"></script>
-
+<script src="<%=request.getContextPath()%>/js/infochange.js"></script>
 </html>

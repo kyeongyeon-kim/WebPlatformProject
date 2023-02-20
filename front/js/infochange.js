@@ -52,4 +52,13 @@ function onload(e) {
         }).catch((tt) => console.log(tt))
     }
 
+
+   
+    // const submit_btn = document.querySelector("#submit")
+
+    // submit_btn.addEventListener("click",function (e){
+        
+    //     console.log("배고팡")
+    // })
+
     
