@@ -95,8 +95,23 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public int update(Connection conn, User user) {
-		return -1;
-	}
+		String sql = "UPDATE user SET name = ?,pw = ?,phone = ?,birthday = ?,gender =? WHERE id = ?";
+		try(PreparedStatement stmt = conn.prepareStatement(sql)){
+				stmt.setString(1, user.getName());
+				stmt.setString(2, user.getPw());
+				stmt.setString(3, user.getPhone());
+				stmt.setString(4, user.getBirthday());
+				stmt.setString(5, user.getGender());
+				stmt.setString(6, user.getId());
+				
+				
+				return stmt.executeUpdate();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			return -1;
+		}
+	
 
 	@Override
 	public int delete(Connection conn, String id) {
