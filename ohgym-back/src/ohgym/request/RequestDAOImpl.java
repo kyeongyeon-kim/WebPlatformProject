@@ -7,13 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ohgym.teacher.TeacherDAO;
-import ohgym.teacher.TeacherDAOImpl;
-import ohgym.teacher.TeacherService;
-import ohgym.teacher.TeacherServiceImpl;
-
 public class RequestDAOImpl implements RequestDAO {
-	
+
 	@Override
 	public List<Request> selectRequest(Connection conn) throws SQLException {
 		String sql = "SELECT * FROM request";
@@ -47,5 +42,18 @@ public class RequestDAOImpl implements RequestDAO {
 		request.setDeadlineDate(rs.getString("deadline_date"));
 		request.setMessage(rs.getString("message"));
 		return request;
+	}
+
+	@Override
+	public Request selectRequestByNo(Connection conn, int no) throws SQLException {
+		String sql = "SELECT * FROM request WHERE no = '" + no + "';";
+		try (PreparedStatement stmt = conn.prepareStatement(sql); 
+				ResultSet rs = stmt.executeQuery()) {
+			Request req = new Request();
+			while (rs.next()) {
+				req = resultMapping(rs);
+			}
+			return req;
+		}
 	}
 }
