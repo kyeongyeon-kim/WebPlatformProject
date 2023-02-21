@@ -12,12 +12,12 @@ window.addEventListener("load", (e) => {
       console.log(requestList);
       console.log(requestCard);
       console.log(template);
-      arr.forEach((elem) => {
-        let importTemplate = document.importNode(
-          template.contentEditable,
-          true
-        );
-        requestList.append(importTemplate);
-      });
+      // arr.forEach((elem) => {
+      //   let importTemplate = document.importNode(
+      //     template.contentEditable,
+      //     true
+      //   );
+      //   requestList.append(importTemplate);
+      // });
     });
 });
