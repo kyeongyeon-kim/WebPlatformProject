@@ -39,9 +39,9 @@
             <div id="userChangeTitle">
                 <h2>회원정보수정</h2>
             </div>
-            <form method="post" id="signup-form"class="infochange" >
+            <form method="get" id="signup-form" action="../html/test.html" class="infochange">
                 <h4> 아이디 </h4>
-                <input type="text" id="userId" name="userId" value="" readonly />
+                <input type="text" id="userId" value="" readonly />
                 <h4> 비밀번호 </h4>
                 <input type="text" id="userPassword" value="">
                 <h4> 비밀번호 재확인 </h4>
@@ -60,12 +60,12 @@
                         <input type="date" id="userBirthday" value="">
                     </div>
                 </div>
-                <!-- <input type="submit" id="submit" value="수정"> -->
+                <input type="submit" id="submit" value="수정">
             </form>
             
-            <div id="submit">
+            <!-- <div id="submit">
                 <button>수정</button>
-            </div>
+            </div> -->
             <div style="display: flex;justify-content: space-evenly;">
                 <button id="showOut">계정 탈퇴</button>
             </div>

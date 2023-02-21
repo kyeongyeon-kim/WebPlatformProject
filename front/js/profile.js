@@ -97,7 +97,6 @@ modifyArr.forEach((elem) => {
       compsArr[index].append(temp);
       console.log(profile);
       console.log(JSON.stringify(profile));
-      
 
       fetch("http://localhost:8080/ohgym/profile", {
         method: "POST",
@@ -139,7 +138,7 @@ function updateProfile(index) {
     case 7:
       profile.image = input.value;
       break;
-  
+
     default:
       break;
   }

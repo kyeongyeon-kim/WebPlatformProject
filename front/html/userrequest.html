@@ -35,14 +35,14 @@
         </header>
     <!-- //header -->
     <main>
-        <section id="banner" style="height: 200px;">
+        <section id="banner">
             <section class="container">
                 <article id="fields">
                     <div style="position: relative; display: flex; justify-content: center;">
-                        <img src="../img/임시 배너.png" id="bannerimg" style="width: 100%; height: 190px; position: absolute; z-index: -2;">
-                        <div style="position: absolute; z-index: -1; ">
-                            <p style="font-size: 50px; font-weight: bold;" id="category"></p>
-                            <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="score">평점: 0.0</p>
+                        <img src="../img/임시 배너.png" id="bannerimg" style="width: 100%; height: 440px; position: absolute; z-index: -2;">
+                        <div style="position: absolute; z-index: -1; margin-top: 200px;">
+                            <p style="font-size: 50px; font-weight: bold;" id="category">수영</p>
+                            <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="scope">4.5</p>
                             <div style="display: flex;">
                                 <div>
                                     <p style="font-size: 25px;" id="active">00,000</p>
@@ -269,7 +269,7 @@
                                     <label class="addresslbl" style="margin-right: 34px;">주소</label><input type="text" class="addresstext" id="address_kakao" name="address" readonly />
                                 </div>
                                 <div style="margin-bottom: 30px;">
-                                    <label class="addresslbl">상세주소</label><input type="text" class="addresstext" name="address_detail" id="address_detail"/>
+                                    <label class="addresslbl">상세주소</label><input type="text" class="addresstext" name="address_detail" />
                                 </div>
                             </div>
                         </div>
@@ -277,7 +277,7 @@
                         <div id="page8" style="display: none;">
                             <div style="display: flex;">
                                 <label id="textlbl2">
-                                    <textarea style="height: 100px; width: 100%; border: 1px solid lightgray; resize: none; " id="reqtext"></textarea>
+                                    <textarea style="height: 100px; width: 100%; border: 1px solid lightgray; resize: none;" ></textarea>
                                 </label>
                             </div>
                         </div>
@@ -335,40 +335,51 @@
 </div>
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script>
+
     window.onload = function(){
         document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
             //카카오 지도 발생
             new daum.Postcode({
                 oncomplete: function(data) { //선택시 입력값 세팅
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-            }
-        }).open();
-    });
-}
-
-    var params = new URLSearchParams(window.location.search);
-    var categorystr = params.get('category');
+                    document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        });
+    }
 
     var category = document.getElementById("category");
     var reviewnum = document.getElementById("reviewnum");
-    var score = document.getElementById("score");
+    var scope = document.getElementById("scope");
     var active = document.getElementById("active");
     var accreq = document.getElementById("accreq");
-
-    fetch('http://localhost:8080/ohgym/userresp?category=' + categorystr)
-    .then((resp) => resp.json())
-    .then((arr) => {
-        category.src = '../img/' + categorystr + '.png';
-        accreq.textContent = arr[0];
-        score.textContent = "평점: " + arr[1];
-        reviewnum.textContent = arr[2];
-        active.textContent = arr[3];
-        category.textContent = arr[4];
-    }); 
+    // switch (){
+    //     case :
+    //         category.src = '../img/.png';
+    //         scope.textContent = "";
+    //         active.textContent = "";
+    //         accreq.textContent = "";
+    //         reviewnum.textContent = "";
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    //     case :
+    //         break;
+    // }
 
     var pagenum = 1;
 
@@ -498,64 +509,7 @@
                 page8.style.display = "block";
                 break;
             case 8:
-                if (confirm("요청서를 제출하시겠습니까?")) {
-                    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                    var reqarr = [];
-                    var inputtext = document.getElementById("inputtext");
-                    var inputtext2 = document.getElementById("inputtext2");
-
-                    checkboxes.forEach((checkbox) => {
-                        if (checkbox.checked) {
-                            if (checkbox.nextElementSibling.textContent == "기타") {
-                                if (reqarr.length < 9) {
-                                    if (inputtext.value != ('')){
-                                        reqarr.push(inputtext.value);
-                                    } else {
-                                        reqarr.push(null);
-                                    }
-                                } else {
-                                    if (inputtext2.value != ('')){
-                                        reqarr.push(inputtext2.value);
-                                    } else {
-                                        reqarr.push(null);
-                                    }
-                                }
-                            } else {
-                                reqarr.push(checkbox.nextElementSibling.textContent);
-                            }
-                        } else {
-                            reqarr.push(null);
-                        }
-                    });
-
-                    var address_kakao = document.getElementById("address_kakao");
-                    var address_detail = document.getElementById("address_detail");
-                    var reqtext = document.getElementById("reqtext");
-
-                    if ((address_kakao.value + address_detail.value) != ('')){
-                        reqarr.push(address_kakao.value + address_detail.value);
-                    } else {
-                        reqarr.push(null);
-                    } 
-                    if (reqtext.value != ('')) {
-                        reqarr.push(reqtext.value);
-                    } else {
-                        reqarr.push(null);
-                    }
-
-                    reqarr.push(categorystr);
-
-                    var reqdata = JSON.stringify(reqarr);
-                    fetch('http://localhost:8080/ohgym/userreq', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: reqdata
-                    });
-                    location.href = "http://localhost:5500/front/html/mainPage.html";
-                } else {
-                }
+                // href
                 break;
             default:
                 break;

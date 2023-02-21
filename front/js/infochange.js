@@ -1,5 +1,34 @@
-var user;
+function show() {
+    document.querySelector(".background").className = "background show";
+}
+function close() {
+    document.querySelector(".background").className = "background";
+}
+function out(){
+    console.log("눌렷어");
+    fetch("http://localhost:8080/ohgym/out")
+    .then((resp) => resp.text())
+    .then((text)=>{
+        console.log(text);
+    })
+
+    
+    document.querySelector(".background").className = "background";
+    var link = "../html/login.html";
+ 
+    location.href=link;
+    location.replace(link);
+    window.open(link);
+
+}
+
+document.querySelector("#showOut").addEventListener("click", show);
+document.querySelector("#close").addEventListener("click", close);
+document.querySelector("#userout").addEventListener("click",out);
+
+
 window.addEventListener("load", onload);
+
 let container = document.getElementById("profile-container");
 
 function onload(e) {
@@ -8,11 +37,6 @@ function onload(e) {
     fetch("http://localhost:8080/ohgym/change")
         .then((resp) => resp.json())
         .then((json) => {
-        //    user = json;
-        //    let{
-        //     id,pw,name,phone,birthday,gender,usercheck
-        //    } = user;
-          
             userId.value=json.id;
             userPassword.value=json.pw; 
             userPasswordTest.value=json.pw;
@@ -94,7 +118,6 @@ document.querySelector("#userout").addEventListener("click",out);
         console.log(userId.value);
         console.log(userName.value);
         console.log(userPassword.value);
-        console.log(userPhone.value);
         console.log(userBirthday.value);
        const genderNodeList = document.getElementsByName('gender');
        genderNodeList.forEach((node) => {
@@ -103,29 +126,17 @@ document.querySelector("#userout").addEventListener("click",out);
         }
       }) 
 
-    //   var a =userId.value;
-    //   var b = userName.value;
-    //   var c = userPassword.value;
-    //   var d = userPhone.value;
-    //   var e = userBirthday.value;
-    //   var f = node.value;
-      var user = new Object( );
-      user.id=userId.value;
-      user.name=userName.value;
-      user.pw=userPassword.value;
-      user.phone=userPhone.value;
-      user.birthday=birthday.value;
-      user.gender=node.value;
 
+        // if(man.checked=true){
+        //     console.log()
+        // }
 
-       
         // var user = {
-        //     id: a,
-        //     name: b,
-        //     pw: c ,
-        //     phone: d,
-        //     birthday: e,
-        //     gender: f,
+        //     id:userid.value,
+        //     name:userName.value,
+        //     pw:userPassword.value,
+        //     birthday:userBirthday.value,
+        //     gender:gender.value,
         // }
         console.log(user);
 
