@@ -19,8 +19,8 @@ select {
 }
 .search > input {
     min-width: 300px;
-    width: 73vw;
-    max-width: 812px;
+    width: 75vw;
+    max-width: 875px;
     font-size: 0.9rem;
     padding: 6px 6px 5px 10px;
     border-radius: 0.6em;
@@ -35,6 +35,12 @@ select {
     padding: 5px 10px 4px 10px;
     border-radius: 0.6em;
     border: 0.5px solid #c6c6c6;
+}
+.search > button:hover {
+    cursor: pointer;
+    background-color: #727271;
+    color: white;
+    border: 1px solid #c6c6c6;
 }
 .profile {
     background-color: rgb(245, 250, 248);
@@ -73,4 +79,15 @@ select {
     width: 130px;
     object-fit: cover;
     text-align: right;
+}
+.contents {
+    display: flex;
+}
+.contents > p {
+    margin-left: 5px;
+}
+i {
+    /* width: 25px; */
+    margin-top: 3px;
+    margin-right: 5px;
 }

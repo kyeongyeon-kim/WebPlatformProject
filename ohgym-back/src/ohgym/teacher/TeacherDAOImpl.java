@@ -1,6 +1,5 @@
 package ohgym.teacher;
 
-import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,10 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ohgym.user.User;
-
 public class TeacherDAOImpl implements TeacherDAO {
-
+	
 	@Override
 	public List<TeacherProfile> readTeacherProfile(Connection conn) {
 		String sql = "select * from teacher_exercise as A" + 
@@ -62,7 +59,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 		String sql = "select * from teacher_exercise as A" 
 				+ " left outer join teacher_introduction as B on A.id = B.id"
 				+ " left outer join exercise_type as C on A.exercise_type = C.no"
-				+ " left outer join teacher_service as D on A.no = D.teacher_no" + " where A.id = " + id + ";";
+				+ " left outer join teacher_service as D on A.no = D.teacher_no" + " where A.id = '" + id + "';";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
@@ -93,11 +90,12 @@ public class TeacherDAOImpl implements TeacherDAO {
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setString(1, profile.getAppeal());
 			stmt.setString(2, profile.getContactTime());
-			stmt.setString(3, "e5");
+			stmt.setString(3, profile.getExercise());
 			stmt.setString(4, profile.getIntroduction());
 			stmt.setString(5, profile.getCenterName());
 			stmt.setString(6, profile.getLocation());
-			stmt.setString(7, profile.getId());
+			stmt.setString(7, profile.getCareer());
+			stmt.setString(8, profile.getId());
 			
 			return stmt.executeUpdate();
 		} catch (SQLException e) {
@@ -110,5 +108,39 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public int deleteTeacherProfile(Connection conn, String id, String type) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public String convertExerciseTypeToExercise(Connection conn, String exerciseType) {
+		String sql = "SELECT exercise FROM exercise_type WHERE no = ?";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setString(1, exerciseType);
+			try(ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+					return rs.getString("exercise");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("조회 작업 중 예외 발생", e);
+		}
+		return null;
+	}
+
+	@Override
+	public String convertExerciseToExerciseType(Connection conn, String exercise) {
+		String sql = "SELECT no FROM exercise_type WHERE exercise = ?";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setString(1, exercise);
+			try(ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+					return rs.getString("no");
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("조회 작업 중 예외 발생", e);
+		}
+		return null;
 	}
 }

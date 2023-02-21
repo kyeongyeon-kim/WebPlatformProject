@@ -41,11 +41,14 @@
 
 #history > h3 {
     color: rgb(53, 52, 52);
-    width: 80px;
-    text-align: center;
+    text-align: left;
     margin-left: 60px;
     padding: 10px 0px 10px 0px;
     font-size: 16px;
+}
+
+#history > h3 > a {
+    margin-right: 5px;
 }
 
 .box { 
@@ -62,7 +65,7 @@
     padding: 10px 0px;
 }
 
-.notice > h3{
+.notice > h3 {
     font-size: 16px;
     width: 130px;
     margin-left: 60px;
@@ -100,6 +103,12 @@
 
 #request-card {
     line-height: 30px;
+    padding: 0.25rem;
+}
+
+#request-card > p:nth-child(3) {
+    font-size: 15px;
+    letter-spacing: -1px;
 }
 
 .bottom > a {

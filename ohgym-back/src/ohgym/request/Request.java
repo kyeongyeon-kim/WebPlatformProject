@@ -1,7 +1,7 @@
 package ohgym.request;
 
 public class Request {
-	private String no;
+	private int no;
 	private String id;
 	private String exerciseType;
 	private String requestDate;
@@ -10,7 +10,7 @@ public class Request {
 	
 	public Request() {};
 	
-	public Request(String no, String id, String exerciseType, String requestDate, String deadlineDate, String message) {
+	public Request(int no, String id, String exerciseType, String requestDate, String deadlineDate, String message) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -19,10 +19,10 @@ public class Request {
 		this.deadlineDate = deadlineDate;
 		this.message = message;
 	}
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 	public String getId() {

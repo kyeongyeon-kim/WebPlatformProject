@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/searchstyle.css">
     <script src="../js/header.js"></script>
     <script src="../js/include.js"></script>
+    <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
@@ -28,7 +29,7 @@
                 <option value="health">헬스</option>
                 <option value="etc">기타</option>
             </select>
-            <select id="location" name="location" >
+            <select id="area" name="area" >
                 <option value="none">지역</option>
                 <option value="seoul">서울</option>
                 <option value="sejong">세종</option>
@@ -49,29 +50,46 @@
                 <option value="jeju">제주</option>
             </select>
             <div class="search">
-                <input type="search" placeholder="내 주변 근선생은 누가 있지?"/>
-                <button><a href="">검색</a></button>
+                <input id="search" type="search" placeholder="내 주변 근선생은 누가 있지?"/>
+                <button id="search-btn">검색</button>
             </div>
             <section id="profile-container">
             </section>
             <template id="profile-temp">
-                <a href="">
-                    <article class="profile">
+                <article class="profile">
+                    <a href="">
                         <div class="info">
                             <h3 id="id"></h3>
-                            <p id="appeal"></p>
-                            <p id="introduction"></p>
-                            <p id="contactTime"></p>
+                            <div class="contents">
+                                <i class="fa-regular fa-face-smile"></i>
+                                <!-- <i class="fa-regular fa-circle-user"></i> -->
+                                <!-- <i class="fa-regular fa-user"></i> -->
+                                <p id="appeal"></p>
+                            </div>
+                            <div class="contents">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <!-- <i class="fa-solid fa-check"></i> -->
+                                <p id="introduction"></p>
+                            </div>
+                            <div class="contents">
+                                <i class="fa-regular fa-envelope"></i>
+                                <p id="contactTime"></p>
+                            </div>
+                            <div class="contents">
+                                <i class="fa-regular fa-compass"></i>
+                                <!-- <i class="fa-regular fa-map"></i> -->
+                                <p id="centerLocation"></p>
+                            </div>
                             <div class="score">
                                 <img src="../img/star.png" alt="">
                                 <span id="score">4.8</span>
                             </div>
                         </div>
                         <div class="profile-img">
-                            <img src="../img/health.png" alt="profile-img">
+                            <img id="image" src="../img/health.png" alt="profile-img">
                         </div>
-                    </article>
-                </a>
+                    </a>
+                </article>
             </template>
         </main>
         <footer include-html="..\html\footer.html"></footer>
