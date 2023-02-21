@@ -1,6 +1,7 @@
 package ohgym.teacher;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -74,5 +75,45 @@ public class TeacherServiceImpl implements TeacherService {
 			}
 		}
 		return 0;
+	}
+
+	@Override
+	public String convertExerciseTypeToExercise(String exerciseType) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.convertExerciseTypeToExercise(conn, exerciseType);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public String convertExerciseToExerciseType(String exercise) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.convertExerciseToExerciseType(conn, exercise);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
 	}
 }
