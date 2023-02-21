@@ -9,7 +9,6 @@ function onload(e) {
     });
 }
 
-let reqArr = [];
 function makeRequest(element) {
     let myRequest = {}; 
     myRequest.id = element.id;
@@ -17,15 +16,15 @@ function makeRequest(element) {
     myRequest.requestDate = element.requestDate;
     myRequest.deadlineDate = element.deadlineDate;
     myRequest.message = element.message;
-    // reqArr.push(myRequest);
     console.log(myRequest);
     fillRequest(myRequest); 
 }
 
 function fillRequest(element) {
-    let userInfo = document.getElementById("user-info");
-    let name = userInfo.firstChild;
-    console.log(name);
-    name.innerText = element.id;
-
+    let userInfoId = document.getElementById("user-info-id");
+    userInfoId.innerText = element.id;
+    let userInfoType = document.getElementById("user-info-type");
+    userInfoType.innerText = element.exerciseType;
+    let userInfoArea = document.getElementById("user-info-area");
+    // userInfoArea.innerText = element.;
 }
