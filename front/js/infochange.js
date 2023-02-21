@@ -7,7 +7,14 @@ function close() {
     document.querySelector(".background").className = "background";
 }
 function out(){
-    fetch("http://localhost:8080/ohgym/out")
+    var user = { id: userId.value }
+    fetch("http://localhost:8080/ohgym/out",{
+        method: "POST",
+        headers:{
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user)
+    })
     .then((resp) => resp.text())
     .then((text)=>{
         console.log(text);
@@ -81,8 +88,12 @@ function onload(e) {
             body:JSON.stringify(user),
             })
              .then((resp) => resp.json())
-             .then((data)=> console.log(data))
+             .then((data)=>{
+             console.log(data)
+             alert("수정되었습니다.")})
              .catch((tt)=>console.log(tt));
     })
+
+
 
 
