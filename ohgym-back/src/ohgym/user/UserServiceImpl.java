@@ -55,4 +55,24 @@ public class UserServiceImpl implements UserService {
 		return 0;
 	}
 
+	@Override
+	public int deleteUser(String id) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.delete(conn,id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+
 }
