@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Oh!GYM</title>
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
     <!-- 웹 폰트(미정) -->
@@ -16,16 +16,12 @@
     <div class="container">
         <header include-html="..\html\header.html"></header>
         <main style="display: flex; justify-content: center; align-items: center;">
-
             <!-- 메인 태그 안에다 내용 작성 -->
-            
-            
-            
                 <div class="login-page" style="align-items: center;">
                     <h2>로그인</h2>
                     <form method="post" action="http://localhost:8080/ohgym/login" id="login-form" >
-                      <input type="text" id="id" name="userId" placeholder=" 아이디를 입력하세요" maxlength="20">
-                      <input type="password" id="password" name="userPassword" placeholder=" 비밀번호를 입력하세요" maxlength="20">
+                      <input type="text" id="id" name="userId" placeholder=" 아이디를 입력하세요" maxlength="11">
+                      <input type="password" id="password" name="userPassword" placeholder=" 비밀번호를 입력하세요" maxlength="10">
                       <label for="remember-check">
                         <input type="checkbox" id="remember-check">아이디 저장하기
                       </label>
