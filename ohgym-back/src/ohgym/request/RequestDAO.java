@@ -8,5 +8,5 @@ public interface RequestDAO {
 	// (R) selectRequest
 	List<Request> selectRequest(Connection conn) throws SQLException ;
 	List<Request> selectRequestById(Connection conn, String id) throws SQLException;
-	
+	Request selectRequestByNo(Connection conn, int no) throws SQLException;
 }

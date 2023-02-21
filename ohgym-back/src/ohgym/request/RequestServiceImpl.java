@@ -9,8 +9,6 @@ import ohgym.dbutil.ConnectionProvider;
 public class RequestServiceImpl implements RequestService {
 	private RequestDAO dao;
 	
-	
-	
 	public RequestServiceImpl(RequestDAO dao) {
 		super();
 		this.dao = dao;
@@ -42,6 +40,26 @@ public class RequestServiceImpl implements RequestService {
 		try {
 			conn = ConnectionProvider.getConnection();
 			return dao.selectRequestById(conn, id);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public Request selectRequestByNo(int no) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.selectRequestByNo(conn, no);
 		} catch (RuntimeException | SQLException e) {
 			e.printStackTrace();
 		} finally {
