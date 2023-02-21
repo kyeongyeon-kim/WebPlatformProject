@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>경태는 멋져</title>
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
     <link rel="stylesheet" type="text/css" href="../css/login.css">
     <!-- 웹 폰트(미정) -->
     <script src="../js/include.js"></script>
     <script src="../js/header.js"></script>
-    <script src="../js/login.js" defer></script>
+    <script src="../js/signup.js" defer></script>
 </head>
 <body>
     <div class="container">
         <header include-html="..\html\header.html"></header>
         <main style="display: flex; justify-content: center; align-items: center; width:50%;">
-        <!-- 메인 태그 안에다 내용 작성 -->
+        <!-- 메인 태그 안에다 내용 작성 --> 
             <div class="signup-page" style="align-items: center; width: 100%; height:30%;">
                 <h2>회원가입</h2>
-                <form method="post" action="http://01021411750.tshome.co.kr/" id="signup-form" onsubmit="return validateForm()">
-
+                <form  method="post" action="http://localhost:8080/ohgym/signup" id="signup-form" onsubmit="return validateForm()">
                     <h4> 아이디 </h4>
-                    <input type="text" id="id" name="memberid"placeholder=" 아이디를 입력하세요">
+                    <div class="field id" style="width: 100%; height:60%;">
+                        <div id="alert-message"></div>
+                        <div>
+                            <input type="text" id="id" name="memberid" placeholder=" 아이디를 입력하세요" maxlength="13">
+                        </div>
+                    </div>
 
                     <h4> 비밀번호 </h4>
-                    <input type="password" id="password" name="password" placeholder=" 비밀번호를 입력하세요">
+                    <input type="password" id="password" name="password" placeholder=" 비밀번호를 입력하세요" maxlength="10">
                    
                     <h4> 비밀번호 재확인 </h4>
-                    <input type="password" id="password" name="password-confirm" placeholder=" 비밀번호 재확인">
+                    <input type="password" id="password" name="password-confirm" placeholder=" 비밀번호 재확인" maxlength="10">
 
                     <h4> 이름</h4>
-                    <input type="text" id="name" name="userName" placeholder=" 이름을 입력하세요" >                    
+                    <input type="text" id="name" name="userName" placeholder=" 이름을 입력하세요" maxlength="10" >                    
 
                     <h4> 전화번호 </h4>
-                    <input type="text" id="phoneNum" name="userPhone" placeholder=" 전화번호를 입력하세요">
+                    <input type="text" id="phoneNum" name="userPhone" placeholder=" 전화번호를 입력하세요" maxlength="11">
 
                     <h4> 생년월일 </h4>
                     <div class="field gender" style="width: 100%; height:30%;">
@@ -49,6 +53,7 @@
                     <input type="submit" value="가입하기"> 
                 </form>
             </div>
+            
             
             
 

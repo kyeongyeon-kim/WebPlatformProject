@@ -1,19 +1,11 @@
-
-// window.addEventListener("load", (e) => {
-//   fetch("http://localhost:8080/ohgym/login")
-//     .then((resp) => resp.text())
-//     .then((text) => {
-//     });
-// });
-
 const idInput = document.getElementById("id");
-idInput.addEventListener('input', function () {
+idInput.addEventListener('input', function() {
   const valueId = this.value;
   if (valueId === '') {
     this.setCustomValidity('아이디를 입력해주세요.');
-  } else if (valueId.length > 15) {
-    this.setCustomValidity('아이디는 16자 이하여야 합니다.');
-  } else if (!/^[a-zA-Z0-9_-]{4,16}$/.test(valueId)) {
+} else if (valueId.length > 10) { 
+    this.setCustomValidity('아이디는 10자 이하여야 합니다.');
+  } else if (!/^[a-zA-Z0-9_-]{1,10}$/.test(valueId)) {
     this.setCustomValidity('아이디를 잘못 입력했습니다.');
   } else {
     this.setCustomValidity('');
@@ -21,33 +13,31 @@ idInput.addEventListener('input', function () {
 });
 
 const passwordInput = document.getElementById("password");
-passwordInput.addEventListener('input', function () {
+passwordInput.addEventListener('input', function() {
   const valuePassword = this.value;
   if (valuePassword === '') {
     this.setCustomValidity('비밀번호를 입력해주세요.');
-  } else if (valuePassword.length > 15) {
-    this.setCustomValidity('비밀번호는 16자 이하여야 합니다.');
-  } else if (!/^[a-zA-Z0-9_-]{4,16}$/.test(valuePassword)) {
+  } else if (valuePassword.length > 10) { 
+    this.setCustomValidity('비밀번호는 10자 이하여야 합니다.');
+  } else if (!/^[a-zA-Z0-9_-]{1,10}$/.test(valuePassword)) {
     this.setCustomValidity('비밀번호를 잘못 입력했습니다.');
   } else {
     this.setCustomValidity('');
   }
 });
 
-
 const rememberCheck = document.getElementById("remember-check");
-
 const userIdInput = document.getElementById("id");
 
 
-// 로드 시,  아이디 체크박스 업데이트
-window.onload = () => {
-  const storedId = localStorage.getItem("userId");
-  if (storedId) {
-    userIdInput.value = storedId;
-    rememberCheck.checked = true;
-  }
-};
+    // 로드 시,  아이디 체크박스 업데이트
+    window.onload = () => {
+      const storedId = localStorage.getItem("userId");
+      if (storedId) {
+        userIdInput.value = storedId;
+        rememberCheck.checked = true;
+      }
+    };
 
 // 클릭할 때마다 아이디 저장 삭제
 rememberCheck.addEventListener("click", () => {
@@ -57,8 +47,6 @@ rememberCheck.addEventListener("click", () => {
     localStorage.removeItem("userId");
   }
 });
-
-
 
 
 const loginForm = document.querySelector('#login-form');
@@ -71,59 +59,8 @@ loginForm.addEventListener("click", () => {
   }
 });
 
-
 loginForm.addEventListener('submit', function (event) {
   if (!this.checkValidity()) {
     event.preventDefault();
   }
 });
-
-
-
-
-
-// // const signForm = document.querySelector('#sign-form');
-// // signForm.addEventListener('submit', function(event) {
-// //   if (!this.checkValidity()) {
-// //     event.preventDefault();
-// //   }
-// // });
-// // function validateForm() {
-// //   var password = document.getElementsByName("password")[0].value;
-// //   var passwordConfirm = document.getElementsByName("password-confirm")[0].value;
-
-// //   if (password !== passwordConfirm) {
-// //     alert("비밀번호가 일치하지 않습니다.");
-// //     return false;
-// //   }
-// //   return true;
-// // }
-
-
-
-
-
-// // const signForm = document.querySelector('#sign-form');
-
-// // function validateForm() {
-// //   const password = document.getElementsByName('password')[0].value;
-// //   const passwordConfirm = document.getElementsByName('password-confirm')[0].value;
-// //   if (password !== passwordConfirm) {
-// //     alert('비밀번호가 일치하지 않습니다.');
-// //     return false;
-// //   }
-
-// //   if (!signForm.checkValidity()) {
-// //     event.preventDefault();
-// //     return false;
-// //   }
-
-// //   return true;
-// // }
-// // signForm.addEventListener('submit', validateForm);
-
-
-
-
-
-
