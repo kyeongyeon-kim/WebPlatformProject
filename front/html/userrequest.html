@@ -1,48 +1,28 @@
+<!DOCTYPE html>
 <html lang="ko">
-
-
 <head>
     <meta charset="UTF-8">
-    <title>Oh!GYM</title>
-    <!-- style -->
-    <link rel="stylesheet" type="text/css" href="../css/setting.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
-    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
     <link rel="stylesheet" type="text/css" href="../css/indexstyle.css">
     <link rel="stylesheet" type="text/css" href="../css/userrequest.css">
-    <!-- 웹 폰트(미정) -->
+    <script src="../js/include.js"></script>
+    <script src="../js/header.js"></script>
 </head>
-
 <body>
     <div class="container">
-        <header> 
-            <div id="menu">
-                <div id="logo">
-                    <a href=""><img src="../img/logo.png" alt="logo"></a>
-                </div>
-                <div id="menu-bar">
-                    <a href="">고수매칭</a> 
-                    <a href="">고수찾기</a>
-                    <a href="">커뮤니티</a>
-                    <input type="search" placeholder="어떤 서비스가 필요하세요?">
-                </div>
-                <div id="login">
-                    <a href="">로그인</a>
-                    <a href="">회원가입</a>
-                    <input id="teacher-join" type="submit" value="고수가입">
-                </div>
-            </div>
-        </header>
-    <!-- //header -->
-    <main>
-        <section id="banner">
+        <header include-html="..\html\header.html"></header>
+        <main>
+            <section id="banner" style="height: 200px;">
             <section class="container">
                 <article id="fields">
                     <div style="position: relative; display: flex; justify-content: center;">
-                        <img src="../img/임시 배너.png" id="bannerimg" style="width: 100%; height: 440px; position: absolute; z-index: -2;">
-                        <div style="position: absolute; z-index: -1; margin-top: 200px;">
-                            <p style="font-size: 50px; font-weight: bold;" id="category">수영</p>
-                            <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="scope">4.5</p>
+                        <img src="../img/임시 배너.png" id="bannerimg" style="width: 100%; height: 190px; position: absolute; z-index: -2;">
+                        <div style="position: absolute; z-index: -1; ">
+                            <p style="font-size: 50px; font-weight: bold;" id="category"></p>
+                            <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="score">평점: 0.0</p>
                             <div style="display: flex;">
                                 <div>
                                     <p style="font-size: 25px;" id="active">00,000</p>
@@ -122,6 +102,7 @@
                                     <div style="display: flex; justify-content: center;">
                                         <textarea id="inputtext" class="inputtext" ></textarea>
                                     </div>
+                                    <label id="inputtextlabel" style="display: none; color: lightgray; margin-left: 55px; ">일부 특수문자( `'"()[]{}/\ ) 및 최대 40글자 제한</label>
                                 </label>
                             </div>
                         </div>
@@ -152,6 +133,7 @@
                                     <div style="display: flex; justify-content: center;">
                                         <textarea id="inputtext2" class="inputtext" ></textarea>
                                     </div>
+                                    <label id="inputtextlabel2" style="display: none; color: lightgray; margin-left: 55px; ">일부 특수문자( `'"()[]{}/\ ) 및 최대 40글자 제한</label>
                                 </label>
                             </div>
                         </div>
@@ -266,10 +248,10 @@
                         <div id="page7" style="display: none;">
                             <div id="adressdiv">
                                 <div>
-                                    <label class="addresslbl" style="margin-right: 34px;">주소</label><input type="text" class="addresstext" id="address_kakao" name="address" readonly />
+                                    <label class="addresslbl" style="margin-right: 34px;">주소</label><input type="text" class="addresstext" id="address_main" name="address" readonly />
                                 </div>
                                 <div style="margin-bottom: 30px;">
-                                    <label class="addresslbl">상세주소</label><input type="text" class="addresstext" name="address_detail" />
+                                    <label class="addresslbl">상세주소</label><input type="text" class="addresstext" name="address_detail" id="address_detail"/>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +259,8 @@
                         <div id="page8" style="display: none;">
                             <div style="display: flex;">
                                 <label id="textlbl2">
-                                    <textarea style="height: 100px; width: 100%; border: 1px solid lightgray; resize: none;" ></textarea>
+                                    <textarea style="height: 120px; width: 100%; border: 1px solid lightgray; resize: none; " id="reqtext"></textarea>
+                                    <label id="inputtextlabel2" style="color: lightgray;">일부 특수문자( `'"()[]{}/\ ) 및 최대 200글자 제한</label>
                                 </label>
                             </div>
                         </div>
@@ -286,6 +269,7 @@
                             <button id="prev"></button>
                             <button id="next" style="margin-left: 10px;"></button>
                         </div>
+                        <p style="text-align: right; margin-bottom: 50px; color: lightgray;" id="pagecheckedtext">한 개 이상의 항목을 선택해주세요. </p>
                     </div>
                 </article>
             </section>
@@ -300,86 +284,47 @@
                 </article>
             </section>
         </section>
-        <!--//contents-->
-    </main>
-    <footer>
-        <div class="business-info">
-            <p>고객상담센터</p>
-            <p id="phone-num">070-012-3456</p>
-            <p id="buisness-hour">평일 09:30 ~ 17:30 (점심11:30 ~ 13:00)</p>
-        </div>
-        <div class="footer-logo">
-            <img src="../img/logo2.png" alt="logo">
-        </div>
-        <div class="footer-text">
-            <ul>
-                <li id="li1"><a href="#">회사소개</a></li>
-                <li><a href="#">개발자소개</a></li>
-                <li><a href="#">서비스 이용약관</a></li>
-                <li><a href="#">개인정보 처리방침</a></li>
-                <li><a href="#">영상정보 처리방침</strong></a></li>
-                <li><a href="#">사이트맵</a></li>
-                <li><a href="#">전자공고</a></li>
-                <li><a href="#">광고문의</a></li>
-                <li><a href="#">고객의 소리</a></li>
-            </ul>
-        </div>
-        <div class="footer-info">
-            <p id="company-name">(주) 오짐</p>
-            <p>대표이사 : 김경태&nbsp;&nbsp;&nbsp;&nbsp;주소 : 부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미&nbsp;&nbsp;&nbsp;&nbsp;사업자등록번호 : 000-00-00000</p>
-            <address>
-                Copyright© All Right Reserved
-            </address>
-        </div>
-    </footer>
-</div>
+
+        </main>
+        <footer include-html="..\html\footer.html"></footer>
+    </div>
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script>
-
+    includeHTML();
     window.onload = function(){
-        document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+        document.getElementById("address_main").addEventListener("click", function(){ //주소입력칸을 클릭하면
             //카카오 지도 발생
             new daum.Postcode({
                 oncomplete: function(data) { //선택시 입력값 세팅
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-                    document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                    document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-                }
-            }).open();
-        });
-    }
+                document.getElementById("address_main").value = data.address; // 주소 넣기
+                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+}
+
+    var params = new URLSearchParams(window.location.search);
+    var categorystr = params.get('category');
 
     var category = document.getElementById("category");
     var reviewnum = document.getElementById("reviewnum");
-    var scope = document.getElementById("scope");
+    var score = document.getElementById("score");
     var active = document.getElementById("active");
     var accreq = document.getElementById("accreq");
-    // switch (){
-    //     case :
-    //         category.src = '../img/.png';
-    //         scope.textContent = "";
-    //         active.textContent = "";
-    //         accreq.textContent = "";
-    //         reviewnum.textContent = "";
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    //     case :
-    //         break;
-    // }
+
+    fetch('http://localhost:8080/ohgym/userresp?category=' + categorystr)
+    .then((resp) => resp.json())
+    .then((arr) => {
+        category.src = '../img/' + categorystr + '.png';
+        accreq.textContent = arr[0];
+        score.textContent = "평점: " + arr[1];
+        reviewnum.textContent = arr[2];
+        active.textContent = arr[3];
+        category.textContent = arr[4];
+    }); 
 
     var pagenum = 1;
 
@@ -399,31 +344,87 @@
 
     var prev = document.getElementById("prev");
     var next = document.getElementById("next");
-
+    var pagecheckedtext = document.getElementById("pagecheckedtext");
 
     var textcheckbox = document.getElementById("textcheckbox");
     var inputtext = document.getElementById("inputtext");
+    var inputtextlabel = document.getElementById("inputtextlabel");
     textcheckbox.addEventListener("click", function (e){
         if (textcheckbox.checked) {
             inputtext.style.display = "block";
+            inputtextlabel.style.display = "block";
         } else if (!textcheckbox.checked) {
             inputtext.style.display = "none";
+            inputtextlabel.style.display = "none";
+        }
+    });
+
+
+    var address_main = document.getElementById("address_main");
+    var address_detail = document.getElementById("address_detail");
+    address_detail.addEventListener('input', function() {
+        let text = this.value;
+        if (text.length > 40) {
+            this.value = text.slice(0, 40);
+        }
+        let nottext = /[\\/()\{\}\[\]'"`]/g;
+        if (nottext.test(text)) {
+            this.value = text.replace(nottext, '');
         }
     });
 
     var textcheckbox2 = document.getElementById("textcheckbox2");
     var inputtext2 = document.getElementById("inputtext2");
+    var inputtextlabel2 = document.getElementById("inputtextlabel2");
     textcheckbox2.addEventListener("click", function (e){
         if (textcheckbox2.checked) {
             inputtext2.style.display = "block";
+            inputtextlabel2.style.display = "block";
         } else if (!textcheckbox2.checked) {
             inputtext2.style.display = "none";
+            inputtextlabel2.style.display = "none";
         }
     });
-    
-    
+
+    inputtext.addEventListener('input', function() {
+        let text = this.value;
+        if (text.length > 40) {
+            this.value = text.slice(0, 40);
+        }
+        let nottext = /[\\/()\{\}\[\]'"`]/g;
+        if (nottext.test(text)) {
+            this.value = text.replace(nottext, '');
+        }
+    });
+
+    inputtext2.addEventListener('input', function() {
+        let text = this.value;
+        if (text.length > 40) {
+            this.value = text.slice(0, 40);
+        }
+        let nottext = /[\\/()\{\}\[\]'"`]/g;
+        if (nottext.test(text)) {
+            this.value = text.replace(nottext, '');
+        }
+    });
+
+    var reqtext = document.getElementById("reqtext");
+    reqtext.addEventListener('input', function() {
+        let text = this.value;
+        if (text.length > 200) {
+            this.value = text.slice(0, 200);
+        }
+        let nottext = /[\\/()\{\}\[\]'"`]/g;
+        if (nottext.test(text)) {
+            this.value = text.replace(nottext, '');
+        }
+    });
 
     prev.addEventListener("click", function(e){
+        if (pagenum > 1){
+            pagecheckedtext.textContent = '한 개 이상의 항목을 선택해주세요. ';
+            pagecheckedtext.style.color = "lightgray";
+        }
         switch (pagenum) {
             case 1:
                 break;
@@ -459,6 +460,8 @@
                 break;
             case 8:
                 question.textContent = '지역을 선택해주세요';
+                pagecheckedtext.textContent = '주소 및 세부 주소를 입력해주세요. ';
+                pagecheckedtext.style.display = "block";
                 page7.style.display = "block";
                 page8.style.display = "none";
                 break;
@@ -471,54 +474,150 @@
             progresslbl.textContent = pagenum + '/8';
         }
     });
+
     next.addEventListener("click", function(e){
-        switch (pagenum) {
-            case 1:
-                question.textContent = '어떤 형태의 레슨을 원하시나요?';
-                page1.style.display = "none";
-                page2.style.display = "block";
+        let pagecheckboxes = document.querySelectorAll('#page' + pagenum + ' input[type="checkbox"]');
+        let isChecked = false;
+        for (let i = 0; i < pagecheckboxes.length; i++) {
+            if (pagecheckboxes[i].checked) {
+                isChecked = true;
                 break;
-            case 2:
-                question.textContent = '가능한 요일을 모두 선택해주세요';
-                page2.style.display = "none";
-                page3.style.display = "block";
-                break;
-            case 3:
-                question.textContent = '희망하는 시간대를 선택해주세요';
-                page3.style.display = "none";
-                page4.style.display = "block";
-                break;
-            case 4:
-                question.textContent = '레슨생의 성별을 선택해주세요';
-                page4.style.display = "none";
-                page5.style.display = "block";
-                break;
-            case 5:
-                question.textContent = '레슨생의 연령대를 선택해주세요';
-                page5.style.display = "none";
-                page6.style.display = "block";
-                break;
-            case 6:
-                question.textContent = '지역을 선택해주세요';
-                page6.style.display = "none";
-                page7.style.display = "block";
-                break;
-            case 7:
-                question.textContent = '희망사항을 입력해주세요';
-                page7.style.display = "none";
-                page8.style.display = "block";
-                break;
-            case 8:
-                // href
-                break;
-            default:
-                break;
+            }
         }
-        if (pagenum <= 7){
-            pagenum++;
-            progress.value = pagenum;
-            progresslbl.textContent = pagenum + '/8';
+
+        let page1checkboxes = document.querySelectorAll('#page1 input[type="checkbox"]');
+        if (pagenum == 1){
+            page1checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    if (checkbox.nextElementSibling.textContent == "기타") {
+                        if (!inputtext.value > 0) {
+                            isChecked = false;
+                            pagecheckedtext.textContent = '입력칸에 내용을 입력해주세요. ';
+                        }
+                    }
+                }
+            });
+        }
+        let page2checkboxes = document.querySelectorAll('#page2 input[type="checkbox"]');
+        if (pagenum == 2){
+            page2checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    if (checkbox.nextElementSibling.textContent == "기타") {
+                        if (!inputtext2.value > 0) {
+                            isChecked = false;
+                            pagecheckedtext.textContent = '입력칸에 내용을 입력해주세요. ';
+                        }
+                    }
+                }
+            });
+        }
+
+        if (isChecked || (pagenum == 8 || (pagenum == 7 && address_detail.value.length > 0 && address_main.value.length > 0))) {
+            pagecheckedtext.textContent = '한 개 이상의 항목을 선택해주세요. ';
+            pagecheckedtext.style.color = "lightgray";
+            switch (pagenum) {
+                case 1:
+                    question.textContent = '어떤 형태의 레슨을 원하시나요?';
+                    page1.style.display = "none";
+                    page2.style.display = "block";
+                    break;
+                case 2:
+                    question.textContent = '가능한 요일을 모두 선택해주세요';
+                    page2.style.display = "none";
+                    page3.style.display = "block";
+                    break;
+                case 3:
+                    question.textContent = '희망하는 시간대를 선택해주세요';
+                    page3.style.display = "none";
+                    page4.style.display = "block";
+                    break;
+                case 4:
+                    question.textContent = '레슨생의 성별을 선택해주세요';
+                    page4.style.display = "none";
+                    page5.style.display = "block";
+                    break;
+                case 5:
+                    question.textContent = '레슨생의 연령대를 선택해주세요';
+                    page5.style.display = "none";
+                    page6.style.display = "block";
+                    break;
+                case 6:
+                    question.textContent = '지역을 선택해주세요';
+                    pagecheckedtext.textContent = '주소 및 세부 주소를 입력해주세요. ';
+                    page6.style.display = "none";
+                    page7.style.display = "block";
+                    break;
+                case 7:
+                    question.textContent = '희망사항을 입력해주세요';
+                    pagecheckedtext.style.display = "none";
+                    page7.style.display = "none";
+                    page8.style.display = "block";
+                    break;
+                case 8:
+                    if (confirm("요청서를 제출하시겠습니까?")) {
+                        let reqcheckboxes = document.querySelectorAll('input[type="checkbox"]');
+                        let reqarr = [];
+
+                        reqcheckboxes.forEach((checkbox) => {
+                            if (checkbox.checked) {
+                                if (checkbox.nextElementSibling.textContent == "기타") {
+                                    if (reqarr.length < 9) {
+                                        if (inputtext.value != ('')){
+                                            reqarr.push(inputtext.value);
+                                        } else {
+                                            reqarr.push(null);
+                                        }
+                                    } else {
+                                        if (inputtext2.value != ('')){
+                                            reqarr.push(inputtext2.value);
+                                        } else {
+                                            reqarr.push(null);
+                                        }
+                                    }
+                                } else {
+                                    reqarr.push(checkbox.nextElementSibling.textContent);
+                                }
+                            } else {
+                                reqarr.push(null);
+                            }
+                        });
+
+                        if ((address_main.value + address_detail.value) != ('')){
+                            reqarr.push(address_main.value + address_detail.value);
+                        } else {
+                            reqarr.push(null);
+                        } 
+                        if (reqtext.value != ('')) {
+                            reqarr.push(reqtext.value);
+                        } else {
+                            reqarr.push(null);
+                        }
+
+                        reqarr.push(categorystr);
+
+                        let reqdata = JSON.stringify(reqarr);
+                        fetch('http://localhost:8080/ohgym/userreq', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: reqdata
+                        });
+                        location.href = "http://localhost:5500/front/html/mainPage.html";
+                    } else {
+                    }
+                    break;
+                default:
+                    break;
+            }
+            if (pagenum <= 7){
+                pagenum++;
+                progress.value = pagenum;
+                progresslbl.textContent = pagenum + '/8';
+            }
+        } else {
+            pagecheckedtext.style.color = "red";
         }
     });
-</script>    
+</script>
 </html>
