@@ -75,14 +75,18 @@ img, fieldset {
 }
 
 /* header */
+/* * {
+    border: 1px solid;
+} */
 header {
     text-align: center;
     top: 0;
     border-bottom: 1px solid #eee;
     position: sticky;
     background-color: white;
+    font-size: 14px;
 }
-a > img {
+#logo > a > img {
     height: 30px; 
 }
 #menu-bar, #login {
@@ -90,7 +94,6 @@ a > img {
 }
 #menu-bar > a, #login > a {
     margin: 6px 12px;
-    font-size: 13px;
     color: black;
     font-weight: 500;
     display: inline-block;
@@ -99,7 +102,7 @@ a > img {
     margin-right: 12px;
 }
 #menu-bar > input {
-    padding: 4px 6px 3px 5px;
+    padding: 4px 6px 3px 8px;
     border: 0.5px solid #c6c6c6;
     background-color: #f3f3f3;
     border-radius: 0.6em;
@@ -109,18 +112,21 @@ a > img {
     color: #666;
 }
 #login {
+    padding: 0;
     float: right;
 }
 #teacher-join {
+    display: inline-block;
+}
+#teacher-join > a {
     color: white;
     border: none;
-    margin-top: 0;
     margin-left: 15px;
     background-color: rgb(51, 180, 153); 
-    border-radius: 0.9em; 
-    padding: 0.5em 0.9em;
+    border-radius: 0.8em; 
+    padding: 0.8em 0.9em;
 }
-#teacher-join:hover {
+#teacher-join > a:hover {
     background-color: rgb(91, 206, 184);
     cursor: pointer;
 }
