@@ -59,7 +59,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 		String sql = "select * from teacher_exercise as A" 
 				+ " left outer join teacher_introduction as B on A.id = B.id"
 				+ " left outer join exercise_type as C on A.exercise_type = C.no"
-				+ " left outer join teacher_service as D on A.no = D.teacher_no" + " where A.id = " + id + ";";
+				+ " left outer join teacher_service as D on A.no = D.teacher_no" + " where A.id = '" + id + "';";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {

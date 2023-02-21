@@ -104,10 +104,7 @@ modifyArr.forEach((elem) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(profile),
-      })
-        .then((resp) => resp.json())
-        .then((profile) => console.log(profile))
-        .catch((error) => console.log(error));
+      });
     }
   });
 });
