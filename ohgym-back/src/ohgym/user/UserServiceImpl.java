@@ -34,4 +34,25 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
+	@Override
+	public int updateUser(User user) {
+		
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.update(conn,user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+
 }

@@ -1,5 +1,6 @@
 package ohgym.user;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ohgym.teacher.TeacherDAOImpl;
+import ohgym.teacher.TeacherProfile;
 import ohgym.teacher.TeacherService;
 import ohgym.teacher.TeacherServiceImpl;
 
@@ -42,4 +44,24 @@ public class UserChangeServlet extends HttpServlet {
 		pw.flush();
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = reader.readLine()) != null) {
+			sb.append(line);
+		}
+		ObjectMapper mapper = new ObjectMapper();
+		String strUser = sb.toString();
+		
+		User user = mapper.readValue(strUser, User.class);
+		UserService service = new UserServiceImpl(new UserDAOImpl());
+		int check = service.updateUser(user);
+		
+		PrintWriter pw = resp.getWriter();
+		resp.getWriter().print(check);
+		pw.flush();
+			
+	}
 }

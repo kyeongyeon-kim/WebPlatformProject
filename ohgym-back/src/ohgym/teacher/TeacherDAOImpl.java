@@ -16,9 +16,8 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public List<TeacherProfile> readTeacherProfile(Connection conn) {
 		String sql = "select * from teacher_exercise as A" + 
 				" left outer join teacher_introduction as B on A.id = B.id" + 
-				" left outer join teacher_image as C on A.id = C.id" + 
-				" left outer join exercise_type as D on A.exercise_type = D.no" + 
-				" left outer join teacher_service as E on A.no = E.teacher_no;";
+				" left outer join exercise_type as C on A.exercise_type = C.no" + 
+				" left outer join teacher_service as D on A.no = D.teacher_no;";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); 
 				ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
@@ -60,10 +59,10 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public List<TeacherProfile> readTeacherProfileById(Connection conn, String id) {
-		String sql = "select * from teacher_exercise as A" + " left outer join teacher_introduction as B on A.id = B.id"
-				+ " left outer join teacher_image as C on A.id = C.id"
-				+ " left outer join exercise_type as D on A.exercise_type = D.no"
-				+ " left outer join teacher_service as E on A.no = E.teacher_no" + " where A.id = " + id + ";";
+		String sql = "select * from teacher_exercise as A" 
+				+ " left outer join teacher_introduction as B on A.id = B.id"
+				+ " left outer join exercise_type as C on A.exercise_type = C.no"
+				+ " left outer join teacher_service as D on A.no = D.teacher_no" + " where A.id = " + id + ";";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
@@ -86,11 +85,10 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public int updateTeacherProfile(Connection conn, TeacherProfile profile) {
 		String sql = "UPDATE teacher_exercise as A" + 
 				" left outer join teacher_introduction as B on A.id = B.id" + 
-				" left outer join teacher_image as C on A.id = C.id" + 
-				" left outer join exercise_type as D on A.exercise_type = D.no" + 
-				" left outer join teacher_service as E on A.no = E.teacher_no" + 
+				" left outer join exercise_type as C on A.exercise_type = C.no" + 
+				" left outer join teacher_service as D on A.no = D.teacher_no" + 
 				" SET B.appeal = ?, B.contact_time = ?, A.exercise_type = ?," + 
-				" E.introduction = ?, E.center_name = ?, E.location = ?, E.career = ?" + 
+				" D.introduction = ?, D.center_name = ?, D.location = ?, D.career = ?" + 
 				" WHERE A.id = ?";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setString(1, profile.getAppeal());
