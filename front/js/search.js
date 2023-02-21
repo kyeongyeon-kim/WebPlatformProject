@@ -11,10 +11,7 @@ function onload(e) {
     });
 }
 
-let container = document.getElementById("profile-container");
-let template = document.getElementById("profile-temp");
 let objArr = [];
-
 function makeObj(element) {
     let myObj = {}; 
     myObj.id = element.id;
@@ -30,53 +27,88 @@ function makeObj(element) {
 }
 
 function fillProfile(element) {
+    let container = document.getElementById("profile-container");
+    let template = document.getElementById("profile-temp");
     let p = document.importNode(template.content, true);
     let pId = p.querySelector("h3");
     pId.innerText = element.id;
-
     let pAppeal = p.querySelector("#appeal");
     pAppeal.innerText = element.appeal;
-
     let pIntroduction = p.querySelector("#introduction");
-    pIntroduction.innerText = "서비스 소개 : " + element.introduction;
-
+    pIntroduction.innerText = element.introduction;
     let pContactTime = p.querySelector("#contactTime");
-    pContactTime.innerText = "연락 가능 시간 : " + element.contactTime;
-
+    pContactTime.innerText = element.contactTime; 
+    let pCenterLocation = p.querySelector("#centerLocation");
+    pCenterLocation.innerText = element.location; 
+    let pImage = p.querySelector("#image");
+    pImage.src = element.image;
+    let profile = p.querySelector(".profile");
+    profile.id = element.id + element.exercise;
     container.append(p);
 }
 
-
 let type = document.getElementById("type");
 type.addEventListener("change", choiceType);
-
 function choiceType() {
-    
-    console.log("이벤트");
     let selectType = type.options[type.selectedIndex].text;
     console.log(selectType);
-    console.log("0" + objArr[0].id);
-    console.log("1" + objArr[1].id);
-    console.log("2" + objArr[2].id);
-    console.log("5" + objArr[5].id);
-    console.log(objArr[2]);
-    console.log("배열길이" + objArr.length);
-    // objArr.forEach(myObj => {
-    //     if (selectType === myObj.exercise) {
-    //         // template.style.display ='none';
-    //         console.log(myObj.id + myObj.exercise);
-    //     }
-    // })
-    
+    objArr.forEach(myObj => {
+        let profile = document.getElementById(myObj.id + myObj.exercise);
+        if (selectType == myObj.exercise) {
+            profile.style.display = "block";
+        } else if (selectType == "서비스 선택") {
+            profile.style.display = "block";
+        } else {
+            profile.style.display = "none";
+        }
+    })
 }
 
+let area = document.getElementById("area");
+area.addEventListener("change", choiceArea);
+function choiceArea() {
+    let selectArea = area.options[area.selectedIndex].text;
+    console.log(selectArea);
+    objArr.forEach(myObj => {
+        let centerArea = myObj.location;
+        let trueArea = centerArea.search(selectArea)
+        let profile = document.getElementById(myObj.id + myObj.exercise);
+        console.log(trueArea);
+        if (trueArea == 0) {
+            profile.style.display = "block";
+        } else if (selectArea == "지역") {
+            profile.style.display = "block";
+        } else {
+            profile.style.display = "none";
+        }
+    })
+}
 
-// function start() {
-//     // objArr = onload();
-//     // choiceType(onload());
-//     onload().then((arr) => {
-//         console.log("여기여깅" + arr.length);
-//         choiceType(arr);
+let searchBtn = document.getElementById("search-btn");
+searchBtn.addEventListener("click", searchInput);
+function searchInput() {
+    let text = getInput();
+    objArr.forEach(myObj => {
+        let match = JSON.stringify(myObj).search(text)
+        console.log(match);
+        let profile = document.getElementById(myObj.id + myObj.exercise);
+        if (match == -1) {
+            profile.style.display = "none";
+        } else {
+            profile.style.display = "block";
+        }
+    })
+}
+let input = document.getElementById("search");
+input.addEventListener("change", getInput);
+input.addEventListener("keydown", function(){
+    if (window.event.keyCode == 13) {
+        searchInput();
+    }
+});
+function getInput() {
+    input = document.getElementById("search").value;
+    console.log(input);
+    return input;
+}
 
-//     })
-// }
