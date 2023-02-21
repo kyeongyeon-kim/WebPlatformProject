@@ -4,7 +4,7 @@ package ohgym.teacher;
 import java.net.URL;
 
 public class TeacherProfile {
-	private String id;
+	private int id;
 	private String appeal;
 	private String contactTime;
 	private String exercise;
@@ -15,7 +15,7 @@ public class TeacherProfile {
 	private String image;
 	
 	public TeacherProfile() {}
-	public TeacherProfile(String id, String appeal, String contactTime, String exercise, String introduction,
+	public TeacherProfile(int id, String appeal, String contactTime, String exercise, String introduction,
 			String centerName, String location, String career, String image) {
 		super();
 		this.id = id;
@@ -28,10 +28,10 @@ public class TeacherProfile {
 		this.career = career;
 		this.image = image;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getAppeal() {

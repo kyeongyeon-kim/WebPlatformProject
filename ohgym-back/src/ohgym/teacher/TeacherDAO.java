@@ -25,4 +25,8 @@ public interface TeacherDAO {
 	
 	// TeacherProfile 삭제하기
 	int deleteTeacherProfile(Connection conn, String id, String type);
+	
+	// etc
+	String convertExerciseTypeToExercise(Connection conn, String exerciseType);
+	String convertExerciseToExerciseType(Connection conn, String exercise);
 }

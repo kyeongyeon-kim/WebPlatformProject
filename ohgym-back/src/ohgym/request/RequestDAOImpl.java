@@ -7,8 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestDAOImpl implements RequestDAO {
+import ohgym.teacher.TeacherDAO;
+import ohgym.teacher.TeacherDAOImpl;
+import ohgym.teacher.TeacherService;
+import ohgym.teacher.TeacherServiceImpl;
 
+public class RequestDAOImpl implements RequestDAO {
+	
 	@Override
 	public List<Request> selectRequest(Connection conn) throws SQLException {
 		String sql = "SELECT * FROM request";
@@ -35,7 +40,7 @@ public class RequestDAOImpl implements RequestDAO {
 	
 	private Request resultMapping(ResultSet rs) throws SQLException {
 		Request request = new Request();
-		request.setNo(rs.getString("no"));
+		request.setNo(rs.getInt("no"));
 		request.setId(rs.getString("user_id"));
 		request.setExerciseType(rs.getString("exercise_type"));
 		request.setRequestDate(rs.getString("request_date"));

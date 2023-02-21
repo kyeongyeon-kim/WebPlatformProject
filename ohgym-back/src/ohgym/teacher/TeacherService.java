@@ -10,4 +10,7 @@ public interface TeacherService {
 	// (U)teacher_profile
 	int updateTeacherProfile(TeacherProfile teacherProfile);
 	
+	// etc
+	String convertExerciseTypeToExercise(String exerciseType);
+	String convertExerciseToExerciseType(String exercise);
 }

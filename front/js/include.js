@@ -25,6 +25,11 @@ function includeHTML(callback) {
       };
       xhr.open("GET", file, true);
       xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+      xhr.setRequestHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PUT, DELETE"
+      );
+      xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
       xhr.send();
       /*exit the function:*/
       return;
