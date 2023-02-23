@@ -132,3 +132,10 @@
     background-size: cover;
     background-position: 50% 50%;
 }
+
+#profile-time {
+    background-color: #eafaf9;
+    border: none;
+    font-size: 1.2rem;
+    
+}
