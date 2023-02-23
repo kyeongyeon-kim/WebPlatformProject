@@ -136,8 +136,6 @@
 #services {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    margin-left: 5%;
     flex-direction: row;
     justify-content: center;
 }
