@@ -1,5 +1,6 @@
 // 로그인 사용자 값 불러오기
 var profile;
+let profileImage = document.getElementById("profile-image");
 window.addEventListener("load", (e) => {
   fetch("http://localhost:8080/ohgym/profile")
     .then((resp) => resp.json())
@@ -17,6 +18,7 @@ window.addEventListener("load", (e) => {
         image,
       } = profile;
       userId.innerText = id + " 근선생님!";
+      profileImage.setAttribute("src", image);
 
       let attr = [
         appeal,

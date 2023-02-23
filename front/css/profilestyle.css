@@ -17,16 +17,22 @@
 
 #welcome {
     margin: 0 0 0 10%;
-    display: inline-block;
-    width: 25%;
+    display: flex;
+    width: 35%;
     background-color: #00c7ae;
-    padding: 15px 5px;
+    padding: 5px;
     color: white;
-    border-radius: 25px;
+    border-radius: 15px;
     text-align: center;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#welcome > p {
+#welcome div:nth-child(2) {
+    margin-right: 20px;
+}
+
+#welcome div > p {
     font-size: 25px;
 }
 
@@ -97,4 +103,32 @@
 .info-comp > article > p {
     margin-top: 5px;
     color: #00c7ae;
+}
+
+#image-background {
+    display: inline-block;
+    width: 8.5rem;
+    height: 8.5rem;
+    background-color: white;
+    border-radius: 15px;
+}
+
+/* #image-icon {
+    position: absolute;
+    width: 1.875rem;
+    height: 1.875rem;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjMDBDN0FFIiBkPSJNMTkgMzBIMFYxMUMwIDQuOTI1IDQuOTI1IDAgMTEgMGgxOXYxOWMwIDYuMDc1LTQuOTI1IDExLTExIDExeiIvPjxwYXRoIGQ9Ik01IDI1aDIwVjVINXoiLz48cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTkuNDExIDEwLjc0TDE3LjU1NSA4aC01LjExbC0xLjg1NyAyLjc0SDdWMjBoMTZ2LTkuMjZ6Ii8+PHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE3LjUgMTQuNzVhMi4yNSAyLjI1IDAgMTEtNC41IDAgMi4yNSAyLjI1IDAgMDE0LjUgMHoiLz48L2c+PC9zdmc+) no-repeat;
+    cursor: pointer;
+} */
+
+#profile-image {
+    border-radius: 0.75rem;
+    padding: 0;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: 50% 50%;
 }
