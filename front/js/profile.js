@@ -19,10 +19,9 @@ window.addEventListener("load", (e) => {
       } = profile;
       userId.innerText = id + " 근선생님!";
       profileImage.setAttribute("src", image);
-
+      stringToTime();
       let attr = [
         appeal,
-        contactTime,
         exercise,
         introduction,
         centerName,
@@ -30,11 +29,9 @@ window.addEventListener("load", (e) => {
         career,
         image,
       ];
-
       for (let i = 0; i < valuesArr.length; i++) {
         let elem = valuesArr[i];
-        let attrItem = attr[i];
-        elem.innerText = attrItem;
+        elem.innerText = attr[i];
       }
     })
     .catch();
@@ -46,10 +43,11 @@ let values = document.querySelectorAll(".value");
 let comps = document.querySelectorAll("#comps > .info-comp");
 let template = document.getElementById("input-form");
 let modifyArr = [...modify];
+modifyArr.splice(1, 1);
 let valuesArr = [...values];
 let keys = [
   "appeal",
-  "contactTime",
+  // "contactTime",
   "exercise",
   "introduction",
   "centerName",
@@ -58,6 +56,7 @@ let keys = [
   "image",
 ];
 let compsArr = [...comps];
+compsArr.splice(1, 1);
 let value = [];
 let input;
 
@@ -66,7 +65,7 @@ modifyArr.forEach((elem) => {
     let index = modifyArr.indexOf(elem);
     let modifyStr = modifyArr[index].innerText;
     let valueText = valuesArr[index].innerText;
-    if (modifyStr !== "저장") {
+    if (modifyStr !== "저장") { // 수정할때
       modifyArr[index].innerText = "저장";
       modifyArr[index].style.color = "RED";
 
@@ -76,11 +75,9 @@ modifyArr.forEach((elem) => {
       value[index] = valuesArr[index];
       valuesArr[index].remove();
       input.value = valueText;
-      comps[index].append(importTemplate);
-    } else {
-      let article = document.querySelector(
-        "#comps > .info-comp:nth-child(" + (index + 1) + ") > article"
-      );
+      compsArr[index].append(importTemplate);
+    } else { // 저장하기
+      let article = compsArr[index].lastElementChild;
       article.remove();
 
       let className = modifyArr[index].getAttribute("class");
@@ -117,28 +114,61 @@ function updateProfile(index) {
       profile.appeal = input.value;
       break;
     case 1:
-      profile.contactTime = input.value;
-      break;
-    case 2:
       profile.exercise = input.value;
       break;
-    case 3:
+    case 2:
       profile.introduction = input.value;
       break;
-    case 4:
+    case 3:
       profile.centerName = input.value;
       break;
-    case 5:
+    case 4:
       profile.location = input.value;
       break;
-    case 6:
+    case 5:
       profile.career = input.value;
       break;
-    case 7:
+    case 6:
       profile.image = input.value;
       break;
 
     default:
       break;
   }
+}
+
+// 시간 저장하는 이벤트 처리
+let timeSave = document.getElementById("time-save");
+timeSave.addEventListener("click", changeTimeSave);
+
+function changeTimeSave() {
+  timeSave.innerText = "저장완료";
+  profile.contactTime = timeToString();
+      fetch("http://localhost:8080/ohgym/profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(profile),
+      });
+}
+let infoContactTime = document.getElementById("info-contactTime");
+infoContactTime.addEventListener("change", function(e) {
+  timeSave.innerText = "저장";
+})
+// 시간 변환
+function timeToString() {
+  let startTime = document.getElementById("start-time");
+  let endTime = document.getElementById("end-time");
+  let profileTime = startTime.value + "-" + endTime.value;
+  return profileTime;
+}
+function stringToTime() {
+  let arr = profile.contactTime.split("-");
+  let start = arr[0];
+  let end = arr[1];
+  let startTime = document.getElementById("start-time");
+  startTime.value = start;
+  let endTime = document.getElementById("end-time");
+  endTime.value = end;
 }
