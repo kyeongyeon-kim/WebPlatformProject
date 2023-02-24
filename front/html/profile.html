@@ -18,7 +18,7 @@
         <section id="profile-overview">
           <section id="welcome">
             <div id="image-background">
-              <img id="profile-image" src="" /><span id="image-icon"></span>
+              <img id="profile-image" src="" /><label for="image-input" id="image-icon"></label><input type="file" id="image-input" style="display: none;" accept=".jpg,.jpeg,.png"></label></span>
             </div>
             <div>
               <p id="userId"></p>
@@ -77,18 +77,18 @@
               <div class="registering">등록하기</div>
             </div>
             <div class="value">
-              <ul id="services">
-                <li><button class="service-btn">퍼스널트레이닝</button></li>
-                <li><button class="service-btn">크로스핏</button></li>
-                <li><button class="service-btn">필라테스</button></li>
-                <li><button class="service-btn">요가</button></li>
-                <li><button class="service-btn">클라이밍</button></li>
-                <li><button class="service-btn">스피닝</button></li>
-                <li><button class="service-btn">발레</button></li>
-                <li><button class="service-btn">수영</button></li>
-                <li><button class="service-btn">헬스</button></li>
-                <li><button class="service-btn">기타</button></li>
-              </ul>
+              <div id="services">
+                <label class="service-btn"><input type="radio" name="service-btn"> 퍼스널트레이닝</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 필라테스</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 요가</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 클라이밍</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 스피닝</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 크로스핏</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 발레</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 수영</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 헬스</input></label>
+                <label class="service-btn"><input type="radio" name="service-btn"> 기타</input></label>
+              </div>
             </div>
           </article>
           <article class="info-comp">
@@ -146,5 +146,5 @@
   <script>
     includeHTML();
   </script>
-  <script src="../js/profile.js"></script>
+  <!-- <script src="../js/profile.js"></script> -->
 </html>

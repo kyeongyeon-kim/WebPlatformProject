@@ -1,5 +1,5 @@
 // 로그인 사용자 값 불러오기
-var profile;
+let profile;
 let profileImage = document.getElementById("profile-image");
 window.addEventListener("load", (e) => {
   fetch("http://localhost:8080/ohgym/profile")
@@ -141,4 +141,11 @@ function updateProfile(index) {
     default:
       break;
   }
+}
+
+// 사진 바꾸기 로직
+let imageIcon = document.getElementById("image-input");
+imageIcon.addEventListener("change", changeImage);
+function changeImage() {
+  console.log(this.value);
 }
