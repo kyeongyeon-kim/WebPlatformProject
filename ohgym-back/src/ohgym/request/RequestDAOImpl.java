@@ -26,7 +26,7 @@ public class RequestDAOImpl implements RequestDAO {
 	public List<Request> selectRequestById(Connection conn, String id) throws SQLException {
 		String sql = "select * from request as A" 
 				+ " left outer join exercise_type as B on A.exercise_type = B.no"
-				+ " WHERE id = '" + id + "';";
+				+ " WHERE user_id = '" + id + "';";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<Request> list = new ArrayList<>();
 			while (rs.next()) {
