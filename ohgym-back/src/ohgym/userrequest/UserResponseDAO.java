@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import ohgym.dbutil.ConnectionProvider;
 
 public class UserResponseDAO {
-	// Ä«Å×°í¸® 
+	// ì¢…ëª©ëª…
 	public String categoryName(String str) {
-		String sql = "SELECT exercise FROM exercise_type WHERE no = " + str;
+		String sql = "SELECT exercise FROM exercise_type WHERE no = '" + str + "'";
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)){
 			ResultSet rs = stmt.executeQuery();
@@ -23,9 +23,9 @@ public class UserResponseDAO {
 		return null;
 	}
 	
-	// º°Á¡
+	// í‰ê·  í‰ì 
 	public String scoreNum(String str) {
-		String sql = "SELECT avg(score) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = " + str + ")";
+		String sql = "SELECT avg(score) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = '" + str + "')";
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)){
 			ResultSet rs = stmt.executeQuery();
@@ -38,9 +38,9 @@ public class UserResponseDAO {
 		return null;
 	}
 	
-	// ¿äÃ»¼­ ¼ö
+	// ëˆ„ì  ìš”ì²­ì„œ
 	public String requestNum(String str) {
-		String sql = "SELECT count(*) FROM request WHERE exercise_type = " + str;
+		String sql = "SELECT count(*) FROM request WHERE exercise_type = '" + str + "'";
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)){
 			ResultSet rs = stmt.executeQuery();
@@ -53,9 +53,9 @@ public class UserResponseDAO {
 		return null;
 	}
 	
-	// ¼±»ı ¼ö
+	// í™œë™ ì„ ìƒ ìˆ˜
 	public String activeNum(String str) {
-		String sql = "SELECT count(*) FROM teacher_exercise WHERE exercise_type = " + str;
+		String sql = "SELECT count(*) FROM teacher_exercise WHERE exercise_type = '" + str + "'";
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)){
 			ResultSet rs = stmt.executeQuery();
@@ -68,9 +68,9 @@ public class UserResponseDAO {
 		return null;
 	}
 	
-	// ¸®ºä ¼ö
+	// ë¦¬ë·° ìˆ˜
 	public String reviewNum(String str) {
-		String sql = "SELECT count(*) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = " + str + ")";
+		String sql = "SELECT count(*) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = '" + str + "')";
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)){
 			ResultSet rs = stmt.executeQuery();
