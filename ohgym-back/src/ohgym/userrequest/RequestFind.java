@@ -22,15 +22,15 @@ public class RequestFind {
 	}
 
 	public void request(int requestAnswerNo) {
-		String sql = "SELECT * FROM request JOIN request_answer ON request.request_no = request_answer.request_no WHERE request_answer.no = " + requestAnswerNo;
-
+		String sql = "SELECT * FROM request INNER JOIN exercise_type ON request.exercise_type = exercise_type.no"
+		+ " INNER JOIN request_answer ON request.request_no = request_answer.request_no WHERE request_answer.no = " +requestAnswerNo;
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				request_no = rs.getInt("request_no");
+				request_no = rs.getInt("request.request_no");
 				user_id = rs.getString("user_id");
-				exercise_type = rs.getString("exercise_type");
+				exercise_type = rs.getString("exercise_type.exercise");
 				request_date = rs.getString("request_date");
 				deadline_date = rs.getString("deadline_date");
 				message = rs.getString("message");

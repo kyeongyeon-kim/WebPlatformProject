@@ -42,10 +42,10 @@ public class UserRequestDAO {
 	public void requestAnswerAddData(String[] arr) {
 		String number = null;
 		try (Connection conn = ConnectionProvider.getConnection();
-				PreparedStatement stmt = conn.prepareStatement("SELECT no FROM request ORDER BY no DESC LIMIT 1")){
+				PreparedStatement stmt = conn.prepareStatement("SELECT request_no FROM request ORDER BY request_no DESC LIMIT 1")){
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				number = rs.getString("no");
+				number = rs.getString("request_no");
 			}
 			stmt.executeQuery();
 		} catch (SQLException e) {
@@ -73,6 +73,7 @@ public class UserRequestDAO {
 			}
 			if (!arr[i].equals("null")) {
 				sql = "INSERT INTO request_answer (request_no, question, answer) VALUES ("+ number + ", " + page + ", '"+ arr[i] + "');";
+				System.out.println(sql);
 				requestAnswerAddData(sql);
 			}
 		}
