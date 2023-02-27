@@ -100,7 +100,7 @@
     border-radius: 0.25rem;
 }
 
-.info-comp > article > p {
+.info-comp > div > p {
     margin-top: 5px;
     color: #00c7ae;
 }
@@ -191,4 +191,8 @@ input[type="radio"]:checked + label {
 
 #input-detailed-address {
     width: auto;
+}
+
+#input-career {
+    width: 50%;
 }
