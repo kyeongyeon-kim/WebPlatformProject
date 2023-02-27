@@ -6,29 +6,12 @@ window.addEventListener("load", (e) => {
     .then((resp) => resp.json())
     .then((profile) => {
       this.profile = profile;
-      let {
-        id,
-        appeal,
-        contactTime,
-        exercise,
-        introduction,
-        centerName,
-        location,
-        career,
-        image,
-      } = profile;
+      let { id, appeal, introduction, centerName, location, career, image } =
+        profile;
       userId.innerText = id + " 근선생님!";
       profileImage.setAttribute("src", image);
       stringToTime();
-      let attr = [
-        appeal,
-        exercise,
-        introduction,
-        centerName,
-        location,
-        career,
-        image,
-      ];
+      let attr = [appeal, introduction, centerName, location, career, image];
       for (let i = 0; i < valuesArr.length; i++) {
         let elem = valuesArr[i];
         elem.innerText = attr[i];
@@ -43,20 +26,10 @@ let values = document.querySelectorAll(".value");
 let comps = document.querySelectorAll("#comps > .info-comp");
 let template = document.getElementById("input-form");
 let modifyArr = [...modify];
-modifyArr.splice(1, 1);
+modifyArr.splice(1, 2);
 let valuesArr = [...values];
-let keys = [
-  "appeal",
-  // "contactTime",
-  "exercise",
-  "introduction",
-  "centerName",
-  "location",
-  "career",
-  "image",
-];
 let compsArr = [...comps];
-compsArr.splice(1, 1);
+compsArr.splice(1, 2);
 let value = [];
 let input;
 
@@ -65,7 +38,8 @@ modifyArr.forEach((elem) => {
     let index = modifyArr.indexOf(elem);
     let modifyStr = modifyArr[index].innerText;
     let valueText = valuesArr[index].innerText;
-    if (modifyStr !== "저장") { // 수정할때
+    if (modifyStr !== "저장") {
+      // 수정할때
       modifyArr[index].innerText = "저장";
       modifyArr[index].style.color = "RED";
 
@@ -76,7 +50,8 @@ modifyArr.forEach((elem) => {
       valuesArr[index].remove();
       input.value = valueText;
       compsArr[index].append(importTemplate);
-    } else { // 저장하기
+    } else {
+      // 저장하기
       let article = compsArr[index].lastElementChild;
       article.remove();
 
@@ -114,21 +89,18 @@ function updateProfile(index) {
       profile.appeal = input.value;
       break;
     case 1:
-      profile.exercise = input.value;
-      break;
-    case 2:
       profile.introduction = input.value;
       break;
-    case 3:
+    case 2:
       profile.centerName = input.value;
       break;
-    case 4:
+    case 3:
       profile.location = input.value;
       break;
-    case 5:
+    case 4:
       profile.career = input.value;
       break;
-    case 6:
+    case 5:
       profile.image = input.value;
       break;
 
@@ -144,18 +116,18 @@ timeSave.addEventListener("click", changeTimeSave);
 function changeTimeSave() {
   timeSave.innerText = "저장완료";
   profile.contactTime = timeToString();
-      fetch("http://localhost:8080/ohgym/profile", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(profile),
-      });
+  fetch("http://localhost:8080/ohgym/profile", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(profile),
+  });
 }
 let infoContactTime = document.getElementById("info-contactTime");
-infoContactTime.addEventListener("change", function(e) {
+infoContactTime.addEventListener("change", function (e) {
   timeSave.innerText = "저장";
-})
+});
 // 시간 변환
 function timeToString() {
   let startTime = document.getElementById("start-time");
@@ -171,4 +143,17 @@ function stringToTime() {
   startTime.value = start;
   let endTime = document.getElementById("end-time");
   endTime.value = end;
+}
+
+// 대표서비스 이벤트 처리
+let services = document.querySelectorAll(".service-btn");
+let servicesArr = [...services];
+console.log(services);
+console.log(servicesArr);
+servicesArr.forEach((elem) => {
+  elem.addEventListener("click", selectedService);
+});
+function selectedService() {
+  console.log(this.innerText);
+  profile.exercise = this.innerText;
 }
