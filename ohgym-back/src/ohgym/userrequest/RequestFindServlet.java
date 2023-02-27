@@ -1,5 +1,6 @@
 package ohgym.userrequest;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -28,11 +29,16 @@ public class RequestFindServlet extends HttpServlet {
 		requestFindList = new ArrayList<>();
 		requestAnswerNoList = new ArrayList<>();
 		
-//		user_id받기
-		String user_id = "1";
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = reader.readLine()) != null) {
+			sb.append(line);
+		}
+		String user_id = sb.toString();
 		
 		String sql = "SELECT request_answer.no FROM request_answer WHERE request_no IN"
-				+ " (SELECT request_no FROM request WHERE user_id = " + user_id + ")";
+				+ " (SELECT request_no FROM request WHERE user_id = '" + user_id + "')";
 		
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql);) {
@@ -43,37 +49,17 @@ public class RequestFindServlet extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-
 
 		for (int i = 0; i < requestAnswerNoList.size(); i++) {
 			requestFindList.add(new RequestFind((int) requestAnswerNoList.get(i)));
-			System.out.println(requestFindList.get(i).toString());
 		}
 		
-//		ObjectMapper mapper = new ObjectMapper();
-//		
-//		resp.setContentType("application/json");
-//        resp.setCharacterEncoding("UTF-8");
-//        resp.getWriter().write(mapper.writeValueAsString(requestFindList));
-		
-		
-		
-//		String json = null;
-//		
-//		try {
-//			json = mapper.writeValueAsString(requestFindList);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println(json);
-		
-//		requestFindList 보내기
-//		PrintWriter pw = resp.getWriter();
-//		pw.println(json);
-//		pw.flush();
+		ObjectMapper mapper = new ObjectMapper();
+		String json = mapper.writeValueAsString(requestFindList);
+		System.out.println(json);
+		PrintWriter pw = resp.getWriter();
+		pw.println(json);
+		pw.flush();
 		
 	}
-	
 }
