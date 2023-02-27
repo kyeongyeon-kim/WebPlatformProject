@@ -117,8 +117,8 @@
               <div class="modify" id="address-save">저장</div>
             </div>
             <div class="address" id="address">
-              <input type="text" class="location" id="input-address" placeholder="주소를 입력해주세요"/>
-              <input type="text" class="location" id="input-detailed-address" placeholder="상세 주소"/>
+              <input type="text" class="input-style" id="input-address" value="" placeholder="주소를 입력해주세요" readonly/>
+              <input type="text" class="input-style" id="input-detailed-address" value="" placeholder="상세 주소"/>
             </div>
           </article>
           <article class="info-comp">
@@ -126,9 +126,11 @@
               <div>
                 <h2>경력</h2>
               </div>
-              <div class="modify">수정</div>
+              <div class="modify" id="career-save">저장</div>
             </div>
-            <div class="value" id="info-career">5년 6개월</div>
+            <div class="career" id="career">
+              <input class="input-style" id="input-career" type="number" value="" placeholder="마우스 휠로 경력 설정"/>
+            </div>
           </article>
         </section>
       </main>

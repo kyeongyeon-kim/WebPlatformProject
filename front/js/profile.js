@@ -10,6 +10,8 @@ window.addEventListener("load", (e) => {
       userId.innerText = id + " 근선생님!";
       profileImage.setAttribute("src", image);
       stringToTime();
+      stringToAddress();
+      inputCareer.value = profile.career;
       let attr = [appeal, introduction, centerName, career, image];
       for (let i = 0; i < valuesArr.length; i++) {
         let elem = valuesArr[i];
@@ -40,9 +42,11 @@ let template = document.getElementById("input-form");
 let modifyArr = [...modify];
 modifyArr.splice(1, 2);
 modifyArr.splice(2, 1);
+modifyArr.splice(2, 1);
 let valuesArr = [...values];
 let compsArr = [...comps];
 compsArr.splice(1, 2);
+compsArr.splice(3, 1);
 compsArr.splice(3, 1);
 let value = [];
 let input;
@@ -87,13 +91,7 @@ modifyArr.forEach((elem) => {
       console.log(profile);
       console.log(JSON.stringify(profile));
 
-      fetch("http://localhost:8080/ohgym/profile", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(profile),
-      });
+      sendProfile();
     }
   });
 });
@@ -110,9 +108,6 @@ function updateProfile(index) {
       profile.centerName = input.value;
       break;
     case 3:
-      profile.career = input.value;
-      break;
-    case 4:
       profile.image = input.value;
       break;
 
@@ -128,13 +123,7 @@ timeSave.addEventListener("click", changeTimeSave);
 function changeTimeSave() {
   timeSave.innerText = "저장완료";
   profile.contactTime = timeToString();
-  fetch("http://localhost:8080/ohgym/profile", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(profile),
-  });
+  sendProfile();
 }
 let infoContactTime = document.getElementById("info-contactTime");
 infoContactTime.addEventListener("change", function (e) {
@@ -147,6 +136,7 @@ function timeToString() {
   let profileTime = startTime.value + "-" + endTime.value;
   return profileTime;
 }
+
 function stringToTime() {
   let arr = profile.contactTime.split("-");
   let start = arr[0];
@@ -165,6 +155,39 @@ servicesArr.forEach((elem) => {
 });
 function selectedService() {
   profile.exercise = this.innerText;
+  sendProfile();
+}
+
+// 위치 이벤트 처리
+let addressSave = document.getElementById("address-save");
+addressSave.addEventListener("click", changeAddressSave);
+
+function changeAddressSave() {
+  addressSave.innerText = "저장완료";
+  profile.location = addressToString();
+  sendProfile();
+}
+
+// 주소 변환
+function addressToString() {
+  let address = document.getElementById("input-address");
+  let detailedAddress = document.getElementById("input-detailed-address");
+  let profileAddress = address.value + "/" + detailedAddress.value;
+  return profileAddress;
+}
+
+function stringToAddress() {
+  let arr = profile.location.split("/");
+  let address = arr[0];
+  let detailedAddress = arr[1];
+  let inputAddress = document.getElementById("input-address");
+  inputAddress.value = address;
+  let inputDetailedAddress = document.getElementById("input-detailed-address");
+  inputDetailedAddress.value = detailedAddress;
+}
+
+// 프로필 전송
+function sendProfile() {
   fetch("http://localhost:8080/ohgym/profile", {
     method: "POST",
     headers: {
@@ -172,4 +195,28 @@ function selectedService() {
     },
     body: JSON.stringify(profile),
   });
+}
+
+// 경력 이벤트 처리
+let inputCareer = document.getElementById("input-career");
+console.log("inputCareer" + inputCareer.value);
+inputCareer.addEventListener("wheel", (event) => {
+  let wheel = event.wheelDeltaY;
+  console.log("inputCareer" + inputCareer.value);
+  if (wheel > 0) {
+    console.log("Up!");
+  } else {
+    // (wheel < 0)
+    console.log("Down!");
+  }
+});
+
+let careerSave = document.getElementById("career-save");
+careerSave.addEventListener("click", changeCareerSave);
+
+function changeCareerSave() {
+  careerSave.innerText = "저장완료";
+  console.log(inputCareer.value);
+  profile.career = inputCareer.value;
+  sendProfile();
 }
