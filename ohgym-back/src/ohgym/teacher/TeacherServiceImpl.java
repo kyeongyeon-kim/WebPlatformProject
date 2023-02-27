@@ -56,6 +56,28 @@ public class TeacherServiceImpl implements TeacherService {
 		return null;
 	}
 	
+	@Override
+	public List<TeacherProfile> readUserPickTeacherProfile(String id) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			System.out.println("서비스: "+id);
+			return dao.readTeacherProfileByUserPick(conn, id);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
+	
+	
 	// updateTeacherProfile
 	@Override
 	public int updateTeacherProfile(TeacherProfile teacherProfile) {
@@ -116,4 +138,6 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 		return null;
 	}
+
+	
 }

@@ -73,6 +73,26 @@ public class TeacherDAOImpl implements TeacherDAO {
 	}
 
 	@Override
+	public List<TeacherProfile> readTeacherProfileByUserPick(Connection conn, String userId) {
+		String sql = "select * from wish as A" 
+				+ " left outer join teacher_introduction as B on A.teacher_id = B.id"
+				+ " left outer join user as C on A.teacher_id=C.id WHERE user_id = '"+userId+"';";
+		System.out.println("여기까지오냐"+userId);
+		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+			System.out.println(rs);
+			List<TeacherProfile> list = new ArrayList<>();
+			while (rs.next()) {
+				list.add(resultMapping(rs));
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("조회 작업 중 예외 발생", e);
+		}
+	}
+		
+
+	@Override
 	public int insertTeacherProfile(Connection conn, TeacherProfile profile) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -143,4 +163,5 @@ public class TeacherDAOImpl implements TeacherDAO {
 		}
 		return null;
 	}
+
 }

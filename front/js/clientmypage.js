@@ -22,3 +22,22 @@ window.addEventListener("load", (e) => {
         });
       });
   });
+
+  window.addEventListener("load", (e) => {
+    fetch("http://localhost:8080/ohgym/teacherPick")
+      .then((resp) => resp.json())
+      .then((arr) => {       
+      
+        let requestList = document.getElementById("pickList");
+
+        let template = document.getElementById("request-card-temp");
+        arr.forEach((elem) => {
+          let importTemplate = document.importNode(template.content, true);
+          let firstP = importTemplate.querySelector("p");
+          let secondP = firstP.nextElementSibling;
+          firstP.innerText = elem.name;
+          secondP.innerText = elem.contact_time;
+          requestList.append(importTemplate);
+        });
+      });
+  });
