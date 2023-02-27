@@ -6,19 +6,31 @@ window.addEventListener("load", (e) => {
     .then((resp) => resp.json())
     .then((profile) => {
       this.profile = profile;
-      let { id, appeal, introduction, centerName, location, career, image } =
-        profile;
+      let { id, appeal, introduction, centerName, career, image } = profile;
       userId.innerText = id + " 근선생님!";
       profileImage.setAttribute("src", image);
       stringToTime();
-      let attr = [appeal, introduction, centerName, location, career, image];
+      let attr = [appeal, introduction, centerName, career, image];
       for (let i = 0; i < valuesArr.length; i++) {
         let elem = valuesArr[i];
         elem.innerText = attr[i];
       }
+      serviceInitialValue();
     })
     .catch();
 });
+
+// db 저장된 대표서비스 값으로 초기버튼 checked
+function serviceInitialValue() {
+  let serviceBtns = document.querySelectorAll(".service-btn");
+  let serviceBtnsArr = [...serviceBtns];
+  for (let i = 0; i < serviceBtnsArr.length; i++) {
+    if (serviceBtnsArr[i].innerText == this.profile.exercise) {
+      let input = serviceBtnsArr[i].previousSibling;
+      input.checked = true;
+    }
+  }
+}
 
 // 수정 버튼 이벤트 처리 파트
 let modify = document.querySelectorAll(".heading div:nth-child(2)");
@@ -27,12 +39,15 @@ let comps = document.querySelectorAll("#comps > .info-comp");
 let template = document.getElementById("input-form");
 let modifyArr = [...modify];
 modifyArr.splice(1, 2);
+modifyArr.splice(2, 1);
 let valuesArr = [...values];
 let compsArr = [...comps];
 compsArr.splice(1, 2);
+compsArr.splice(3, 1);
 let value = [];
 let input;
-
+console.log(modifyArr);
+console.log(compsArr);
 modifyArr.forEach((elem) => {
   elem.addEventListener("click", function (e) {
     let index = modifyArr.indexOf(elem);
@@ -95,12 +110,9 @@ function updateProfile(index) {
       profile.centerName = input.value;
       break;
     case 3:
-      profile.location = input.value;
-      break;
-    case 4:
       profile.career = input.value;
       break;
-    case 5:
+    case 4:
       profile.image = input.value;
       break;
 
@@ -148,12 +160,16 @@ function stringToTime() {
 // 대표서비스 이벤트 처리
 let services = document.querySelectorAll(".service-btn");
 let servicesArr = [...services];
-console.log(services);
-console.log(servicesArr);
 servicesArr.forEach((elem) => {
   elem.addEventListener("click", selectedService);
 });
 function selectedService() {
-  console.log(this.innerText);
   profile.exercise = this.innerText;
+  fetch("http://localhost:8080/ohgym/profile", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(profile),
+  });
 }

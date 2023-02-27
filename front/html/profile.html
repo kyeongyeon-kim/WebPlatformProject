@@ -78,16 +78,16 @@
             </div>
             <div class="service" id="service">
               <div id="services">
-                <input type="radio" name="service-btn" id="input-btn1" hidden/><label class="service-btn" for="input-btn1">퍼스널트레이닝</label>
-                <input type="radio" name="service-btn" id="input-btn2" hidden/><label class="service-btn" for="input-btn2">필라테스</label>
-                <input type="radio" name="service-btn" id="input-btn3" hidden/><label class="service-btn" for="input-btn3">요가</label>
-                <input type="radio" name="service-btn" id="input-btn4" hidden/><label class="service-btn" for="input-btn4">클라이밍</label>
-                <input type="radio" name="service-btn" id="input-btn5" hidden/><label class="service-btn" for="input-btn5">스피닝</label>
-                <input type="radio" name="service-btn" id="input-btn6" hidden/><label class="service-btn" for="input-btn6">크로스핏</label>
-                <input type="radio" name="service-btn" id="input-btn7" hidden/><label class="service-btn" for="input-btn7">발레</label>
-                <input type="radio" name="service-btn" id="input-btn8" hidden/><label class="service-btn" for="input-btn8">수영</label>
-                <input type="radio" name="service-btn" id="input-btn9" hidden/><label class="service-btn" for="input-btn9">헬스</label>
-                <input type="radio" name="service-btn" id="input-btn10" hidden/><label class="service-btn" for="input-btn10">기타</label>
+                <input type="radio" name="service-btn" id="personal-training" hidden/><label class="service-btn" for="personal-training">퍼스널트레이닝</label>
+                <input type="radio" name="service-btn" id="Pilates" hidden/><label class="service-btn" for="Pilates">필라테스</label>
+                <input type="radio" name="service-btn" id="yoga" hidden/><label class="service-btn" for="yoga">요가</label>
+                <input type="radio" name="service-btn" id="climbing" hidden/><label class="service-btn" for="climbing">클라이밍</label>
+                <input type="radio" name="service-btn" id="spinning" hidden/><label class="service-btn" for="spinning">스피닝</label>
+                <input type="radio" name="service-btn" id="crossfit" hidden/><label class="service-btn" for="crossfit">크로스핏</label>
+                <input type="radio" name="service-btn" id="ballet" hidden/><label class="service-btn" for="ballet">발레</label>
+                <input type="radio" name="service-btn" id="swimming" hidden/><label class="service-btn" for="swimming">수영</label>
+                <input type="radio" name="service-btn" id="health" hidden/><label class="service-btn" for="health">헬스</label>
+                <input type="radio" name="service-btn" id="etc" hidden/><label class="service-btn" for="etc">기타</label>
               </div>
             </div>
           </article>
@@ -114,9 +114,12 @@
               <div>
                 <h2>위치</h2>
               </div>
-              <div class="modify">수정</div>
+              <div class="modify" id="address-save">저장</div>
             </div>
-            <div class="value" id="info-location">부산 부산진구 부전로4</div>
+            <div class="address" id="address">
+              <input type="text" class="location" id="input-address" placeholder="주소를 입력해주세요"/>
+              <input type="text" class="location" id="input-detailed-address" placeholder="상세 주소"/>
+            </div>
           </article>
           <article class="info-comp">
             <div class="heading">
@@ -143,8 +146,21 @@
       </article>
     </template>
   </body>
+  <script src="../js/profile.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
     includeHTML();
+    window.onload = function() {
+        document.getElementById("input-address").addEventListener("click", function() { //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+                document.getElementById("input-address").value = data.address; // 주소 넣기
+                document.getElementById("input-detailed-address").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+  }
   </script>
-  <script src="../js/profile.js"></script>
 </html>
