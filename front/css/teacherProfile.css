@@ -103,7 +103,7 @@ i {
 
 /* profile-content, service-info, review-info */
 .profile-content, .service-info, .review-info {
-    margin: 30px 3px;
+    margin: 30px 3px 50px 3px;
     font-size: 0.9rem;
 }
 .profile-content > h2, .service-info > h2, .review-info > h2 {
@@ -113,7 +113,7 @@ i {
 #review-content {
     /* border: 4px solid #eafaf9; */
     border-radius: 15px;
-    padding: 10px 0;
+    padding: 10px 0px;
     margin-bottom: 10px;
 }
 #review-content > p {
