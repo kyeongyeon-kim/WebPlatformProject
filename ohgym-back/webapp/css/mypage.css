@@ -125,26 +125,37 @@
     padding: 0.25rem;
 }
 
-
+#pick-card > div {
+    letter-spacing: -1px;
+}
 
 #request-card > p:nth-child(2) {
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: -1px;
 }
 
-#pick-card > div {
-    margin-top: 10px;
-    font-size: 15px;
+#pick-card >div> p {
+    margin-top: 5px;
     letter-spacing: -1px;
 }
 
+#pick-card >div> p:nth-child(2) {
+    font-size: 13px;
+}
 #pick-image {
     display:flex;
-    /* height: 50%; */
     width: 22%;
     margin-left: 25px;
-    /* margin-bottom: 20px; */
     text-align : right;
+}
+
+.score {
+    padding:  1px;
+    margin-top: 4px;
+}
+
+#score{
+    margin-top: 5px; 
 }
 
 .bottom > a {
