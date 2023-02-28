@@ -314,7 +314,11 @@ next.addEventListener("click", function(e){
                         },
                         body: reqdata
                     });
-                    location.href = "http://localhost:5500/front/html/mainPage.html";
+                    console.log(reqarr);
+                    for (let i = 0; i < reqarr.length; i++) {
+                        console.log(reqarr[i]);
+                    }
+                    // location.href = "http://localhost:5500/front/html/mainPage.html";
                 } else {
                 }
                 break;
