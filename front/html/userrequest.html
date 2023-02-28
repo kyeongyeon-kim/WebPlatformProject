@@ -10,33 +10,36 @@
     <link rel="stylesheet" type="text/css" href="../css/userrequest.css">
     <script src="../js/include.js"></script>
     <script src="../js/header.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 </head>
 <body>
     <div class="container">
         <header include-html="..\html\header.html"></header>
         <main>
-            <section id="banner" style="height: 200px;">
+            <section id="banner" style="height: 250px;">
             <section class="container">
                 <article id="fields">
-                    <div style="position: relative; display: flex; justify-content: center;">
-                        <img src="../img/임시 배너.png" id="bannerimg" style="width: 100%; height: 190px; position: absolute; z-index: -2;">
-                        <div style="position: absolute; z-index: -1; ">
+                    <div style="position: relative; display: flex; justify-content: center; color: white;">
+                        <div style="width: 800px; height: 240px; position: absolute; z-index: -2; background-color: rgba(0, 0, 0, 0.3);" ></div>
+                        <img src="../img/userrequestimg9.png" id="bannerimg" style="width: 800px; height: 240px; position: absolute; z-index: -3;">
+                        <div style="margin-top: 35px; position: absolute; z-index: -1; text-align: center;">
                             <p style="font-size: 50px; font-weight: bold;" id="category"></p>
                             <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="score">평점: 0.0</p>
                             <div style="display: flex;">
-                                <div>
-                                    <p style="font-size: 25px;" id="active">00,000</p>
+                                <div style="text-align: center;">
+                                    <p style="font-size: 25px;" id="active">0</p>
                                     <p style="font-size: 14px;">활동 고수</p>
                                 </div>
                                 <p style="margin: 0px 30px 0px 30px;font-size: 40px; ">ㅣ</p>
-                                <div>
-                                    <p style="font-size: 25px;" id="accreq">00,000</p>
+                                <div style="text-align: center;">
+                                    <p style="font-size: 25px;" id="accreq">0</p>
                                     <p style="font-size: 14px;">누적 요청서</p>
                                 </div>
                                 <p style="margin: 0px 30px 0px 30px;font-size: 40px;">ㅣ</p>
-                                <div>
-                                    <p style="font-size: 25px;" id="reviewnum">00,000</p>
-                                    <p style="font-size: 14px;">리뷰 수</p>
+                                <div style="text-align: center;">
+                                    <p style="font-size: 25px;" id="reviewnum">0</p>
+                                    <p style="font-size: 14px; ">리뷰 수</p>
                                 </div>
                             </div>
                         </div>
@@ -53,51 +56,51 @@
                         <div style="margin-bottom: 50px; text-align: center;">
                             <p>진행상황</p>
                             <progress id="progress" value="1" min="0" max="8"></progress>
-                            <label id="progresslbl" style="margin-left: 15px;">1/8</label>
+                            <label id="progresslbl">1/8</label>
                         </div>      
 
                         <div style="margin-bottom: 80px;">
-                            <p id="question" style="font-size: 30px; font-weight: bold; text-align: center;">레슨을 받는 목적이 무엇인가요?</p>
+                            <p id="question" >레슨을 받는 목적이 무엇인가요?</p>
                         </div>                    
 
                         <div id="page1">
                             <div class="checkbtndiv">
                                 <label for="page1checkbox1" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox1"/><label id="checklbl" for="page1checkbox1">다이어트</label>
+                                    <input type='checkbox' id="page1checkbox1"/><label class="checklbl" for="page1checkbox1">다이어트</label>
                                 </label>
                                 <label for="page1checkbox2" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox2"/><label id="checklbl" for="page1checkbox2">근력강화</label>
+                                    <input type='checkbox' id="page1checkbox2"/><label class="checklbl" for="page1checkbox2">근력강화</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page1checkbox3" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox3"/><label id="checklbl" for="page1checkbox3">체중증가</label>
+                                    <input type='checkbox' id="page1checkbox3"/><label class="checklbl" for="page1checkbox3">체중증가</label>
                                 </label>
                                 <label for="page1checkbox4" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox4"/><label id="checklbl" for="page1checkbox4">체력증진</label>
+                                    <input type='checkbox' id="page1checkbox4"/><label class="checklbl" for="page1checkbox4">체력증진</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page1checkbox5" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox5"/><label id="checklbl" for="page1checkbox5">체형 교정</label>
+                                    <input type='checkbox' id="page1checkbox5"/><label class="checklbl" for="page1checkbox5">체형 교정</label>
                                 </label>
                                 <label for="page1checkbox6" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox6"/><label id="checklbl" for="page1checkbox6">재활/통증케어</label>
+                                    <input type='checkbox' id="page1checkbox6"/><label class="checklbl" for="page1checkbox6">재활/통증케어</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page1checkbox7" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox7"/><label id="checklbl" for="page1checkbox7">바디프로필</label>
+                                    <input type='checkbox' id="page1checkbox7"/><label class="checklbl" for="page1checkbox7">바디프로필</label>
                                 </label>
                                 <label for="page1checkbox8" class="checkboxlbl">
-                                    <input type='checkbox' id="page1checkbox8"/><label id="checklbl" for="page1checkbox8">대회준비</label>
+                                    <input type='checkbox' id="page1checkbox8"/><label class="checklbl" for="page1checkbox8">대회준비</label>
                                 </label>
                             </div>
     
                             <div class="checkbtndiv">
                                 <label for="textcheckbox" id="textlbl">
                                     <div style="display: flex;">
-                                        <input type='checkbox' id="textcheckbox" /><label id="checklbl" for="textcheckbox">기타</label>
+                                        <input type='checkbox' id="textcheckbox" /><label class="checklbl" for="textcheckbox">기타</label>
                                     </div>
                                     <div style="display: flex; justify-content: center;">
                                         <textarea id="inputtext" class="inputtext" ></textarea>
@@ -107,28 +110,28 @@
                             </div>
                         </div>
 
-                        <div id="page2" style="display: none;">
+                        <div id="page2" class="page">
                             <div class="checkbtndiv">
                                 <label for="page2checkbox1" class="checkboxlbl">
-                                    <input type='checkbox' id="page2checkbox1"/><label id="checklbl" for="page2checkbox1">개인 레슨</label>
+                                    <input type='checkbox' id="page2checkbox1"/><label class="checklbl" for="page2checkbox1">개인 레슨</label>
                                 </label>
                                 <label for="page2checkbox2" class="checkboxlbl">
-                                    <input type='checkbox' id="page2checkbox2"/><label id="checklbl" for="page2checkbox2">그룹 레슨</label>
+                                    <input type='checkbox' id="page2checkbox2"/><label class="checklbl" for="page2checkbox2">그룹 레슨</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page2checkbox3" class="checkboxlbl">
-                                    <input type='checkbox' id="page2checkbox3"/><label id="checklbl" for="page2checkbox3">온라인/화상 레슨</label>
+                                    <input type='checkbox' id="page2checkbox3"/><label class="checklbl" for="page2checkbox3">온라인/화상 레슨</label>
                                 </label>
                                 <label for="page2checkbox4" class="checkboxlbl">
-                                    <input type='checkbox' id="page2checkbox4"/><label id="checklbl" for="page2checkbox4">무관</label>
+                                    <input type='checkbox' id="page2checkbox4"/><label class="checklbl" for="page2checkbox4">무관</label>
                                 </label>
                             </div>
     
                             <div class="checkbtndiv">
                                 <label for="textcheckbox2" id="textlbl">
                                     <div style="display: flex;">
-                                        <input type='checkbox' id="textcheckbox2" /><label id="checklbl" for="textcheckbox2">기타</label>
+                                        <input type='checkbox' id="textcheckbox2" /><label class="checklbl" for="textcheckbox2">기타</label>
                                     </div>
                                     <div style="display: flex; justify-content: center;">
                                         <textarea id="inputtext2" class="inputtext" ></textarea>
@@ -138,114 +141,114 @@
                             </div>
                         </div>
 
-                        <div id="page3" style="display: none;">
+                        <div id="page3" class="page">
                             <div class="checkbtndiv">
                                 <label for="page3checkbox1" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox1"/><label id="checklbl" for="page3checkbox1">월요일</label>
+                                    <input type='checkbox' id="page3checkbox1"/><label class="checklbl" for="page3checkbox1">월요일</label>
                                 </label>
                                 <label for="page3checkbox2" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox2"/><label id="checklbl" for="page3checkbox2">화요일</label>
+                                    <input type='checkbox' id="page3checkbox2"/><label class="checklbl" for="page3checkbox2">화요일</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page3checkbox3" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox3"/><label id="checklbl" for="page3checkbox3">수요일</label>
+                                    <input type='checkbox' id="page3checkbox3"/><label class="checklbl" for="page3checkbox3">수요일</label>
                                 </label>
                                 <label for="page3checkbox4" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox4"/><label id="checklbl" for="page3checkbox4">목요일</label>
+                                    <input type='checkbox' id="page3checkbox4"/><label class="checklbl" for="page3checkbox4">목요일</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page3checkbox5" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox5"/><label id="checklbl" for="page3checkbox5">금요일</label>
+                                    <input type='checkbox' id="page3checkbox5"/><label class="checklbl" for="page3checkbox5">금요일</label>
                                 </label>
                                 <label for="page3checkbox6" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox6"/><label id="checklbl" for="page3checkbox6">토요일</label>
+                                    <input type='checkbox' id="page3checkbox6"/><label class="checklbl" for="page3checkbox6">토요일</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page3checkbox7" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox7"/><label id="checklbl" for="page3checkbox7">일요일</label>
+                                    <input type='checkbox' id="page3checkbox7"/><label class="checklbl" for="page3checkbox7">일요일</label>
                                 </label>
                                 <label for="page3checkbox8" class="checkboxlbl">
-                                    <input type='checkbox' id="page3checkbox8"/><label id="checklbl" for="page3checkbox8">무관</label>
+                                    <input type='checkbox' id="page3checkbox8"/><label class="checklbl" for="page3checkbox8">무관</label>
                                 </label>
                             </div>
                         </div>
 
-                        <div id="page4" style="display: none;">
+                        <div id="page4" class="page">
                             <div class="checkbtndiv">
                                 <label for="page4checkbox1" class="checkboxlbl">
-                                    <input type='checkbox' id="page4checkbox1"/><label id="checklbl" for="page4checkbox1">09시 이전</label>
+                                    <input type='checkbox' id="page4checkbox1"/><label class="checklbl" for="page4checkbox1">09시 이전</label>
                                 </label>
                                 <label for="page4checkbox2" class="checkboxlbl">
-                                    <input type='checkbox' id="page4checkbox2"/><label id="checklbl" for="page4checkbox2">09~12시</label>
+                                    <input type='checkbox' id="page4checkbox2"/><label class="checklbl" for="page4checkbox2">09~12시</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page4checkbox3" class="checkboxlbl">
-                                    <input type='checkbox' id="page4checkbox3"/><label id="checklbl" for="page4checkbox3">12~15시</label>
+                                    <input type='checkbox' id="page4checkbox3"/><label class="checklbl" for="page4checkbox3">12~15시</label>
                                 </label>
                                 <label for="page4checkbox4" class="checkboxlbl">
-                                    <input type='checkbox' id="page4checkbox4"/><label id="checklbl" for="page4checkbox4">15~18시</label>
+                                    <input type='checkbox' id="page4checkbox4"/><label class="checklbl" for="page4checkbox4">15~18시</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page4checkbox5" class="checkboxlbl">
-                                    <input type='checkbox' id="page4checkbox5"/><label id="checklbl" for="page4checkbox5">18~21시</label>
+                                    <input type='checkbox' id="page4checkbox5"/><label class="checklbl" for="page4checkbox5">18~21시</label>
                                 </label>
                                 <label for="page4checkbox6" class="checkboxlbl">
-                                    <input type='checkbox' id="page4checkbox6"/><label id="checklbl" for="page4checkbox6">21시 이후</label>
+                                    <input type='checkbox' id="page4checkbox6"/><label class="checklbl" for="page4checkbox6">21시 이후</label>
                                 </label>
                             </div>
                         </div>
 
-                        <div id="page5" style="display: none;">
+                        <div id="page5" class="page">
                             <div class="checkbtndiv">
                                 <label for="page5checkbox1" class="checkboxlbl">
-                                    <input type='checkbox' id="page5checkbox1"/><label id="checklbl" for="page5checkbox1">남자</label>
+                                    <input type='checkbox' id="page5checkbox1"/><label class="checklbl" for="page5checkbox1">남자</label>
                                 </label>
                                 <label for="page5checkbox2" class="checkboxlbl">
-                                    <input type='checkbox' id="page5checkbox2"/><label id="checklbl" for="page5checkbox2">여자</label>
+                                    <input type='checkbox' id="page5checkbox2"/><label class="checklbl" for="page5checkbox2">여자</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page5checkbox3" class="checkboxlbl">
-                                    <input type='checkbox' id="page5checkbox3"/><label id="checklbl" for="page5checkbox3">혼성</label>
+                                    <input type='checkbox' id="page5checkbox3"/><label class="checklbl" for="page5checkbox3">혼성</label>
                                 </label>
                                 <label class="checkboxlbl" >
                                 </label>
                             </div>
                         </div>
 
-                        <div id="page6" style="display: none;">
+                        <div id="page6" class="page">
                             <div class="checkbtndiv">
                                 <label for="page6checkbox1" class="checkboxlbl">
-                                    <input type='checkbox' id="page6checkbox1"/><label id="checklbl" for="page6checkbox1">10대 미만</label>
+                                    <input type='checkbox' id="page6checkbox1"/><label class="checklbl" for="page6checkbox1">10대 미만</label>
                                 </label>
                                 <label for="page6checkbox2" class="checkboxlbl">
-                                    <input type='checkbox' id="page6checkbox2"/><label id="checklbl" for="page6checkbox2">10대</label>
+                                    <input type='checkbox' id="page6checkbox2"/><label class="checklbl" for="page6checkbox2">10대</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page6checkbox3" class="checkboxlbl">
-                                    <input type='checkbox' id="page6checkbox3"/><label id="checklbl" for="page6checkbox3">20대</label>
+                                    <input type='checkbox' id="page6checkbox3"/><label class="checklbl" for="page6checkbox3">20대</label>
                                 </label>
                                 <label for="page6checkbox4" class="checkboxlbl">
-                                    <input type='checkbox' id="page6checkbox4"/><label id="checklbl" for="page6checkbox4">30대</label>
+                                    <input type='checkbox' id="page6checkbox4"/><label class="checklbl" for="page6checkbox4">30대</label>
                                 </label>
                             </div>
                             <div class="checkbtndiv">
                                 <label for="page6checkbox5" class="checkboxlbl">
-                                    <input type='checkbox' id="page6checkbox5"/><label id="checklbl" for="page6checkbox5">40대</label>
+                                    <input type='checkbox' id="page6checkbox5"/><label class="checklbl" for="page6checkbox5">40대</label>
                                 </label>
                                 <label for="page6checkbox6" class="checkboxlbl">
-                                    <input type='checkbox' id="page6checkbox6"/><label id="checklbl" for="page6checkbox6">50대 이상</label>
+                                    <input type='checkbox' id="page6checkbox6"/><label class="checklbl" for="page6checkbox6">50대 이상</label>
                                 </label>
                             </div>
                         </div>
 
-                        <div id="page7" style="display: none;">
+                        <div id="page7" class="page">
                             <div id="adressdiv">
                                 <div>
                                     <label class="addresslbl" style="margin-right: 34px;">주소</label><input type="text" class="addresstext" id="address_main" name="address" readonly />
@@ -256,7 +259,7 @@
                             </div>
                         </div>
 
-                        <div id="page8" style="display: none;">
+                        <div id="page8" class="page">
                             <div style="display: flex;">
                                 <label id="textlbl2">
                                     <textarea style="height: 120px; width: 100%; border: 1px solid lightgray; resize: none; " id="reqtext"></textarea>
@@ -289,335 +292,5 @@
         <footer include-html="..\html\footer.html"></footer>
     </div>
 </body>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
-<script>
-    includeHTML();
-    window.onload = function(){
-        document.getElementById("address_main").addEventListener("click", function(){ //주소입력칸을 클릭하면
-            //카카오 지도 발생
-            new daum.Postcode({
-                oncomplete: function(data) { //선택시 입력값 세팅
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-                document.getElementById("address_main").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-            }
-        }).open();
-    });
-}
-
-    var params = new URLSearchParams(window.location.search);
-    var categorystr = params.get('category');
-
-    var category = document.getElementById("category");
-    var reviewnum = document.getElementById("reviewnum");
-    var score = document.getElementById("score");
-    var active = document.getElementById("active");
-    var accreq = document.getElementById("accreq");
-
-    fetch('http://localhost:8080/ohgym/userresp?category=' + categorystr)
-    .then((resp) => resp.json())
-    .then((arr) => {
-        category.src = '../img/' + categorystr + '.png';
-        accreq.textContent = arr[0];
-        score.textContent = "평점: " + arr[1];
-        reviewnum.textContent = arr[2];
-        active.textContent = arr[3];
-        category.textContent = arr[4];
-    }); 
-
-    var pagenum = 1;
-
-    var question = document.getElementById("question");
-
-    var page1 = document.getElementById("page1");
-    var page2 = document.getElementById("page2");
-    var page3 = document.getElementById("page3");
-    var page4 = document.getElementById("page4");
-    var page5 = document.getElementById("page5");
-    var page6 = document.getElementById("page6");
-    var page7 = document.getElementById("page7");
-    var page8 = document.getElementById("page8");
-    
-    var progress = document.getElementById("progress");
-    var progresslbl = document.getElementById("progresslbl");
-
-    var prev = document.getElementById("prev");
-    var next = document.getElementById("next");
-    var pagecheckedtext = document.getElementById("pagecheckedtext");
-
-    var textcheckbox = document.getElementById("textcheckbox");
-    var inputtext = document.getElementById("inputtext");
-    var inputtextlabel = document.getElementById("inputtextlabel");
-    textcheckbox.addEventListener("click", function (e){
-        if (textcheckbox.checked) {
-            inputtext.style.display = "block";
-            inputtextlabel.style.display = "block";
-        } else if (!textcheckbox.checked) {
-            inputtext.style.display = "none";
-            inputtextlabel.style.display = "none";
-        }
-    });
-
-
-    var address_main = document.getElementById("address_main");
-    var address_detail = document.getElementById("address_detail");
-    address_detail.addEventListener('input', function() {
-        let text = this.value;
-        if (text.length > 40) {
-            this.value = text.slice(0, 40);
-        }
-        let nottext = /[\\/()\{\}\[\]'"`]/g;
-        if (nottext.test(text)) {
-            this.value = text.replace(nottext, '');
-        }
-    });
-
-    var textcheckbox2 = document.getElementById("textcheckbox2");
-    var inputtext2 = document.getElementById("inputtext2");
-    var inputtextlabel2 = document.getElementById("inputtextlabel2");
-    textcheckbox2.addEventListener("click", function (e){
-        if (textcheckbox2.checked) {
-            inputtext2.style.display = "block";
-            inputtextlabel2.style.display = "block";
-        } else if (!textcheckbox2.checked) {
-            inputtext2.style.display = "none";
-            inputtextlabel2.style.display = "none";
-        }
-    });
-
-    inputtext.addEventListener('input', function() {
-        let text = this.value;
-        if (text.length > 40) {
-            this.value = text.slice(0, 40);
-        }
-        let nottext = /[\\/()\{\}\[\]'"`]/g;
-        if (nottext.test(text)) {
-            this.value = text.replace(nottext, '');
-        }
-    });
-
-    inputtext2.addEventListener('input', function() {
-        let text = this.value;
-        if (text.length > 40) {
-            this.value = text.slice(0, 40);
-        }
-        let nottext = /[\\/()\{\}\[\]'"`]/g;
-        if (nottext.test(text)) {
-            this.value = text.replace(nottext, '');
-        }
-    });
-
-    var reqtext = document.getElementById("reqtext");
-    reqtext.addEventListener('input', function() {
-        let text = this.value;
-        if (text.length > 200) {
-            this.value = text.slice(0, 200);
-        }
-        let nottext = /[\\/()\{\}\[\]'"`]/g;
-        if (nottext.test(text)) {
-            this.value = text.replace(nottext, '');
-        }
-    });
-
-    prev.addEventListener("click", function(e){
-        if (pagenum > 1){
-            pagecheckedtext.textContent = '한 개 이상의 항목을 선택해주세요. ';
-            pagecheckedtext.style.color = "lightgray";
-        }
-        switch (pagenum) {
-            case 1:
-                break;
-            case 2:
-                question.textContent = '레슨을 받는 목적이 무엇인가요?';
-                page1.style.display = "block";
-                page2.style.display = "none";
-                break;
-            case 3:
-                question.textContent = '어떤 형태의 레슨을 원하시나요?';
-                page2.style.display = "block";
-                page3.style.display = "none";
-                break;
-            case 4:
-                question.textContent = '가능한 요일을 모두 선택해주세요';
-                page3.style.display = "block";
-                page4.style.display = "none";
-                break;
-            case 5:
-                question.textContent = '희망하는 시간대를 선택해주세요';
-                page4.style.display = "block";
-                page5.style.display = "none";
-                break;
-            case 6:
-                question.textContent = '레슨생의 성별을 선택해주세요';
-                page5.style.display = "block";
-                page6.style.display = "none";
-                break;
-            case 7:
-                question.textContent = '레슨생의 연령대를 선택해주세요';
-                page6.style.display = "block";
-                page7.style.display = "none";
-                break;
-            case 8:
-                question.textContent = '지역을 선택해주세요';
-                pagecheckedtext.textContent = '주소 및 세부 주소를 입력해주세요. ';
-                pagecheckedtext.style.display = "block";
-                page7.style.display = "block";
-                page8.style.display = "none";
-                break;
-            default:
-                break;
-        }
-        if (pagenum >= 2){
-            pagenum--;
-            progress.value = pagenum;
-            progresslbl.textContent = pagenum + '/8';
-        }
-    });
-
-    next.addEventListener("click", function(e){
-        let pagecheckboxes = document.querySelectorAll('#page' + pagenum + ' input[type="checkbox"]');
-        let isChecked = false;
-        for (let i = 0; i < pagecheckboxes.length; i++) {
-            if (pagecheckboxes[i].checked) {
-                isChecked = true;
-                break;
-            }
-        }
-
-        let page1checkboxes = document.querySelectorAll('#page1 input[type="checkbox"]');
-        if (pagenum == 1){
-            page1checkboxes.forEach((checkbox) => {
-                if (checkbox.checked) {
-                    if (checkbox.nextElementSibling.textContent == "기타") {
-                        if (!inputtext.value > 0) {
-                            isChecked = false;
-                            pagecheckedtext.textContent = '입력칸에 내용을 입력해주세요. ';
-                        }
-                    }
-                }
-            });
-        }
-        let page2checkboxes = document.querySelectorAll('#page2 input[type="checkbox"]');
-        if (pagenum == 2){
-            page2checkboxes.forEach((checkbox) => {
-                if (checkbox.checked) {
-                    if (checkbox.nextElementSibling.textContent == "기타") {
-                        if (!inputtext2.value > 0) {
-                            isChecked = false;
-                            pagecheckedtext.textContent = '입력칸에 내용을 입력해주세요. ';
-                        }
-                    }
-                }
-            });
-        }
-
-        if (isChecked || (pagenum == 8 || (pagenum == 7 && address_detail.value.length > 0 && address_main.value.length > 0))) {
-            pagecheckedtext.textContent = '한 개 이상의 항목을 선택해주세요. ';
-            pagecheckedtext.style.color = "lightgray";
-            switch (pagenum) {
-                case 1:
-                    question.textContent = '어떤 형태의 레슨을 원하시나요?';
-                    page1.style.display = "none";
-                    page2.style.display = "block";
-                    break;
-                case 2:
-                    question.textContent = '가능한 요일을 모두 선택해주세요';
-                    page2.style.display = "none";
-                    page3.style.display = "block";
-                    break;
-                case 3:
-                    question.textContent = '희망하는 시간대를 선택해주세요';
-                    page3.style.display = "none";
-                    page4.style.display = "block";
-                    break;
-                case 4:
-                    question.textContent = '레슨생의 성별을 선택해주세요';
-                    page4.style.display = "none";
-                    page5.style.display = "block";
-                    break;
-                case 5:
-                    question.textContent = '레슨생의 연령대를 선택해주세요';
-                    page5.style.display = "none";
-                    page6.style.display = "block";
-                    break;
-                case 6:
-                    question.textContent = '지역을 선택해주세요';
-                    pagecheckedtext.textContent = '주소 및 세부 주소를 입력해주세요. ';
-                    page6.style.display = "none";
-                    page7.style.display = "block";
-                    break;
-                case 7:
-                    question.textContent = '희망사항을 입력해주세요';
-                    pagecheckedtext.style.display = "none";
-                    page7.style.display = "none";
-                    page8.style.display = "block";
-                    break;
-                case 8:
-                    if (confirm("요청서를 제출하시겠습니까?")) {
-                        let reqcheckboxes = document.querySelectorAll('input[type="checkbox"]');
-                        let reqarr = [];
-
-                        reqcheckboxes.forEach((checkbox) => {
-                            if (checkbox.checked) {
-                                if (checkbox.nextElementSibling.textContent == "기타") {
-                                    if (reqarr.length < 9) {
-                                        if (inputtext.value != ('')){
-                                            reqarr.push(inputtext.value);
-                                        } else {
-                                            reqarr.push(null);
-                                        }
-                                    } else {
-                                        if (inputtext2.value != ('')){
-                                            reqarr.push(inputtext2.value);
-                                        } else {
-                                            reqarr.push(null);
-                                        }
-                                    }
-                                } else {
-                                    reqarr.push(checkbox.nextElementSibling.textContent);
-                                }
-                            } else {
-                                reqarr.push(null);
-                            }
-                        });
-
-                        if ((address_main.value + address_detail.value) != ('')){
-                            reqarr.push(address_main.value + ' ' + address_detail.value);
-                        } else {
-                            reqarr.push(null);
-                        } 
-                        if (reqtext.value != ('')) {
-                            reqarr.push(reqtext.value);
-                        } else {
-                            reqarr.push(null);
-                        }
-
-                        reqarr.push(categorystr);
-
-                        let reqdata = JSON.stringify(reqarr);
-                        fetch('http://localhost:8080/ohgym/userreq', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: reqdata
-                        });
-                        location.href = "http://localhost:5500/front/html/mainPage.html";
-                    } else {
-                    }
-                    break;
-                default:
-                    break;
-            }
-            if (pagenum <= 7){
-                pagenum++;
-                progress.value = pagenum;
-                progresslbl.textContent = pagenum + '/8';
-            }
-        } else {
-            pagecheckedtext.style.color = "red";
-        }
-    });
-</script>
+<script src='../js/userrequest.js'></script>
 </html>

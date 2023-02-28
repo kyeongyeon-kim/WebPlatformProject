@@ -23,12 +23,10 @@ import ohgym.dbutil.ConnectionProvider;
 @WebServlet("/requestfind")
 public class RequestFindServlet extends HttpServlet {
 	List<RequestFind> requestFindList;
-	List<Integer> requestAnswerNoList;
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		requestFindList = new ArrayList<>();
-		requestAnswerNoList = new ArrayList<>();
-		
+				
 		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
 		String line;
@@ -37,21 +35,23 @@ public class RequestFindServlet extends HttpServlet {
 		}
 		String user_id = sb.toString();
 		
-		String sql = "SELECT request_answer.no FROM request_answer WHERE request_no IN"
-				+ " (SELECT request_no FROM request WHERE user_id = '" + user_id + "')";
+		List<Integer> requestNoList = new ArrayList<>();
+		
+		String sql = "SELECT request_no FROM request WHERE user_id = " + user_id;
 		
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql);) {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				requestAnswerNoList.add(Integer.valueOf(rs.getInt("request_answer.no")));
+				requestNoList.add((int)rs.getInt("request_no"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		for (int i = 0; i < requestAnswerNoList.size(); i++) {
-			requestFindList.add(new RequestFind((int) requestAnswerNoList.get(i)));
+		for (int i = 0; i < requestNoList.size(); i++) {
+			requestFindList.add(new RequestFind(requestNoList.get(i)));
+			System.out.println();
 		}
 		
 		ObjectMapper mapper = new ObjectMapper();
