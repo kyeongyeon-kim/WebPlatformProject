@@ -43,6 +43,12 @@ progress::-webkit-progress-value {
     margin: 25px 0px 10px 0px;
     resize: none;
 }
+.page {
+    display: none;
+}
+#question {
+    font-size: 30px; font-weight: bold; text-align: center;
+}
 .pagebtn {
     display: flex;
     justify-content: right;
@@ -107,9 +113,9 @@ input[type='checkbox']:checked{
     box-shadow: none;
     background: url(../img/on.png) no-repeat;
 }
-/* input[type="checkbox"]:checked + #checklbl{color:#eafaf9;} */
-input[type="checkbox"]:checked + #checklbl{color:#00c7ae;}
-#checklbl {
+/* input[type="checkbox"]:checked + .checklbl{color:#eafaf9;} */
+input[type="checkbox"]:checked + .checklbl{color:#00c7ae;}
+.checklbl {
     color:#000;
     font-size: 18px;
     margin-left: 20px;
