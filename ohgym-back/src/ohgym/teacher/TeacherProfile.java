@@ -4,6 +4,7 @@ package ohgym.teacher;
 import java.net.URL;
 
 public class TeacherProfile {
+	
 	private String id;
 	private String appeal;
 	private String contactTime;

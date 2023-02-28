@@ -41,6 +41,20 @@ public class TeacherDAOImpl implements TeacherDAO {
 		info.setImage(rs.getString("image"));
 		return info;
 	}
+	
+	private TeacherProfile resultMapping_pick(ResultSet rs) throws SQLException {
+		TeacherProfile info = new TeacherProfile();
+		info.setId(rs.getString("id"));
+		info.setAppeal(rs.getString("appeal"));
+		info.setContactTime(rs.getString("contact_time"));
+//		info.setExercise("null");
+//		info.setIntroduction("null");
+//		info.setCenterName("null");
+//		info.setLocation("null");
+//		info.setCareer("null");
+		info.setImage(rs.getString("image"));
+		return info;
+	}
 
 	@Override
 	public List<TeacherProfile> readTeacherProfileByLocation(Connection conn, String location) {
@@ -75,14 +89,14 @@ public class TeacherDAOImpl implements TeacherDAO {
 	@Override
 	public List<TeacherProfile> readTeacherProfileByUserPick(Connection conn, String userId) {
 		String sql = "select * from wish as A" 
-				+ " left outer join teacher_introduction as B on A.teacher_id = B.id"
-				+ " left outer join user as C on A.teacher_id=C.id WHERE user_id = '"+userId+"';";
+				+ " left outer join teacher_introduction as B on A.teacher_id=B.id"
+				+ " WHERE user_id= '"+userId+"';";
 		System.out.println("여기까지오냐"+userId);
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			System.out.println(rs);
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
-				list.add(resultMapping(rs));
+				list.add(resultMapping_pick(rs));
 			}
 			return list;
 		} catch (SQLException e) {

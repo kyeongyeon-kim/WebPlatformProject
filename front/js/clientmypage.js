@@ -27,16 +27,18 @@ window.addEventListener("load", (e) => {
     fetch("http://localhost:8080/ohgym/teacherPick")
       .then((resp) => resp.json())
       .then((arr) => {       
-      
+        console.log(arr);
         let requestList = document.getElementById("pickList");
 
-        let template = document.getElementById("request-card-temp");
+        let template = document.getElementById("pick-card-temp");
         arr.forEach((elem) => {
           let importTemplate = document.importNode(template.content, true);
           let firstP = importTemplate.querySelector("p");
+          firstP.innerText = elem.appeal;
           let secondP = firstP.nextElementSibling;
-          firstP.innerText = elem.name;
-          secondP.innerText = elem.contact_time;
+          secondP.innerText ="연락가능 시간:  "+ elem.contactTime;
+          // let pImage = importTemplate.querySelector("#image");
+          // pImage.src = element.image;
           requestList.append(importTemplate);
         });
       });
