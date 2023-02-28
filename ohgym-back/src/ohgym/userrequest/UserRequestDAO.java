@@ -73,7 +73,6 @@ public class UserRequestDAO {
 			}
 			if (!arr[i].equals("null")) {
 				sql = "INSERT INTO request_answer (request_no, question, answer) VALUES ("+ number + ", " + page + ", '"+ arr[i] + "');";
-				System.out.println(sql);
 				requestAnswerAddData(sql);
 			}
 		}

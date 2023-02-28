@@ -24,7 +24,7 @@ public class TeacherProfileServlet extends HttpServlet {
 		resp.setContentType("application/json");
 
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-		String id = "은진";
+		String id = "경태";
 		
 		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
 		ObjectMapper mapper = new ObjectMapper();

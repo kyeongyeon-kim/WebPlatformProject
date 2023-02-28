@@ -2,34 +2,60 @@
 var profile;
 let profileImage = document.getElementById("profile-image");
 let template = document.getElementById("input-form");
-window.addEventListener("load", (e) => {
+window.addEventListener("load", () => {
   fetch("http://localhost:8080/ohgym/profile")
     .then((resp) => resp.json())
     .then((profile) => {
       this.profile = profile;
-      userId.innerText = profile.id + " 근선생님!";
-      profileImage.setAttribute("src", profile.image);
-      stringToTime();
-      stringToAddress();
-      document.getElementById("appeal").innerText = profile.appeal;
-      document.getElementById("introduction").innerText = profile.introduction;
-      document.getElementById("centerName").innerText = profile.centerName;
-      document.getElementById("input-career").value = profile.career;
-      serviceInitialValue();
+      setInitialValue();
     })
     .catch();
 });
+
+function setInitialValue() {
+  userId.innerText = profile.id + " 근선생님!";
+  profileImage.setAttribute("src", profile.image);
+  stringToTime();
+  stringToAddress();
+  document.getElementById("appeal").innerText = profile.appeal;
+  document.getElementById("introduction").innerText = profile.introduction;
+  document.getElementById("centerName").innerText = profile.centerName;
+  careerToNumber(profile.career);
+  serviceInitialValue();
+}
 
 // db 저장된 대표서비스 값으로 초기버튼 checked
 function serviceInitialValue() {
   let serviceBtns = document.querySelectorAll(".service-btn");
   let serviceBtnsArr = [...serviceBtns];
   for (let i = 0; i < serviceBtnsArr.length; i++) {
-    if (serviceBtnsArr[i].innerText == this.profile.exercise) {
+    if (serviceBtnsArr[i].innerText == profile.exercise) {
       let input = serviceBtnsArr[i].previousSibling;
       input.checked = true;
     }
   }
+}
+
+// 수정 및 저장 이벤트 로직
+function returnModifyComp(saveBtn, component) {
+  saveBtn.innerText = "저장";
+  let importTemplate = document.importNode(template.content, true);
+  importTemplate.querySelector("input").value = component.innerText;
+  component.style.display = "none";
+  return importTemplate;
+}
+
+function setModifiedValue(saveBtn, component, componentParent) {
+  let div = componentParent.querySelector("div:nth-child(3)");
+  let input = div.querySelector("input");
+  if (div !== null) {
+    saveBtn.innerText = "저장완료";
+    setTimeout(() => (saveBtn.innerText = "수정"), 3000);
+    component.innerText = input.value;
+    profile.component = input.value;
+    div.remove();
+  }
+  component.style.display = "block";
 }
 
 // appeal(한줄소개) 이벤트 처리
@@ -40,22 +66,9 @@ function changeAppealSave() {
   let appeal = document.getElementById("appeal");
   let infoComp = appeal.parentNode;
   if (appealSave.innerText === "수정") {
-    appealSave.innerText = "저장";
-    let importTemplate = document.importNode(template.content, true);
-    importTemplate.querySelector("input").value = appeal.innerText;
-    appeal.style.display = "none";
-    infoComp.append(importTemplate);
+    infoComp.append(returnModifyComp(appealSave, appeal));
   } else if (appealSave.innerText === "저장") {
-    let div = infoComp.querySelector("div:nth-child(3)");
-    let input = div.querySelector("input");
-    if (div !== null) {
-      appealSave.innerText = "저장완료";
-      setTimeout(() => appealSave.innerText = "수정", 3000);
-      appeal.innerText = input.value;
-      profile.appeal = input.value;
-      div.remove();
-    }
-    appeal.style.display = "block";
+    setModifiedValue(appealSave, appeal, infoComp);
   }
   sendProfile();
 }
@@ -66,7 +79,7 @@ timeSave.addEventListener("click", changeTimeSave);
 
 function changeTimeSave() {
   timeSave.innerText = "저장완료";
-  setTimeout(() => timeSave.innerText = "저장", 3000);
+  setTimeout(() => (timeSave.innerText = "저장"), 3000);
   profile.contactTime = timeToString();
   sendProfile();
 }
@@ -111,22 +124,9 @@ function changeIntroductionSave() {
   let introduction = document.getElementById("introduction");
   let infoComp = introduction.parentNode;
   if (introductionSave.innerText === "수정") {
-    introductionSave.innerText = "저장";
-    let importTemplate = document.importNode(template.content, true);
-    importTemplate.querySelector("input").value = introduction.innerText;
-    introduction.style.display = "none";
-    infoComp.append(importTemplate);
+    infoComp.append(returnModifyComp(introductionSave, introduction));
   } else if (introductionSave.innerText === "저장") {
-    let div = infoComp.querySelector("div:nth-child(3)");
-    let input = div.querySelector("input");
-    if (div !== null) {
-      introductionSave.innerText = "저장완료";
-      setTimeout(() => introductionSave.innerText = "수정", 3000);
-      introduction.innerText = input.value;
-      profile.introduction = input.value;
-      div.remove();
-    }
-    introduction.style.display = "block";
+    setModifiedValue(introductionSave, introduction, infoComp);
   }
   sendProfile();
 }
@@ -139,22 +139,9 @@ function changeCenterNameSave() {
   let centerName = document.getElementById("centerName");
   let infoComp = centerName.parentNode;
   if (centerNameSave.innerText === "수정") {
-    centerNameSave.innerText = "저장";
-    let importTemplate = document.importNode(template.content, true);
-    importTemplate.querySelector("input").value = centerName.innerText;
-    centerName.style.display = "none";
-    infoComp.append(importTemplate);
+    infoComp.append(returnModifyComp(centerNameSave, centerName));
   } else if (centerNameSave.innerText === "저장") {
-    let div = infoComp.querySelector("div:nth-child(3)");
-    let input = div.querySelector("input");
-    if (div !== null) {
-      centerNameSave.innerText = "저장완료";
-      setTimeout(() => centerNameSave.innerText = "수정", 3000);
-      centerName.innerText = input.value;
-      profile.centerName = input.value;
-      div.remove();
-    }
-    centerName.style.display = "block";
+    setModifiedValue(centerNameSave, centerName, infoComp);
   }
   sendProfile();
 }
@@ -165,7 +152,7 @@ addressSave.addEventListener("click", changeAddressSave);
 
 function changeAddressSave() {
   addressSave.innerText = "저장완료";
-  setTimeout(() => addressSave.innerText = "저장", 3000);
+  setTimeout(() => (addressSave.innerText = "저장"), 3000);
   profile.location = addressToString();
   sendProfile();
 }
@@ -188,9 +175,9 @@ function stringToAddress() {
   inputDetailedAddress.value = detailedAddress;
 }
 
-
 // 경력 이벤트 처리
 let inputCareer = document.getElementById("input-career");
+let inputCareerMonth = document.getElementById("input-career-month");
 inputCareer.addEventListener("wheel", (event) => {
   let wheel = event.wheelDeltaY;
   console.log("inputCareer" + inputCareer.value);
@@ -207,9 +194,25 @@ careerSave.addEventListener("click", changeCareerSave);
 
 function changeCareerSave() {
   careerSave.innerText = "저장완료";
-  setTimeout(() => careerSave.innerText = "저장", 3000);
-  profile.career = inputCareer.value;
+  setTimeout(() => (careerSave.innerText = "저장"), 3000);
+  profile.career = numberToCareer(inputCareer.value, inputCareerMonth.value);
   sendProfile();
+}
+
+function careerToNumber(career) {
+  document.getElementById("input-career").value = career.substring(
+    0,
+    career.indexOf("년")
+  );
+  document.getElementById("input-career-month").value = career.substring(
+    career.indexOf("년") + 1,
+    career.indexOf("개")
+  );
+}
+
+function numberToCareer(yearNumber, monthNumber) {
+  console.log(yearNumber + "년" + monthNumber + "개월");
+  return yearNumber + "년" + monthNumber + "개월";
 }
 
 // 프로필 전송
