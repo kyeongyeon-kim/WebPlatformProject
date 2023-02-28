@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPassword = request.getParameter("userPassword");
 
-		if (!userPassword.matches("^[a-zA-Z0-9_-]{4,16}$")) {
+		if (!userPassword.matches("^[a-zA-Z0-9_-ㄱ-힣]{2,16}$")) {
 			//response.getWriter().println("1818");
 			response.setContentType("text/html");
 		    String errorMessage = "<p>입력한 사용자 비밀번호가 유효하지 않습니다. 영문, 한글, 숫자, 밑줄(_) 또는 대시(-) 문자를 사용하여 1자 이상 16자 이하로 입력해주세요.</p>";
@@ -41,8 +41,11 @@ public class LoginServlet extends HttpServlet {
 		if (authenticated) {
 			LoginUser user = new LoginUser(userId, userPassword);
 			HttpSession session = request.getSession();
+			System.out.println(session);
 			session.setAttribute("user", user);
-
+			session.setMaxInactiveInterval(30*60);
+			System.out.println(session);
+			
 			String redirectUrl = "http://127.0.0.1:5500/front/html/mainPage.html";
 			//String redirectUrl = request.getContextPath() + "/mainpage";
 		    response.sendRedirect(redirectUrl);
