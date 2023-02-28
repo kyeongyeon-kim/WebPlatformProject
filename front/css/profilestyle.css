@@ -194,5 +194,14 @@ input[type="radio"]:checked + label {
 }
 
 #input-career {
-    width: 50%;
+    width: 30%;
+}
+
+#input-career-month {
+    width: 30%;
+}
+
+.career-text {
+    font-size: 20px;
+    margin: 0 10px;
 }
