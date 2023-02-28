@@ -47,11 +47,6 @@ public class TeacherDAOImpl implements TeacherDAO {
 		info.setId(rs.getString("id"));
 		info.setAppeal(rs.getString("appeal"));
 		info.setContactTime(rs.getString("contact_time"));
-//		info.setExercise("null");
-//		info.setIntroduction("null");
-//		info.setCenterName("null");
-//		info.setLocation("null");
-//		info.setCareer("null");
 		info.setImage(rs.getString("image"));
 		return info;
 	}
@@ -91,9 +86,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 		String sql = "select * from wish as A" 
 				+ " left outer join teacher_introduction as B on A.teacher_id=B.id"
 				+ " WHERE user_id= '"+userId+"';";
-		System.out.println("여기까지오냐"+userId);
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
-			System.out.println(rs);
 			List<TeacherProfile> list = new ArrayList<>();
 			while (rs.next()) {
 				list.add(resultMapping_pick(rs));
