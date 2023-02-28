@@ -17,6 +17,9 @@ public interface TeacherDAO {
 	// TeacherProfile 정보 가져오기(아이디검색)
 	List<TeacherProfile> readTeacherProfileById(Connection conn, String id);
 	
+	// TeacherProfile 정보 가져오기(user가 찜한 선생님)
+	List<TeacherProfile> readTeacherProfileByUserPick(Connection conn,String userId);
+	
 	// TeacherProfile 정보 등록
 	int insertTeacherProfile(Connection conn, TeacherProfile profile);
 	

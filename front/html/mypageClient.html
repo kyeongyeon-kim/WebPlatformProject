@@ -20,29 +20,27 @@
                         <h1>마이페이지</h1>
                   </div>
                   <div id="clientName">
-                        <p class="name">김경태</p>
-                        <p> 고객님</p>
-                        <button>정보수정</button>
+                        <p class="name">김도연</p>
+                        <p> 회원님</p>
+                        <button><a href="./infochange.html">정보수정</a></button>
                   </div>
                   <div class="history">
                         <h3><a href="#">요청 내역</a></h3>
                         <div class="box">
-                              <div class="minibox">
-                                    <!-- <p>스피닝</p>
-                            <a href="#"><button style></button></a>
-                            <a href="#">크로스핏</a>
-                            <a href="#">PT</a> -->
-
+                              <div>
+                                    <ul id="requestList"></ul>
                               </div>
                         </div>
+                  </div>
+                  <div class="history">
                         <h3><a href="#">찜한 내역</a></h3>
                         <div class="box">
-                              <div class="minibox">
-                                    <a href="#"><img src="../img/health.png" alt="">크로스핏</a>
-                                    <a href="#"><img src="../img/health.png" alt="">크로스핏</a>
-                                    <a href="#"><img src="../img/health.png" alt="">크로스핏</a>
+                              <div>
+                                    <ul id="pickList"></ul>
                               </div>
                         </div>
+                  </div>
+                  <div class="history">
                         <h3><a href="#">이용내역</a></h3>
                   </div>
                   <div class="notice">
@@ -52,11 +50,23 @@
                   </div>
 
             </main>
+            <template id="request-card-temp">
+                  <li>
+                        <div id="request-card">
+                              <p></p>
+                              <p></p>
+                        </div>
+                        <div class="bottom">
+                              <a href="#">자세히 보기</a>
+                        </div>
+                  </li>
+            </template>
             <footer include-html="..\html\footer.html"></footer>
       </div>
 </body>
 <script>
       includeHTML();
 </script>
+<script src="../js/clientmypage.js"></script>
 
 </html>

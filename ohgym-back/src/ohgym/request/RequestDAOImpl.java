@@ -11,7 +11,8 @@ public class RequestDAOImpl implements RequestDAO {
 
 	@Override
 	public List<Request> selectRequest(Connection conn) throws SQLException {
-		String sql = "SELECT * FROM request";
+		String sql = "select * from request as A" 
+				+ " left outer join exercise_type as B on A.exercise_type = B.no;";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<Request> list = new ArrayList<>();
 			while (rs.next()) {
@@ -23,7 +24,9 @@ public class RequestDAOImpl implements RequestDAO {
 	
 	@Override
 	public List<Request> selectRequestById(Connection conn, String id) throws SQLException {
-		String sql = "SELECT * FROM request WHERE id = '" + id + "';";
+		String sql = "select * from request as A" 
+				+ " left outer join exercise_type as B on A.exercise_type = B.no"
+				+ " WHERE user_id = '" + id + "';";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 			List<Request> list = new ArrayList<>();
 			while (rs.next()) {
@@ -35,9 +38,9 @@ public class RequestDAOImpl implements RequestDAO {
 	
 	private Request resultMapping(ResultSet rs) throws SQLException {
 		Request request = new Request();
-		request.setNo(rs.getInt("no"));
+		request.setNo(rs.getInt("request_no"));
 		request.setId(rs.getString("user_id"));
-		request.setExerciseType(rs.getString("exercise_type"));
+		request.setExerciseType(rs.getString("exercise"));
 		request.setRequestDate(rs.getString("request_date"));
 		request.setDeadlineDate(rs.getString("deadline_date"));
 		request.setMessage(rs.getString("message"));
@@ -46,7 +49,9 @@ public class RequestDAOImpl implements RequestDAO {
 
 	@Override
 	public Request selectRequestByNo(Connection conn, int no) throws SQLException {
-		String sql = "SELECT * FROM request WHERE no = '" + no + "';";
+		String sql = "select * from request as A" 
+				+ " left outer join exercise_type as B on A.exercise_type = B.no"
+				+ " WHERE request_no = '" + no + "';";
 		try (PreparedStatement stmt = conn.prepareStatement(sql); 
 				ResultSet rs = stmt.executeQuery()) {
 			Request req = new Request();

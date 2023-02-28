@@ -24,14 +24,16 @@ public class TeacherProfileServlet extends HttpServlet {
 		resp.setContentType("application/json");
 
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-		String id = "경연";
+		String id = "은진";
 		
 		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(teacherprofile.get(0));
 		PrintWriter pw = resp.getWriter();
+		System.out.println(json);
 		pw.println(json);
 		pw.flush();
+		
 	}
 
 	@Override
