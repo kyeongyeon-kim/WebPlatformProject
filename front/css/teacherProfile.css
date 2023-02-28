@@ -1,11 +1,10 @@
 * {
-    /* border: 1px solid; */
+    /* border: 1px solsid; */
 }
 
 main {
     display: flex;
 }
-
 .teacher-profile {
     margin: 10px;
     max-width: 700px;
@@ -30,33 +29,34 @@ main {
     background-position: 50% 50%;
 }
 
+/* teacher-info */
 .teacher-info {
     margin: 0 3px;
     display: inline-block;
 }
-
 #userId {
     margin: 10px 0 13px 0;
 }
 #main-service {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     display: inline-block;
 }
-#area {
-    display: inline-block;
-    margin-left: 10px;
+#area, #time {
+    margin-bottom: 3px;
     color: rgb(88, 88, 88);
 }
-#area > i {
+i {
     margin-right: 5px;
 }
 #appeal {
-    margin-top: 4px;
+    margin-top: 13px;
     font-size: 0.9rem;
     color: rgb(88, 88, 88);
 }
+
+/* teacher-info2 */
 .teacher-info2 {
     margin: 20px 2px 30px 2px;
     background-color: #eafaf9;
@@ -88,6 +88,8 @@ main {
 #score-input {
     margin-right: 15px;
 }
+
+/* menu-tab */
 .profile-menu {
     display: flex;
     text-align: center;
@@ -97,9 +99,82 @@ main {
     padding: 5px 15px 10px 5px;
     color: rgb(88, 88, 88);
     font-size: 0.9rem;
-    /* border-bottom: 1px solid rgb(104, 104, 104); */
-}
-.profile-content {
-    margin: 15px 3px;
 }
 
+/* profile-content, service-info, review-info */
+.profile-content, .service-info, .review-info {
+    margin: 30px 3px 50px 3px;
+    font-size: 0.9rem;
+}
+.profile-content > h2, .service-info > h2, .review-info > h2 {
+    margin: 15px 0;
+}
+
+#review-content {
+    /* border: 4px solid #eafaf9; */
+    border-radius: 15px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}
+#review-content > p {
+    margin: 5px 0;
+}
+#review-id {
+    font-size: 0.9rem;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+#review-service {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+#review-score {
+    font-weight: 600;
+}
+
+/* aside */
+.request {
+    top: 85px;
+    position: sticky;
+    margin: 5px 0 0 15px;
+    padding: 25px 15px;
+    border: 0.5px solid #00c7ae;
+    border-radius: 15px;
+}
+#request-content {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.wish-bar {
+    text-align: center;
+}
+#wish {
+    padding: 12px 8px 8px 8px;
+    border-radius: 3px;
+    background-color: gray;
+    border: none;
+}
+#wish:hover {
+    cursor: pointer;
+    background-color: rgb(97, 97, 97);
+}
+#wish > i {
+    color: white;
+    font-size: 1rem;
+    padding-left: 5px;
+}
+#request-btn {
+    background-color: #00c7ae;
+    border: none;
+    border-radius: 3px;
+    padding: 9px 28px 8px 25px;
+    margin-bottom: 5px;
+}
+#request-btn:hover {
+    background-color: #039783;
+}
+#request-btn > a {
+    color: white;
+    font-size: 1rem;
+}

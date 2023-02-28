@@ -3,7 +3,7 @@
 //   fetch("http://192.168.0.104:8080/ohgym/login")
 //     .then((resp) => resp.json())
 //     .then((arr) => {
-//       console.log("경태바보");
+//       console.log("");
 //       arr.forEach((element) => {
 //         console.log(element);
 //       });
@@ -20,8 +20,36 @@
 //     });
 // });
 
+
+
+
 const idInput = document.getElementById("id");
 const alertMessage = document.getElementById("alert-message");
+const checkBtn = document.getElementById("checkid");
+
+checkBtn.addEventListener('click', function () {
+  const valueCheckId = idInput.value;
+  let param = new URLSearchParams()
+  param.append("id", valueCheckId);
+  
+  fetch("http://localhost:8080/ohgym/checkid", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: param.toString(),
+    }
+  ).then(function (resp) {
+    return resp.text();
+  }).then(function (bodyText) {
+    console.log(bodyText);
+    if (bodyText === true) {
+      alertMessage.innerHTML = "중복된 아이디";
+    } else {
+      alertMessage.innerHTML = "중복안된 아이디";
+    }
+  });
+})
 
 idInput.addEventListener("input", function () {
   const valueId = this.value;
@@ -39,6 +67,36 @@ idInput.addEventListener("input", function () {
     alertMessage.innerHTML = "문제없음";
   }
 });
+
+
+
+
+// const ds = {
+//   host: "192.168.0.104",
+//   port: "3306",
+//   user: "ohgym",
+//   password: "root",
+//   database: "ohgym"
+// };
+
+// const conn = mysql.createConnection(ds);
+
+// const checkBtn = document.getElementById("checkid");
+
+// checkBtn.addEventListener('click', function () {
+//   const valueCheckId = idInput.value;
+
+//   // SELECT 쿼리 실행
+//   conn.query(`SELECT id FROM user WHERE id='${valueCheckId}'`, function (err, result, fields) {
+//     if (err) throw err;
+//     if (result.length > 0) {
+//       alert("중복입니다.");
+//     } else {
+//       alert("중복이 아닙니다.");
+//     }
+//   });
+// });
+
 
 const passwordInput = document.getElementById("password");
 passwordInput.addEventListener("input", function () {
@@ -82,7 +140,7 @@ phoneNumInput.addEventListener("input", function () {
   }
 });
 
-const signForm = document.querySelector("#signup-form");
+const signForm = document.querySelector("#signup-submit");
 signForm.addEventListener("submit", function () {
   function validateForm() {
     const password = document.getElementsByName("password")[0].value;
