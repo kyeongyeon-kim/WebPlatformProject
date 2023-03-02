@@ -1,8 +1,10 @@
 
 package ohgym.teacher;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -19,19 +21,16 @@ public class TeacherProfileByIdServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		resp.setContentType("application/json");
-//
-//		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
-//		String id = "경태";
-//		
-//		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
-//		ObjectMapper mapper = new ObjectMapper();
-//		String json = mapper.writeValueAsString(teacherprofile.get(0));
-//		PrintWriter pw = resp.getWriter();
-//		System.out.println(json);
-//		pw.println(json);
-//		pw.flush();
-		System.out.println("여기");
-		System.out.println(req);
+//		System.out.println(req.getMethod());
+//		System.out.println(req.getQueryString());
+
+//		String reqId = req.getParameter("id");
+//		String decoded = URLDecoder.decode(reqId, "UTF-8");
+//		System.out.println(decoded);
+//		req.setAttribute("id", decoded);
+//		resp.sendRedirect("http://localhost:8080/ohgym/jsp/teacherProfile.jsp?id=" + reqId);
+		resp.sendRedirect("http://localhost:8080/ohgym/jsp/teacherProfile.jsp");
+//		req.getRequestDispatcher("teacherProfile.jsp").forward(req, resp);
+		
 	}
 }
