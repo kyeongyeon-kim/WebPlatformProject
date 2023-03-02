@@ -16,6 +16,7 @@ window.addEventListener("load", (e) => {
         let firstP = importTemplate.querySelector("p");
         let secondP = firstP.nextElementSibling;
         let thirdP = secondP.nextElementSibling;
+        console.log(elem.exerciseType);
         firstP.innerText = elem.exerciseType;
         secondP.innerText = elem.id;
         thirdP.innerText = elem.requestDate + " ~ " + elem.deadlineDate;

@@ -22,14 +22,10 @@ public class RequestListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
-		TeacherService teacherService = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<Request> list = service.selectRequest();
-		for (Request request : list) {
-			request.setExerciseType(teacherService.convertExerciseTypeToExercise(request.getExerciseType()));
-		}
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(list); 
-      
+		System.out.println(json);
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
