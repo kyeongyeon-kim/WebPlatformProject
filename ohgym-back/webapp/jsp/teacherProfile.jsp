@@ -1,3 +1,4 @@
+<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +20,16 @@
                     <img id="profile-image" src="../img/health.png" />
                 </div>
                 <div class="teacher-info">
-                    <h1 id="userId">경태</h1>
+                    <h1 id="userId">
+                    <% 
+                    String reqId = request.getParameter("id");
+            		String decoded = URLDecoder.decode(reqId, "UTF-8");
+            		System.out.println(decoded);
+                    	
+                    %><%= reqId %>
+                    
+                    
+                    </h1>
                     <p id="main-service">퍼스널트레이닝</p>
                     <p id="area"><i class="fa-regular fa-compass"></i>부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미</p>
                     <p id="time"><i class="fa-regular fa-clock"></i>연락가능 시간 : <span id="contactTime">9:00-18:00</span></p>
