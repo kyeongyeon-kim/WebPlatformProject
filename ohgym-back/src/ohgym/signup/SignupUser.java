@@ -8,7 +8,7 @@ public class SignupUser {
     private String userBirthday;
     private String userGender;
     private int usercheck;
-    
+    public SignupUser() {}
 	public SignupUser(String userId, String userPassword, String userName, String userPhone, 
 			String userBirthday, String userGender, int usercheck) {
 		super();
