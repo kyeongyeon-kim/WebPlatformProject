@@ -61,7 +61,6 @@ public class TeacherServiceImpl implements TeacherService {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			System.out.println("서비스: "+id);
 			return dao.readTeacherProfileByUserPick(conn, id);
 		} catch (RuntimeException | SQLException e) {
 			e.printStackTrace();
