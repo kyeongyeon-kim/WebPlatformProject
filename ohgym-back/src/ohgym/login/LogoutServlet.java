@@ -17,6 +17,6 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
         
-        response.sendRedirect("http://127.0.0.1:5500/front/html/mainPage.html");
+        response.sendRedirect("ohgym/html/mainPage.html");
     }
 }
