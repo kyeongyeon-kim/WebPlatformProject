@@ -20,7 +20,7 @@ public class UserRequestServlet extends HttpServlet {
 			String[] arr = requestData.replaceAll("[\\[\\]{}\"]", "").split(",");
 
 			// ���ǿ��� user_id
-			String user_id = "1";
+			String user_id = "원도";
 			
 	    	UserRequestDAO userRequestDAO = new UserRequestDAO();
 	    	userRequestDAO.requestAdd(user_id, arr[39], arr[38]);
