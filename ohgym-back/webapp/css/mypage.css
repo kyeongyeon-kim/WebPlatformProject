@@ -125,8 +125,14 @@
     padding: 0.25rem;
 }
 
+#pick-card {
+    width: 780px;
+    height: 104px;
+}
+
 #pick-card > div {
     letter-spacing: -1px;
+    width:580px;
 }
 
 #request-card > p:nth-child(2) {
