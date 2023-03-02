@@ -26,7 +26,7 @@ public class TeacherPickServlet extends HttpServlet {
 		TeacherService teacherService = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<TeacherProfile> list = teacherService.readUserPickTeacherProfile(id);
 
-		System.out.println(list);
+		
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(list); 
 		PrintWriter pw = resp.getWriter();

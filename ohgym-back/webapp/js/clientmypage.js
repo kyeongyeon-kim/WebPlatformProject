@@ -37,8 +37,8 @@ window.addEventListener("load", (e) => {
           firstP.innerText = elem.appeal;
           let secondP = firstP.nextElementSibling;
           secondP.innerText ="연락가능 시간:  "+ elem.contactTime;
-          // let pImage = importTemplate.querySelector("#image");
-          // pImage.src = element.image;
+          let pImage = importTemplate.querySelector("#pick-image");
+          pImage.src = elem.image;
           requestList.append(importTemplate);
         });
       });
