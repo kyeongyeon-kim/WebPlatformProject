@@ -39,7 +39,7 @@ public class SignupServlet extends HttpServlet {
         boolean isIdDuplicated = service.isDuplicatedId(userId); //여기
 
         if (isIdDuplicated) {
-            request.setAttribute("error", "중복된 아이디입니다.");
+            request.setAttribute("error", "중복된 아이디입니다!!!!!!");
             request.getRequestDispatcher("/signup").forward(request, response);
         }
         
@@ -49,8 +49,8 @@ public class SignupServlet extends HttpServlet {
             return;
         }
         
-        if (!userPassword.matches("^[a-zA-Z0-9_-]{4,16}$")) {
-			response.getWriter().println("1818");
+        if (!userPassword.matches("^[a-zA-Z0-9_-]{1,10}$")) {
+			response.getWriter().println("비밀번호 잘못적음");
 			return;
 		}
         

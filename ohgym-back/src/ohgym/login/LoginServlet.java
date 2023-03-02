@@ -19,8 +19,7 @@ public class LoginServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPassword = request.getParameter("userPassword");
 
-		if (!userPassword.matches("^[a-zA-Z0-9_-ㄱ-힣]{2,16}$")) {
-			//response.getWriter().println("1818");
+		if (!userPassword.matches("^[ㄱ-힣a-zA-Z0-9_-]{1,10}$")) {
 			response.setContentType("text/html");
 		    String errorMessage = "<p>입력한 사용자 비밀번호가 유효하지 않습니다. 영문, 한글, 숫자, 밑줄(_) 또는 대시(-) 문자를 사용하여 1자 이상 16자 이하로 입력해주세요.</p>";
 		    response.getWriter().println("<script>document.getElementById('error-message').innerHTML = '" 
@@ -28,15 +27,14 @@ public class LoginServlet extends HttpServlet {
 		    return;
 		}
 
-		if (!userId.matches("^[a-zA-Zㄱ-힣0-9_-]{1,16}$")) {
-			response.getWriter().println("181818");
+		if (!userId.matches("^[a-zA-Zㄱ-힣0-9_-]{1,10}$")) {
+			//response.getWriter().println("유효성 실패한것임.");
+			
 			return;
 		}
 
 		boolean authenticated = loginService.authenticate(userId, userPassword);
 
-		
-		
 		
 		if (authenticated) {
 			LoginUser user = new LoginUser(userId, userPassword);
@@ -46,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 			session.setMaxInactiveInterval(30*60);
 			System.out.println(session);
 			
-			String redirectUrl = "http://127.0.0.1:5500/front/html/mainPage.html";
+			String redirectUrl = "ohgym/html/mainPage.html";
 			//String redirectUrl = request.getContextPath() + "/mainpage";
 		    response.sendRedirect(redirectUrl);
 
