@@ -14,7 +14,7 @@ public class RequestInfoDAO {
 	
 	public RequestInfoDAO() {}
 
-	public RequestInfoDAO(List<Integer> requestNoList, List<RequestInfo> requestInfoList) {
+	public RequestInfoDAO(List<Integer> requestNoList) {
 		super();
 		this.requestNoList = requestNoList;
 	}
@@ -23,6 +23,28 @@ public class RequestInfoDAO {
 		List<RequestInfo> reqInfoList = new ArrayList<>();
 		requestNoList = new ArrayList<>();
 		requestNoFind(user_id);
+		
+		for (int i = 0; i < requestNoList.size(); i++) {
+			reqInfoList.add(requestInfo(requestNoList.get(i)));
+		}
+		
+		return reqInfoList;
+	}
+	
+	public List<RequestInfo> requestAll() {
+		List<RequestInfo> reqInfoList = new ArrayList<>();
+		requestNoList = new ArrayList<>();
+		
+		String sql = "SELECT request_no FROM request";
+		try (Connection conn = ConnectionProvider.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(sql);) {
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				requestNoList.add((int)rs.getInt("request_no"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		for (int i = 0; i < requestNoList.size(); i++) {
 			reqInfoList.add(requestInfo(requestNoList.get(i)));

@@ -310,7 +310,7 @@ next.addEventListener("click", function(e){
                     fetch('http://localhost:8080/ohgym/userreq', {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json; charset=UTF-8'
                         },
                         body: reqdata
                     });

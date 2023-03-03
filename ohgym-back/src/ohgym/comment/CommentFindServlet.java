@@ -1,12 +1,8 @@
-package ohgym.userrequest;
+package ohgym.comment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ohgym.dbutil.ConnectionProvider;
-
-@WebServlet("/requestfind")
-public class RequestInfoServlet extends HttpServlet {
-	List<RequestInfo> reqInfoList;
+@WebServlet("/commentfind")
+public class CommentFindServlet extends HttpServlet {
+	List<CommentInfo> commentInfoList;
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BufferedReader reader = req.getReader();
@@ -33,28 +27,31 @@ public class RequestInfoServlet extends HttpServlet {
 		}
 		String user_id = sb.toString();
 		
-		RequestInfoDAO reqInfoDAO = new RequestInfoDAO();
-		reqInfoList = new ArrayList<>();
+		commentInfoList = new ArrayList<>();
+		CommentDAO commentDAO = new CommentDAO();
 		
-		// requestInfoList(ìœ ì € id) => íŠ¹ì • ìœ ì €ì˜ ìš”ì²­ì„œ ëª©ë¡  
-//		reqInfoList = reqInfoDAO.requestInfoList(user_id);
-		// requestAll() => ì „ì²´ ìœ ì €ì˜ ìš”ì²­ì„œ ëª©ë¡  
-		reqInfoList =  reqInfoDAO.requestAll();
+		// ÀüÃ¼ ¸®ºä
+		commentInfoList = commentDAO.allComment();
 		
-			
+		// user_id ÀÔ·ÂÀ¸·Î ¸®ºä
+//		commentInfoList = commentDAO.userComment(user_id);
+		
+		// teacher_id ÀÔ·ÂÀ¸·Î ¸®ºä
+//		String teacher_id = "°æÅÂ";
+//		commentInfoList = commentDAO.teacherComment(teacher_id);
+		
 		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(reqInfoList);
+		String json = mapper.writeValueAsString(commentInfoList);
 		
-		// ì½˜ì†”ì—ì„œ toStringí˜•íƒœë¡œ ì²´í¬(ì—¬ëŸ¬ ì¤„)
-		for (int i = 0; i < reqInfoList.size(); i++) {
-			System.out.println(reqInfoList.get(i).toString());
+		// ÄÜ¼Ö¿¡¼­ toStringÇüÅÂ·Î Ã¼Å©(¿©·¯ ÁÙ)
+		for (int i = 0; i < commentInfoList.size(); i++) {
+			System.out.println(commentInfoList.get(i).toString());
 		}
-		// ì½˜ì†”ì—ì„œ json í˜•íƒœë¡œ ì²´í¬(í•œ ì¤„)
+		// ÄÜ¼Ö¿¡¼­ json ÇüÅÂ·Î Ã¼Å©(ÇÑ ÁÙ)
 		System.out.println(json);
 		
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
-		
 	}
 }

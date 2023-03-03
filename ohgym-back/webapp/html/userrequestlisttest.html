@@ -11,6 +11,9 @@
     let a = document.getElementById("a");
     fetch('http://localhost:8080/ohgym/requestfind', {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
         body: '경연', // id 보내기
         })
     .then((resp) => resp.json())

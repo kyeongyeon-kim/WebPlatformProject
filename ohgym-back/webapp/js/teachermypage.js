@@ -5,6 +5,7 @@ window.addEventListener("load", (e) => {
   fetch("http://localhost:8080/ohgym/requestList")
     .then((resp) => resp.json())
     .then((arr) => {
+      console.log(arr);
       let span = document.createElement("span");
       span.innerText = `(${arr.length})`;
       let history = document.querySelector("#history > h3");
