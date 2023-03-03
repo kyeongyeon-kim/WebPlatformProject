@@ -30,7 +30,7 @@ public class TeacherProfileServlet extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(teacherprofile.get(0));
 		PrintWriter pw = resp.getWriter();
-//		System.out.println(json);
+		System.out.println(json);
 		pw.println(json);
 		pw.flush();
 		
