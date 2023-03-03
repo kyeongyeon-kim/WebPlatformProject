@@ -35,11 +35,23 @@ public class RequestInfoServlet extends HttpServlet {
 		
 		RequestInfoDAO reqInfoDAO = new RequestInfoDAO();
 		reqInfoList = new ArrayList<>();
-		reqInfoList = reqInfoDAO.requestInfoList(user_id);
 		
+		// requestInfoList(유저 id) => 특정 유저의 요청서 목록  
+//		reqInfoList = reqInfoDAO.requestInfoList(user_id);
+		// requestAll() => 전체 유저의 요청서 목록  
+		reqInfoList =  reqInfoDAO.requestAll();
+		
+			
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(reqInfoList);
+		
+		// 콘솔에서 toString형태로 체크(여러 줄)
+		for (int i = 0; i < reqInfoList.size(); i++) {
+			System.out.println(reqInfoList.get(i).toString());
+		}
+		// 콘솔에서 json 형태로 체크(한 줄)
 		System.out.println(json);
+		
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
