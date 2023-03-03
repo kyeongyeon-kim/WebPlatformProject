@@ -29,11 +29,13 @@ public class RequestListServlet extends HttpServlet {
 		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
 		RequestInfoDAO dao = new RequestInfoDAO();
 		List<Request> FilteredtList = new ArrayList<>();
-		TeacherProfile teacherProfile = new TeacherProfile("경연", "'김경태 고수의 퍼스널트레이닝(PT) 한번배워 평생 운동합시다! 방문피티도 가능합니다. 현장피티는 스포애니강남역2호점에서 진행합니다'", "09:00-18:00", "퍼스널트레이닝", "김경연 퍼스널트레이닝",
-				"오짐2호점", "부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미", "2년", "https://i.postimg.cc/G2JD4kg1/health.png");
+		TeacherProfile teacherProfile = new TeacherProfile("경연"
+				, "'김경태 고수의 퍼스널트레이닝(PT) 한번배워 평생 운동합시다! 방문피티도 가능합니다. 현장피티는 스포애니강남역2호점에서 진행합니다'"
+				, "09:00-18:00", "클라이밍", "김경연 퍼스널트레이닝"
+				, "오짐2호점", "부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미"
+				, "2년", "https://i.postimg.cc/G2JD4kg1/health.png");
 		
 //		req.getRequestDispatcher("/html/mypageTeacher.jsp").forward(req, resp);
-		
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
 			for (RequestInfo requestInfo : dao.requestInfoList(request.getId())) {
@@ -55,7 +57,7 @@ public class RequestListServlet extends HttpServlet {
 		Calendar cal = Calendar.getInstance();
 		cal.set(2023, 1, 22);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		
+		System.out.println(requestInfo);
 		try {
 			if(requestInfo.getAnswer7() != null
 					&& dateFormat.parse(requestInfo.getRequest_date()).compareTo(cal.getTime()) <= 0
