@@ -26,7 +26,7 @@ window.addEventListener("load", (e) => {
   window.addEventListener("load", (e) => {
     fetch("http://localhost:8080/ohgym/teacherPick")
       .then((resp) => resp.json())
-      .then((arr) => {       
+      .then((arr) => {
         console.log(arr);
         let requestList = document.getElementById("pickList");
 

@@ -30,9 +30,6 @@ public class RequestListClientServlet extends HttpServlet {
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
-	
-	
-	
 	}
 
 }
