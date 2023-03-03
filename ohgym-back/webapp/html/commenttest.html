@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    <p id="a">d</p>
+</body>
+<script>
+    // Find 테스트
+    // let a = doCUMENT.GETELEMENTBYID("A");
+    // FETCH('HTTP://LOCALHOST:8080/OHGYM/COMMENTFIND', {
+    //     METHOD: 'POST',
+    //     BODY: '경태', // USER_ID 보내기
+    //     })
+    // .THEN((RESP) => RESP.JSON())
+    // .THEN(DATA => {
+    //     FOR (LET I = 0; I < DATA.LENGTH; I++) {
+    //         CONSOLE.LOG(DATA[I].NO);
+    //         CONSOLE.LOG(DATA[I].USER_ID);
+    //         CONSOLE.LOG(DATA[I].TEACHER_ID);
+    //         CONSOLE.LOG(DATA[I].SCORE);
+    //         CONSOLE.LOG(DATA[I].REVIEW);
+    //         A.TEXTCONTENT = DATA[I].REVIEW;
+    //     }
+    // });
+
+    // request 테스트
+    let a = document.getElementById("a");
+    let reqarr = [];
+    reqarr.push('user');
+    reqarr.push('teacher');
+    reqarr.push(4.5);
+    reqarr.push('굳');
+
+    console.log(reqarr);
+
+    let reqdata = JSON.stringify(reqarr);
+    fetch('http://localhost:8080/ohgym/commentrequest', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: reqdata
+    });
+</script>
+</html>
