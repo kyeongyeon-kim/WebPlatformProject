@@ -1,37 +1,29 @@
-<%@page import="java.net.URLDecoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
- <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
     <link rel="stylesheet" type="text/css" href="../css/teacherProfile.css">
-    <script src="../js/include.js"></script>
     <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <header include-html="..\html\header.html"></header>
+        <header><%@ include file="header.jsp" %></header>
         <main>
             <div class="teacher-profile">
                 <div id="image-background">
                     <img id="profile-image" src="../img/health.png" />
                 </div>
                 <div class="teacher-info">
-                    <h1 id="userId">
-                    <% 
-                    String reqId = request.getParameter("id");
-            		String decoded = URLDecoder.decode(reqId, "UTF-8");
-            		System.out.println(decoded);
-                    	
-                    %><%= reqId %>
-                    
-                    
+                    <h1 id="teacherId">경태
                     </h1>
                     <p id="main-service">퍼스널트레이닝</p>
-                    <p id="area"><i class="fa-regular fa-compass"></i>부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미</p>
+                    <p id="area"><i class="fa-regular fa-compass"></i><span id=area-input>부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미</span></p>
                     <p id="time"><i class="fa-regular fa-clock"></i>연락가능 시간 : <span id="contactTime">9:00-18:00</span></p>
                     <p id="appeal">
                         소개하기~~~~~~~~~~~~~~~~~~~~~~~~~~김경태 고수의 퍼스널트레이닝(PT) 한번배워 평생 운동합시다! 방문피티도 가능합니다. 현장피티는 스포애니강남역2호점에서 진행합니다
@@ -61,8 +53,8 @@
                     <h2 id="profile-service">서비스 소개</h2>
                     <ul class="content-info">
                         <li>퍼스널트레이닝</li>
-                        
                         <li>크로스핏</li>
+                        
                     </ul>
                 </div>
                 <div class="service-info">
@@ -79,17 +71,7 @@
                         난이도와 운동강도 조절이 너무 좋은 운동입니다 !!
                         필라테스라는 운동 뿐만아니라 모든 운동이라도 아니 집 앞 산책 30분을 시작으로 운동 습관을 가져 보신다면 정말 삶의 질이 향상 될거라고 장담합니다!!
                     </p>
-                    <p>안녕하세요 필라테스 벨 원장 강효진입니다 :)
-                        기구 전문 필라테스 센터이지만 매트 필라테스, 소도구 필라테스, 홈 트레이닝 모두 가능하답니다 !!
-                        집에서도 충분히 하실 수 있는 동작도 알려드려서 운동이 습관이 되실 수 있도록 도와드리겠습니다!
-                        운동은 겉으로 보여지는 외모를 위한 미용목적보다는
-                        나 자신을 위한 건강관리루틴 중의 필수 항목에 가깝습니다!
-                        바른 자세와 습관으로 만든 나의 운동투자가 미래의 나에게 큰 보상이 따라준답니다!
-                        통증, 자세 교정, 근력 강화, 코어 강화 등등 정말 효과적이고 운동이 처음이셔서 걱정이신 분들에게도 탁월한 필라테스입니다!
-                        생각하시는 것보다 힘드실 수도 힘들지 않으실 수도 있어요
-                        원하시는 운동강도와 방향성 말씀해주신다면 맞춰서 가능하답니다 :)
-                        난이도와 운동강도 조절이 너무 좋은 운동입니다 !!
-                        필라테스라는 운동 뿐만아니라 모든 운동이라도 아니 집 앞 산책 30분을 시작으로 운동 습관을 가져 보신다면 정말 삶의 질이 향상 될거라고 장담합니다!!
+                    <p>
                     </p>
                 </div>
                 <div class="review-info">
@@ -134,11 +116,10 @@
                 </div>
             </aside>
         </main>
-        <footer include-html="..\html\footer.html"></footer>
+        <footer><%@ include file="footer.jsp" %></footer>
     </div>
 </body>
 <script>
-    includeHTML();
 </script>
 <script src="../js/teacherProfile.js"></script>
 </html>
