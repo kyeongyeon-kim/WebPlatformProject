@@ -11,7 +11,10 @@
     let a = document.getElementById("a");
     fetch('http://localhost:8080/ohgym/requestfind', {
         method: 'POST',
-        body: '1', // id 보내기
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8'
+        },
+        body: '경연', // id 보내기
         })
     .then((resp) => resp.json())
     .then(data => {
@@ -29,7 +32,7 @@
             console.log(data[i].answer5);
             console.log(data[i].answer6);
             console.log(data[i].answer7);
-            a.textContent = data[i].question;
+            a.textContent = data[i].answer7;
         }
     });
 </script>

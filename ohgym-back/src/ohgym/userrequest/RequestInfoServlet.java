@@ -21,12 +21,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ohgym.dbutil.ConnectionProvider;
 
 @WebServlet("/requestfind")
-public class RequestFindServlet extends HttpServlet {
-	List<RequestFind> requestFindList;
+public class RequestInfoServlet extends HttpServlet {
+	List<RequestInfo> reqInfoList;
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		requestFindList = new ArrayList<>();
-				
 		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
 		String line;
@@ -35,28 +33,25 @@ public class RequestFindServlet extends HttpServlet {
 		}
 		String user_id = sb.toString();
 		
-		List<Integer> requestNoList = new ArrayList<>();
+		RequestInfoDAO reqInfoDAO = new RequestInfoDAO();
+		reqInfoList = new ArrayList<>();
 		
-		String sql = "SELECT request_no FROM request WHERE user_id = " + user_id;
+		// requestInfoList(유저 id) => 특정 유저의 요청서 목록  
+//		reqInfoList = reqInfoDAO.requestInfoList(user_id);
+		// requestAll() => 전체 유저의 요청서 목록  
+		reqInfoList =  reqInfoDAO.requestAll();
 		
-		try (Connection conn = ConnectionProvider.getConnection();
-				PreparedStatement stmt = conn.prepareStatement(sql);) {
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				requestNoList.add((int)rs.getInt("request_no"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		for (int i = 0; i < requestNoList.size(); i++) {
-			requestFindList.add(new RequestFind(requestNoList.get(i)));
-			System.out.println();
-		}
-		
+			
 		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(requestFindList);
+		String json = mapper.writeValueAsString(reqInfoList);
+		
+		// 콘솔에서 toString형태로 체크(여러 줄)
+		for (int i = 0; i < reqInfoList.size(); i++) {
+			System.out.println(reqInfoList.get(i).toString());
+		}
+		// 콘솔에서 json 형태로 체크(한 줄)
 		System.out.println(json);
+		
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();

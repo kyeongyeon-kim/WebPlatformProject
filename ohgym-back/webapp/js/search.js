@@ -11,6 +11,8 @@ function onload(e) {
     });
 }
 
+
+// 근선생님 객체 생성
 let objArr = [];
 function makeObj(element) {
     let myObj = {}; 
@@ -26,6 +28,7 @@ function makeObj(element) {
     objArr.push(myObj);
 }
 
+// 근선생님 프로필 작성
 function fillProfile(element) {
     let container = document.getElementById("profile-container");
     let template = document.getElementById("profile-temp");
@@ -44,9 +47,15 @@ function fillProfile(element) {
     pImage.src = element.image;
     let profile = p.querySelector(".profile");
     profile.id = element.id + element.exercise;
+    let aTag = profile.firstElementChild;
+    aTag.addEventListener("click", function(e) {
+		sessionStorage.removeItem("teacherProfile");
+	    sessionStorage.setItem("teacherProfile", JSON.stringify(element)); 
+	});
     container.append(p);
 }
 
+// 서비스 타입 콤보박스 이벤트
 let type = document.getElementById("type");
 type.addEventListener("change", choiceType);
 function choiceType() {
@@ -64,6 +73,7 @@ function choiceType() {
     })
 }
 
+// 서비스 지역 콤보박스 이벤트
 let area = document.getElementById("area");
 area.addEventListener("change", choiceArea);
 function choiceArea() {
@@ -84,6 +94,7 @@ function choiceArea() {
     })
 }
 
+// 서비스 검색 이벤트
 let searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", searchInput);
 function searchInput() {
@@ -111,4 +122,3 @@ function getInput() {
     console.log(input);
     return input;
 }
-

@@ -25,18 +25,9 @@ public class RequestFind {
 	private String answer7;
 	
 	
-	public RequestFind () {}
-	
-	public RequestFind(int request_no, String user_id, String exercise_type, String request_date, String deadline_date,
-			String message, String answer1, String answer2, String answer3, String answer4, String answer5,
-			String answer6, String answer7) {
-		super();
-		this.request_no = request_no;
-		this.user_id = user_id;
-		this.exercise_type = exercise_type;
-		this.request_date = request_date;
-		this.deadline_date = deadline_date;
-		this.message = message;
+	public RequestFind(String answer1, String answer2, String answer3, String answer4, String answer5, String answer6,
+			String answer7,String message) {
+		
 		this.answer1 = answer1;
 		this.answer2 = answer2;
 		this.answer3 = answer3;
@@ -44,6 +35,7 @@ public class RequestFind {
 		this.answer5 = answer5;
 		this.answer6 = answer6;
 		this.answer7 = answer7;
+		this.message = message;
 	}
 
 	public RequestFind (int request_no) {

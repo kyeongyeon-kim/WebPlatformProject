@@ -110,10 +110,9 @@
 }
 
 #image-icon {
+    position: absolute;
     background: none;
     border: none;
-    display: inline;
-    float: right;
     width: 1.875rem;
     height: 1.875rem;
     cursor: pointer;

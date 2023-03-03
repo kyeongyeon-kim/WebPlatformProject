@@ -5,6 +5,7 @@ window.addEventListener("load", (e) => {
   fetch("http://localhost:8080/ohgym/requestList")
     .then((resp) => resp.json())
     .then((arr) => {
+      console.log(arr);
       let span = document.createElement("span");
       span.innerText = `(${arr.length})`;
       let history = document.querySelector("#history > h3");
@@ -16,6 +17,7 @@ window.addEventListener("load", (e) => {
         let firstP = importTemplate.querySelector("p");
         let secondP = firstP.nextElementSibling;
         let thirdP = secondP.nextElementSibling;
+        console.log(elem.exerciseType);
         firstP.innerText = elem.exerciseType;
         secondP.innerText = elem.id;
         thirdP.innerText = elem.requestDate + " ~ " + elem.deadlineDate;

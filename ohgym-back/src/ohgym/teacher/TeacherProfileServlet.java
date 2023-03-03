@@ -53,6 +53,6 @@ public class TeacherProfileServlet extends HttpServlet {
 		teacherProfile.setExercise(exerciseType);
 		service.updateTeacherProfile(teacherProfile);
 		
-		System.out.println(teacherProfile);
+//		System.out.println(teacherProfile);
 	}
 }

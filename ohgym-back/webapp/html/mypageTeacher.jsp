@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Oh!gym</title>
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
     <link rel="stylesheet" type="text/css" href="../css/teachermypage.css" />
     <script src="../js/include.js"></script>
@@ -19,7 +21,7 @@
           <h1>마이페이지</h1>
         </div>
         <div id="clientName">
-          <p class="name">김경태</p>
+          <p class="name">김경연</p>
           <p>선생님</p>
           <button>정보수정</button>
         </div>

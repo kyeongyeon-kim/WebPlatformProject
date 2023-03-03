@@ -10,7 +10,7 @@ main {
     max-width: 700px;
 }
 #image-background {
-    display: inline-block;
+
     margin: 10px 0 15px 0;
     width: 8.5rem;
     height: 8.5rem;
@@ -34,7 +34,7 @@ main {
     margin: 0 3px;
     display: inline-block;
 }
-#userId {
+#teacherId {
     margin: 10px 0 13px 0;
 }
 #main-service {

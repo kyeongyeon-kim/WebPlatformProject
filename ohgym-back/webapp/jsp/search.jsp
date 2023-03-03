@@ -1,5 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +10,11 @@
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
     <link rel="stylesheet" type="text/css" href="../css/searchstyle.css">
     <script src="../js/header.js"></script>
-    <script src="../js/include.js"></script>
     <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <header include-html="..\html\header.html"></header>
+        <header><%@ include file="header.jsp" %></header>
         <main>
             <h1>근선생 찾기</h1>
             <select id="type" name="type" >
@@ -59,7 +60,7 @@
                 <article class="profile">
                     <a href="../jsp/teacherProfile.jsp">
                         <div class="info">
-                            <h3 id="id" name="id"></h3>
+                            <h3 id="id"></h3>
                             <div class="contents">
                                 <i class="fa-regular fa-face-smile"></i>
                                 <!-- <i class="fa-regular fa-circle-user"></i> -->
@@ -92,11 +93,10 @@
                 </article>
             </template>
         </main>
-        <footer include-html="..\html\footer.html"></footer>
+     <footer><%@ include file="footer.jsp" %></footer>
     </div>
 </body>
 <script>
-    includeHTML();
 </script>
 <script src="../js/search.js"></script>
 </html>

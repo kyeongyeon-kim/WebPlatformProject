@@ -310,7 +310,7 @@ next.addEventListener("click", function(e){
                     fetch('http://localhost:8080/ohgym/userreq', {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json; charset=UTF-8'
                         },
                         body: reqdata
                     });
@@ -318,7 +318,7 @@ next.addEventListener("click", function(e){
                     for (let i = 0; i < reqarr.length; i++) {
                         console.log(reqarr[i]);
                     }
-                    // location.href = "http://localhost:5500/front/html/mainPage.html";
+                    location.href = "http://localhost:5500/front/html/mainPage.html";
                 } else {
                 }
                 break;
