@@ -31,6 +31,7 @@ window.addEventListener("load", (e) => {
         let requestList = document.getElementById("pickList");
 
         let template = document.getElementById("pick-card-temp");
+        
         arr.forEach((elem) => {
           let importTemplate = document.importNode(template.content, true);
           let firstP = importTemplate.querySelector("p");
