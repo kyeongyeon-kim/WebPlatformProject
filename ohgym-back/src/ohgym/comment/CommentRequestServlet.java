@@ -21,12 +21,15 @@ public class CommentRequestServlet extends HttpServlet {
 			String str = reader.readLine();
 		    str = str.substring(1, str.length() - 1);
 		    String[] values = str.split(",");
+		    for (int i = 0; i < values.length; i++) {
+		    	values[i] = values[i].replace("\"", "");
+		    }
 		    
 		    CommentInfo commentInfo = new CommentInfo();
-		    commentInfo.setUser_id(values[0]);
-		    commentInfo.setTeacher_id(values[1]);
+		    commentInfo.setUser_id((String) values[0]);
+		    commentInfo.setTeacher_id((String) values[1]);
 		    commentInfo.setScore(Double.parseDouble(values[2]));
-		    commentInfo.setReview(values[3]);
+		    commentInfo.setReview((String) values[3]);
 
 	    	CommentDAO commentDAO = new CommentDAO();
 	    	commentDAO.commentInsert(commentInfo);
