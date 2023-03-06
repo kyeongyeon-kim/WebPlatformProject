@@ -22,6 +22,21 @@ window.addEventListener("load", (e) => {
         secondP.innerText = elem.id;
         thirdP.innerText = elem.requestDate + " ~ " + elem.deadlineDate;
         requestList.append(importTemplate);
+        
+        //  let bottombtn =importTemplate.getElementById("bottom");
+         let bottombtn = document.querySelector(".bottom > a");
+         console.log("요기" +bottombtn);
+          
+        bottombtn.addEventListener("click",function (e){
+      
+           console.log("누름");
+        //  console.log(firstP.innerText);
+        //  console.log(secondP.innerText);
+        //  console.log(thirdP.innerText);
+          
+         });
       });
     });
-});
+  });
+  
+  
