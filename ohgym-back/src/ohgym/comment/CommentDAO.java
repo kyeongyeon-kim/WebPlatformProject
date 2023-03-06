@@ -11,7 +11,8 @@ import ohgym.dbutil.ConnectionProvider;
 
 public class CommentDAO {
 	public void commentInsert(CommentInfo commentInfo) {
-		String sql = "INSERT INTO comment VALUES (?, ?, ?, ?);";
+		String sql = "INSERT INTO ohgym.comment (user_id, teacher_id, score, review) VALUES (?, ?, ?, ?)";
+
 		try (Connection conn = ConnectionProvider.getConnection();
 				PreparedStatement stmt = conn.prepareStatement(sql)){
 			stmt.setString(1, commentInfo.getUser_id());
