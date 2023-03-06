@@ -57,8 +57,8 @@ select {
 }
 .info {
     /* min-height: 60px; */
-    width: 40vw;
-    max-width: 650px;
+    width: 50vw;
+    max-width: 700px;
 }
 #name {
     font-size: 1rem;
@@ -85,6 +85,10 @@ select {
 }
 .contents > p {
     margin-left: 5px;
+	max-height: 60px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 i {
     /* width: 25px; */

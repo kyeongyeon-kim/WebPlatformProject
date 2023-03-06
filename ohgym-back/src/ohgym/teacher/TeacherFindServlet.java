@@ -29,9 +29,15 @@ public class TeacherFindServlet extends HttpServlet {
 		System.out.println(list);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(list); 
-      
-		PrintWriter pw = resp.getWriter();
-		pw.println(json);
-		pw.flush();
+//      
+//		PrintWriter pw = resp.getWriter();
+//		pw.println(json);
+//		pw.flush();
+		
+		
+		req.setAttribute("list", json);
+		req.getAttribute("list");
+		System.out.println(req.getAttribute("list"));
+		req.getRequestDispatcher("/jsp/find.jsp").forward(req, resp);
 	}
 }
