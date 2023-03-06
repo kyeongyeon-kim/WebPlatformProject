@@ -1,4 +1,4 @@
-package ohgym.detailRequest;
+package ohgym.suggest;
 
 public class Suggest {
 	private int no;

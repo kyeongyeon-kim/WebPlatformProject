@@ -19,9 +19,9 @@ window.addEventListener("load", (e) => {
           let firstP = importTemplate.querySelector("p");
           let secondP = firstP.nextElementSibling;
           let thirdP = secondP.nextElementSibling;
-          firstP.innerText = elem.teacher_id;
+          firstP.innerText = elem.id;
           secondP.innerText = elem.message;
-          // thirdP.innerText = elem.price;
+          thirdP.innerText = "가격 : " + elem.price;
           suggestTest.append(importTemplate);  
         });
       });
