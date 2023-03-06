@@ -1,4 +1,3 @@
-
 window.addEventListener("load", (e) => {
     fetch("http://localhost:8080/ohgym/suggestGo")
       .then((resp) => resp.json())
@@ -26,4 +25,9 @@ window.addEventListener("load", (e) => {
         });
       });
   });
-  
+
+  const detailRequestCard = document.getElementById("detailRequest-card-temp");
+  detailRequestCard.addEventListener("click", (e) => {
+    const portfolioModal = e.target.closest(".portfolio-modal");
+    portfolioModal.classList.add("show");
+  });

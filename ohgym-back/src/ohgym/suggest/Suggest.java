@@ -14,7 +14,7 @@ public class Suggest {
 		this.id = id;
 		this.requestNo = requestNo;
 		this.price = price;
-		this.date = date;
+		this.date = date;	
 		this.message = message;
 	}
 	public int getNo() {
