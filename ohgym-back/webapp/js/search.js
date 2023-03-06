@@ -47,21 +47,11 @@ function fillProfile(element) {
     pImage.src = element.image;
     let profile = p.querySelector(".profile");
     profile.id = element.id + element.exercise;
-	
-    
-    
     let aTag = profile.firstElementChild;
-    console.log(element.id);
-    let encodeId = encodeURIComponent(element.id);
-    
-	// aTag.href = "../ohgym/profileId?id=" + element.id;
-    // aTag.href = "http://192.168.0.104:8080/ohgym/profileId?id=" + element.id;
-    aTag.href = "http://localhost:8080/ohgym/profileId";
-	console.log(aTag.href);
-
-
-    // aTag.addEventListener("click", profileClick(element));
-
+    aTag.addEventListener("click", function(e) {
+		sessionStorage.removeItem("teacherProfile");
+	    sessionStorage.setItem("teacherProfile", JSON.stringify(element)); 
+	});
     container.append(p);
 }
 

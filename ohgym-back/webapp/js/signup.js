@@ -1,28 +1,3 @@
-// 로그인 사용자 값 불러오기
-// window.addEventListener("load", (e) => {
-//   fetch("http://192.168.0.104:8080/ohgym/login")
-//     .then((resp) => resp.json())
-//     .then((arr) => {
-//       console.log("");
-//       arr.forEach((element) => {
-//         console.log(element);
-//       });
-//     });
-// });
-
-// window.addEventListener("load", (e) => {
-//   fetch("http://192.168.0.104:8080/ohgym/signup")
-//     .then((resp) => resp.json())
-//     .then((arr) => {
-//       arr.forEach((element) => {
-//         console.log(element);
-//       });
-//     });
-// });
-
-
-
-
 const idInput = document.getElementById("id");
 const alertMessage = document.getElementById("alert-message");
 const checkBtn = document.getElementById("checkid");

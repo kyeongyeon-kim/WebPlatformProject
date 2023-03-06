@@ -1,4 +1,4 @@
-package ohgym.request;
+package ohgym.detailRequest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,24 +12,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ohgym.request.Request;
+import ohgym.request.RequestDAOImpl;
+import ohgym.request.RequestService;
+import ohgym.request.RequestServiceImpl;
 import ohgym.teacher.TeacherDAOImpl;
 import ohgym.teacher.TeacherService;
 import ohgym.teacher.TeacherServiceImpl;
 
-@WebServlet("/clientRequest")
-public class RequestListClientServlet extends HttpServlet {
 
+@WebServlet("/suggestGo")
+public class SuggestServlet extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = "은진";
-		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
-		List<Request> list = service.selectRequestById(id);
-
+		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());		
+		List<Suggest> list = service.selectSuggest();
+		System.out.println(list);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(list); 
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
-	}
-
+	}	
 }
+
+
