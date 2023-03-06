@@ -1,5 +1,7 @@
 /* * { outline: 1px solid #333;} */
 
+
+
 #title {
     text-align: center;
     margin-top: 20px;
@@ -30,31 +32,37 @@
     padding:3px; 
 }
 
+.history {
+    text-align: center;
+}
+
 .history > h3 {
+    
     color: rgb(53, 52, 52);
-    /* width: 100px; */
-    /* text-align: center; */
-    margin-left: 60px;
+    width: 100px;
+    margin-left: 170px;
     padding: 20px 0px 10px 0px;
     font-size: 16px;
+    text-align: center;
 }
 
 #history > h3 {
     color: rgb(53, 52, 52);
     width: 80px;
     text-align: center;
-    margin-left: 60px;
-    padding: 10px 0px 10px 0px;
+    /* margin-left: 60px; */
+    padding: 30px 0px 30px 0px;
     font-size: 16px;
 }
 
 
 .box { 
     /* padding: 120px; */
-    margin: 0px 50px 0px 50px;
-    /* background-color: rgba(211, 252, 239, 0.493); */
+    
+    width: 600px;
     border-radius: 10px;
     border: 1px solid #eee;
+    display: inline-block;
 
 }
 
@@ -71,18 +79,14 @@
 }
 
 #detailRequest {
-    display: flex ;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     padding: 30px 0px; 
     font-size: 17px;
 }
 
-#pickList {
-    display: flex ;
-    flex-wrap: wrap;
-    padding: 30px 0px; 
-    font-size: 15px;
-}
+
 
 #detailRequest img {
     float: auto; 
@@ -97,8 +101,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
-    height: 8rem;
-    width: 13rem;
+    height: 10rem;
+    width: 20rem;
     padding: 1rem;
     border: 0.0625rem solid #e1e1e1;
     border-radius: 4px;
@@ -119,50 +123,43 @@
 }
 
 #detailRequest-card {
+    text-align: left;
+    line-height: 30px;
+    padding: 0.25rem;
+
+}
+#detailRequest-card > p:nth-child(1){
+    font-size: 24px;
     line-height: 30px;
     padding: 0.25rem;
 }
 
-#pick-card > div {
-    letter-spacing: -1px;
-}
-
 #detailRequest-card > p:nth-child(2) {
-    font-size: 13px;
+
+    font-size: 14px;
     letter-spacing: -1px;
 }
 
-#pick-card >div> p {
-    margin-top: 5px;
+#detailRequest-card > p:nth-child(3) {
+
+    font-size: 15px;
     letter-spacing: -1px;
 }
 
-#pick-card >div> p:nth-child(2) {
-    font-size: 13px;
+.bottom {
+    text-align: right;
+    align-items: center;
+   
 }
-#pick-image {
-    display:flex;
-    width: 22%;
-    margin-left: 25px;
-    text-align : right;
-}
-
-.score {
-    padding:  1px;
-    margin-top: 4px;
-}
-
-#score{
-    margin-top: 5px; 
-}
-
 .bottom > a {
+    padding-top:5px;
     display: flex;
-    justify-content: center;
+    text-align: center;
     align-items: center;
     flex-direction: column;
     height: 30px;
-    width: 100%;
+    line-height: 1;
+    width: 40%;
     color: #fff;
     background-color: #00c7ae;
     border-color: #00c7ae;
@@ -170,5 +167,81 @@
     font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
-}
+    margin-left: auto;
+  }
 
+
+
+
+  /* 모달 팝업 */
+  .popup-wrap{
+    background-color:rgba(0,0,0,.3); 
+    justify-content:center; 
+    align-items:center;     
+    position:fixed;        
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;              
+    display:none; 
+    padding:15px; 
+  }
+
+  .popup{
+    width:100%;              
+    max-width:400px;       
+    border-radius:10px;    
+    overflow:hidden;      
+    background-color:#00c7ae; 
+    box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3); 
+  }
+
+  .popup-head{
+    width:100%;
+    height:50px; 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .popup-body{               
+    width:100%;
+    background-color:#ffffff;
+  }
+  .body-content{              
+    width:100%;
+    padding:30px;             
+  }
+  .body-titlebox{           
+    text-align:center;     
+    width:100%;
+    height:40px;
+    margin-bottom:10px;     
+  }
+  .body-contentbox{        
+    word-break:break-word;    
+    overflow-y:auto;          
+    min-height:100px;      
+    max-height:200px;     
+  }
+
+
+  .popup-foot{                   
+    width:100%;
+    height:50px;
+  }
+  .pop-btn{ 
+    display:inline-flex;            
+    width:50%;                    
+    height:100%;                  
+    justify-content:center;        
+    align-items:center;           
+    float:left;                     
+    color:#ffffff;               
+    cursor:pointer;               
+  }
+  .pop-btn.confirm{              
+    border-right:1px solid #3b5fbf; 
+  }
+
+  

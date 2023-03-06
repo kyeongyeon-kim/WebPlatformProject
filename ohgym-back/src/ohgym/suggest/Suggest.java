@@ -1,4 +1,4 @@
-package ohgym.detailRequest;
+package ohgym.suggest;
 
 public class Suggest {
 	private int no;
@@ -14,7 +14,7 @@ public class Suggest {
 		this.id = id;
 		this.requestNo = requestNo;
 		this.price = price;
-		this.date = date;
+		this.date = date;	
 		this.message = message;
 	}
 	public int getNo() {
@@ -53,6 +53,12 @@ public class Suggest {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	@Override
+	public String toString() {
+		return "Suggest [no=" + no + ", id=" + id + ", requestNo=" + requestNo + ", price=" + price + ", date=" + date
+				+ ", message=" + message + "]";
+	}
+	
 	
 	
 }
