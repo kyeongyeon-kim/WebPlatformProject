@@ -34,4 +34,15 @@ public class SuggestDAOImpl implements SuggestDAO {
 		suggest.setMessage(rs.getString("message"));
 		return suggest;
 	}
+
+	@Override
+	public int insertSuggest(Connection conn, Suggest suggest) throws SQLException {
+		String sql = "INSERT INTO suggest (teacher_id, request_no, price, `date`, message)" + 
+				" VALUES (?, ?, ?, ?, ?)";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setString(1, suggest.getId());
+//			stmt.setInt(2, suggest.getRequestNo());
+		}
+		return 0;
+	}
 }

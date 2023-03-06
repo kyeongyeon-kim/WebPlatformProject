@@ -53,6 +53,12 @@ public class Suggest {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	@Override
+	public String toString() {
+		return "Suggest [no=" + no + ", id=" + id + ", requestNo=" + requestNo + ", price=" + price + ", date=" + date
+				+ ", message=" + message + "]";
+	}
+	
 	
 	
 }

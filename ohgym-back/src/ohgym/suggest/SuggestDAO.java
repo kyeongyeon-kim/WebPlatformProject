@@ -8,5 +8,5 @@ import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 public interface SuggestDAO {
 	List<Suggest> selectSuggest(Connection conn) throws SQLException;
-
+	int insertSuggest(Connection conn, Suggest suggest) throws SQLException;
 }

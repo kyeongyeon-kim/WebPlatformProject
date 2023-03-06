@@ -61,24 +61,28 @@
                     <a href="../jsp/teacherProfile.jsp">
                         <div class="info">
                             <h3 id="id"></h3>
-                            <div class="contents">
-                                <i class="fa-regular fa-face-smile"></i>
+                             <div class="contents">
+                                <i class="fa-solid fa-magnifying-glass"></i>
                                 <!-- <i class="fa-regular fa-circle-user"></i> -->
                                 <!-- <i class="fa-regular fa-user"></i> -->
-                                <p id="appeal"></p>
+                                <p id="exercise"></p>
                             </div>
                             <div class="contents">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <!-- <i class="fa-solid fa-check"></i> -->
+                            	<i class="fa-regular fa-circle-user"></i>
+                                <p id="appeal"></p>
+                            </div>
+                            <!-- 
+                            <div class="contents">
+                                <i class="fa-regular fa-face-smile"></i>
                                 <p id="introduction"></p>
                             </div>
+                             -->
                             <div class="contents">
                                 <i class="fa-regular fa-clock"></i>
                                 <p id="contactTime"></p>
                             </div>
                             <div class="contents">
                                 <i class="fa-regular fa-compass"></i>
-                                <!-- <i class="fa-regular fa-map"></i> -->
                                 <p id="centerLocation"></p>
                             </div>
                             <div class="score">
@@ -87,7 +91,7 @@
                             </div>
                         </div>
                         <div class="profile-img">
-                            <img id="image" src="../img/health.png" alt="profile-img">
+                            <img id="image" src="../img/health.png" alt=" profile-img">
                         </div>
                     </a>
                 </article>
