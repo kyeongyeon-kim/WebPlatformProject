@@ -25,7 +25,6 @@ public class RequestListServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json");
 		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
 		RequestInfoDAO dao = new RequestInfoDAO();
 		List<Request> FilteredtList = new ArrayList<>();
