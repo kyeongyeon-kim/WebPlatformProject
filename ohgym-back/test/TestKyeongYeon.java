@@ -18,6 +18,7 @@ import ohgym.userrequest.RequestInfoDAO;
 
 
 public class TestKyeongYeon {
+		// 견적서 필터링 테스트
 		@Test
 		public void filterTest() throws ParseException {
 			Calendar cal = Calendar.getInstance();
@@ -47,13 +48,5 @@ public class TestKyeongYeon {
 			for (Request request : afterFilterList) {
 				System.out.println(request);
 			}
-			
-//			for (RequestInfo requestInfo : list) {
-//				if(requestInfo.getAnswer7() != null && requestInfo.getAnswer7().equals(str.substring(0, 2))) {
-//					System.out.println(requestInfo.getUser_id());
-//				}
-//			}
-//			List<Request> requestList = service.selectRequestById();
-//			System.out.println(requestList);
 		}
 }

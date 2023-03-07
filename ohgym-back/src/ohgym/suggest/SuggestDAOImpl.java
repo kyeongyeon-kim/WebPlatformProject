@@ -28,7 +28,7 @@ public class SuggestDAOImpl implements SuggestDAO {
 		Suggest suggest = new Suggest();
 		suggest.setNo(rs.getInt("suggest_no"));
 		suggest.setId(rs.getString("teacher_id"));
-		suggest.setRequestNo(rs.getString("request_no"));
+		suggest.setRequestNo(rs.getInt("request_no"));
 		suggest.setPrice(rs.getInt("price"));
 		suggest.setDate(rs.getString("date"));
 		suggest.setMessage(rs.getString("message"));
@@ -41,8 +41,12 @@ public class SuggestDAOImpl implements SuggestDAO {
 				" VALUES (?, ?, ?, ?, ?)";
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.setString(1, suggest.getId());
-//			stmt.setInt(2, suggest.getRequestNo());
+			stmt.setInt(2, suggest.getRequestNo());
+			stmt.setInt(3, suggest.getPrice());
+			stmt.setString(3, suggest.getDate());
+			stmt.setString(4, suggest.getMessage());
+			
+			return stmt.executeUpdate();
 		}
-		return 0;
 	}
 }

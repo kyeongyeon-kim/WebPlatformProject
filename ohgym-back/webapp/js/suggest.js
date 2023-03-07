@@ -88,15 +88,20 @@ let sendSuggest = document.getElementById("send-suggest");
 sendSuggest.addEventListener("click", sendSuggestEvent);
 
 function sendSuggestEvent() {
+  let today = new Date(); // 오늘 날짜
   console.log(inputCost.value);
   console.log(quote.value);
   console.log(request);
+  console.log(
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()
+  );
+
   let suggest = new Suggest(
     null,
     "경연",
     request.no,
     inputCost.value,
-    "2023-02-22",
+    "2023-02-22", // 임시날짜 적용
     quote.value
   );
   console.log(suggest);

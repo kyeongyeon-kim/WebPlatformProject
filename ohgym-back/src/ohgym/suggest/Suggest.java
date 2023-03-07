@@ -3,12 +3,12 @@ package ohgym.suggest;
 public class Suggest {
 	private int no;
 	private String id;
-	private String requestNo;
+	private int requestNo;
 	private int price;
 	private String date;
 	private String message;
 	public Suggest() {}
-	public Suggest(int no, String id, String requestNo, int price, String date, String message) {
+	public Suggest(int no, String id, int requestNo, int price, String date, String message) {
 		super();
 		this.no = no;
 		this.id = id;
@@ -29,10 +29,10 @@ public class Suggest {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getRequestNo() {
+	public int getRequestNo() {
 		return requestNo;
 	}
-	public void setRequestNo(String requestNo) {
+	public void setRequestNo(int requestNo) {
 		this.requestNo = requestNo;
 	}
 	public int getPrice() {

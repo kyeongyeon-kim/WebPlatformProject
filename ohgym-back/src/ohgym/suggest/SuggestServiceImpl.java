@@ -33,4 +33,24 @@ public class SuggestServiceImpl implements SuggestService {
 		}
 		return null;
 	}
+
+	@Override
+	public int insertSuggest(Suggest suggest) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.insertSuggest(conn, suggest);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
 }
