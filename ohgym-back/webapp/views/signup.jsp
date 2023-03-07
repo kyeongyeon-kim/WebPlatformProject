@@ -1,29 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>경태는 멋져</title>
+    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/login.css" />
-    <!-- 웹 폰트(미정) -->
-    <script src="../js/include.js"></script>
-    <script src="../js/header.js"></script>
-    <script src="../js/signup.js" defer></script>
   </head>
   <body>
     <div class="container">
-      <header include-html="..\html\header.html"></header>
-      <main
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 50%;
-        "
-      >
-        <!-- 메인 태그 안에다 내용 작성 -->
+      <header><%@ include file="header.jsp" %></header>
+      <main>
         <div
           class="signup-page"
           style="align-items: center; width: 100%; height: 30%"
@@ -104,29 +91,7 @@
           </form>
         </div>
       </main>
-      <footer include-html="..\html\footer.html"></footer>
-      1
+      <footer><%@ include file="footer.jsp" %></footer>
     </div>
   </body>
-  <script>
-    includeHTML();
-    // function validateId() {
-    //   const id = document.getElementById("id").value;
-    //   fetch(`http://localhost:8080/ohgym/checkid?memberid=${id}`)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       if (data.isAvailable) {
-    //         alert("사용 가능한 아이디입니다.");
-    //       } else {
-    //         alert("이미 사용중인 아이디입니다.");
-    //       }
-    //     })
-    //     .catch(error => {
-    //       console.error("Error:", error);
-    //     });
-    // }
-
-    // const checkIdButton = document.getElementById("checkid");
-    // checkIdButton.addEventListener("click", validateId);
-  </script>
 </html>
