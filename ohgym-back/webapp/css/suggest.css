@@ -83,7 +83,7 @@ h1 {
     border: 0.0625rem solid #e1e1e1;
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 #quote {
@@ -116,4 +116,9 @@ h1 {
 
 #send-suggest:hover {
     background-color: rgb(91, 206, 184);
+}
+
+#guide {
+    color: red;
+    margin-bottom: 10px;
 }
