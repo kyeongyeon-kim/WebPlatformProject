@@ -42,8 +42,9 @@ public class RequestListServlet extends HttpServlet {
 				}
 			}
 		}
+		
 		req.setAttribute("list", FilteredtList);
-		req.getRequestDispatcher("/jsp/mypageTeacher.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/mypageTeacher.jsp").forward(req, resp);
 
 	}
 

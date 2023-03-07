@@ -1,5 +1,8 @@
+<%@page import="ohgym.request.Request"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,21 +10,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/suggest.css" />
-    <script src="../js/include.js"></script>
-    <script src="../js/header.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/suggest.css" />
+    <script src="./js/include.js"></script>
+    <script src="./js/header.js"></script>
 </head>
 <body>
 <div class="container">
       <header><%@ include file="header.jsp"%></header>
-      <!-- 메인 태그 안에다 내용 작성 -->
       <main>
         <aside id="request">
           <h1>받은요청</h1>
           <div id="user-info">
-            <p id="user-info-id">김경연</p>
-            <p id="user-info-type">퍼스널트레이닝</p>
+            <p id="user-info-id">${ request.id}</p>
+            <p id="user-info-type">${request.exerciseType}</p>
             <p id="user-info-area">부산시 해운대구 재송동</p>
             <hr />
           </div>

@@ -44,8 +44,8 @@ prefix="c"%>
                       </p>
                     </div>
                     <div class="bottom">
-                    <%String str="/ohgym/requestNo?id=도연"; %>
-                      <a href=<%= str %> id="bottom">자세히 보기</a>
+               
+                      <a href="/ohgym/requestNo?no=${request.no}" id="bottom">자세히 보기</a>
                     </div>
                   </li>
                 </c:forEach>
