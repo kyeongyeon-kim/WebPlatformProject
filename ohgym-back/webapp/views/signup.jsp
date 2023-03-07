@@ -6,11 +6,22 @@ pageEncoding="UTF-8"%>
     <meta charset="UTF-8" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <script src="../js/include.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/signup.js" defer></script>
   </head>
   <body>
     <div class="container">
       <header><%@ include file="header.jsp" %></header>
-      <main>
+      <main
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50%;
+        "
+      >
         <div
           class="signup-page"
           style="align-items: center; width: 100%; height: 30%"

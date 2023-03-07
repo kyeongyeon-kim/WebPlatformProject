@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
   <body>
     <div class="container">
       <header><%@ include file="header.jsp" %></header>
-      <main>
+      <main style="display: flex; justify-content: center; align-items: center;">
         <div class="login-page" style="align-items: center">
           <h2>로그인</h2>
           <form
