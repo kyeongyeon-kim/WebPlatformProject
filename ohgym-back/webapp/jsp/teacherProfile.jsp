@@ -33,7 +33,7 @@
 			%>
             <div class="teacher-profile">
                 <div id="image-background">
-                    <img id="profile-image" src="./img/health.png" />
+                    <img id="profile-image" src="<%= profileById.get(0).getImage() %>" />
                 </div>
                 <div class="teacher-info">
                     <h1 id="teacherId"><%= profileById.get(0).getId() %>
