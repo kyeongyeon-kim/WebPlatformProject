@@ -1,5 +1,3 @@
-<%@page import="com.fasterxml.jackson.core.type.TypeReference"%>
-<%@page import="com.fasterxml.jackson.databind.ObjectMapper"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ohgym.teacher.TeacherProfile"%>
 <%@page import="java.util.List"%>
@@ -31,7 +29,8 @@
 				<option value="swimming">수영</option>
 				<option value="health">헬스</option>
 				<option value="etc">기타</option>
-			</select> <select id="area" name="area">
+			</select> 
+			<select id="area" name="area">
 				<option value="none">지역</option>
 				<option value="seoul">서울</option>
 				<option value="sejong">세종</option>
@@ -59,23 +58,23 @@
 			List<TeacherProfile> list = (List) request.getAttribute("list");
 			for (TeacherProfile t : list) {
 			%>
-			<section id="profile-container">
-            </section>
+			<section id="profile-container" class=<%= t.getExercise() %>>
                 <article class="profile">
-                    <a href="../jsp/teacherProfile.jsp">
+                	<% String str = "/ohgym/profileId?id=" + t.getId(); %>
+                    <a href=<%= str %>>
                         <div class="info">
-                            <h3 id="id"><%=t.getId() %></h3>
+                            <h3 id="id"><%= t.getId() %></h3>
                              <div class="contents">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <p id="exercise"><%=t.getExercise() %></p>
+                                <p id="exercise"><%= t.getExercise() %></p>
                             </div>
                             <div class="contents">
                             	<i class="fa-regular fa-circle-user"></i>
-                                <p id="appeal"><%=t.getAppeal() %></p>
+                                <p id="appeal"><%= t.getAppeal() %></p>
                             </div>
                             <div class="contents">
                                 <i class="fa-regular fa-clock"></i>
-                                <p id="contactTime"><%=t.getContactTime() %></p>
+                                <p id="contactTime"><%= t.getContactTime() %></p>
                             </div>
                             <div class="contents">
                                 <i class="fa-regular fa-compass"></i>
@@ -87,10 +86,11 @@
                             </div>
                         </div>
                         <div class="profile-img">
-                            <img id="image" src="<%=t.getImage() %>" alt=" profile-img">
+                            <img id="image" src="<%= t.getImage() %>" alt=" profile-img">
                         </div>
                     </a>
                 </article>
+              </section>
             <%
 			}
 			%>
@@ -98,4 +98,5 @@
 		<footer><%@ include file="footer.jsp"%></footer>
 	</div>
 </body>
+<script src="./js/find.js"></script>
 </html>
