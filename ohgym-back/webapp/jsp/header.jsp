@@ -9,7 +9,7 @@
 <body>
  <div id="menu">
         <div id="logo">
-            <a href="index.html"><img src="./img/logo.png" alt="logo"></a>
+            <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
         </div>
         <div id="menu-bar">
             <a href="">근선생매칭</a> 
