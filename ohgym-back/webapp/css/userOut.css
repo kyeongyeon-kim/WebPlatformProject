@@ -53,7 +53,6 @@
     /* 초기에 약간 아래에 배치 */
   transform: translate(-50%, -40%);
   }
-
   .show .popup {
     transform: translate(-50%, -50%);  /*아래에서 위로 올라가는 느낌*/
     transition: all 0.5s;  /*0.5초*/

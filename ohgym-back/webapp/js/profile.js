@@ -1,17 +1,13 @@
 // 로그인 사용자 값 불러오기
-var profile;
+let id = document.getElementById("userId").innerText;
+let teacherProfile = {
+  id: id,
+};
+console.log(teacherProfile.id);
 let profileImage = document.getElementById("profile-image");
 let template = document.getElementById("input-form");
-window.addEventListener("load", () => {
-  fetch("http://localhost:8080/ohgym/profile")
-    .then((resp) => resp.json())
-    .then((profile) => {
-      this.profile = profile;
-      setInitialValue();
-    })
-    .catch();
-});
 
+setInitialValue();
 function setInitialValue() {
   userId.innerText = profile.id + " 근선생님!";
   profileImage.setAttribute("src", profile.image);

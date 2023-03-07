@@ -21,14 +21,13 @@ public class TeacherProfileServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json");
-
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		String id = "경연";
 		
 		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
+		System.out.println(teacherprofile.get(0));
 		req.setAttribute("profile", teacherprofile.get(0));
-		req.getRequestDispatcher("/jsp/profile.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/profile.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -47,7 +46,5 @@ public class TeacherProfileServlet extends HttpServlet {
 		String exerciseType = service.convertExerciseToExerciseType(teacherProfile.getExercise());
 		teacherProfile.setExercise(exerciseType);
 		service.updateTeacherProfile(teacherProfile);
-		
-//		System.out.println(teacherProfile);
 	}
 }

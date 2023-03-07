@@ -12,9 +12,9 @@
 #reviewcontent {
   position: relative;
   border-radius: 5px;
+  padding: 20px;
   background-color: #fefefe;
   margin: 10% auto;
-  padding: 20px;
   border: 1px solid #888;
   width: 550px;
   height: 650px;
@@ -30,28 +30,48 @@
   font-weight: bold;
 }
 
+#reviewquestiondiv {
+  margin-top: 10px;
+  margin-left: 125px;
+  background-color: rgb(234, 250, 249);
+  border: 1px solid rgb(91, 206, 184);
+  border-radius: 5px;
+  width: 300px;
+  height: 80px;
+}
+
 #reviewquestion1 {
   position: absolute;
+  top: 40px;
   left: 260px;
   font-size: 18px;
   font-weight: bold;
-  color: gray;
+  color: rgb(91, 206, 184);
   text-align: center;
 }
 
 #reviewquestion2 {
   position: absolute;
-  top: 80px;
-  left: 180px;
+  top: 75px;
+  left: 190px;
   font-size: 15px;
+  color: rgb(91, 206, 184);
   text-align: center;
 }
 
 #reviewid {
   font-size: 18px;
   font-weight: bold;
-  margin-top: 150px;
+  margin-top: 50px;
   text-align: center;
+}
+
+#teacherid {
+  margin-right: 30px;
+}
+
+#exercisetype {
+  margin-left: 30px;
 }
 
 #reviewtext {
@@ -70,17 +90,18 @@
   font-size: 18px;
   font-weight: bold;
   position: absolute;
-  top: 520px;
+  top: 510px;
   left: 120px;
 }
 
-#cancelokbtn {
+#cancelokdiv {
   position: absolute;
   bottom: 30px;
   right: 30px;
 }
 
 #cancelreviewbtn {
+  margin-right: 10px;
   border-radius: 3px;
   background-color: #00c7ae;
   color: white;

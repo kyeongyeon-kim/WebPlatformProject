@@ -12,13 +12,14 @@
   <div id="reviewtap">
     <div id="reviewcontent">
       <p id="closebtn">&times;</p>
-      <div>
+      <div id="reviewquestiondiv">
         <p id="reviewquestion1">리뷰 작성</p>
         <p id="reviewquestion2">근선생님의 후기를 작성해주세요</p>
       </div>
       <div id="reviewid">
-        <span style="margin-right: 30px;">이름</span>
-        <span>종목</span>
+        <span id="teacherid">ohgym 부산 1호점</span>
+        <span>|</span>
+        <span id="exercisetype">퍼스널트레이닝</span>
       </div>
       <div>
         <textarea id="reviewtext" maxlength="200"></textarea>
@@ -34,33 +35,5 @@
   </div>
 
 </body>
-<script>
-
-var reviewtap = document.getElementById("reviewtap");
-window.onclick = function(event) {
-  if (event.target == reviewtap) {
-    reviewtap.style.display = "none";
-  }
-}
-
-function reviewwrite() {
-  reviewtap.style.display = "block";
-}
-
-var closebtn = document.getElementById("closebtn");
-closebtn.onclick = function() {
-  reviewtap.style.display = "none";
-}
-
-var cancelreviewbtn = document.getElementById("cancelreviewbtn");
-cancelreviewbtn.onclick = function() {
-  reviewtap.style.display = "none";
-}
-
-var okreviewbtn = document.getElementById("okreviewbtn");
-okreviewbtn.onclick = function() {
-  reviewtap.style.display = "none";
-}
-
-</script>
+<script src="../js/reviewwrite.css"></script>
 </html>
