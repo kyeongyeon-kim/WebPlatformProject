@@ -85,8 +85,8 @@ public class TeacherProfile {
 	}
 	@Override
 	public String toString() {
-		return "TeacherProfile [id=" + id + ", appeal=" + appeal + ", contactTime=" + contactTime + ", exercise="
+		return "id=" + id + ", appeal=" + appeal + ", contactTime=" + contactTime + ", exercise="
 				+ exercise + ", introduction=" + introduction + ", centerName=" + centerName + ", location=" + location
-				+ ", career=" + career + ", image=" + image + "]";
+				+ ", career=" + career + ", image=" + image;
 	}
 }
