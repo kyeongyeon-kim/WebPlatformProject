@@ -5,7 +5,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +12,7 @@
 <title>Document</title>
 <link rel="stylesheet" type="text/css" href="./css/framestyle.css">
 <link rel="stylesheet" type="text/css" href="./css/searchstyle.css">
+<script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
@@ -55,49 +55,45 @@
 				<input id="search" type="search" placeholder="내 주변 근선생은 누가 있지?" />
 				<button id="search-btn">검색</button>
 			</div>
-				<%
-				ObjectMapper mapper = new ObjectMapper();
-				Object obj = request.getAttribute("list");
-				List<TeacherProfile> profileList = null;
-				if (obj instanceof List<?>) {
-					profileList = mapper.convertValue(obj, new TypeReference<List<TeacherProfile>>() {
-					});
-				}
-				%>
-				<c:forEach var="teacher" items="${list}">
-					<article class="profile">
-						<a href="../jsp/teacherProfile.jsp">
-							<div class="info">
-								<h3 id="id"><c:out value="${teacher.id}" /></h3>
-								<div class="contents">
-									<i class="fa-solid fa-magnifying-glass"></i>
-									<p id="exercise"></p>
-								</div>
-								<div class="contents">
-									<i class="fa-regular fa-circle-user"></i>
-									<p id="appeal"></p>
-								</div>
-								<div class="contents">
-									<i class="fa-regular fa-clock"></i>
-									<p ids="contactTime"></p>
-								</div>
-								<div class="contents">
-									<i class="fa-regular fa-compass"></i>
-									<p id="centerLocation"></p>
-								</div>
-								<div class="score">
-									<img src="./img/star.png" alt=""> <span id="score">4.8</span>
-								</div>
-							</div>
-							<div class="profile-img">
-								<img id="image" src="" alt="profile-img">
-							</div>
-						</a>
-					</article>
-				</c:forEach>
-			</section>
-
-
+			<%
+			List<TeacherProfile> list = (List) request.getAttribute("list");
+			for (TeacherProfile t : list) {
+			%>
+			<section id="profile-container">
+            </section>
+                <article class="profile">
+                    <a href="../jsp/teacherProfile.jsp">
+                        <div class="info">
+                            <h3 id="id"><%=t.getId() %></h3>
+                             <div class="contents">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <p id="exercise"><%=t.getExercise() %></p>
+                            </div>
+                            <div class="contents">
+                            	<i class="fa-regular fa-circle-user"></i>
+                                <p id="appeal"><%=t.getAppeal() %></p>
+                            </div>
+                            <div class="contents">
+                                <i class="fa-regular fa-clock"></i>
+                                <p id="contactTime"><%=t.getContactTime() %></p>
+                            </div>
+                            <div class="contents">
+                                <i class="fa-regular fa-compass"></i>
+                                <p id="centerLocation"><%=t.getLocation() %></p>
+                            </div>
+                            <div class="score">
+                                <img src="./img/star.png" alt="">
+                                <span id="score">4.8</span>
+                            </div>
+                        </div>
+                        <div class="profile-img">
+                            <img id="image" src="<%=t.getImage() %>" alt=" profile-img">
+                        </div>
+                    </a>
+                </article>
+            <%
+			}
+			%>
 		</main>
 		<footer><%@ include file="footer.jsp"%></footer>
 	</div>
