@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../css/profilestyle.css" />
+    <link rel="stylesheet" type="text/css" href="../css/reviewwrite.css" />
+    <script src="../js/include.js"></script>
+    <script src="../js/header.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header include-html="..\html\header.html"></header>
+      <!-- 메인 태그 안에다 내용 작성 -->
+      <main>
+        <section id="profile-overview">
+          <section id="welcome">
+            <div id="image-background">
+              <img id="profile-image" src="" />
+              <label for="image-input" id="image-icon"></label>
+              <input type="file" id="image-input" style="display: none;" accept=".jpg,.jpeg,.png"></label>
+            </div>
+            <div>
+              <p id="userId"></p>
+              <p>어서오세요!</p>
+            </div>
+          </section>
+          <section id="teacher-info">
+            <ul>
+              <li>
+                <section><b>0</b></section>
+                <section>리뷰 평점</section>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <section><b>0</b></section>
+                <section>리뷰수</section>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <section><b>0</b></section>
+                <section>고용수</section>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section id="comps">
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>한줄소개</h2>
+              </div>
+              <div class="modify" id="appeal-save">수정</div>
+            </div>
+            <div class="value" id="appeal">
+              <button onclick="reviewwrite()">리뷰(모달)창 띄우기</button>
+
+  <div id="reviewtap">
+    <div id="reviewcontent">
+      <p id="closebtn">&times;</p>
+      <div id="reviewquestiondiv">
+        <p id="reviewquestion1">리뷰 작성</p>
+        <p id="reviewquestion2">근선생님의 후기를 작성해주세요</p>
+      </div>
+      <div id="reviewid">
+        <span id="teacherid">ohgym 부산 1호점</span>
+        <span>|</span>
+        <span id="exercisetype">퍼스널트레이닝</span>
+      </div>
+      <div>
+        <textarea id="reviewtext" maxlength="200"></textarea>
+      </div>
+      <div id="reviewscorediv">
+        <label id="reviewscore">별점</label>
+      </div>
+      <div id="cancelokdiv">
+        <button id="cancelreviewbtn">취소</button>
+        <button id="okreviewbtn">전송</button>
+      </div>
+    </div>
+  </div>
+            </div>
+          </article>
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>연락가능 시간</h2>
+              </div>
+              <div class="modify" id="time-save">저장</div>
+            </div>
+            <div class="info-contactTime" id="info-contactTime">
+              <input id="start-time" type="time" value="09:00"></input>&nbsp;&nbsp;~&nbsp;&nbsp; 
+              <input id="end-time" type="time" value="18:00"></input>
+            </div>
+          </article>
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>대표서비스</h2>
+              </div>
+            </div>
+            <div class="service" id="service">
+              <div id="services">
+                <input type="radio" name="service-btn" id="personal-training" hidden/><label class="service-btn" for="personal-training">퍼스널트레이닝</label>
+                <input type="radio" name="service-btn" id="Pilates" hidden/><label class="service-btn" for="Pilates">필라테스</label>
+                <input type="radio" name="service-btn" id="yoga" hidden/><label class="service-btn" for="yoga">요가</label>
+                <input type="radio" name="service-btn" id="climbing" hidden/><label class="service-btn" for="climbing">클라이밍</label>
+                <input type="radio" name="service-btn" id="spinning" hidden/><label class="service-btn" for="spinning">스피닝</label>
+                <input type="radio" name="service-btn" id="crossfit" hidden/><label class="service-btn" for="crossfit">크로스핏</label>
+                <input type="radio" name="service-btn" id="ballet" hidden/><label class="service-btn" for="ballet">발레</label>
+                <input type="radio" name="service-btn" id="swimming" hidden/><label class="service-btn" for="swimming">수영</label>
+                <input type="radio" name="service-btn" id="health" hidden/><label class="service-btn" for="health">헬스</label>
+                <input type="radio" name="service-btn" id="etc" hidden/><label class="service-btn" for="etc">기타</label>
+              </div>
+            </div>
+          </article>
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>서비스 소개</h2>
+              </div>
+              <div class="modify" id="introduction-save">수정</div>
+            </div>
+            <div class="value" id="introduction"></div>
+          </article>
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>센터명</h2>
+              </div>
+              <div class="modify" id="centerName-save">수정</div>
+            </div>
+            <div class="value" id="centerName">스포애니 강남역2호점</div>
+          </article>
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>위치</h2>
+              </div>
+              <div class="modify" id="address-save">저장</div>
+            </div>
+            <div class="address" id="address">
+              <input type="text" class="input-style" id="input-address" value="" placeholder="주소를 입력해주세요" readonly/>
+              <input type="text" class="input-style" id="input-detailed-address" value="" placeholder="상세 주소"/>
+            </div>
+          </article>
+          <article class="info-comp">
+            <div class="heading">
+              <div>
+                <h2>경력</h2>
+              </div>
+              <div class="modify" id="career-save">저장</div>
+            </div>
+            <div class="career" id="career">
+              <input class="input-style" id="input-career" type="number" value="0" max="100" min="0" placeholder="경력을 입력해주세요"/><span class="career-text">년</span>
+              <input class="input-style" id="input-career-month" type="number" value="0" max="11" min="0" placeholder="경력을 입력해주세요"/><span class="career-text">개월</span>
+            </div>
+          </article>
+        </section>
+      </main>
+      <footer include-html="..\html\footer.html"></footer>
+    </div>
+    <template id="input-form">
+      <div>
+        <input
+          type="text"
+          class="input-form"
+          value=""
+          placeholder="내용을 입력해 주세요"
+        />
+        <p>내용을 입력해 주세요</p>
+      </div>
+    </template>
+  </body>
+  <script src="../js/profile.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    includeHTML();
+    window.onload = function() {
+        document.getElementById("input-address").addEventListener("click", function() { //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+                document.getElementById("input-address").value = data.address; // 주소 넣기
+                document.getElementById("input-detailed-address").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+  }
+  </script>
+<script src="../js/reviewwrite.js"></script>
+</html>

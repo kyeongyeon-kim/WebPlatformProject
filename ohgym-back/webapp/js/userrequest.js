@@ -1,4 +1,3 @@
-includeHTML();
 window.onload = function(){
     document.getElementById("address_main").addEventListener("click", function(){ //주소입력칸을 클릭하면
         //카카오 지도 발생
