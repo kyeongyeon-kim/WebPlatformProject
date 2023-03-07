@@ -16,12 +16,12 @@ function choiceType() {
 
 // 서비스 지역 콤보박스 이벤트
 let area = document.getElementById("area");
-console.log(area);
 area.addEventListener("change", choiceArea);
 function choiceArea() {
     let selectArea = area.options[area.selectedIndex].text;
 	document.querySelectorAll("section").forEach((section) => {
 		let dataArea = section.getAttribute("data-area");
+		console.log(dataArea)
 		if (dataArea && dataArea.includes(selectArea)) {
      		section.style.display = "block";
     	} else if (selectArea === "지역") {
@@ -36,25 +36,25 @@ function choiceArea() {
 let searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", searchInput);
 function searchInput() {
-    let text = getInput();
+    let text = document.getElementById("search").value;
+	console.log(text);
 	document.querySelectorAll("section").forEach((section) => {
 		let dataAll = section.getAttribute("data-info");
+		console.log(dataAll);
 		if (dataAll && dataAll.includes(text)) {
+		console.log(dataAll.includes(text));
      		section.style.display = "block";
-    	} else {
+    	} else if (text === "") {
+			section.style.display = "block";
+		} else {
 			section.style.display = "none";
 		}
 	});
 }
 let input = document.getElementById("search");
-input.addEventListener("change", getInput);
+
 input.addEventListener("keydown", function(){
     if (window.event.keyCode == 13) {
         searchInput();
     }
 });
-function getInput() {
-    input = document.getElementById("search").value;
-    console.log(input);
-    return input;
-}

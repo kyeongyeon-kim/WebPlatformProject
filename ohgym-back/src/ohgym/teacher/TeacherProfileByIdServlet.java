@@ -22,6 +22,6 @@ public class TeacherProfileByIdServlet extends HttpServlet {
 		List<TeacherProfile> profileById = service.readTeacherProfile(id);
 		
 		req.setAttribute("profileById", profileById);
-		req.getRequestDispatcher("/jsp/teacherProfile.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/teacherProfile.jsp").forward(req, resp);
 	}
 }

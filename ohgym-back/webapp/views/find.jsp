@@ -58,7 +58,7 @@
 			List<TeacherProfile> list = (List) request.getAttribute("list");
 			for (TeacherProfile t : list) {
 				String str = "/ohgym/profileId?id=" + t.getId();
-				String info = t.toString();
+				String info = t.toString().replaceAll("[,@$^<>%-=\\[\\]\"\"\n ]", "");
 			%>
 			<section class="profile-container" id=<%= t.getExercise() %> data-area=<%= t.getLocation() %> data-info=<%= info %>>
                 <article class="profile">
