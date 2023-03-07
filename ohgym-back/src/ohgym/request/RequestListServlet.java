@@ -35,7 +35,6 @@ public class RequestListServlet extends HttpServlet {
 				, "오짐2호점", "부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미"
 				, "2년", "https://i.postimg.cc/G2JD4kg1/health.png");
 		
-//		req.getRequestDispatcher("/html/mypageTeacher.jsp").forward(req, resp);
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
 			for (RequestInfo requestInfo : dao.requestInfoList(request.getId())) {
@@ -44,13 +43,10 @@ public class RequestListServlet extends HttpServlet {
 				}
 			}
 		}
+		System.out.println(FilteredtList);
+		req.setAttribute("list", FilteredtList);
+		req.getRequestDispatcher("/jsp/mypageTeacher.jsp").forward(req, resp);
 
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(FilteredtList);
-		System.out.println(json);
-		PrintWriter pw = resp.getWriter();
-		pw.println(json);
-		pw.flush();
 	}
 
 	private boolean isValidRequest(Request request, RequestInfo requestInfo, TeacherProfile teacherProfile) {

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,7 +17,7 @@
 </head>
 <body>
     <div class="container">
-        <header include-html="..\html\header.html"></header>
+        <header><%@ include file="header.jsp" %></header>
         <main>
             <section id="banner" style="height: 250px;">
             <section class="container">
@@ -289,7 +291,7 @@
         </section>
 
         </main>
-        <footer include-html="..\html\footer.html"></footer>
+        <footer><%@ include file="footer.jsp" %></footer>
     </div>
 </body>
 <script src='../js/userrequest.js'></script>

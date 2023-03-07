@@ -80,6 +80,8 @@ class Suggest {
     this.message = message;
   }
 }
+// 입력 안내 텍스트
+let guide = document.getElementById("guide");
 // 금액, 견적사항 이벤트 처리
 let inputCost = document.getElementById("input-cost");
 let quote = document.getElementById("quote");
@@ -88,29 +90,45 @@ let sendSuggest = document.getElementById("send-suggest");
 sendSuggest.addEventListener("click", sendSuggestEvent);
 
 function sendSuggestEvent() {
-  let today = new Date(); // 오늘 날짜
-  console.log(inputCost.value);
-  console.log(quote.value);
-  console.log(request);
-  console.log(
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()
-  );
+  if (inputCost.value === "") {
+    guide.style.display = "block";
+  } else {
+    guide.style.display = "none";
+    let today = new Date(); // 오늘 날짜
+    let dateFormat =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1 < 9
+        ? "0" + (today.getMonth() + 1)
+        : today.getMonth() + 1) +
+      "-" +
+      (today.getDate() < 9 ? "0" + today.getDate() : today.getDate());
+    console.log(dateFormat);
 
-  let suggest = new Suggest(
-    null,
-    "경연",
-    request.no,
-    inputCost.value,
-    "2023-02-22", // 임시날짜 적용
-    quote.value
-  );
-  console.log(suggest);
+    let suggest = new Suggest(
+      null,
+      "경연",
+      request.no,
+      inputCost.value,
+      "2023-02-22", // 임시날짜 적용
+      quote.value
+    );
+    console.log(suggest);
 
-  fetch("http://localhost:8080/ohgym/sendSuggest", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(suggest),
-  });
+    fetch("http://localhost:8080/ohgym/sendSuggest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(suggest),
+    });
+  }
+}
+
+inputCost.addEventListener("keyup", isInputEmpty);
+
+function isInputEmpty() {
+  inputCost.value === ""
+    ? (guide.style.display = "block")
+    : (guide.style.display = "none");
 }
