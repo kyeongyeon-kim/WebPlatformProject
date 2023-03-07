@@ -1,4 +1,3 @@
-
 window.addEventListener("load", (e) => {
     fetch("http://localhost:8080/ohgym/suggestGo")
       .then((resp) => resp.json())
@@ -19,11 +18,16 @@ window.addEventListener("load", (e) => {
           let firstP = importTemplate.querySelector("p");
           let secondP = firstP.nextElementSibling;
           let thirdP = secondP.nextElementSibling;
-          firstP.innerText = elem.teacher_id;
+          firstP.innerText = elem.id;
           secondP.innerText = elem.message;
-          // thirdP.innerText = elem.price;
+          thirdP.innerText = "가격 : " + elem.price;
           suggestTest.append(importTemplate);  
         });
       });
   });
-  
+
+  const detailRequestCard = document.getElementById("detailRequest-card-temp");
+  detailRequestCard.addEventListener("click", (e) => {
+    const portfolioModal = e.target.closest(".portfolio-modal");
+    portfolioModal.classList.add("show");
+  });

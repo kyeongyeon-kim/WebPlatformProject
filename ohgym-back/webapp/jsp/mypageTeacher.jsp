@@ -51,7 +51,7 @@
             <p></p>
           </div>
           <div class="bottom">
-            <a href="#">자세히 보기</a>
+            <a href="#" id="bottom">자세히 보기</a>
           </div>
         </li>
       </template>

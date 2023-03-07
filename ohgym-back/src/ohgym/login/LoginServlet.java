@@ -39,12 +39,12 @@ public class LoginServlet extends HttpServlet {
 		if (authenticated) {
 			LoginUser user = new LoginUser(userId, userPassword);
 			HttpSession session = request.getSession();
-			System.out.println(session);
-			session.setAttribute("user", user);
+			System.out.println(user.getUserId());
+			session.setAttribute("user", user.getUserId());
 			session.setMaxInactiveInterval(30*60);
-			System.out.println(session);
+			System.out.println(session.getAttribute("user"));
 			
-			String redirectUrl = "ohgym/html/mainPage.html";
+			String redirectUrl = "./";
 			//String redirectUrl = request.getContextPath() + "/mainpage";
 		    response.sendRedirect(redirectUrl);
 

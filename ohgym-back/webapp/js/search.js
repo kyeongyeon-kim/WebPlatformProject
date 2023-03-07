@@ -35,10 +35,12 @@ function fillProfile(element) {
     let p = document.importNode(template.content, true);
     let pId = p.querySelector("h3");
     pId.innerText = element.id;
+	let pExercise = p.querySelector("#exercise");
+    pExercise.innerText = element.exercise;
     let pAppeal = p.querySelector("#appeal");
     pAppeal.innerText = element.appeal;
-    let pIntroduction = p.querySelector("#introduction");
-    pIntroduction.innerText = element.introduction;
+    //let pIntroduction = p.querySelector("#introduction");
+    //pIntroduction.innerText = element.introduction;
     let pContactTime = p.querySelector("#contactTime");
     pContactTime.innerText = element.contactTime; 
     let pCenterLocation = p.querySelector("#centerLocation");

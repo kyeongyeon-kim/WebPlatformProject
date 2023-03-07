@@ -1,4 +1,4 @@
-package ohgym.detailRequest;
+package ohgym.suggest;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,12 +26,23 @@ public class SuggestDAOImpl implements SuggestDAO {
 	
 	private Suggest resultMapping(ResultSet rs) throws SQLException {
 		Suggest suggest = new Suggest();
-		suggest.setNo(Integer.valueOf(rs.getString("suggest_no")));
+		suggest.setNo(rs.getInt("suggest_no"));
 		suggest.setId(rs.getString("teacher_id"));
 		suggest.setRequestNo(rs.getString("request_no"));
-		suggest.setPrice(Integer.valueOf(rs.getString("price")));
+		suggest.setPrice(rs.getInt("price"));
 		suggest.setDate(rs.getString("date"));
 		suggest.setMessage(rs.getString("message"));
 		return suggest;
+	}
+
+	@Override
+	public int insertSuggest(Connection conn, Suggest suggest) throws SQLException {
+		String sql = "INSERT INTO suggest (teacher_id, request_no, price, `date`, message)" + 
+				" VALUES (?, ?, ?, ?, ?)";
+		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setString(1, suggest.getId());
+//			stmt.setInt(2, suggest.getRequestNo());
+		}
+		return 0;
 	}
 }

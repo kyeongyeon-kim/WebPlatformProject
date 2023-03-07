@@ -1,4 +1,4 @@
-package ohgym.detailRequest;
+package ohgym.suggest;
 
 import java.util.List;
 

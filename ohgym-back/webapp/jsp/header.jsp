@@ -9,11 +9,11 @@
 <body>
  <div id="menu">
         <div id="logo">
-            <a href="index.html"><img src="../img/logo.png" alt="logo"></a>
+            <a href="index.html"><img src="./img/logo.png" alt="logo"></a>
         </div>
         <div id="menu-bar">
             <a href="">근선생매칭</a> 
-            <a href="./search.html">근선생찾기</a>
+            <a href="./search.jsp">근선생찾기</a>
             <a href="">커뮤니티</a>
             <input type="search" placeholder="어떤 서비스가 필요하세요?"></input>
         </div>
@@ -39,6 +39,5 @@
 %>
         
     </div>  
-    <script src="../js/header.js"></script>
 </body>
 </html>

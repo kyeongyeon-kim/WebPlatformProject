@@ -14,4 +14,9 @@ public class LoginUser {
     public String getUserPassword() {
         return userPassword;
     }
+    
+	@Override
+	public String toString() {
+		return "LoginUser [userId=" + userId + ", userPassword=" + userPassword + "]";
+	}
 }
