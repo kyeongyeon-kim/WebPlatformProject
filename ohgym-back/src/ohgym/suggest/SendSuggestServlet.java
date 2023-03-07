@@ -22,10 +22,11 @@ public class SendSuggestServlet extends HttpServlet {
 		while ((line = reader.readLine()) != null) {
 			sb.append(line);
 		}
-		System.out.println(sb.toString());
 		ObjectMapper mapper = new ObjectMapper();
 		String strSuggest = sb.toString();
 		Suggest suggest = mapper.readValue(strSuggest, Suggest.class);
+		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());
+		
 		System.out.println(suggest);
 	}
 }
