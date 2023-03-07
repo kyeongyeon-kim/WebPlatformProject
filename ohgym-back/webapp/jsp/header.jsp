@@ -13,12 +13,12 @@
         </div>
         <div id="menu-bar">
             <a href="">근선생매칭</a> 
-            <a href="./search.jsp">근선생찾기</a>
+            <a href="./find">근선생찾기</a>
             <a href="">커뮤니티</a>
             <input type="search" placeholder="어떤 서비스가 필요하세요?"></input>
         </div>
-<% 
-        if(true) { // 로그아웃
+<% 		
+        if(true) { // 로그아웃 상태
 %>
         <div id="login">
             <a href="./login.html">로그인</a>
@@ -26,7 +26,7 @@
             <div id="teacher-join"><a href="./signup.html">근선생가입</a></div>
         </div>
 <%        	        	
-        } else { // 로그인 
+        } else { // 로그인 상태
 %>
             <div id="login">
                 <a href="">알림</a>
@@ -37,7 +37,6 @@
 <%        		
         }
 %>
-        
     </div>  
 </body>
 </html>
