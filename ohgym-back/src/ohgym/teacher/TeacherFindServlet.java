@@ -26,16 +26,8 @@ public class TeacherFindServlet extends HttpServlet {
 
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<TeacherProfile> list = service.readAllTeacherProfile();
-		System.out.println(list);
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(list); 
-//      
-//		PrintWriter pw = resp.getWriter();
-//		pw.println(json);
-//		pw.flush();
 		
-		
-		req.setAttribute("list", json);
+		req.setAttribute("list", list);
 		req.getAttribute("list");
 		System.out.println(req.getAttribute("list"));
 		req.getRequestDispatcher("/jsp/find.jsp").forward(req, resp);
