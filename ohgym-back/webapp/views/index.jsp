@@ -1,35 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/indexstyle.css" />
-    <script src="../js/include.js"></script>
-    <script src="../js/header.js"></script>
+    <title>Oh!gym</title>
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/indexstyle.css" />
   </head>
   <body>
     <div class="container">
-      <header include-html="header.html"></header>
-      <!-- //header -->
+      <header><%@ include file="header.jsp" %></header>
       <main>
         <section id="banner">
           <section class="container">
             <article id="fields">
-              <a href="#"><img src="../img/health.png" />PT</a>
-              <a href="#"><img src="../img/health.png" />크로스핏</a>
-              <a href="#"><img src="../img/health.png" />필라테스</a>
-              <a href="#"><img src="../img/health.png" />요가</a>
-              <a href="#"><img src="../img/health.png" />클라이밍</a>
-              <a href="#"><img src="../img/health.png" />스피닝</a>
-              <a href="#"><img src="../img/health.png" />발레</a>
-              <a href="#"><img src="../img/health.png" />수영</a>
-              <a href="#"><img src="../img/health.png" />헬스</a>
-              <a href="#"><img src="../img/health.png" />기타</a>
+              <a href="#"><img src="./img/health.png" />PT</a>
+              <a href="#"><img src="./img/health.png" />크로스핏</a>
+              <a href="#"><img src="./img/health.png" />필라테스</a>
+              <a href="#"><img src="./img/health.png" />요가</a>
+              <a href="#"><img src="./img/health.png" />클라이밍</a>
+              <a href="#"><img src="./img/health.png" />스피닝</a>
+              <a href="#"><img src="./img/health.png" />발레</a>
+              <a href="#"><img src="./img/health.png" />수영</a>
+              <a href="#"><img src="./img/health.png" />헬스</a>
+              <a href="#"><img src="./img/health.png" />기타</a>
             </article>
           </section>
         </section>
@@ -86,12 +81,8 @@ pageEncoding="UTF-8"%>
             </section>
           </section>
         </section>
-        <!--//contents-->
       </main>
-      <footer include-html="footer.html"></footer>
+      <footer><%@ include file="footer.jsp" %></footer>
     </div>
   </body>
-  <script>
-    includeHTML();
-  </script>
 </html>

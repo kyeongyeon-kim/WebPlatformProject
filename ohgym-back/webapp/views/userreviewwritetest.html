@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/reviewwrite.css" />
+</head>
+<body>
+
+  <button onclick="reviewwrite()">리뷰(모달)창 띄우기</button>
+
+  <div id="reviewtap">
+    <div id="reviewcontent">
+      <p id="closebtn">&times;</p>
+      <div>
+        <p id="reviewquestion1">리뷰 작성</p>
+        <p id="reviewquestion2">근선생님의 후기를 작성해주세요</p>
+      </div>
+      <div id="reviewid">
+        <span style="margin-right: 30px;">이름</span>
+        <span>종목</span>
+      </div>
+      <div>
+        <textarea id="reviewtext" maxlength="200"></textarea>
+      </div>
+      <div id="reviewscorediv">
+        <label id="reviewscore">별점</label>
+      </div>
+      <div id="cancelokbtn">
+        <button id="cancelreviewbtn">취소</button>
+        <button id="okreviewbtn">전송</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+
+var reviewtap = document.getElementById("reviewtap");
+window.onclick = function(event) {
+  if (event.target == reviewtap) {
+    reviewtap.style.display = "none";
+  }
+}
+
+function reviewwrite() {
+  reviewtap.style.display = "block";
+}
+
+var closebtn = document.getElementById("closebtn");
+closebtn.onclick = function() {
+  reviewtap.style.display = "none";
+}
+
+var cancelreviewbtn = document.getElementById("cancelreviewbtn");
+cancelreviewbtn.onclick = function() {
+  reviewtap.style.display = "none";
+}
+
+var okreviewbtn = document.getElementById("okreviewbtn");
+okreviewbtn.onclick = function() {
+  reviewtap.style.display = "none";
+}
+
+</script>
+</html>

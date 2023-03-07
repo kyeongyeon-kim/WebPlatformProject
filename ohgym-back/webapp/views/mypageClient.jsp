@@ -1,23 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
-
+<html>
 <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
-      <link rel="stylesheet" type="text/css" href="../css/mypage.css">
-      <script src="../js/include.js"></script>
-      <script src="../js/header.js"></script>
-      <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="../css/framestyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/mypage.css">
+    <script src="../js/include.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-      <div class="container">
-            <header include-html="..\html\header.html"></header>
+ <div class="container">
+            <header><%@ include file="header.jsp" %></header>
             <main>
                   <div id="title">
+                        
                         <h1>마이페이지</h1>
                   </div>
                   <div id="clientName">
@@ -79,12 +80,8 @@
                   </a>
                   </li>
             </template>
-            <footer include-html="..\html\footer.html"></footer>
+            <footer><%@ include file="footer.jsp" %></footer>
       </div>
 </body>
-<script>
-      includeHTML();
-</script>
 <script src="../js/clientmypage.js"></script>
-
 </html>

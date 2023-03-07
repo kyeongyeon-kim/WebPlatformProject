@@ -1,5 +1,6 @@
 package ohgym.teacher;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,27 +18,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class TeacherFindServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setHeader("Access-Control-Allow-Origin", "*");
-		resp.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-		resp.setHeader("Access-Control-Allow-Headers", "*");
-		
-		req.setCharacterEncoding("UTF-8");
-		resp.setCharacterEncoding("UTF-8");
-
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<TeacherProfile> list = service.readAllTeacherProfile();
-		System.out.println(list);
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(list); 
-//      
-//		PrintWriter pw = resp.getWriter();
-//		pw.println(json);
-//		pw.flush();
 		
-		
-		req.setAttribute("list", json);
-		req.getAttribute("list");
-		System.out.println(req.getAttribute("list"));
+		req.setAttribute("list", list);
+		req.getRequestDispatcher("/jsp/find.jsp").forward(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		BufferedReader reader = req.getReader();
+		StringBuilder sb = new StringBuilder();
+		String line;
+		while ((line = reader.readLine()) != null) {
+			sb.append(line);
+		}
+
+		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
+		List<TeacherProfile> profileById = service.readTeacherProfile(line);
+			
+		req.setAttribute("list", profileById);
 		req.getRequestDispatcher("/jsp/find.jsp").forward(req, resp);
 	}
 }
