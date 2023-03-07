@@ -1,32 +1,117 @@
-.modal-dialog {
-  max-width: 90%;
-}
-.modal-dialog-slideout {
-  min-height: 100%;
-  margin: 0 0 0 auto;
-  background: #fff;
-}
-.modal.fade .modal-dialog.modal-dialog-slideout {
-  -webkit-transform: translate(100%, 0)scale(1);
-  transform: translate(100%, 0)scale(1);
-}
-.modal.fade.show .modal-dialog.modal-dialog-slideout {
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
-  display: flex;
-  align-items: stretch;
-  -webkit-box-align: stretch;
+#reviewtap {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
+  background-color: rgba(0,0,0,0.5);
 }
-.modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body {
-  overflow-y: auto;
-  overflow-x: hidden;
+
+#reviewcontent {
+  position: relative;
+  border-radius: 5px;
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 550px;
+  height: 650px;
 }
-.modal-dialog-slideout .modal-content {
-  border: 0;
+
+#closebtn {
+  color: #aaa;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  margin: 0px;
+  font-size: 28px;
+  font-weight: bold;
 }
-.modal-dialog-slideout .modal-header,
-.modal-dialog-slideout .modal-footer {
-  height: 4rem;
-  display: block;
+
+#reviewquestion1 {
+  position: absolute;
+  left: 260px;
+  font-size: 18px;
+  font-weight: bold;
+  color: gray;
+  text-align: center;
+}
+
+#reviewquestion2 {
+  position: absolute;
+  top: 80px;
+  left: 180px;
+  font-size: 15px;
+  text-align: center;
+}
+
+#reviewid {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 150px;
+  text-align: center;
+}
+
+#reviewtext {
+  border-color: lightgray;
+  font-size: 14px;
+  border-radius: 5px;
+  resize: none;
+  position: absolute;
+  top: 250px;
+  left: 65px;
+  width: 450px;
+  height: 200px;
+}
+
+#reviewscorediv {
+  font-size: 18px;
+  font-weight: bold;
+  position: absolute;
+  top: 520px;
+  left: 120px;
+}
+
+#cancelokbtn {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+#cancelreviewbtn {
+  border-radius: 3px;
+  background-color: #00c7ae;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#okreviewbtn {
+  border-radius: 3px;
+  background-color: #00c7ae;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#closebtn:hover,
+#closebtn:focus {
+  color: black;
+  cursor: pointer;
+}
+
+#cancelreviewbtn:hover,
+#cancelreviewbtn:focus,
+#okreviewbtn:hover,
+#okreviewbtn:focus {
+  background-color: #008080;
 }

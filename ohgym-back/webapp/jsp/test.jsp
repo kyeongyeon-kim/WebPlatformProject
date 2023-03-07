@@ -9,7 +9,6 @@
 </head>
 <body>
     <div class="container">
-    
         <header><%@ include file="header.jsp" %></header>
         <main>
             <!-- 여기 작성해주세요 -->
