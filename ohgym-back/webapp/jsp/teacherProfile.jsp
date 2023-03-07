@@ -1,45 +1,61 @@
+<%@page import="java.util.StringJoiner"%>
+<%@page import="ohgym.teacher.TeacherProfile"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css">
-    <link rel="stylesheet" type="text/css" href="../css/teacherProfile.css">
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css">
+    <link rel="stylesheet" type="text/css" href="./css/teacherProfile.css">
     <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         <header><%@ include file="header.jsp" %></header>
         <main>
+        	<%
+			List<TeacherProfile> profileById = (List) request.getAttribute("profileById");
+        	String exercise = "";
+        	String location = "";
+			StringJoiner sj = new StringJoiner(", ");
+			StringJoiner sj2 = new StringJoiner(", ");
+			for (TeacherProfile t : profileById) {
+				sj.add(t.getExercise());
+				if (!location.contains(t.getLocation())) {
+					sj2.add(t.getLocation());
+				}
+			}
+			exercise = sj.toString();
+			location = sj2.toString();
+			%>
             <div class="teacher-profile">
                 <div id="image-background">
-                    <img id="profile-image" src="../img/health.png" />
+                    <img id="profile-image" src="./img/health.png" />
                 </div>
                 <div class="teacher-info">
-                    <h1 id="teacherId">경태
+                    <h1 id="teacherId"><%= profileById.get(0).getId() %>
                     </h1>
-                    <p id="main-service">퍼스널트레이닝</p>
-                    <p id="area"><i class="fa-regular fa-compass"></i><span id=area-input>부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미</span></p>
-                    <p id="time"><i class="fa-regular fa-clock"></i>연락가능 시간 : <span id="contactTime">9:00-18:00</span></p>
+                    <p id="main-service"><%= exercise %></p>
+                    <p id="area"><i class="fa-regular fa-compass"></i><span id=area-input><%= location %></span></p>
+                    <p id="time"><i class="fa-regular fa-clock"></i>연락가능 시간 : <span id="contactTime"><%= profileById.get(0).getContactTime() %></span></p>
                     <p id="appeal">
-                        소개하기~~~~~~~~~~~~~~~~~~~~~~~~~~김경태 고수의 퍼스널트레이닝(PT) 한번배워 평생 운동합시다! 방문피티도 가능합니다. 현장피티는 스포애니강남역2호점에서 진행합니다
+                     <%= profileById.get(0).getAppeal() %>
                     </p>
                 </div>
                 <div class="teacher-info2">
                     <div id="review">
                         <button><a href="">리뷰</a></button><br>
                         <p>
-                            <img src="../img/star.png" alt="">
+                            <img src="./img/star.png" alt="">
                             <span id="score-input">4.8</span>
                         </p>
                     </div>
                     <div id="career">
                         <p id="career-sum">총 경력</p>
-                        <p id="career-input">10년</p>
+                        <p id="career-input"><%= profileById.get(0).getCareer() %></p>
                     </div>
                 </div>
                 <div id="menu-tab">
@@ -51,28 +67,20 @@
                 </div>
                 <div class="profile-content">
                     <h2 id="profile-service">서비스 소개</h2>
-                    <ul class="content-info">
-                        <li>퍼스널트레이닝</li>
-                        <li>크로스핏</li>
-                        
-                    </ul>
-                </div>
-                <div class="service-info">
-                    <h2 id="service-introduction">서비스 상세설명</h2>
-                    <p>안녕하세요 필라테스 벨 원장 강효진입니다 :)
-                        기구 전문 필라테스 센터이지만 매트 필라테스, 소도구 필라테스, 홈 트레이닝 모두 가능하답니다 !!
-                        집에서도 충분히 하실 수 있는 동작도 알려드려서 운동이 습관이 되실 수 있도록 도와드리겠습니다!
-                        운동은 겉으로 보여지는 외모를 위한 미용목적보다는
-                        나 자신을 위한 건강관리루틴 중의 필수 항목에 가깝습니다!
-                        바른 자세와 습관으로 만든 나의 운동투자가 미래의 나에게 큰 보상이 따라준답니다!
-                        통증, 자세 교정, 근력 강화, 코어 강화 등등 정말 효과적이고 운동이 처음이셔서 걱정이신 분들에게도 탁월한 필라테스입니다!
-                        생각하시는 것보다 힘드실 수도 힘들지 않으실 수도 있어요
-                        원하시는 운동강도와 방향성 말씀해주신다면 맞춰서 가능하답니다 :)
-                        난이도와 운동강도 조절이 너무 좋은 운동입니다 !!
-                        필라테스라는 운동 뿐만아니라 모든 운동이라도 아니 집 앞 산책 30분을 시작으로 운동 습관을 가져 보신다면 정말 삶의 질이 향상 될거라고 장담합니다!!
-                    </p>
-                    <p>
-                    </p>
+                	<% for (int i = 0; i < profileById.size(); i++) { 
+                		String introduction = profileById.get(i).getIntroduction().replace("\n","<br>");
+                	%>
+                	<div class="service-info">
+	                	<p class="content-info">
+	                		<i class="fa-regular fa-face-smile"></i>
+	                		<%= profileById.get(i).getExercise() %>
+	               		</p>
+	               		<p><%= introduction %>
+	               		</p>
+               		</div>
+               		<%
+                	}
+                	%>
                 </div>
                 <div class="review-info">
                     <h2 id="service-introduction">리뷰</h2>
@@ -81,7 +89,7 @@
                             <p id="review-id">이**</p>
                             <p id="review-service">퍼스널트레이닝</p>
                             <p id="review-score">
-                                <img src="../img/star.png" alt="">
+                                <img src="./img/star.png" alt="">
                                 <span id="review-score">4.8</span>
                             </p>
                             <p id="review-input">
@@ -92,7 +100,7 @@
                             <p id="review-id">김**</p>
                             <p id="review-service">크로스핏</p>
                             <p id="review-score">
-                                <img src="../img/star.png" alt="">
+                                <img src="./img/star.png" alt="">
                                 <span id="review-score">4.8</span>
                             </p>
                             <p id="review-input">
@@ -104,7 +112,7 @@
             </div>
             <aside class="aside-bar">
                 <div class="request">
-                    <p id="request-content"><span id="teacher-id">경태</span> 근선생님에게 원하는 <br>서비스의 견적을 받아보세요</p>
+                    <p id="request-content"><span id="teacher-id"><%= profileById.get(0).getId() %></span> 근선생님에게 원하는 <br>서비스의 견적을 받아보세요</p>
                     <div class="wish-bar">
                         <button id="wish">
                             <i class="fa-solid fa-heart"></i>
@@ -121,5 +129,5 @@
 </body>
 <script>
 </script>
-<script src="../js/teacherProfile.js"></script>
+<!-- <script src="./js/teacherProfile.js"></script> -->
 </html>

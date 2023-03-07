@@ -26,7 +26,7 @@ public class SendSuggestServlet extends HttpServlet {
 		String strSuggest = sb.toString();
 		Suggest suggest = mapper.readValue(strSuggest, Suggest.class);
 		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());
-		
-		System.out.println(suggest);
+		int result = service.insertSuggest(suggest);
+		System.out.println(result);
 	}
 }

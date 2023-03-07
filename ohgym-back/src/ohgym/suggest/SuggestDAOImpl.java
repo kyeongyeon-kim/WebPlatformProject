@@ -43,8 +43,8 @@ public class SuggestDAOImpl implements SuggestDAO {
 			stmt.setString(1, suggest.getId());
 			stmt.setInt(2, suggest.getRequestNo());
 			stmt.setInt(3, suggest.getPrice());
-			stmt.setString(3, suggest.getDate());
-			stmt.setString(4, suggest.getMessage());
+			stmt.setString(4, suggest.getDate());
+			stmt.setString(5, suggest.getMessage());
 			
 			return stmt.executeUpdate();
 		}
