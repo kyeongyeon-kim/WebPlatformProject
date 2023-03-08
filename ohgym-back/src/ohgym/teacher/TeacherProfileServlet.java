@@ -25,7 +25,6 @@ public class TeacherProfileServlet extends HttpServlet {
 		String id = "경연";
 		
 		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
-		System.out.println(teacherprofile.get(0));
 		req.setAttribute("profile", teacherprofile.get(0));
 		req.getRequestDispatcher("/views/profile.jsp").forward(req, resp);
 	}
@@ -41,7 +40,6 @@ public class TeacherProfileServlet extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		String strProfile = sb.toString();
 		TeacherProfile teacherProfile = mapper.readValue(strProfile, TeacherProfile.class);
-		
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		String exerciseType = service.convertExerciseToExerciseType(teacherProfile.getExercise());
 		teacherProfile.setExercise(exerciseType);
