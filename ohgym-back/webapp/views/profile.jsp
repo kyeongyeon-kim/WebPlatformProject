@@ -13,7 +13,6 @@ pageEncoding="UTF-8"%>
   <body>
   <%
   TeacherProfile profile = (TeacherProfile) request.getAttribute("profile");
-  System.out.println(profile);
   String[] timeArr = profile.getContactTime().split("-");
   String start = timeArr[0];
   String end = timeArr[1];
@@ -187,6 +186,32 @@ pageEncoding="UTF-8"%>
       </main>
       <footer><%@ include file="footer.jsp" %></footer>
     </div>
+    <template id="input-form">
+      <div>
+        <input
+          type="text"
+          class="input-form"
+          value=""
+          placeholder="내용을 입력해 주세요"
+        />
+        <p>내용을 입력해 주세요</p>
+      </div>
+    </template>
   </body>
   <script src="./js/profile.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    window.onload = function() {
+        document.getElementById("input-address").addEventListener("click", function() { //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+                document.getElementById("input-address").value = data.address; // 주소 넣기
+                document.getElementById("input-detailed-address").focus(); //상세입력 포커싱
+            }
+        }).open();
+    });
+  }
+  </script>
 </html>
