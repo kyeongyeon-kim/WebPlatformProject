@@ -24,7 +24,7 @@
                   <div id="clientName">
                         <p class="name">김도연</p>
                         <p> 회원님</p>
-                        <button><a href="./infochange.html">정보수정</a></button>
+                        <button><a href="./infochange.jsp">정보수정</a></button>
                   </div>
                   <div class="history">
                         <h3><a href="#">요청 내역</a></h3>
