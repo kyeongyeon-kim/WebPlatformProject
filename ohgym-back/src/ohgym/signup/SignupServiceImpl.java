@@ -4,16 +4,16 @@ import java.sql.Connection;
 
 import ohgym.dbutil.ConnectionProvider;
 
-public class SignupService {
+public class SignupServiceImpl implements SignupService {
     private SignupDAO signupDAO;
     
-    public SignupService(SignupDAO signupDAO) {
+    public SignupServiceImpl(SignupDAO signupDAO) {
         this.signupDAO = signupDAO;
     }
     
     public boolean isDuplicatedId(String userId) {
     	try (Connection conn = ConnectionProvider.getConnection()) {
-    		return signupDAO.isDuplicatedId(conn, userId); //여기
+    		return signupDAO.isDuplicatedId(conn, userId);
     	} catch (Exception e) {
     		e.printStackTrace();
     	}

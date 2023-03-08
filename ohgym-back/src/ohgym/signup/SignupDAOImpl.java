@@ -51,33 +51,4 @@ public class SignupDAOImpl implements SignupDAO {
 		return isDuplicated;
 	}
 
-	@Override
-	public SignupUser getUserById(String userId) {
-		SignupUser signupUser = null;
-		try (PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM user WHERE id = ?")) {
-			pstmt.setString(1, userId);
-
-			try (ResultSet rs = pstmt.executeQuery()) {
-				if (rs.next()) {
-					signupUser = new SignupUser(rs.getString("id"), 
-							rs.getString("pw"), 
-							rs.getString("name"),
-							rs.getString("phone"), 
-							rs.getString("birthday"), 
-							rs.getString("gender"),
-							rs.getInt("usercheck"));
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return signupUser;
-	}
-	
-	
-	
-	
-	
-	
-	
 }

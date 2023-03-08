@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/checkid")
 public class CheckIdServlet extends HttpServlet {
-	private SignupService service;
+	private SignupServiceImpl service;
 	
     @Override
     public void init() throws ServletException {
         super.init();
-        service = new SignupService(new SignupDAOImpl());
+        service = new SignupServiceImpl(new SignupDAOImpl());
     }
     
 	@Override

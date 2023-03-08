@@ -11,13 +11,12 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
-    private SignupService service;
-
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        service = new SignupService(new SignupDAOImpl());
-    }
+    private final SignupServiceImpl service = new SignupServiceImpl(new SignupDAOImpl());
+    
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/views/signup.jsp").forward(req, resp);
+	}
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -30,41 +29,22 @@ public class SignupServlet extends HttpServlet {
         String userGender = request.getParameter("userGender");
         int usercheck = 1;
         
-        String idPattern = "[a-zA-Z0-9_-]{1,10}";
-        String passwordPattern = "[a-zA-Z0-9_-]{1,10}";
-        String namePattern = "[ㄱ-힣]{1,10}";
-        String phonePattern = "[0-9]{10,11}";
-        String birthdayPattern = "[0-9]{8}";
+        boolean isIdDuplicated = service.isDuplicatedId(userId);
         
-        boolean isIdDuplicated = service.isDuplicatedId(userId); //여기
-
         if (isIdDuplicated) {
             request.setAttribute("error", "중복된 아이디입니다!!!!!!");
             request.getRequestDispatcher("/signup").forward(request, response);
         }
-        
-        if (userId == null || !userId.matches(idPattern)) {
-            request.setAttribute("error", "아이디 잘못적음");
-            request.getRequestDispatcher("/signup").forward(request, response);
-            return;
-        }
-        
-        if (!userPassword.matches("^[a-zA-Z0-9_-]{1,10}$")) {
-			response.getWriter().println("비밀번호 잘못적음");
-			return;
-		}
-        
+
         SignupUser signupUser = new SignupUser(userId, userPassword, userName, userPhone, 
         		userBirthday, userGender, usercheck);
 
         int result = service.insertUser(signupUser);
 
         if (result != 0) {
-            //response.sendRedirect("signupSuccess.jsp");
         	String redirectUrl = "./login";
         	response.sendRedirect(redirectUrl);
         } else {
-            //response.sendRedirect("signupFail.jsp");
         	response.getWriter().write("회원가입 실패했습니다.");
         }
     }
