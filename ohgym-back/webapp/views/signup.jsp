@@ -15,7 +15,8 @@ pageEncoding="UTF-8"%>
       <main
         style="
           display: flex;
-		justify-content: center; align-items: center;
+          justify-content: center;
+          align-items: center;
           width: 50%;
         "
       >

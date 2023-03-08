@@ -13,15 +13,10 @@ import javax.servlet.http.HttpSession;
 public class LoginServlet extends HttpServlet {
 	private final LoginService loginService = new LoginService(new LoginDAOImpl());
 	
-	
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
-	
 	}
-
-
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			session.setMaxInactiveInterval(30*60);
 			System.out.println(session.getAttribute("user"));
 			
-			String redirectUrl = "./";
+			String redirectUrl = "./requestList";
 			//String redirectUrl = request.getContextPath() + "/mainpage";
 		    response.sendRedirect(redirectUrl);
 		    

@@ -1,94 +1,91 @@
 /* * { outline: 1px solid #333;} */
 #title {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: rgb(53, 52, 52);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: rgb(53, 52, 52);
 }
 
 #clientName {
-    padding: 30px 0px 20px 60px;
-    border-bottom: 1px solid #eee;
-    color: rgb(53, 52, 52);
+  padding: 30px 0px 20px 60px;
+  border-bottom: 1px solid #eee;
+  color: rgb(53, 52, 52);
 }
 
 #clientName > p {
-    display: inline;
-    font-size: 22px;
-    font-weight: bold;
-    color: rgb(53, 52, 52);
+  display: inline;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(53, 52, 52);
 }
 
 #clientName > button {
-    color: #858585;
-    margin-left: 20px;
-    cursor: pointer;
-    border: 0.0625rem solid #858585;
-    border-radius: 5px;
-    padding:3px; 
+  color: #858585;
+  margin-left: 20px;
+  cursor: pointer;
+  border: 0.0625rem solid #858585;
+  border-radius: 5px;
+  padding: 3px;
 }
 
 .history {
-    text-align: center;
+  text-align: center;
 }
 
 .history > h3 {
-    
-    color: rgb(53, 52, 52);
-    width: 100px;
-    margin-left: 170px;
-    padding: 20px 0px 10px 0px;
-    font-size: 20px;
-    text-align: center;
+  color: rgb(53, 52, 52);
+  width: 100px;
+  margin-left: 170px;
+  padding: 20px 0px 10px 0px;
+  font-size: 20px;
+  text-align: center;
 }
 
 #history > h3 {
-    color: rgb(53, 52, 52);
-    width: 80px;
-    text-align: center;
-    /* margin-left: 60px; */
-    padding: 30px 0px 30px 0px;
-    font-size: 16px;
+  color: rgb(53, 52, 52);
+  width: 80px;
+  text-align: center;
+  /* margin-left: 60px; */
+  padding: 30px 0px 30px 0px;
+  font-size: 16px;
 }
 
-.box { 
-    /* padding: 120px; */
-    
-    width: 600px;
-    border-radius: 10px;
-    border: 1px solid #eee;
-    display: inline-block;
+.box {
+  /* padding: 120px; */
 
+  width: 600px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  display: inline-block;
 }
 
 .notice {
-    border-top: 1px solid #eee;
-    padding: 10px 0px;
+  border-top: 1px solid #eee;
+  padding: 10px 0px;
 }
 
-.notice > h3{
-    font-size: 16px;
-    width: 130px;
-    margin-left: 60px;
-    padding: 8px 0px 8px 0px;
+.notice > h3 {
+  font-size: 16px;
+  width: 130px;
+  margin-left: 60px;
+  padding: 8px 0px 8px 0px;
 }
 
 #detailRequest {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 30px 0px; 
-    font-size: 17px;
-    
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 30px 0px;
+  font-size: 17px;
 }
 
 #detailRequest img {
-    float: auto; 
-    height: 100px;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+  float: auto;
+  height: 100px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 #detailRequest > li {
@@ -106,9 +103,9 @@
 }
 
 #detailRequest-card {
-    text-align: left;
-    line-height: 30px;
-    padding: 0.25rem;
+  text-align: left;
+  line-height: 30px;
+  padding: 0.25rem;
 }
 
 #detailRequest-card .bottom {
@@ -118,95 +115,91 @@
   bottom: 10px;
 }
 
-#detailRequest-card > p:nth-child(1){
-    text-align: center;
-    font-size: 30px;
-    line-height: 30px;
-    padding: 0.25rem;
-    margin-bottom : 12px;
+#detailRequest-card > p:nth-child(1) {
+  text-align: center;
+  font-size: 30px;
+  line-height: 30px;
+  padding: 0.25rem;
+  margin-bottom: 12px;
 }
 
 #detailRequest-card > p:nth-child(2) {
-    font-size: 20px;
-    letter-spacing: -1px;
-    margin-bottom : 5px;
+  font-size: 17px;
+  letter-spacing: -1px;
+  margin-bottom: 5px;
 }
 
 #detailRequest-card > p:nth-child(3) {
-    font-size: 18px;
-    letter-spacing: -1px;
+  font-size: 18px;
+  letter-spacing: -1px;
 }
 
-/* .bottom {
-  */
-
-
 .bottom > button {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-evenly;
-    height: 40px;
-    line-height: 1;
-    width: 40%;
-    color: #fff;
-    background-color: #00c7ae;
-    border-color: #00c7ae;
-    border: 0.0625rem solid transparent;
-    font-size: 17px;
-    line-height: 1.5;
-    border-radius: 0.25rem;
-    margin-left: auto;
-  }
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 40px;
+  line-height: 1;
+  width: 40%;
+  color: #fff;
+  background-color: #00c7ae;
+  border-color: #00c7ae;
+  border: 0.0625rem solid transparent;
+  font-size: 17px;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  margin-left: auto;
+}
 
-  #modal {
-    display:none;
-    position:relative;
-    width:100%;
-    height:100%;
-    z-index:1;
-  }
-  
-  #modal h2 {
-    margin:0;   
-  }
-  
-  #modal button {
-    display:inline-block; 
-    position: absolute;
-    bottom: 10px; 
-    width:100px;
-    left: calc(50% - 50px);
-    /* margin-left:calc(100% - 100px - 10px); */
-  }
+#modal {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
-  #modal .modal_content {
-    position: absolute;
-    top: 50%;
-    left: 50%;   /*화면 정가운데 위치*/
-    transform: translate(-50%, -50%);
-    background-color: #ffffff;
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3); /*그림자*/
-    width:300px;
-    height: 200px;
-    
-    /* vertical-align: middle;   */
-    /* modal_content의 높이의 절반만큼 margin-top:-값; */
+#modal h2 {
+  margin: 0;
+}
 
-    /* margin:100px auto;
+#modal button {
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  width: 100px;
+  left: calc(50% - 50px);
+  /* margin-left:calc(100% - 100px - 10px); */
+}
+
+#modal .modal_content {
+  position: absolute;
+  top: 50%;
+  left: 50%; /*화면 정가운데 위치*/
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3); /*그림자*/
+  width: 300px;
+  height: 200px;
+
+  /* vertical-align: middle;   */
+  /* modal_content의 높이의 절반만큼 margin-top:-값; */
+
+  /* margin:100px auto;
     padding:20px 10px;
     background:#fff;
     border:2px solid #666;  */
-    transform: translate(-50%, -240%);
-  }
+  transform: translate(-50%, -240%);
+}
 
-  #modal .modal_layer {
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0, 0, 0, 0.5);
-    z-index:-1;
-  }   
+#modal .modal_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
