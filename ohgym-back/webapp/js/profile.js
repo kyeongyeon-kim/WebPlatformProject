@@ -1,16 +1,34 @@
 // 로그인 사용자 값 불러오기
-let id = document.getElementById("userId").innerText;
+let id = document
+  .getElementById("userId")
+  .innerText.substring(
+    0,
+    document.getElementById("userId").innerText.indexOf(" ")
+  );
 let appeal = document.getElementById("appeal").innerText;
 let contactTime = timeToString();
-let exercise = document.querySelector("input[type=radio checked]");
-console.log(exercise);
+let exercise =
+  document.querySelector("input[checked]").nextElementSibling.innerText;
+let introduction = document.getElementById("introduction").innerText;
+let centerName = document.getElementById("centerName").innerText;
+let loc = addressToString();
+let career = numberToCareer(
+  document.getElementById("input-career").value,
+  document.getElementById("input-career-month").value
+);
+let image = document.getElementById("profile-image").src;
 
 let teacherProfile = {
   id: id,
   appeal: appeal,
+  contactTime: contactTime,
   exercise: exercise,
+  introduction: introduction,
+  centerName: centerName,
+  location: loc,
+  career: career,
+  image: image,
 };
-console.log(teacherProfile.id);
 
 let profileImage = document.getElementById("profile-image");
 let template = document.getElementById("input-form");
@@ -31,7 +49,7 @@ function setModifiedValue(saveBtn, component, componentParent) {
     saveBtn.innerText = "저장완료";
     setTimeout(() => (saveBtn.innerText = "수정"), 3000);
     component.innerText = input.value;
-    profile.component = input.value;
+    teacherProfile.component = input.value;
     div.remove();
   }
   component.style.display = "block";
@@ -59,7 +77,7 @@ timeSave.addEventListener("click", changeTimeSave);
 function changeTimeSave() {
   timeSave.innerText = "저장완료";
   setTimeout(() => (timeSave.innerText = "저장"), 3000);
-  profile.contactTime = timeToString();
+  teacherProfile.contactTime = timeToString();
   sendProfile();
 }
 let infoContactTime = document.getElementById("info-contactTime");
@@ -75,7 +93,7 @@ function timeToString() {
 }
 
 function stringToTime() {
-  let arr = profile.contactTime.split("-");
+  let arr = teacherProfile.contactTime.split("-");
   let start = arr[0];
   let end = arr[1];
   let startTime = document.getElementById("start-time");
@@ -91,7 +109,7 @@ servicesArr.forEach((elem) => {
   elem.addEventListener("click", selectedService);
 });
 function selectedService() {
-  profile.exercise = this.innerText;
+  teacherProfile.exercise = this.innerText;
   sendProfile();
 }
 
@@ -132,7 +150,7 @@ addressSave.addEventListener("click", changeAddressSave);
 function changeAddressSave() {
   addressSave.innerText = "저장완료";
   setTimeout(() => (addressSave.innerText = "저장"), 3000);
-  profile.location = addressToString();
+  teacherProfile.location = addressToString();
   sendProfile();
 }
 
@@ -145,7 +163,7 @@ function addressToString() {
 }
 
 function stringToAddress() {
-  let arr = profile.location.split("/");
+  let arr = teacherProfile.location.split("/");
   let address = arr[0];
   let detailedAddress = arr[1];
   let inputAddress = document.getElementById("input-address");
@@ -159,12 +177,9 @@ let inputCareer = document.getElementById("input-career");
 let inputCareerMonth = document.getElementById("input-career-month");
 inputCareer.addEventListener("wheel", (event) => {
   let wheel = event.wheelDeltaY;
-  console.log("inputCareer" + inputCareer.value);
   if (wheel > 0) {
-    console.log("Up!");
   } else {
     // (wheel < 0)
-    console.log("Down!");
   }
 });
 
@@ -174,7 +189,10 @@ careerSave.addEventListener("click", changeCareerSave);
 function changeCareerSave() {
   careerSave.innerText = "저장완료";
   setTimeout(() => (careerSave.innerText = "저장"), 3000);
-  profile.career = numberToCareer(inputCareer.value, inputCareerMonth.value);
+  teacherProfile.career = numberToCareer(
+    inputCareer.value,
+    inputCareerMonth.value
+  );
   sendProfile();
 }
 
@@ -190,7 +208,6 @@ function careerToNumber(career) {
 }
 
 function numberToCareer(yearNumber, monthNumber) {
-  console.log(yearNumber + "년" + monthNumber + "개월");
   return yearNumber + "년" + monthNumber + "개월";
 }
 
@@ -201,6 +218,6 @@ function sendProfile() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(profile),
+    body: JSON.stringify(teacherProfile),
   });
 }

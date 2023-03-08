@@ -15,16 +15,16 @@ pageEncoding="UTF-8"%>
         <section id="banner">
           <section class="container">
             <article id="fields">
-              <a href="#"><img src="./img/health.png" />PT</a>
-              <a href="#"><img src="./img/health.png" />크로스핏</a>
-              <a href="#"><img src="./img/health.png" />필라테스</a>
-              <a href="#"><img src="./img/health.png" />요가</a>
-              <a href="#"><img src="./img/health.png" />클라이밍</a>
-              <a href="#"><img src="./img/health.png" />스피닝</a>
-              <a href="#"><img src="./img/health.png" />발레</a>
-              <a href="#"><img src="./img/health.png" />수영</a>
-              <a href="#"><img src="./img/health.png" />헬스</a>
-              <a href="#"><img src="./img/health.png" />기타</a>
+              <a href="#"><img src="./img/pt.png" />PT</a>
+              <a href="#"><img src="./img/crossfit.png" />크로스핏</a>
+              <a href="#"><img src="./img/pilates.png" />필라테스</a>
+              <a href="#"><img src="./img/yoga.png" />요가</a>
+              <a href="#"><img src="./img/climbing.png" />클라이밍</a>
+              <a href="#"><img src="./img/bicycle.png" />스피닝</a>
+              <a href="#"><img src="./img/ballet.png" />발레</a>
+              <a href="#"><img src="./img/swimming.png" />수영</a>
+              <a href="#"><img src="./img/health2.png" />헬스</a>
+              <a href="#"><img src="./img/etc.png" />기타</a>
             </article>
           </section>
         </section>
