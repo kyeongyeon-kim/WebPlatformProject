@@ -12,6 +12,16 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private final LoginService loginService = new LoginService(new LoginDAOImpl());
+	
+	
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
+	
+	}
+
+
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,9 +31,9 @@ public class LoginServlet extends HttpServlet {
 
 		if (!userPassword.matches("^[ㄱ-힣a-zA-Z0-9_-]{1,10}$")) {
 			response.setContentType("text/html");
-		    String errorMessage = "<p>입력한 사용자 비밀번호가 유효하지 않습니다. 영문, 한글, 숫자, 밑줄(_) 또는 대시(-) 문자를 사용하여 1자 이상 16자 이하로 입력해주세요.</p>";
-		    response.getWriter().println("<script>document.getElementById('error-message').innerHTML = '" 
-		    + errorMessage + "';</script>");
+//		    String errorMessage = "<p>입력한 사용자 비밀번호가 유효하지 않습니다. 영문, 한글, 숫자, 밑줄(_) 또는 대시(-) 문자를 사용하여 1자 이상 16자 이하로 입력해주세요.</p>";
+//		    response.getWriter().println("<script>document.getElementById('error-message').innerHTML = '" 
+//		    + errorMessage + "';</script>");
 		    return;
 		}
 
@@ -47,10 +57,10 @@ public class LoginServlet extends HttpServlet {
 			String redirectUrl = "./";
 			//String redirectUrl = request.getContextPath() + "/mainpage";
 		    response.sendRedirect(redirectUrl);
-
+		    
 			// response.getWriter().println("11");
-
 			// response.sendRedirect("");
+		   
 		} else {
 			response.setContentType("application/json");
 			response.getWriter().write("로그인 실패");
