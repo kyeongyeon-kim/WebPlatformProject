@@ -71,7 +71,7 @@ h1 {
 
 #input-cost {
     display: block;
-    width: 100%;
+    width: 94%;
     height: calc(1.5em + 1.5rem);
     padding: 0.6875rem 1rem;
     font-size: 1rem;
@@ -89,7 +89,7 @@ h1 {
 #quote {
     resize: none;
     display: block;
-    width: 100%;
+    width: 94%;
     padding: 0.6875rem 1rem;
     font-size: 1rem;
     font-weight: 400;
@@ -112,6 +112,7 @@ h1 {
     padding: 0.5rem 0;
     margin: 20px 0;
     border-radius: 10px;
+    
 }
 
 #send-suggest:hover {
