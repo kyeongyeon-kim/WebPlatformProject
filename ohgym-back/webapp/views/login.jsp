@@ -5,8 +5,8 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
     <script src="../js/include.js"></script>
     <script src="../js/header.js"></script>
     <script src="../js/login.js" defer></script>

@@ -30,5 +30,7 @@ public class SuggestTeacherServlet extends HttpServlet{
 		PrintWriter pw = resp.getWriter();
 		pw.println(json);
 		pw.flush();
+		
+		
 	}
 }

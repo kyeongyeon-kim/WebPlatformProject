@@ -1,212 +1,209 @@
 /* * { outline: 1px solid #333;} */
 
-*{
-    padding: 0;
-    margin: 0;
-    border: none;
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
-body{
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+body {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
 }
-.login-page{
-    width: 400px;
-    height: 350px;
-    padding: 40px;
-    box-sizing: border-box;
-}
-
-.login-page > h2{
-    font-size: 24px;
-    color: rgb(91, 206, 184);
-    margin-bottom: 20px;
+.login-page {
+  width: 400px;
+  height: 350px;
+  padding: 40px;
+  box-sizing: border-box;
 }
 
+.login-page > h2 {
+  font-size: 24px;
+  color: rgb(91, 206, 184);
+  margin-bottom: 20px;
+}
 
 /* 로그인폼이당 */
-#login-form > input{
-    width: 100%;
-    height: 48px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
-    border-radius: 6px;
-    background-color: #F8F8F8;
+#login-form > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
 }
-#login-form > input::placeholder{
-    color: #D2D2D2;
+#login-form > input::placeholder {
+  color: #d2d2d2;
 }
-#login-form > input[type="submit"]{
-    color: #fff;
-    font-size: 16px;
-    background-color: rgb(91, 206, 184);
-    margin-top: 20px;
+#login-form > input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  background-color: rgb(91, 206, 184);
+  margin-top: 20px;
 }
-#login-form > input[type="checkbox"]{
-    display: none;
+#login-form > input[type="checkbox"] {
+  display: none;
 }
-#login-form > label{
-    color: #999999;
+#login-form > label {
+  color: #999999;
 }
-#login-form input[type="checkbox"] + label{
-    cursor: pointer;
-    padding-left: 28px;
-    background-image: url("넣고싶었는데.png");
-    background-color: rgb(51, 180, 153);
-    background-repeat: no-repeat;
-    background-size: contain;
+#login-form input[type="checkbox"] + label {
+  cursor: pointer;
+  padding-left: 28px;
+  background-image: url("넣고싶었는데.png");
+  background-color: rgb(51, 180, 153);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-#login-form input[type="checkbox"]:checked + label{
-    background-image: url("찾는중.png");
-    background-color: rgb(51, 180, 153);
-    background-repeat: no-repeat;
-    background-size: contain;
+#login-form input[type="checkbox"]:checked + label {
+  background-image: url("찾는중.png");
+  background-color: rgb(51, 180, 153);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* 사인업페이지당 */
-.signup-page{
-    width: 400px;
-    height: 350px;
-    padding: 40px;
-    box-sizing: border-box;
-    align-items: center;
+.signup-page {
+  width: 400px;
+  height: 350px;
+  padding: 40px;
+  box-sizing: border-box;
+  /* align-items: center; */
 }
 
-.signup-page > h2{
-    font-size: 24px;
-    color: rgb(51, 180, 153);
-    margin-bottom: 20px;
+.signup-page > h2 {
+  font-size: 24px;
+  color: rgb(51, 180, 153);
+  margin-bottom: 20px;
 }
-#signup-form > input{
-    width: 100%;
-    height: 48px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
-    border-radius: 6px;
-    background-color: #F8F8F8;
+#signup-form > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
 }
-#signup-form > input::placeholder{
-    color: #D2D2D2;
+#signup-form > input::placeholder {
+  color: #d2d2d2;
 }
-#signup-form > input[type="submit"]{
-    color: #fff;
-    font-size: 16px;
-    background-color: rgb(51, 180, 153);
-    margin-top: 20px;
+#signup-form > input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  background-color: rgb(51, 180, 153);
+  margin-top: 20px;
 }
-
-
 
 /* 이거 뭐임? */
-.field.birth div{ /*field 이면서 birth*/
-    display: flex;
-    gap:10px; /*간격 벌려줄때 공식처럼 사용핟나 */
+.field.birth div {
+  /*field 이면서 birth*/
+  display: flex;
+  gap: 10px; /*간격 벌려줄때 공식처럼 사용핟나 */
 }
 /* .field.birth div > * {  gap 사용한거랑 같은 효과를 줌 
     flex:1;
 } */
 .field.tel-number div {
-    display: flex;
+  display: flex;
 }
-.field.tel-number div input:nth-child(1){
-    flex:2;
+.field.tel-number div input:nth-child(1) {
+  flex: 2;
 }
-.field.tel-number div input:nth-child(2){
-    flex:1;
+.field.tel-number div input:nth-child(2) {
+  flex: 1;
 }
-
 
 /* 성별 칸이다 */
 .field.gender {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
-    border-radius: 6px;
-    background-color: #F8F8F8;
-    justify-content: space-between;
-  }  
-  
-  .field.gender div {
-    display: flex;    
-  }
-  
-  .field.gender div input[type="date"] {
-    width: 140px;
-    height: 48px;
-    font-size: 16px;
- 
-    background-color: #F8F8F8;
-  }
-  
-  .field.gender div label {
-    margin-right: 16px;
-  }
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  justify-content: space-between;
+}
 
-  .infochange, #signup-page { 
-    /* background-color: red; */
-    margin: 0px 270px;
-  }
+.field.gender div {
+  display: flex;
+}
 
-  #userChangeTitle { 
-    text-align: center;
-    font-size: 18px;
-    color: rgb(51, 180, 153);
-    margin-bottom: 20px;
-    margin-top:20px;
-  }
+.field.gender div input[type="date"] {
+  width: 140px;
+  height: 48px;
+  font-size: 16px;
 
-  /* 아이디 창이당 */
-  .field.id {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    padding: 0 0px;
-    box-sizing: border-box;
-    margin-bottom: 16px;
-    border-radius: 6px;
-    background-color: #F8F8F8;
-    justify-content: space-between;
-  }  
-  
-  
+  background-color: #f8f8f8;
+}
 
-  .field.id div > input{
-        width: 100%;
-        height: 48px;
-        padding: 0 10px;
-        box-sizing: border-box;
-        margin-bottom: 0px;
-        border-radius: 6px;
-        background-color: #F8F8F8;
-  }
-    .field.id div > input::placeholder{
-        color: #D2D2D2;
-    }
-    .field.id div > input[type="submit"]{
-        color: #fff;
-        font-size: 16px;
-        background-color: rgb(51, 180, 153);
-        margin-top: 20px;
-    } 
-  
-  .field.id div label {
-    margin-right: 16px;
-  }
+.field.gender div label {
+  margin-right: 16px;
+}
 
-  #alert-message {
-    color: red;
-    font-size: 12px;
-  }
+.infochange,
+#signup-page {
+  /* background-color: red; */
+  margin: 0px 270px;
+}
 
-  .infochange, #signup-page { 
-    /* background-color: red; */
-    margin: 0px 270px;
-  }
+#userChangeTitle {
+  text-align: center;
+  font-size: 18px;
+  color: rgb(51, 180, 153);
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* 아이디 창이당 */
+.field.id {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0 0px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  justify-content: space-between;
+}
+
+.field.id div > input {
+  width: 100%;
+  height: 48px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+}
+.field.id div > input::placeholder {
+  color: #d2d2d2;
+}
+.field.id div > input[type="submit"] {
+  color: #fff;
+  font-size: 16px;
+  background-color: rgb(51, 180, 153);
+  margin-top: 20px;
+}
+
+.field.id div label {
+  margin-right: 16px;
+}
+
+#alert-message {
+  color: red;
+  font-size: 12px;
+}
+
+.infochange,
+#signup-page {
+  /* background-color: red; */
+  margin: 0px 270px;
+}

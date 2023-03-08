@@ -5,10 +5,8 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/login.css" />
-    <script src="../js/include.js"></script>
-    <script src="../js/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
     <script src="../js/signup.js" defer></script>
   </head>
   <body>
@@ -17,8 +15,7 @@ pageEncoding="UTF-8"%>
       <main
         style="
           display: flex;
-          justify-content: center;
-          align-items: center;
+		justify-content: center; align-items: center;
           width: 50%;
         "
       >

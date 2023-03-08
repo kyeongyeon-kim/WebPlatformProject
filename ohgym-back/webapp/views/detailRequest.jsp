@@ -5,12 +5,10 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/detailRequest.css">
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/detailRequest.css">
     <!-- <link rel="stylesheet" type="text/css" href="../css/mypage.css"> -->
     <!-- <script src="../js/testmodal.js"></script> -->
-    <script src="../js/include.js"></script>
-    <script src="../js/header.js"></script>
     <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -28,7 +26,7 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
         </div>
-      </main>
+    </main>
       <div id = "modal">
         <div class="modal_content">
               <h2> 모달 창 </h2>
@@ -69,6 +67,7 @@ pageEncoding="UTF-8"%>
               </div>
         </li>
   </template>
+
       <footer><%@ include file="footer.jsp" %></footer>
     </div>
   </body>

@@ -28,12 +28,20 @@ public class SuggestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());		
 		List<Suggest> list = service.selectSuggest();
+		
+		req.setAttribute("detailRequest", list.get(0));
+		req.getRequestDispatcher("/views/detailRequest.jsp").forward(req, resp);
+		
+//		jsp ../
+//		./
+		
 		System.out.println(list);
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(list); 
-		PrintWriter pw = resp.getWriter();
-		pw.println(json);
-		pw.flush();
+		
+//		ObjectMapper mapper = new ObjectMapper();
+//		String json = mapper.writeValueAsString(list); 
+//		PrintWriter pw = resp.getWriter();
+//		pw.println(json);
+//		pw.flush();
 	}	
 }
 
