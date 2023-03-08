@@ -1,36 +1,19 @@
 // 로그인 사용자 값 불러오기
 let id = document.getElementById("userId").innerText;
+let appeal = document.getElementById("appeal").innerText;
+let contactTime = timeToString();
+let exercise = document.querySelector("input[type=radio checked]");
+console.log(exercise);
+
 let teacherProfile = {
   id: id,
+  appeal: appeal,
+  exercise: exercise,
 };
 console.log(teacherProfile.id);
+
 let profileImage = document.getElementById("profile-image");
 let template = document.getElementById("input-form");
-
-setInitialValue();
-function setInitialValue() {
-  userId.innerText = profile.id + " 근선생님!";
-  profileImage.setAttribute("src", profile.image);
-  stringToTime();
-  stringToAddress();
-  document.getElementById("appeal").innerText = profile.appeal;
-  document.getElementById("introduction").innerText = profile.introduction;
-  document.getElementById("centerName").innerText = profile.centerName;
-  careerToNumber(profile.career);
-  serviceInitialValue();
-}
-
-// db 저장된 대표서비스 값으로 초기버튼 checked
-function serviceInitialValue() {
-  let serviceBtns = document.querySelectorAll(".service-btn");
-  let serviceBtnsArr = [...serviceBtns];
-  for (let i = 0; i < serviceBtnsArr.length; i++) {
-    if (serviceBtnsArr[i].innerText == profile.exercise) {
-      let input = serviceBtnsArr[i].previousSibling;
-      input.checked = true;
-    }
-  }
-}
 
 // 수정 및 저장 이벤트 로직
 function returnModifyComp(saveBtn, component) {
