@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -44,8 +43,9 @@ prefix="c"%>
                       </p>
                     </div>
                     <div class="bottom">
-               
-                      <a href="/ohgym/requestNo?no=${request.no}" id="bottom">자세히 보기</a>
+                      <a href="/ohgym/requestNo?no=${request.no}" id="bottom"
+                        >자세히 보기</a
+                      >
                     </div>
                   </li>
                 </c:forEach>

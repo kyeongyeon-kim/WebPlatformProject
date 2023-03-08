@@ -29,6 +29,40 @@ pageEncoding="UTF-8"%>
   } else {
 	  careerMonth = "0";
   }
+  
+  String[] checkedArr = {"", "", "", "", "", "", "", "", "", ""};
+  switch (profile.getExercise()) {
+  	case "퍼스널트레이닝":
+  		checkedArr[0] = "checked";
+  		break;
+  	case "필라테스":
+  		checkedArr[1] = "checked";
+  		break;
+  	case "요가":
+  		checkedArr[2] = "checked";
+  		break;
+  	case "클라이밍":
+  		checkedArr[3] = "checked";
+  		break;
+  	case "스피닝":
+  		checkedArr[4] = "checked";
+  		break;
+  	case "크로스핏":
+  		checkedArr[5] = "checked";
+  		break;
+  	case "발레":
+  		checkedArr[6] = "checked";
+  		break;
+  	case "수영":
+  		checkedArr[7] = "checked";
+  		break;
+  	case "헬스":
+  		checkedArr[8] = "checked";
+  		break;
+  	case "기타":
+  		checkedArr[9] = "checked";
+  		break;
+  }
   %>
     <div class="container">
       <header><%@ include file="header.jsp" %></header>
@@ -94,16 +128,16 @@ pageEncoding="UTF-8"%>
               </div>
               <div class="service" id="service">
                 <div id="services">
-                  <input type="radio" name="service-btn" id="personal-training" checked="true" hidden/><label class="service-btn" for="personal-training">퍼스널트레이닝</label>
-                  <input type="radio" name="service-btn" id="Pilates" checked="false" hidden/><label class="service-btn" for="Pilates">필라테스</label>
-                  <input type="radio" name="service-btn" id="yoga" checked="false" hidden/><label class="service-btn" for="yoga">요가</label>
-                  <input type="radio" name="service-btn" id="climbing" checked="false" hidden/><label class="service-btn" for="climbing">클라이밍</label>
-                  <input type="radio" name="service-btn" id="spinning" checked="false" hidden/><label class="service-btn" for="spinning">스피닝</label>
-                  <input type="radio" name="service-btn" id="crossfit" checked="false" hidden/><label class="service-btn" for="crossfit">크로스핏</label>
-                  <input type="radio" name="service-btn" id="ballet" checked="false" hidden/><label class="service-btn" for="ballet">발레</label>
-                  <input type="radio" name="service-btn" id="swimming" checked="false" hidden/><label class="service-btn" for="swimming">수영</label>
-                  <input type="radio" name="service-btn" id="health" checked="false" hidden/><label class="service-btn" for="health">헬스</label>
-                  <input type="radio" name="service-btn" id="etc" checked="false" hidden/><label class="service-btn" for="etc">기타</label>
+                  <input type="radio" name="service-btn" id="personal-training" <%= checkedArr[0] %> hidden/><label class="service-btn" for="personal-training">퍼스널트레이닝</label>
+                  <input type="radio" name="service-btn" id="Pilates" <%= checkedArr[1] %> hidden/><label class="service-btn" for="Pilates">필라테스</label>
+                  <input type="radio" name="service-btn" id="yoga" <%= checkedArr[2] %> hidden/><label class="service-btn" for="yoga">요가</label>
+                  <input type="radio" name="service-btn" id="climbing" <%= checkedArr[3] %> hidden/><label class="service-btn" for="climbing">클라이밍</label>
+                  <input type="radio" name="service-btn" id="spinning" <%= checkedArr[4] %> hidden/><label class="service-btn" for="spinning">스피닝</label>
+                  <input type="radio" name="service-btn" id="crossfit" <%= checkedArr[5] %> hidden/><label class="service-btn" for="crossfit">크로스핏</label>
+                  <input type="radio" name="service-btn" id="ballet" <%= checkedArr[6] %> hidden/><label class="service-btn" for="ballet">발레</label>
+                  <input type="radio" name="service-btn" id="swimming" <%= checkedArr[7] %> hidden/><label class="service-btn" for="swimming">수영</label>
+                  <input type="radio" name="service-btn" id="health" <%= checkedArr[8] %> hidden/><label class="service-btn" for="health">헬스</label>
+                  <input type="radio" name="service-btn" id="etc" <%= checkedArr[9] %> hidden/><label class="service-btn" for="etc">기타</label>
                 </div>
               </div>
             </article>
@@ -154,5 +188,5 @@ pageEncoding="UTF-8"%>
       <footer><%@ include file="footer.jsp" %></footer>
     </div>
   </body>
-  <!-- <script src="./js/profile.js"></script> -->
+  <script src="./js/profile.js"></script>
 </html>

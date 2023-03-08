@@ -5,10 +5,10 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
 
-    <script src="../js/login.js" defer></script>
+    <script src="./js/login.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -21,15 +21,13 @@ pageEncoding="UTF-8"%>
             action="${pageContext.request.contextPath}/login"
             id="login-form"
           >
-            <c:set var="userId" value="${param.userId}" />
-            <c:set var="userPassword" value="${param.userPassword}" />
-
             <input
               type="text"
               id="id"
               name="userId"
               placeholder=" 아이디를 입력하세요"
-              maxlength="11"
+              maxlength="12"
+              value="${param.userId}"
             />
             <input
               type="password"
@@ -37,6 +35,7 @@ pageEncoding="UTF-8"%>
               name="userPassword"
               placeholder=" 비밀번호를 입력하세요"
               maxlength="10"
+              value="${param.userPassword}"
             />
             <label for="remember-check">
               <input type="checkbox" id="remember-check" />아이디 저장하기

@@ -29,11 +29,10 @@ public class SuggestServlet extends HttpServlet {
 		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());		
 		List<Suggest> list = service.selectSuggest();
 		
-		req.setAttribute("detailRequest", list.get(0));
+		req.setAttribute("detailRequest", list);
 		req.getRequestDispatcher("/views/detailRequest.jsp").forward(req, resp);
 		
-//		jsp ../
-//		./
+
 		
 		System.out.println(list);
 		

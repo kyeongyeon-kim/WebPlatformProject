@@ -61,11 +61,11 @@ public class SignupServlet extends HttpServlet {
 
         if (result != 0) {
             //response.sendRedirect("signupSuccess.jsp");
-        	String redirectUrl = "https://www.naver.com/";
+        	String redirectUrl = "./login";
         	response.sendRedirect(redirectUrl);
         } else {
             //response.sendRedirect("signupFail.jsp");
-        	response.getWriter().write("회원가입 실패했다");
+        	response.getWriter().write("회원가입 실패했습니다.");
         }
     }
 }
