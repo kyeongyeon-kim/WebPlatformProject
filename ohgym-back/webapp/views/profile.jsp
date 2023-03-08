@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
   <body>
   <%
   TeacherProfile profile = (TeacherProfile) request.getAttribute("profile");
-  
+  System.out.println(profile);
   String[] timeArr = profile.getContactTime().split("-");
   String start = timeArr[0];
   String end = timeArr[1];
@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%>
                 <input type="file" id="image-input" style="display: none;" accept=".jpg,.jpeg,.png"></label>
               </div>
               <div>
-                <p id="userId"></p>
+                <p id="userId"><%= profile.getId() %> 근선생님</p>
                 <p>어서오세요!</p>
               </div>
             </section>
@@ -154,5 +154,5 @@ pageEncoding="UTF-8"%>
       <footer><%@ include file="footer.jsp" %></footer>
     </div>
   </body>
-  <script src="./js/profile.js"></script>
+  <!-- <script src="./js/profile.js"></script> -->
 </html>

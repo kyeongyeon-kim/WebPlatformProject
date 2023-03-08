@@ -44,7 +44,8 @@ prefix="c"%>
                       </p>
                     </div>
                     <div class="bottom">
-                      <a href="#" id="bottom">자세히 보기</a>
+               
+                      <a href="/ohgym/requestNo?no=${request.no}" id="bottom">자세히 보기</a>
                     </div>
                   </li>
                 </c:forEach>
