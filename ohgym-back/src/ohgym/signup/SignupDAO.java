@@ -3,16 +3,23 @@ package ohgym.signup;
 import java.sql.Connection;
 
 public interface SignupDAO {
-	
+	//회원가입 정보 DB 추가
 	public int insertUser(SignupUser user);
-	public boolean isDuplicatedId(Connection conn, String userId);
+	
+	//아니다 이거
 	public SignupUser getUserById(String userId);
 	
+	//아이디 중복체크
+	public boolean isDuplicatedId(Connection conn, String userId);
+	
+	//아이디 유효성 검사
 	public boolean validationId(Connection conn, String userId);
-	public boolean validationPassword(Connection conn, String userId);
-	public boolean validation(Connection conn, String userId);
-	public boolean validationId(Connection conn, String userId);
-	public boolean validationId(Connection conn, String userId);
+	
+	//비밀번호 유효성 검사
+	public boolean validationPassword(Connection conn, String userPassword);
+	public boolean validationName(Connection conn, String userName);
+	public boolean validationPhone(Connection conn, String userPhone);
+	public boolean validationBirthday(Connection conn, String userBirthday);
 }
 
 
