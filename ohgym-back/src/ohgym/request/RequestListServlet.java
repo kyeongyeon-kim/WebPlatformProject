@@ -52,7 +52,6 @@ public class RequestListServlet extends HttpServlet {
 		Calendar cal = Calendar.getInstance();
 		cal.set(2023, 1, 22);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(requestInfo);
 		try {
 			if(requestInfo.getAnswer7() != null
 					&& dateFormat.parse(requestInfo.getRequest_date()).compareTo(cal.getTime()) <= 0
