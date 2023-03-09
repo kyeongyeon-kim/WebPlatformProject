@@ -23,7 +23,6 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("POST");
 		String userId = request.getParameter("userId");
 		String userPassword = request.getParameter("userPassword");
-
 		if (!userPassword.matches("^[ㄱ-힣a-zA-Z0-9_-]{1,10}$")) {
 			response.setContentType("text/html");
 //		    String errorMessage = "<p>입력한 사용자 비밀번호가 유효하지 않습니다. 영문, 한글, 숫자, 밑줄(_) 또는 대시(-) 문자를 사용하여 1자 이상 16자 이하로 입력해주세요.</p>";
@@ -58,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 		   
 		} else {
 			response.setContentType("application/json");
-			response.getWriter().write("로그인 실패");
+		    response.getWriter().write("로그인 실패");
 
 			// response.getWriter().println("22");
 

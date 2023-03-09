@@ -69,5 +69,6 @@ prefix="c"%>
     document.getElementById("modal").style.display = "none";
   });
 </script>
-  </script>
+
+</script>
 </html>
