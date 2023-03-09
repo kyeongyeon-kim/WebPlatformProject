@@ -117,6 +117,32 @@ header {
     padding: 0;
     float: right;
 }
+#i {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+#i>i {
+	font-size: 1.3rem;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+.alarm:hover {
+	color: #390;
+	cursor: pointer;
+}
+#num {
+	margin-left: 2px;
+	padding: 2.5px 5px;
+	background-color: red;
+	border-radius: 20px;
+	font-size: 0.6rem;
+	font-weight: 600;
+	color: white;
+}
 #teacher-join {
     display: inline-block;
 }
@@ -132,6 +158,104 @@ header {
     background-color: rgb(91, 206, 184);
     cursor: pointer;
 }
+
+
+/* 알람창 */
+#alarm {
+	border: none;
+	background-color: white;
+	color: #949494;
+	font-size: 14px;
+}
+
+/*화면 전체를 어둡게 만들어줌*/
+.background {
+	position: fixed; /*스크롤이 발생해도 화면에 고정*/
+	top: 34%;
+	left: 0;
+	width: auto; /*화면을 가득차게*/
+	height: auto; /*화면을 가득차게*/
+	/* 숨기기 */
+	z-index: -1;
+	opacity: 0;
+}
+
+.show {
+	opacity: 1;
+	z-index: 10;
+	transition: all 0.5s; /*나타나는 시간 0.5초*/
+}
+
+/*모달 팝업을 감싸주는 창*/
+.window {
+	position: relative; /*팝업에 들어갈 공간을 제한*/
+	width: 100%;
+	height: 100%;
+}
+
+/*모달 팝업의 내용을 나타내는 팝업*/
+.popup {
+	padding: 18px 0;
+	position: absolute;
+	top: 34%;
+	left: 68vw; /*화면 정가운데 위치*/
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	background-color: #ffffff;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3); /*그림자*/
+	/* 임시 지정 */
+	width: 280px;
+    height: 600px;
+	/* 초기에 약간 아래에 배치 */
+	transform: translate(-50%, -40%);
+}
+
+#close {
+	width: 80%;
+	color: white;
+	border: none;
+	margin: 10px 10px 5px 28px;
+	background-color: rgb(51, 180, 153);
+	border-radius: 5px;
+	padding: 0.5em 0.9em;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* footer */
 footer {
