@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ohgym.dbutil.ConnectionProvider;
+import ohgym.teacher.TeacherProfile;
 
 public class CommentDAOImpl implements CommentDAO {
 	public int commentInsert(Connection conn, CommentInfo commentInfo) {
@@ -31,13 +32,7 @@ public class CommentDAOImpl implements CommentDAO {
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				CommentInfo commentInfo = new CommentInfo();
-				commentInfo.setNo(rs.getInt("no"));
-				commentInfo.setUser_id(rs.getString("user_id"));
-				commentInfo.setTeacher_id(rs.getString("teacher_id"));
-				commentInfo.setScore(rs.getDouble("score"));
-				commentInfo.setReview(rs.getString("review"));
-				commentList.add(commentInfo);
+				commentList.add(resultMapping(rs));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -51,13 +46,7 @@ public class CommentDAOImpl implements CommentDAO {
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				CommentInfo commentInfo = new CommentInfo();
-				commentInfo.setNo(rs.getInt("no"));
-				commentInfo.setUser_id(rs.getString("user_id"));
-				commentInfo.setTeacher_id(rs.getString("teacher_id"));
-				commentInfo.setScore(rs.getDouble("score"));
-				commentInfo.setReview(rs.getString("review"));
-				commentList.add(commentInfo);
+				commentList.add(resultMapping(rs));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,17 +60,22 @@ public class CommentDAOImpl implements CommentDAO {
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				CommentInfo commentInfo = new CommentInfo();
-				commentInfo.setNo(rs.getInt("no"));
-				commentInfo.setUser_id(rs.getString("user_id"));
-				commentInfo.setTeacher_id(rs.getString("teacher_id"));
-				commentInfo.setScore(rs.getDouble("score"));
-				commentInfo.setReview(rs.getString("review"));
-				commentList.add(commentInfo);
+				
+				commentList.add(resultMapping(rs));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return commentList;
+	}
+	
+	private CommentInfo resultMapping(ResultSet rs) throws SQLException {
+		CommentInfo commentInfo = new CommentInfo();
+		commentInfo.setNo(rs.getInt("no"));
+		commentInfo.setUser_id(rs.getString("user_id"));
+		commentInfo.setTeacher_id(rs.getString("teacher_id"));
+		commentInfo.setScore(rs.getDouble("score"));
+		commentInfo.setReview(rs.getString("review"));
+		return commentInfo;
 	}
 }
