@@ -18,7 +18,9 @@ public class TeacherFindServlet extends HttpServlet {
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<TeacherProfile> list = service.readAllTeacherProfile();
 		String area = req.getParameter("area");
-		req.setAttribute("area", area);
+		if (area != null) {
+			req.setAttribute("area", area);
+		}
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/views/find.jsp").forward(req, resp);
 	}
