@@ -41,9 +41,9 @@
 		} else { // 로그인 상태
 	%>
 	<div id="login">
-		<a href="./login">로그인</a> <a href="./signup.html">회원가입</a>
+		<a href="./login">로그인</a> <a href="./signup">회원가입</a>
 		<div id="teacher-join">
-			<a href="./signup.html">근선생가입</a>
+			<a href="./signup">근선생가입</a>
 		</div>
 	</div>
 	<%

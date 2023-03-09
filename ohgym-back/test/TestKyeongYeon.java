@@ -36,8 +36,7 @@ public class TestKyeongYeon {
 			List<Request> reqList = service.selectRequest();
 			
 			for (int i = 0; i < reqList.size(); i++) {
-				for (RequestInfo requestInfo : dao.requestInfoList(reqList.get(i).getId())) {
-				for (RequestInfo requestInfo : dao.requestInfoList(reqList.get(i).getId())) {
+				for (RequestInfo requestInfo : infoService.selectRequestInfo(reqList.get(i).getId())) {
 					
 					if(requestInfo.getAnswer7() != null
 							&& dateFormat.parse(requestInfo.getRequest_date()).compareTo(cal.getTime()) <= 0

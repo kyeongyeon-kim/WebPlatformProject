@@ -3,6 +3,7 @@ package ohgym.comment;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,26 +29,26 @@ public class CommentFindServlet extends HttpServlet {
 		String user_id = sb.toString();
 		
 		commentInfoList = new ArrayList<>();
-		CommentDAO commentDAO = new CommentDAO();
+		CommentService service = new CommentServiceImpl(new CommentDAOImpl());
 		
-		// ÀüÃ¼ ¸®ºä
-		commentInfoList = commentDAO.allComment();
+		// ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
+		commentInfoList = service.allComment();
 		
-		// user_id ÀÔ·ÂÀ¸·Î ¸®ºä
+		// user_id ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		commentInfoList = commentDAO.userComment(user_id);
 		
-		// teacher_id ÀÔ·ÂÀ¸·Î ¸®ºä
-//		String teacher_id = "°æÅÂ";
+		// teacher_id ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//		String teacher_id = "ï¿½ï¿½ï¿½ï¿½";
 //		commentInfoList = commentDAO.teacherComment(teacher_id);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(commentInfoList);
 		
-		// ÄÜ¼Ö¿¡¼­ toStringÇüÅÂ·Î Ã¼Å©(¿©·¯ ÁÙ)
+		// ï¿½Ü¼Ö¿ï¿½ï¿½ï¿½ toStringï¿½ï¿½ï¿½Â·ï¿½ Ã¼Å©(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
 		for (int i = 0; i < commentInfoList.size(); i++) {
 			System.out.println(commentInfoList.get(i).toString());
 		}
-		// ÄÜ¼Ö¿¡¼­ json ÇüÅÂ·Î Ã¼Å©(ÇÑ ÁÙ)
+		// ï¿½Ü¼Ö¿ï¿½ï¿½ï¿½ json ï¿½ï¿½ï¿½Â·ï¿½ Ã¼Å©(ï¿½ï¿½ ï¿½ï¿½)
 		System.out.println(json);
 		
 		PrintWriter pw = resp.getWriter();

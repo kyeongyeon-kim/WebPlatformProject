@@ -31,8 +31,8 @@ public class CommentRequestServlet extends HttpServlet {
 		    commentInfo.setScore(Double.parseDouble(values[2]));
 		    commentInfo.setReview((String) values[3]);
 
-	    	CommentDAO commentDAO = new CommentDAO();
-	    	commentDAO.commentInsert(commentInfo);
+		    CommentService service = new CommentServiceImpl(new CommentDAOImpl());
+		    service.commentInsert(commentInfo);
 	    	System.out.println(commentInfo.toString());
 	    } catch (Exception e) {
 	      e.printStackTrace();
