@@ -29,7 +29,7 @@ pageEncoding="UTF-8"%>
               maxlength="12"
               value="${param.userId}"
             />
-            <span class="error-message"> </span>
+
             <input
               type="password"
               id="password"
@@ -38,7 +38,7 @@ pageEncoding="UTF-8"%>
               maxlength="10"
               value="${param.userPassword}"
             />
-            <span class="error-message"> </span>
+
             <label for="remember-check">
               <input type="checkbox" id="remember-check" />아이디 저장하기
             </label>
