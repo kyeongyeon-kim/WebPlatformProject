@@ -18,7 +18,7 @@
 		</div>
 		<%
 			// session 객체에 memberId라는 session이 있으면,
-		if (session.getAttribute("user") != null) {
+		if (session.getAttribute("id") != null) {
 		%>
 		<div id="login">
 			<a href="">요청보기</a>
