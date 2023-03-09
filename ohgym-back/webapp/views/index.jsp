@@ -35,7 +35,7 @@ pageEncoding="UTF-8"%>
               <section id="by-region">
                 <section id="region-text">
                   <p>
-                    <strong>전국 숨은근선생</strong>
+                    <strong>전국 숨은 근선생</strong>
                   </p>
                   <p>믿을 수 있는 전문가를</p>
                   <p>오짐 단 한 곳에서 찾으세요</p>
@@ -64,20 +64,28 @@ pageEncoding="UTF-8"%>
               </section>
             </article>
           </section>
-          <section id="content2">
+          	<div class="slider" id="sportbanner">
+			  <img src="./img/summerbanner.png"/>
+              <img src="./img/eventbanner.png" />
+              <img src="./img/sportbanner.png"/>
+          	</div>
+         	<div>	
+              <img id="instruction" src="./img/instruction.png"/>
+            </div> 
+       <%--  <section id="content2">
             <article class="container">
-              <div id="tip-page">오운완 200% 활용하는 법</div>
+              <div id="tip-page">
+              </div>
             </article>
-          </section>
+          </section>   --%>
           <section id="content3">
             <section class="container">
               <div>
                 <p>전문가로 활동하시나요?</p>
-                <p>오짐에서 새로운 고객을</p>
-                <p>만나보세요</p>
+                <p>오짐에서 새로운 고객을 만나보세요</p>
                 <a href="#">근선생가입</a>
-              </div>
               <div></div>
+              </div>
             </section>
           </section>
         </section>
@@ -85,4 +93,5 @@ pageEncoding="UTF-8"%>
       <footer><%@ include file="./footer.jsp" %></footer>
     </div>
   </body>
+  <script src="./js/index.js"></script>
 </html>

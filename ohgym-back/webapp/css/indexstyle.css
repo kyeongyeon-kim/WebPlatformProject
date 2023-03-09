@@ -1,13 +1,15 @@
 @charset "utf-8";
-/* * { outline: 1px solid #333;} */
+ /** { outline: 1px solid #333;}*/
 #contents {
     height: auto;
 }
 
 /* 컨텐츠 레이아웃 */
 #content1 {
-    margin-top: 40px;
+  /* margin-top: 20px; */
+  margin-bottom:20px;
 }
+
 
 .region-btn {
     border-radius: 10px;
@@ -65,31 +67,35 @@
 }
 
 #content3 {
+	margin-top: 10px;
+	display:flex;
     height: auto;
 }
 
 #content3 .container div:nth-child(1) {
-    display: inline-block;
-    margin: 0 0 0 5%;
-    font-size: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 0 0 100px;
+    font-size: 18px;
     width: 30%;
 }
 
 #content3 .container div:nth-child(1) a {
     display: inline-block;
-    padding: 1em 2em;
+    padding: 5px 10px;
     font-size: 15px;
     background-color: #00c7ae;
     color: white;
     border-radius: 3px;
     border: 0;
-    margin: 0;
+    margin-top: 10px;
 }
 
 #content3 .container div:nth-child(2) {
     display: inline-block;
     width: 55%;
-    height: 140px;
+    height: 120px;
     background-color: rgb(234, 250, 249);
     border-radius: 15px;
 }
@@ -103,7 +109,7 @@
 }
 
 #fields {
-    margin: 0px 60px 100px 60px;
+    margin: 0px 60px 10px 60px;
     padding-top: 50px;
     font-size: 17px;
 }
@@ -125,5 +131,24 @@
 #fields img {
     float: auto;
     height: 100px;
-    margin: 0px 10px;
+    margin: 0px 20px;
+}
+
+#sportbanner {
+    height: 250px;
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+.slider {
+	overflow: hidden;
+}
+
+.slider img {
+  object-fit: cover;
+}
+
+#instruction { 
+	margin-left: 90px;
+	border-radius: 10px;
 }
