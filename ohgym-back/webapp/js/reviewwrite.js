@@ -28,4 +28,20 @@ cancelreviewbtn.onclick = function() {
 var okreviewbtn = document.getElementById("okreviewbtn");
 okreviewbtn.onclick = function() {
   reviewtap.style.display = "none";
+  
+  let arr = [];
+  // 값 입력
+  arr.push(categorystr); // user_id
+  arr.push(categorystr); // teacher_id
+  // 요소에서 가져오기
+  arr.push(categorystr); // score
+  arr.push(exercisetype); // review
+  let arrdata = JSON.stringify(arr);
+  fetch('http://localhost:8080/ohgym/commentrequest', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json; charset=UTF-8'
+      },
+      body: arrdata
+  });
 }

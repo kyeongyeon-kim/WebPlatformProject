@@ -17,7 +17,7 @@
   margin: 10% auto;
   border: 1px solid #888;
   width: 550px;
-  height: 650px;
+  height: 600px;
 }
 
 #closebtn {
@@ -31,7 +31,7 @@
 }
 
 #reviewquestiondiv {
-  margin-top: 10px;
+  margin-top: 50px;
   margin-left: 125px;
   background-color: rgb(234, 250, 249);
   border: 1px solid rgb(91, 206, 184);
@@ -42,7 +42,7 @@
 
 #reviewquestion1 {
   position: absolute;
-  top: 40px;
+  top: 80px;
   left: 260px;
   font-size: 18px;
   font-weight: bold;
@@ -52,7 +52,7 @@
 
 #reviewquestion2 {
   position: absolute;
-  top: 75px;
+  top: 115px;
   left: 190px;
   font-size: 15px;
   color: rgb(91, 206, 184);
@@ -62,7 +62,7 @@
 #reviewid {
   font-size: 18px;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -90,7 +90,7 @@
   font-size: 18px;
   font-weight: bold;
   position: absolute;
-  top: 510px;
+  top: 490px;
   left: 120px;
 }
 
