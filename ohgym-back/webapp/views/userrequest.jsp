@@ -7,21 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/userrequest.css">
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./css/userrequest.css">
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 </head>
 <body>
     <div class="container">
-        <header><%@ include file="header.jsp" %></header>
+        <header><%@ include file="header.jsp" %></header> 
         <main>
             <section id="banner" style="height: 250px;">
             <section class="container">
                 <article id="fields">
                     <div style="position: relative; display: flex; justify-content: center; color: white;">
                         <div style="width: 800px; height: 240px; position: absolute; z-index: -2; background-color: rgba(0, 0, 0, 0.3);" ></div>
-                        <img src="../img/userrequestimg9.png" id="bannerimg" style="width: 800px; height: 240px; position: absolute; z-index: -3;">
+                        <img src="./img/userrequestimg9.png" id="bannerimg" style="width: 800px; height: 240px; position: absolute; z-index: -3;">
                         <div style="margin-top: 35px; position: absolute; z-index: -1; text-align: center;">
                             <p style="font-size: 50px; font-weight: bold;" id="category"></p>
                             <p style="font-size: 18px; font-weight: bold; margin: 10px 0px 10px 0px;" id="score">평점: 0.0</p>
@@ -291,5 +291,5 @@
         <footer><%@ include file="footer.jsp" %></footer>
     </div>
 </body>
-<script src='../js/userrequest.js'></script>
+<script src='./js/userrequest.js'></script>
 </html>

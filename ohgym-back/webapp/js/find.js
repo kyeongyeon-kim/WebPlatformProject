@@ -16,7 +16,8 @@ function choiceType() {
 
 // 서비스 지역 콤보박스 이벤트
 let area = document.getElementById("area");
-area.addEventListener("change", choiceArea);
+area.addEventListener("click", choiceArea);
+window.addEventListener("load", choiceArea);
 function choiceArea() {
   let selectArea = area.options[area.selectedIndex].text;
   document.querySelectorAll("section").forEach((section) => {
