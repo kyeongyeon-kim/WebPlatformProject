@@ -12,6 +12,66 @@
 <link rel="stylesheet" type="text/css" href="./css/searchstyle.css">
 <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
+<%
+String area = (String) request.getAttribute("area");
+String[] selectedArr = new String[17];
+for(int i = 0; i < selectedArr.length; i++) {
+	selectedArr[i] = "";
+}
+switch (area) {
+case "seoul":
+	selectedArr[0] = "selected";
+	break;
+case "sejong":
+	selectedArr[1] = "selected";
+	break;
+case "gangwon":
+	selectedArr[2] = "selected";
+	break;
+case "incheon":
+	selectedArr[3] = "selected";
+	break;
+case "gyeongi":
+	selectedArr[4] = "selected";
+	break;
+case "chungbuk":
+	selectedArr[5] = "selected";
+	break;
+case "chungnam":
+	selectedArr[6] = "selected";
+	break;
+case "gyeongbuk":
+	selectedArr[7] = "selected";
+	break;
+case "daejeon":
+	selectedArr[8] = "selected";
+	break;
+case "daegu":
+	selectedArr[9] = "selected";
+	break;
+case "jeonbuk":
+	selectedArr[10] = "selected";
+	break;
+case "gyeongnam":
+	selectedArr[11] = "selected";
+	break;
+case "ulsan":
+	selectedArr[12] = "selected";
+	break;
+case "gwangju":
+	selectedArr[13] = "selected";
+	break;
+case "busan":
+	selectedArr[14] = "selected";
+	break;
+case "jeonnam":
+	selectedArr[15] = "selected";
+	break;
+case "jeju":
+	selectedArr[16] = "selected";
+	break;
+}
+%>
 <body>
 	<div class="container">
 		<header><%@ include file="header.jsp"%></header>
@@ -32,23 +92,23 @@
 			</select> 
 			<select id="area" name="area">
 				<option value="none">지역</option>
-				<option value="seoul">서울</option>
-				<option value="sejong">세종</option>
-				<option value="gangwon">강원</option>
-				<option value="incheon">인천</option>
-				<option value="gyeongi">경기</option>
-				<option value="chungbuk">충북</option>
-				<option value="chungnam">충남</option>
-				<option value="gyeongbuk">경북</option>
-				<option value="daejeon">대전</option>
-				<option value="daegu">대구</option>
-				<option value="jeonbuk">전북</option>
-				<option value="gyeongnam">경남</option>
-				<option value="ulsan">울산</option>
-				<option value="gwangju">광주</option>
-				<option value="busan">부산</option>
-				<option value="jeonnam">전남</option>
-				<option value="jeju">제주</option>
+				<option value="seoul" <%= selectedArr[0] %>>서울</option>
+				<option value="sejong" <%= selectedArr[1] %>>세종</option>
+				<option value="gangwon" <%= selectedArr[2] %>>강원</option>
+				<option value="incheon" <%= selectedArr[3] %>>인천</option>
+				<option value="gyeongi" <%= selectedArr[4] %>>경기</option>
+				<option value="chungbuk" <%= selectedArr[5] %>>충북</option>
+				<option value="chungnam" <%= selectedArr[6] %>>충남</option>
+				<option value="gyeongbuk" <%= selectedArr[7] %>>경북</option>
+				<option value="daejeon" <%= selectedArr[8] %>>대전</option>
+				<option value="daegu" <%= selectedArr[9] %>>대구</option>
+				<option value="jeonbuk" <%= selectedArr[10] %>>전북</option>
+				<option value="gyeongnam" <%= selectedArr[11] %>>경남</option>
+				<option value="ulsan" <%= selectedArr[12] %>>울산</option>
+				<option value="gwangju" <%= selectedArr[13] %>>광주</option>
+				<option value="busan" <%= selectedArr[14] %>>부산</option>
+				<option value="jeonnam" <%= selectedArr[15] %>>전남</option>
+				<option value="jeju" <%= selectedArr[16] %>>제주</option>
 			</select>
 			<div class="search">
 				<input id="search" type="search" placeholder="내 주변 근선생은 누가 있지?" />
