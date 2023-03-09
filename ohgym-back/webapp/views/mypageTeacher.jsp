@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,7 +29,7 @@ prefix="c"%>
         </div>
         <div id="history">
           <h3>
-            <a href="#">받은 요청</a>
+            <a href="#">받은 요청</a><span>(${ fn:length(list) })</span>
           </h3>
           <div class="box">
             <div>
