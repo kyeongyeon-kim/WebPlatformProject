@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 			session.setMaxInactiveInterval(30*60);
 			System.out.println(session.getAttribute("user"));
 			
-			String redirectUrl = "./requestList";
+			String redirectUrl = "./";
 			//String redirectUrl = request.getContextPath() + "/mainpage";
 		    response.sendRedirect(redirectUrl);
 		    
