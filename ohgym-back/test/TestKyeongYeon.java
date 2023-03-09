@@ -15,6 +15,9 @@ import ohgym.request.RequestService;
 import ohgym.request.RequestServiceImpl;
 import ohgym.userrequest.RequestInfo;
 import ohgym.userrequest.RequestInfoDAO;
+import ohgym.userrequest.RequestInfoDAOImpl;
+import ohgym.userrequest.RequestInfoService;
+import ohgym.userrequest.RequestInfoServiceImpl;
 
 
 public class TestKyeongYeon {
@@ -27,12 +30,13 @@ public class TestKyeongYeon {
 			String str = "부산 부산진구 중앙대로 749 혜도빌딩 4층 그린컴퓨터아카데미";
 			RequestService service = new RequestServiceImpl(new RequestDAOImpl());
 			
-			RequestInfoDAO dao = new RequestInfoDAO();
+			RequestInfoService infoService = new RequestInfoServiceImpl(new RequestInfoDAOImpl());
 			
 			List<Request> afterFilterList = new ArrayList<>();
 			List<Request> reqList = service.selectRequest();
 			
 			for (int i = 0; i < reqList.size(); i++) {
+				for (RequestInfo requestInfo : dao.requestInfoList(reqList.get(i).getId())) {
 				for (RequestInfo requestInfo : dao.requestInfoList(reqList.get(i).getId())) {
 					
 					if(requestInfo.getAnswer7() != null

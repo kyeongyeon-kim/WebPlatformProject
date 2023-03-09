@@ -23,6 +23,9 @@ import ohgym.teacher.TeacherService;
 import ohgym.teacher.TeacherServiceImpl;
 import ohgym.userrequest.RequestInfo;
 import ohgym.userrequest.RequestInfoDAO;
+import ohgym.userrequest.RequestInfoDAOImpl;
+import ohgym.userrequest.RequestInfoService;
+import ohgym.userrequest.RequestInfoServiceImpl;
 
 @WebServlet("/requestList")
 public class RequestListServlet extends HttpServlet {
@@ -31,21 +34,22 @@ public class RequestListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
 		TeacherService teacherService = new TeacherServiceImpl(new TeacherDAOImpl());
-		RequestInfoDAO dao = new RequestInfoDAO();
+//		RequestInfoDAO dao = new RequestInfoDAO();
+		RequestInfoService infoService = new RequestInfoServiceImpl(new RequestInfoDAOImpl());
 		List<Request> FilteredtList = new ArrayList<>();
 		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("user");
+		String id = (String) session.getAttribute("id");
 		List<TeacherProfile> teacherProfile = teacherService.readTeacherProfile(id);
 		
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
-			for (RequestInfo requestInfo : dao.requestInfoList(request.getId())) {
+			for (RequestInfo requestInfo : infoService.selectRequestInfo(request.getId())) {
 				if(isValidRequest(request, requestInfo, teacherProfile.get(0))) {
 					FilteredtList.add(request);
 				}
 			}
 		}
-		
+		System.out.println(FilteredtList);
 		req.setAttribute("list", FilteredtList);
 		req.getRequestDispatcher("/views/mypageTeacher.jsp").forward(req, resp);
 
