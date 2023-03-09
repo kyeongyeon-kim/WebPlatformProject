@@ -17,7 +17,8 @@ public class TeacherFindServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		List<TeacherProfile> list = service.readAllTeacherProfile();
-		
+		String area = req.getParameter("area");
+		req.setAttribute("area", area);
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/views/find.jsp").forward(req, resp);
 	}

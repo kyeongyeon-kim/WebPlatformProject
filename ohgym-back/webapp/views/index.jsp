@@ -42,23 +42,23 @@ pageEncoding="UTF-8"%>
                 </section>
                 <section class="region-btns">
                   <ul>
-                    <li><a href="" class="region-btn">서울</a></li>
-                    <li><a href="" class="region-btn">세종</a></li>
-                    <li><a href="" class="region-btn">강원</a></li>
-                    <li><a href="" class="region-btn">인천</a></li>
-                    <li><a href="" class="region-btn">경기</a></li>
-                    <li><a href="" class="region-btn">충북</a></li>
-                    <li><a href="" class="region-btn">충남</a></li>
-                    <li><a href="" class="region-btn">경북</a></li>
-                    <li><a href="" class="region-btn">대전</a></li>
-                    <li><a href="" class="region-btn">대구</a></li>
-                    <li><a href="" class="region-btn">전북</a></li>
-                    <li><a href="" class="region-btn">경남</a></li>
-                    <li><a href="" class="region-btn">울산</a></li>
-                    <li><a href="" class="region-btn">광주</a></li>
-                    <li><a href="" class="region-btn">부산</a></li>
-                    <li><a href="" class="region-btn">전남</a></li>
-                    <li><a href="" class="region-btn">제주</a></li>
+                    <li><a href="./find?area=seoul" class="region-btn">서울</a></li>
+                    <li><a href="./find?area=sejong" class="region-btn">세종</a></li>
+                    <li><a href="./find?area=gangwon" class="region-btn">강원</a></li>
+                    <li><a href="./find?area=incheon" class="region-btn">인천</a></li>
+                    <li><a href="./find?area=gyeongi" class="region-btn">경기</a></li>
+                    <li><a href="./find?area=chungbuk" class="region-btn">충북</a></li>
+                    <li><a href="./find?area=chungnam" class="region-btn">충남</a></li>
+                    <li><a href="./find?area=gyeongbuk" class="region-btn">경북</a></li>
+                    <li><a href="./find?area=daejeon" class="region-btn">대전</a></li>
+                    <li><a href="./find?area=daegu" class="region-btn">대구</a></li>
+                    <li><a href="./find?area=jeonbuk" class="region-btn">전북</a></li>
+                    <li><a href="./find?area=gyeongnam" class="region-btn">경남</a></li>
+                    <li><a href="./find?area=ulsan" class="region-btn">울산</a></li>
+                    <li><a href="./find?area=gwangju" class="region-btn">광주</a></li>
+                    <li><a href="./find?area=busan" class="region-btn">부산</a></li>
+                    <li><a href="./find?area=jeonnam" class="region-btn">전남</a></li>
+                    <li><a href="./find?area=jeju" class="region-btn">제주</a></li>
                   </ul>
                 </section>
               </section>
