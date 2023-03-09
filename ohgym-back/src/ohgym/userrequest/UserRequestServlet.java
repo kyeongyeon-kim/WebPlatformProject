@@ -7,11 +7,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/userreq")
 public class UserRequestServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/views/userrequest.jsp").forward(req, resp);
 	}
 
 	@Override
@@ -23,13 +25,14 @@ public class UserRequestServlet extends HttpServlet {
 			String requestData = req.getReader().lines().reduce("", (accumulator, actual) -> accumulator + actual);
 			String[] arr = requestData.replaceAll("[\\[\\]{}\"]", "").split(",");
 
-			// ���ǿ��� user_id
-			String user_id = "원도";
+			HttpSession session = req.getSession();
+			String user_id = (String) session.getAttribute("user");
 			
 	    	UserRequestDAO userRequestDAO = new UserRequestDAO();
 	    	userRequestDAO.requestAdd(user_id, arr[39], arr[38]);
 	    	userRequestDAO.requestAnswerAddData(arr);
 	    	
+	    	resp.sendRedirect("./");
 	    } catch (Exception e) {
 	      e.printStackTrace();
 	    }
