@@ -8,7 +8,6 @@
 <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<<<<<<< HEAD
 	<div id="menu">
 		<div id="logo">
 			<a href="./"><img src="./img/logo.png" alt="logo"></a>
@@ -19,21 +18,7 @@
 		</div>
 		<%
 			// session 객체에 memberId라는 session이 있으면,
-=======
- <div id="menu">
-        <div id="logo">
-            <a href="./"><img src="./img/logo.png" alt="logo"></a>
-        </div>
-        <div id="menu-bar">
-            <a href="">근선생매칭</a> 
-            <a href="./find">근선생찾기</a>
-            <a href="">커뮤니티</a>
-            <input type="search" placeholder="어떤 서비스가 필요하세요?"></input>
-        </div>
-		<% 		
-		// session 객체에 memberId라는 session이 있으면,
->>>>>>> branch 'master' of https://github.com/kyeongyeon-kim/WebPlatformProject.git
-		if (session.getAttribute("id") != null) {
+		if (session.getAttribute("user") != null) {
 		%>
 		<div id="login">
 			<a href="">요청보기</a>
