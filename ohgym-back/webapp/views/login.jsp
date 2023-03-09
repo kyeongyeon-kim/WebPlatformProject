@@ -44,9 +44,9 @@ pageEncoding="UTF-8"%>
             </label>
             <input type="submit" value="Login" id="loginbtn" />
           </form>
-          <span class="error-message"
-            >${not empty errorMessage ? errorMessage : ""}</span
-          >
+          <span class="errorMessage">
+            ${not empty errorMessage ? errorMessage : ""}
+          </span>
         </div>
       </main>
       <footer><%@ include file="footer.jsp" %></footer>
