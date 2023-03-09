@@ -147,6 +147,10 @@ header {
 	padding-bottom: 0;
 }
 
+.alarm {
+	margin: 0 10px;
+}
+
 .alarm:hover {
 	color: #390;
 	cursor: pointer;
@@ -230,7 +234,6 @@ header {
 	width: 80%;
 	color: white;
 	border: none;
-	margin: 10px 10px 5px 28px;
 	background-color: rgb(51, 180, 153);
 	border-radius: 5px;
 	padding: 0.5em 0.9em;
