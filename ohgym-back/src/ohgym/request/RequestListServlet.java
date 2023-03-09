@@ -41,6 +41,7 @@ public class RequestListServlet extends HttpServlet {
 		String id = (String) session.getAttribute("id");
 		List<TeacherProfile> teacherProfile = teacherService.readTeacherProfile(id);
 		
+		System.out.println("머야이건"+teacherProfile);
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
 			for (RequestInfo requestInfo : infoService.selectRequestInfo(request.getId())) {

@@ -51,4 +51,23 @@ public class RequestInfoServiceImpl implements RequestInfoService {
 		}
 		return null;
 	}
+	@Override
+	public RequestInfo selectRequestInfoByNo(int no) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.selectRequestInfoByNo(conn,no);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
+	}
 }

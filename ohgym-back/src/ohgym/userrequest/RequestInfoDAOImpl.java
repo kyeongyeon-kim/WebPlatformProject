@@ -162,4 +162,84 @@ public class RequestInfoDAOImpl implements RequestInfoDAO {
 		}
 		return list;
 	}
+	
+	private RequestInfo resultMapping(ResultSet rs) throws SQLException {
+		RequestInfo requestinfo = new RequestInfo();
+		 System.out.println("이건 먼데"+rs);
+			switch (rs.getInt("question")) {
+			case 1:
+				if (requestinfo.getAnswer1() == null) {
+				 	requestinfo.setAnswer1(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer1(requestinfo.getAnswer1() + "," + rs.getString("answer"));
+				}
+				break;
+			case 2:
+				if (requestinfo.getAnswer2() == null) {
+					requestinfo.setAnswer2(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer2(requestinfo.getAnswer2() + "," + rs.getString("answer"));
+				}
+				break;
+			case 3:
+				if (requestinfo.getAnswer3() == null) {
+					requestinfo.setAnswer3(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer3(requestinfo.getAnswer3() + "," + rs.getString("answer"));
+				}
+				break;
+			case 4:
+				if (requestinfo.getAnswer4() == null) {
+					requestinfo.setAnswer4(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer4(requestinfo.getAnswer4() + "," + rs.getString("answer"));
+				}
+				break;
+			case 5:
+				if (requestinfo.getAnswer5() == null) {
+					requestinfo.setAnswer5(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer5(requestinfo.getAnswer5() + "," + rs.getString("answer"));
+				}
+				break;
+			case 6:
+				if (requestinfo.getAnswer6() == null) {
+					requestinfo.setAnswer6(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer6(requestinfo.getAnswer6() + "," + rs.getString("answer"));
+				}
+				break;
+			case 7:
+				if (requestinfo.getAnswer7() == null) {
+					requestinfo.setAnswer7(rs.getString("answer"));
+				} else {
+					requestinfo.setAnswer7(requestinfo.getAnswer7() + "," + rs.getString("answer"));
+				}
+				break;
+			case 8:
+				if (requestinfo.getMessage() == null) {
+					requestinfo.setMessage(rs.getString("answer"));
+				} else {
+					requestinfo.setMessage(requestinfo.getMessage() + "," + rs.getString("answer"));
+				}
+				break;
+			default:
+				break;
+			
+			}
+			return requestinfo;			
+	}
+	
+	
+	@Override
+	public RequestInfo selectRequestInfoByNo(Connection conn, int no) throws SQLException {
+		String sql = "SELECT * FROM request_answer WHERE request_no = '" + no + "';";
+		try (PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
+			RequestInfo requestinfo = new RequestInfo();
+			while (rs.next()) {
+				requestinfo = resultMapping(rs);
+			}
+			return requestinfo;
+		}
+	}
 }
