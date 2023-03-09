@@ -24,7 +24,7 @@ public class TeacherProfileServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		TeacherService service = new TeacherServiceImpl(new TeacherDAOImpl());
 		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("user");
+		String id = (String) session.getAttribute("id");
 		
 		List<TeacherProfile> teacherprofile = service.readTeacherProfile(id);
 		req.setAttribute("profile", teacherprofile.get(0));
