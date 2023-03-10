@@ -26,14 +26,13 @@ function sendSuggestEvent() {
 
     let suggest = {
       no: null,
-      appeal: id,
+      id: id,
       requestNo: requestNo,
       price: inputCost.value,
       date: dateFormat,
       message: quote.value,
     };
-    console.log(suggest);
-    fetch("http://localhost:8080/ohgym/sendSuggest", {
+    fetch("./sendSuggest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
