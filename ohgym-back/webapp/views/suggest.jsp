@@ -92,9 +92,8 @@ prefix="c"%>
           </section>
         </section>
       </main>
-
       <footer><%@ include file="footer.jsp"%></footer>
     </div>
 </body>
-<script src="../js/suggest.js"></script>
+<script src="./js/suggest.js"></script>
 </html>
