@@ -26,11 +26,12 @@ public class UserRequestServlet extends HttpServlet {
 			String[] arr = requestData.replaceAll("[\\[\\]{}\"]", "").split(",");
 
 			HttpSession session = req.getSession();
-			String user_id = (String) session.getAttribute("user");
+//			String user_id = (String) session.getAttribute("user");
+			String user_id = "원도";
 			
-	    	UserRequestDAO userRequestDAO = new UserRequestDAO();
-	    	userRequestDAO.requestAdd(user_id, arr[39], arr[38]);
-	    	userRequestDAO.requestAnswerAddData(arr);
+			UserRequestService service = new UserRequestServiceImpl(new UserRequestDAOImpl());
+			service.requestAdd(user_id, arr[39], arr[38]);
+			service.requestAnswerAdd(arr);
 	    	
 	    	resp.sendRedirect("./");
 	    } catch (Exception e) {

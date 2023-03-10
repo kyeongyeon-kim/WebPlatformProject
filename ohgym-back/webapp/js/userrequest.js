@@ -313,10 +313,6 @@ next.addEventListener("click", function(e){
                         },
                         body: reqdata
                     });
-                    console.log(reqarr);
-                    for (let i = 0; i < reqarr.length; i++) {
-                        console.log(reqarr[i]);
-                    }
                 } else {
                 }
                 break;

@@ -7,9 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import ohgym.dbutil.ConnectionProvider;
-import ohgym.request.Request;
-
 public class RequestInfoDAOImpl implements RequestInfoDAO {
 	@Override
 	public List<RequestInfo> selectRequestInfo(Connection conn, String user_id) throws SQLException {
@@ -110,7 +107,7 @@ public class RequestInfoDAOImpl implements RequestInfoDAO {
 			return list;
 		}
 	}
-	public List<RequestInfo> requestInfoList(List<RequestInfo> subList) throws SQLException {
+	public List<RequestInfo> requestInfoList(List<RequestInfo> subList) {
 		List<RequestInfo> list = new ArrayList<>();
 		
 		for (int i = 0; i < subList.size(); i++) {
