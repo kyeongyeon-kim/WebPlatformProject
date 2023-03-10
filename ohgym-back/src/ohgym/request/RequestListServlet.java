@@ -34,14 +34,12 @@ public class RequestListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
 		TeacherService teacherService = new TeacherServiceImpl(new TeacherDAOImpl());
-//		RequestInfoDAO dao = new RequestInfoDAO();
 		RequestInfoService infoService = new RequestInfoServiceImpl(new RequestInfoDAOImpl());
 		List<Request> FilteredtList = new ArrayList<>();
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
 		List<TeacherProfile> teacherProfile = teacherService.readTeacherProfile(id);
-		
-		System.out.println("머야이건"+teacherProfile);
+
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
 			for (RequestInfo requestInfo : infoService.selectRequestInfo(request.getId())) {

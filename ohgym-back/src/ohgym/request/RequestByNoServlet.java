@@ -33,21 +33,9 @@ public class RequestByNoServlet extends HttpServlet {
 		
 		Request request = service.selectRequestByNo(no);
 		RequestInfo requestInfo = requestinfo.selectRequestInfoByNo(no);
-		System.out.println("왓냐?" + requestInfo.getAnswer1());
-	//	RequestFind requestFind = new RequestFind();
-	//	requestFind.requestAnswerFind(no);
-		
-//		Object[] arr = new Object[]{request, requestFind};
-//		
-//		ObjectMapper mapper = new ObjectMapper();
-//		String json = mapper.writeValueAsString(arr);
-//	 
-//		PrintWriter pw = resp.getWriter();
-//		pw.println(json);
-//		pw.flush();
+
 		req.setAttribute("request", request);
-		System.out.println("먼값 넘어감?"+request);
-	//	req.setAttribute("requestFind", requestFind);
+		req.setAttribute("requestinfo",requestInfo);
 		req.getRequestDispatcher("/views/suggest.jsp").forward(req, resp);
 	}
 }
