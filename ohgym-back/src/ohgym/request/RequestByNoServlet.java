@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import ohgym.teacher.TeacherDAOImpl;
 import ohgym.teacher.TeacherService;
 import ohgym.teacher.TeacherServiceImpl;
@@ -33,7 +31,6 @@ public class RequestByNoServlet extends HttpServlet {
 		
 		Request request = service.selectRequestByNo(no);
 		RequestInfo requestInfo = requestinfo.selectRequestInfoByNo(no);
-
 		req.setAttribute("request", request);
 		req.setAttribute("requestinfo",requestInfo);
 		req.getRequestDispatcher("/views/suggest.jsp").forward(req, resp);

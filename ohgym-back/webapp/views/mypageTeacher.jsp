@@ -18,8 +18,8 @@ prefix="c"%>
           <h1>마이페이지</h1>
         </div>
         <div id="clientName">
-          <p class="name">경연</p>
-          <p>선생님</p>
+          <p class="name"><%= session.getAttribute("id") %></p>
+          <p>근선생님</p>
           <button>정보수정</button>
         </div>
         <div class="notice">
