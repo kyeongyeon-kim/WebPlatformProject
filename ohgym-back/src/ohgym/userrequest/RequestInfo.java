@@ -139,4 +139,14 @@ public class RequestInfo {
 	public void setAnswer7(String answer7) {
 		this.answer7 = answer7;
 	}
+
+	@Override
+	public String toString() {
+		return "RequestInfo [request_no=" + request_no + ", user_id=" + user_id + ", exercise_type=" + exercise_type
+				+ ", request_date=" + request_date + ", deadline_date=" + deadline_date + ", message=" + message
+				+ ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer4
+				+ ", answer5=" + answer5 + ", answer6=" + answer6 + ", answer7=" + answer7 + "]";
+	}
+	
+	
 }

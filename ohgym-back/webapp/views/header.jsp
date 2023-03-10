@@ -14,7 +14,7 @@
 		</div>
 		<div id="menu-bar">
 			<a href="">근선생매칭</a> <a href="./find">근선생찾기</a> <a href="">커뮤니티</a> <input
-				type="search" placeholder="어떤 서비스가 필요하세요?"></input>
+				type="search" id="search-input" placeholder="어떤 서비스가 필요하세요?"></input>
 		</div>
 		<%
 			// session 객체에 memberId라는 session이 있으면,
