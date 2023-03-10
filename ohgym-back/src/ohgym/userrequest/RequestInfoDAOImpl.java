@@ -163,9 +163,8 @@ public class RequestInfoDAOImpl implements RequestInfoDAO {
 		return list;
 	}
 	
+	RequestInfo requestinfo = new RequestInfo();
 	private RequestInfo resultMapping(ResultSet rs) throws SQLException {
-		RequestInfo requestinfo = new RequestInfo();
-		 System.out.println("이건 먼데"+rs);
 			switch (rs.getInt("question")) {
 			case 1:
 				if (requestinfo.getAnswer1() == null) {
