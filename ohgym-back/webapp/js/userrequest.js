@@ -313,7 +313,7 @@ next.addEventListener("click", function(e){
                         },
                         body: reqdata
                     });
-                } else {
+					location.href = './';
                 }
                 break;
             default:

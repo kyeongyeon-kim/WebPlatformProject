@@ -1,6 +1,5 @@
 package ohgym.userrequest;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -10,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,13 +17,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class RequestInfoServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		BufferedReader reader = req.getReader();
-		StringBuilder sb = new StringBuilder();
-		String line;
-		while ((line = reader.readLine()) != null) {
-			sb.append(line);
-		}
-		String user_id = sb.toString();
+		HttpSession session = req.getSession();
+		String user_id = (String) session.getAttribute("id");
 		
 		RequestInfoService service = new RequestInfoServiceImpl(new RequestInfoDAOImpl());
 

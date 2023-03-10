@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.RepaintManager;
 
 @WebServlet("/userreq")
 public class UserRequestServlet extends HttpServlet {
@@ -18,6 +19,7 @@ public class UserRequestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("POST");
 		try {
 			resp.setContentType("text/plain");
 			resp.setCharacterEncoding("UTF-8");
@@ -26,13 +28,13 @@ public class UserRequestServlet extends HttpServlet {
 			String[] arr = requestData.replaceAll("[\\[\\]{}\"]", "").split(",");
 
 			HttpSession session = req.getSession();
-			String user_id = (String) session.getAttribute("user");
+			String user_id = (String) session.getAttribute("id");
 			
 			UserRequestService service = new UserRequestServiceImpl(new UserRequestDAOImpl());
-			service.requestAdd(user_id, arr[39], arr[38]);
-			service.requestAnswerAdd(arr);
-	    	
-	    	resp.sendRedirect("./");
+			if (user_id != null) {
+				service.requestAdd(user_id, arr[39], arr[38]);
+				service.requestAnswerAdd(arr);
+			}
 	    } catch (Exception e) {
 	      e.printStackTrace();
 	    }

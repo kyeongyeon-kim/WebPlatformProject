@@ -28,7 +28,6 @@ public class UserRequestDAOImpl implements UserRequestDAO {
 				+ RequestDateStr + "', '"
 				+ DeadlineDateaStr
 				+ str;
-		System.out.println(sql);
 		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 			stmt.executeUpdate();
 		}
