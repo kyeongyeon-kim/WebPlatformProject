@@ -1,4 +1,4 @@
-package ohgym.userrequest;
+package ohgym.userresponse;
 
 import java.util.ArrayList;
 import java.util.List;

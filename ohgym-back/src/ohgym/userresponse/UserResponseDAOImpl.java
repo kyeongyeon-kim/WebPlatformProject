@@ -1,4 +1,4 @@
-package ohgym.userrequest;
+package ohgym.userresponse;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserResponseDAOImpl implements UserResponseDAO {
-	// Á¾¸ñ¸í
+	// ì¢…ëª©ëª…
 	@Override
 	public String categoryName(String str, Connection conn) throws SQLException {
 		String sql = "SELECT exercise FROM exercise_type WHERE no = '" + str + "'";
@@ -18,7 +18,7 @@ public class UserResponseDAOImpl implements UserResponseDAO {
 		}
 		return null;
 	}
-	// Æò±Õ ÆòÁ¡
+	// í‰ì 
 	@Override
 	public String scoreNum(String str, Connection conn) throws SQLException {
 		String sql = "SELECT avg(score) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = '" + str + "')";
@@ -30,7 +30,7 @@ public class UserResponseDAOImpl implements UserResponseDAO {
 		}
 		return null;
 	}
-	// ´©Àû ¿äÃ»¼­
+	// ìš”ì²­ì„œ ìˆ˜
 	@Override
 	public String requestNum(String str, Connection conn) throws SQLException {
 		String sql = "SELECT count(*) FROM request WHERE exercise_type = '" + str + "'";
@@ -42,7 +42,7 @@ public class UserResponseDAOImpl implements UserResponseDAO {
 		}
 		return null;
 	}
-	// È°µ¿ ¼±»ı ¼ö
+	// í™œë™ ì„ ìƒ ìˆ˜
 	@Override
 	public String activeNum(String str, Connection conn) throws SQLException {
 		String sql = "SELECT count(*) FROM teacher_exercise WHERE exercise_type = '" + str + "'";
@@ -54,7 +54,7 @@ public class UserResponseDAOImpl implements UserResponseDAO {
 		}
 		return null;
 	}
-	// ¸®ºä ¼ö
+	// ë¦¬ë·° ìˆ˜
 	@Override
 	public String reviewNum(String str, Connection conn) throws SQLException {
 		String sql = "SELECT count(*) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = '" + str + "')";

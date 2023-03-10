@@ -1,4 +1,4 @@
-package ohgym.userrequest;
+package ohgym.userresponse;
 
 import java.sql.Connection;
 import java.sql.SQLException;

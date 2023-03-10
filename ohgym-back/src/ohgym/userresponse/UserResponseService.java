@@ -1,4 +1,4 @@
-package ohgym.userrequest;
+package ohgym.userresponse;
 
 public interface UserResponseService {
 	String categoryName(String str);

@@ -26,8 +26,7 @@ public class UserRequestServlet extends HttpServlet {
 			String[] arr = requestData.replaceAll("[\\[\\]{}\"]", "").split(",");
 
 			HttpSession session = req.getSession();
-//			String user_id = (String) session.getAttribute("user");
-			String user_id = "원도";
+			String user_id = (String) session.getAttribute("user");
 			
 			UserRequestService service = new UserRequestServiceImpl(new UserRequestDAOImpl());
 			service.requestAdd(user_id, arr[39], arr[38]);

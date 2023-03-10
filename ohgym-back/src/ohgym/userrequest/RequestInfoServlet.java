@@ -27,15 +27,15 @@ public class RequestInfoServlet extends HttpServlet {
 		
 		RequestInfoService service = new RequestInfoServiceImpl(new RequestInfoDAOImpl());
 
-		// 특정 유저의 요청서
+		// 특정 유저의 요청서  
 		List<RequestInfo> reqInfoList = service.selectRequestInfo(user_id);
-		// 전체 유저의 요청서
+		// 전체 유저의 요청서  
 //		List<RequestInfo> reqInfoList = service.selectRequestInfoNoAll();
 		
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(reqInfoList);
 		
-		// 콘솔에서 json 형태로 체크(한 줄)
+		// 콘솔에서 json 형태로 체크(한 줄) 
 		System.out.println(json);
 		
 		PrintWriter pw = resp.getWriter();
