@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class SendSuggestServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setHeader("Content-Type:", "application/json");
 		BufferedReader reader = req.getReader();
 		StringBuilder sb = new StringBuilder();
 		String line;
@@ -26,7 +27,7 @@ public class SendSuggestServlet extends HttpServlet {
 		String strSuggest = sb.toString();
 		Suggest suggest = mapper.readValue(strSuggest, Suggest.class);
 		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());
-		int result = service.insertSuggest(suggest);
-		System.out.println(result);
+//		int result = service.insertSuggest(suggest);
+		System.out.println(suggest);
 	}
 }
