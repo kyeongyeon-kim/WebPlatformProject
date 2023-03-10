@@ -31,24 +31,24 @@ public class CommentFindServlet extends HttpServlet {
 		commentInfoList = new ArrayList<>();
 		CommentService service = new CommentServiceImpl(new CommentDAOImpl());
 		
-		// ��ü ����
+		// 전체 댓글 목록 조회
 		commentInfoList = service.allComment();
 		
-		// user_id �Է����� ����
-//		commentInfoList = commentDAO.userComment(user_id);
-		
-		// teacher_id �Է����� ����
-//		String teacher_id = "����";
-//		commentInfoList = commentDAO.teacherComment(teacher_id);
-		
+		// 전체 댓글 목록 조회
+		// commentInfoList = commentDAO.userComment(user_id);
+
+		// 선생님 아이디 입력 시 해당 선생님에 대한 댓글만 조회
+		// String teacher_id = "선생님";
+		// commentInfoList = commentDAO.teacherComment(teacher_id);
+
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(commentInfoList);
-		
-		// �ֿܼ��� toString���·� üũ(���� ��)
+
+		// 객체의 toString() 메서드로 출력 결과 확인 (디버그용)
 		for (int i = 0; i < commentInfoList.size(); i++) {
 			System.out.println(commentInfoList.get(i).toString());
 		}
-		// �ֿܼ��� json ���·� üũ(�� ��)
+		// json 형식으로 출력 결과 확인 (실제 사용용)
 		System.out.println(json);
 		
 		PrintWriter pw = resp.getWriter();

@@ -28,9 +28,9 @@ public class UserRequestServlet extends HttpServlet {
 			HttpSession session = req.getSession();
 			String user_id = (String) session.getAttribute("user");
 			
-	    	UserRequestDAO userRequestDAO = new UserRequestDAO();
-	    	userRequestDAO.requestAdd(user_id, arr[39], arr[38]);
-	    	userRequestDAO.requestAnswerAddData(arr);
+			UserRequestService service = new UserRequestServiceImpl(new UserRequestDAOImpl());
+			service.requestAdd(user_id, arr[39], arr[38]);
+			service.requestAnswerAdd(arr);
 	    	
 	    	resp.sendRedirect("./");
 	    } catch (Exception e) {

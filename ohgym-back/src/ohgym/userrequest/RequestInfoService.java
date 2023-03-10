@@ -1,6 +1,5 @@
 package ohgym.userrequest;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 public interface RequestInfoService {
