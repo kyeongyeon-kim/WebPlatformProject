@@ -1,4 +1,4 @@
-package ohgym.userrequest;
+package ohgym.comment;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -6,18 +6,40 @@ import java.util.List;
 
 import ohgym.dbutil.ConnectionProvider;
 
-public class RequestInfoServiceImpl implements RequestInfoService {
-	private RequestInfoDAO dao;
-	public RequestInfoServiceImpl(RequestInfoDAO dao) {
+public class CommentServiceImpl implements CommentService {
+	private CommentDAO dao;
+	
+	public CommentServiceImpl(CommentDAO dao) {
 		super();
 		this.dao = dao;
 	}
+
 	@Override
-	public List<RequestInfo> selectRequestInfo(String user_id) {
+	public int commentInsert(CommentInfo commentInfo) {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestInfo(conn, user_id);
+			return dao.commentInsert(conn, commentInfo);
+		} catch (RuntimeException | SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return 0;
+	}
+
+	@Override
+	public List<CommentInfo> userComment(String user_id) {
+		Connection conn = null;
+		try {
+			conn = ConnectionProvider.getConnection();
+			return dao.userComment(conn, user_id);
 		} catch (RuntimeException | SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -31,12 +53,13 @@ public class RequestInfoServiceImpl implements RequestInfoService {
 		}
 		return null;
 	}
+
 	@Override
-	public List<RequestInfo> selectRequestInfoNoAll() {
+	public List<CommentInfo> teacherComment(String teacher_id) {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestInfoNoAll(conn);
+			return dao.teacherComment(conn, teacher_id);
 		} catch (RuntimeException | SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -50,12 +73,13 @@ public class RequestInfoServiceImpl implements RequestInfoService {
 		}
 		return null;
 	}
+
 	@Override
-	public RequestInfo selectRequestInfoByNo(int no) {
+	public List<CommentInfo> allComment() {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestInfoByNo(conn,no);
+			return dao.allComment(conn);
 		} catch (RuntimeException | SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -69,4 +93,5 @@ public class RequestInfoServiceImpl implements RequestInfoService {
 		}
 		return null;
 	}
+
 }

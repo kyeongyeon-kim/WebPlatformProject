@@ -15,7 +15,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ohgym.teacher.TeacherDAOImpl;
 import ohgym.teacher.TeacherService;
 import ohgym.teacher.TeacherServiceImpl;
-import ohgym.userrequest.RequestFind;
+import ohgym.userrequest.RequestInfo;
+import ohgym.userrequest.RequestInfoDAOImpl;
+import ohgym.userrequest.RequestInfoService;
+import ohgym.userrequest.RequestInfoServiceImpl;
+
 
 @WebServlet("/requestNo")
 public class RequestByNoServlet extends HttpServlet {
@@ -25,8 +29,11 @@ public class RequestByNoServlet extends HttpServlet {
 		int no = Integer.valueOf(req.getParameter("no"));
 		RequestService service = new RequestServiceImpl(new RequestDAOImpl());
 		TeacherService teacherService = new TeacherServiceImpl(new TeacherDAOImpl());
+		RequestInfoService requestinfo = new RequestInfoServiceImpl(new RequestInfoDAOImpl());
 		
 		Request request = service.selectRequestByNo(no);
+		RequestInfo requestInfo = requestinfo.selectRequestInfoByNo(no);
+		System.out.println("왓냐?" + requestInfo.getAnswer1());
 	//	RequestFind requestFind = new RequestFind();
 	//	requestFind.requestAnswerFind(no);
 		
