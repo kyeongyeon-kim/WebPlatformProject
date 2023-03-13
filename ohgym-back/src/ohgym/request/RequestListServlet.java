@@ -42,12 +42,14 @@ public class RequestListServlet extends HttpServlet {
 
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
+			System.out.println(request);
 			for (RequestInfo requestInfo : infoService.selectRequestInfo(request.getId())) {
 				if(isValidRequest(request, requestInfo, teacherProfile.get(0))) {
 					FilteredtList.add(request);
 				}
 			}
 		}
+		System.out.println(FilteredtList);
 		req.setAttribute("list", FilteredtList);
 		req.getRequestDispatcher("/views/mypageTeacher.jsp").forward(req, resp);
 
@@ -55,14 +57,14 @@ public class RequestListServlet extends HttpServlet {
 
 	private boolean isValidRequest(Request request, RequestInfo requestInfo, TeacherProfile teacherProfile) {
 		Calendar cal = Calendar.getInstance();
-		cal.set(2023, 1, 22);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		try {
 			if(requestInfo.getAnswer7() != null
 					&& dateFormat.parse(requestInfo.getRequest_date()).compareTo(cal.getTime()) <= 0
 					&& dateFormat.parse(requestInfo.getDeadline_date()).compareTo(cal.getTime()) >= 0
 					&& request.getExerciseType().equals(teacherProfile.getExercise())
-					&& requestInfo.getAnswer7().equals(teacherProfile.getLocation().substring(0, 2))) {
+					&& requestInfo.getAnswer7().equals(teacherProfile.getLocation().substring(0, 2))
+					&& request.getId() != teacherProfile.getId()) {
 				return true;
 			}
 		} catch (ParseException e) {
