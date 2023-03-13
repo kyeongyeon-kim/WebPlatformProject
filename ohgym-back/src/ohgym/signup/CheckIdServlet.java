@@ -11,23 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/checkid")
 public class CheckIdServlet extends HttpServlet {
-	private SignupServiceImpl service;
-	
-    @Override
-    public void init() throws ServletException {
-        super.init();
-        service = new SignupServiceImpl(new SignupDAOImpl());
-    }
+	private SignupServiceImpl service = new SignupServiceImpl(new SignupDAOImpl());
     
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
+		String id = req.getParameter("userId");
 		System.out.println(id);
 		resp.setHeader("Content-Type", "plain/text");
 		
 		PrintWriter pw = resp.getWriter();
 		boolean idDuplicated = service.isDuplicatedId(id);
-	
+		
 		pw.println(idDuplicated);
 		System.out.println(idDuplicated);
 		pw.flush();

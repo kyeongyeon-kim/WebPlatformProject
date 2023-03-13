@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import ohgym.dbutil.ConnectionProvider;
 
 public class SignupDAOImpl implements SignupDAO {
@@ -38,7 +39,6 @@ public class SignupDAOImpl implements SignupDAO {
 		boolean isDuplicated = false;
 		try (PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM user WHERE id = ?")) { // 여기
 			pstmt.setString(1, userId);
-
 			try (ResultSet rs = pstmt.executeQuery()) {
 				if (rs.next()) {
 					isDuplicated = true;
@@ -47,7 +47,6 @@ public class SignupDAOImpl implements SignupDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return isDuplicated;
 	}
 

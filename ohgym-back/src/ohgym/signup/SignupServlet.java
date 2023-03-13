@@ -21,8 +21,8 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userId = request.getParameter("memberid");
-        String userPassword = request.getParameter("password");
+        String userId = request.getParameter("userId");
+        String userPassword = request.getParameter("userPassword");
         String userName = request.getParameter("userName");
         String userPhone = request.getParameter("userPhone");
         String userBirthday = request.getParameter("userBirthday");
@@ -31,9 +31,11 @@ public class SignupServlet extends HttpServlet {
         
         boolean isIdDuplicated = service.isDuplicatedId(userId);
         
+        System.out.println(userId);
         if (isIdDuplicated) {
-            request.setAttribute("error", "중복된 아이디입니다!!!!!!");
-            request.getRequestDispatcher("/signup").forward(request, response);
+			request.setAttribute("errorMessage", "중복된 아이디입니다!");
+			request.getRequestDispatcher("/views/signup.jsp").forward(request, response);
+			
         }
 
         SignupUser signupUser = new SignupUser(userId, userPassword, userName, userPhone, 
@@ -45,7 +47,8 @@ public class SignupServlet extends HttpServlet {
         	String redirectUrl = "./login";
         	response.sendRedirect(redirectUrl);
         } else {
-        	response.getWriter().write("회원가입 실패했습니다.");
+        	String redirectUrl = "./signup";
+        	response.sendRedirect(redirectUrl);
         }
     }
 }

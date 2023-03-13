@@ -2,29 +2,28 @@ const idInput = document.getElementById("id");
 const alertMessage = document.getElementById("alert-message");
 const checkBtn = document.getElementById("checkid");
 
-checkBtn.addEventListener('click', function () {
+checkBtn.addEventListener("click", function () {
   const valueCheckId = idInput.value;
-  let param = new URLSearchParams()
-  param.append("id", valueCheckId);
-  
+  console.log(idInput.value);
+  console.log(valueCheckId);
   fetch("http://localhost:8080/ohgym/checkid", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: param.toString(),
-    }
-  ).then(function (resp) {
-    return resp.text();
-  }).then(function (bodyText) {
-    console.log(bodyText);
-    if (bodyText === true) {
-      alertMessage.innerHTML = "중복된 아이디";
-    } else {
-      alertMessage.innerHTML = "중복안된 아이디";
-    }
-  });
-})
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  })
+    .then(function (resp) {
+      return resp.text();
+    })
+    .then(function (bodyText) {
+      console.log(bodyText);
+      if (bodyText === true) {
+        alertMessage.innerHTML = "중복된 아이디";
+      } else if (bodyText === false) {
+        alertMessage.innerHTML = "중복안된 아이디";
+      }
+    });
+});
 
 idInput.addEventListener("input", function () {
   const valueId = this.value;
@@ -37,41 +36,8 @@ idInput.addEventListener("input", function () {
   } else if (!/^[a-zA-Z0-9_-]{1,10}$/.test(valueId)) {
     this.setCustomValidity("아이디를 잘못 입력했습니다.");
     alertMessage.innerHTML = "아이디를 잘못 입력했습니다.";
-  } else {
-    this.setCustomValidity("문제없음");
-    alertMessage.innerHTML = "문제없음";
   }
 });
-
-
-
-
-// const ds = {
-//   host: "192.168.0.104",
-//   port: "3306",
-//   user: "ohgym",
-//   password: "root",
-//   database: "ohgym"
-// };
-
-// const conn = mysql.createConnection(ds);
-
-// const checkBtn = document.getElementById("checkid");
-
-// checkBtn.addEventListener('click', function () {
-//   const valueCheckId = idInput.value;
-
-//   // SELECT 쿼리 실행
-//   conn.query(`SELECT id FROM user WHERE id='${valueCheckId}'`, function (err, result, fields) {
-//     if (err) throw err;
-//     if (result.length > 0) {
-//       alert("중복입니다.");
-//     } else {
-//       alert("중복이 아닙니다.");
-//     }
-//   });
-// });
-
 
 const passwordInput = document.getElementById("password");
 passwordInput.addEventListener("input", function () {
@@ -80,7 +46,7 @@ passwordInput.addEventListener("input", function () {
     this.setCustomValidity("비밀번호를 입력해주세요.");
   } else if (valuePassword.length > 10) {
     this.setCustomValidity("비밀번호는 10자 이하여야 합니다.");
-  } else if (!/^[a-zA-Z0-9_-]{4,16}$/.test(valuePassword)) {
+  } else if (!/^[a-zA-Z0-9_-]{1,10}$/.test(valuePassword)) {
     this.setCustomValidity("비밀번호를 잘못 입력했습니다.");
   } else {
     this.setCustomValidity("");
@@ -92,8 +58,8 @@ nameInput.addEventListener("input", function () {
   const valueName = this.value;
   if (valueName === "") {
     this.setCustomValidity("이름을 입력해주세요.");
-  } else if (valueName.length > 10) {
-    this.setCustomValidity("이름은 10자 이하여야 합니다.");
+  } else if (valueName.length > 4) {
+    this.setCustomValidity("이름은 4자 이하여야 합니다.");
   } else if (!/^[ㄱ-힣]{1,4}$/.test(valueName)) {
     this.setCustomValidity("이름을 잘못 입력했습니다.");
   } else {
@@ -125,7 +91,7 @@ signForm.addEventListener("submit", function () {
     if (password !== passwordConfirm) {
       const passwordConfirmInput =
         document.getElementsByName("password-confirm")[0];
-      passwordConfirmInput.setCustomValidity("비밀번호가 일치하지 않습니다.");
+      passwordConfirmInput.setCustomValidity("no password.");
       return false;
     } else {
       const passwordConfirmInput =
