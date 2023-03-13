@@ -8,7 +8,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
     <link rel="stylesheet" type="text/css" href="./css/login.css" />
 
-    <script src="./js/login.js" defer></script>
+    <script src="./js/signup.js" defer></script>
   </head>
   <body>
     <div class="container">
@@ -40,13 +40,17 @@ pageEncoding="UTF-8"%>
             />
 
             <label for="remember-check">
-              <input type="checkbox" id="remember-check" />아이디 저장하기
+              <input
+                type="checkbox"
+                id="remember-check"
+                style="margin: 6px"
+              />아이디 저장하기
             </label>
             <input type="submit" value="Login" id="loginbtn" />
           </form>
-          <span class="error-message"
-            >${not empty errorMessage ? errorMessage : ""}</span
-          >
+          <span class="errorMessage">
+            ${not empty errorMessage ? errorMessage : ""}
+          </span>
         </div>
       </main>
       <footer><%@ include file="footer.jsp" %></footer>

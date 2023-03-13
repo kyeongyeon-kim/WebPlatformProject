@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 			String redirectUrl = "./";
 		    response.sendRedirect(redirectUrl);	   
 		} else {
-			request.setAttribute("errorMessage", "로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.");
+			request.setAttribute("errorMessage", "아이디와 비밀번호를 확인해주세요.");
 			request.getRequestDispatcher("/views/login.jsp").forward(request, response);
 
 		}

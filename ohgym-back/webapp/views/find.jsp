@@ -113,19 +113,22 @@ if (area != null) {
 				<option value="jeju" <%=selectedArr[16]%>>제주</option>
 			</select>
 			<div class="search">
-				<input id="search" type="search" placeholder="내 주변 근선생은 누가 있지?" />
+				<input id="search" type="search" placeholder="내 주변 근선생은 누가 있지?" 
+       			<% if (request.getAttribute("inputText") != null) { %>value="<%=request.getAttribute("inputText")%>"<%}%> />
 				<button id="search-btn">검색</button>
 			</div>
 			<%
 				List<TeacherProfile> list = (List) request.getAttribute("list");
 			for (TeacherProfile t : list) {
-				String str = "/ohgym/profileId?id=" + t.getId();
-				String info = t.toString().replaceAll("[,@$^<>%-=\\[\\]\"\"\n ]", "");
+				String url = "/ohgym/profileId?id=" + t.getId();
+				String info = (t.getId() + t.getExercise() + t.getLocation()).replaceAll("\\s", "");
+				String address = t.getLocation();
+				String[] location = address.split(" ");
 			%>
 			<section class="profile-container" id=<%=t.getExercise()%>
-				data-area=<%=t.getLocation()%> data-info=<%=info%>>
+				data-area=<%=location[0]%> data-info=<%=info%>>
 				<article class="profile">
-					<a href=<%=str%>>
+					<a href=<%=url%>>
 						<div class="info">
 							<h3 id="id"><%=t.getId()%></h3>
 							<div class="contents">

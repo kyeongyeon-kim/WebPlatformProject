@@ -41,9 +41,7 @@ body {
   background-color: rgb(91, 206, 184);
   margin-top: 20px;
 }
-#login-form > input[type="checkbox"] {
-  display: none;
-}
+
 #login-form > label {
   color: #999999;
 }
@@ -55,6 +53,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 #login-form input[type="checkbox"]:checked + label {
   background-image: url("찾는중.png");
   background-color: rgb(51, 180, 153);
@@ -65,16 +64,13 @@ body {
 /* 사인업페이지당 */
 .signup-page {
   width: 400px;
-  height: 350px;
   padding: 40px;
-  box-sizing: border-box;
-  /* align-items: center; */
 }
 
 .signup-page > h2 {
   font-size: 24px;
   color: rgb(51, 180, 153);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #signup-form > input {
   width: 100%;
@@ -189,6 +185,6 @@ body {
   margin: 0px 270px;
 }
 
-.error-message {
+.errorMessage {
   color: red;
 }
