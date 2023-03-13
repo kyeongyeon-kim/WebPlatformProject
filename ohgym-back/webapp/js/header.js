@@ -1,13 +1,15 @@
 // 팝업창
 function show() {
-  document.querySelector(".background").className = "background show";
+	document.querySelector(".background").className = "background show";
 }
 function close() {
-  document.querySelector(".background").className = "background";
+	let background = document.querySelector(".background");
+	background.className = "background";
+	background.style.zIndex = -100;
 }
-let alarm = document.querySelector(".alarm");
-if (alarm != null) {
-	alarm.addEventListener("click", show);
+let alarmBtn = document.querySelector(".alarm");
+if (alarmBtn != null) {
+	alarmBtn.addEventListener("click", show);
 }
 let closeBtn = document.querySelector("#close");
 if (closeBtn != null) {
@@ -15,18 +17,16 @@ if (closeBtn != null) {
 }
 
 // 검색창
-let searchInput = document.getElementById("search-input");
-
-searchInput.addEventListener("keypress", searchTeacher);
-console.log(searchInput.value);
+let searchAll = document.getElementById("search-input");
+let changePage = document.getElementById("change-page");
+searchAll.addEventListener("keypress", searchTeacher);
 
 function searchTeacher() {
-  	console.log(searchInput.value);
-	let str = searchInput.value;
+  	console.log(searchAll.value);
+	let str = searchAll.value;
 	if (window.event.keyCode == 13) {
-		console.log("여기");
-		console.log("http://localhost:8080/ohgym/find?search=" + str);
-		fetch("http://localhost:8080/ohgym/find");
+		sessionStorage.setItem("search", str);
+		window.location.href = "http://localhost:8080/ohgym/find";
 	}
 }
 
