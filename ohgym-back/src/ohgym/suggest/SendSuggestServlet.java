@@ -27,6 +27,7 @@ public class SendSuggestServlet extends HttpServlet {
 		Suggest suggest = mapper.readValue(strSuggest, Suggest.class);
 		SuggestService service = new SuggestServiceImpl(new SuggestDAOImpl());
 		int result = service.insertSuggest(suggest);
-		System.out.println(result);
+		
+		req.getRequestDispatcher("/views/requestList.jsp").forward(req, resp);
 	}
 }
