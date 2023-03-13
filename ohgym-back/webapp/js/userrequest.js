@@ -25,9 +25,9 @@ fetch('http://localhost:8080/ohgym/userresp?category=' + categorystr)
 .then((arr) => {
     let bannerimg = document.getElementById("bannerimg");
     if (categorystr.length == 2){
-        bannerimg.src = '../img/userrequestimg' + categorystr[1] + '.png';
+        bannerimg.src = './img/userrequestimg' + categorystr[1] + '.png';
     } else if (categorystr.length == 3){
-        bannerimg.src = '../img/userrequestimg' + categorystr[1] + categorystr[2] + '.png';
+        bannerimg.src = './img/userrequestimg' + categorystr[1] + categorystr[2] + '.png';
     }
     accreq.textContent = arr[0];
     score.textContent = "평점: " + arr[1];
@@ -313,12 +313,7 @@ next.addEventListener("click", function(e){
                         },
                         body: reqdata
                     });
-                    console.log(reqarr);
-                    for (let i = 0; i < reqarr.length; i++) {
-                        console.log(reqarr[i]);
-                    }
-                    location.href = "http://localhost:5500/front/html/mainPage.html";
-                } else {
+					location.href = './';
                 }
                 break;
             default:

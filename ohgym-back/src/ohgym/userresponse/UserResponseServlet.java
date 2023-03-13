@@ -1,6 +1,5 @@
-package ohgym.userrequest;
+package ohgym.userresponse;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +15,13 @@ public class UserResponseServlet extends HttpServlet {
 	@Override
 	  protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 	    try {  
-	    	UserResponseDAO userRespDao = new UserResponseDAO();
+	    	UserResponseService service = new UserResponseServiceImpl(new UserResponseDAOImpl());
 	    	String category = request.getParameter("category");
-	    	String categoryName = userRespDao.categoryName(category);
-	    	String requestNum = userRespDao.requestNum(category);
-	    	String scoreNum = userRespDao.scoreNum(category);
-	    	String reviewNum = userRespDao.reviewNum(category);
-	    	String activeNum = userRespDao.activeNum(category);
+	    	String categoryName = service.categoryName(category);
+	    	String requestNum = service.requestNum(category);
+	    	String scoreNum = service.scoreNum(category);
+	    	String reviewNum = service.reviewNum(category);
+	    	String activeNum = service.activeNum(category);
 	    	List<String> list = new ArrayList<String>();
 	    	list.add(requestNum);
 	    	list.add(scoreNum);

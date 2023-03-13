@@ -24,7 +24,7 @@ prefix="c"%>
           <div id="user-info">
             <p id="user-info-id">${ request.id}</p>
             <p id="user-info-type">${request.exerciseType}</p>
-            <p id="user-info-area">부산시 해운대구 재송동</p>
+            <p id="user-info-area">${ requestinfo.answer7 }</p>
             <hr />
           </div>
           <h1>요청사항</h1>
@@ -32,35 +32,35 @@ prefix="c"%>
             <ul>
               <li>
                 <p>레슨목적</p>
-                <p id="purpose"></p>
+                <p id="purpose">${ requestinfo.answer1 }</p>
               </li>
               <li>
                 <p>레슨 스타일</p>
-                <p id="lessonStyle"></p>
+                <p id="lessonStyle">${ requestinfo.answer2 }</p>
               </li>
               <li>
                 <p>가능한 요일</p>
-                <p id="dayOfWeek"></p>
+                <p id="dayOfWeek">${ requestinfo.answer3 }</p>
               </li>
               <li>
                 <p>희망 시간대</p>
-                <p id="desiredTime"></p>
+                <p id="desiredTime">${ requestinfo.answer4 }</p>
               </li>
               <li>
                 <p>회원님 성별</p>
-                <p id="gender"></p>
+                <p id="gender">${ requestinfo.answer5 }</p>
               </li>
               <li>
                 <p>회원님 연령대</p>
-                <p id="age"></p>
+                <p id="age">${ requestinfo.answer6 }</p>
               </li>
               <li>
                 <p>회원님 계신 지역</p>
-                <p id="address"></p>
+                <p id="address">${ requestinfo.answer7 }</p>
               </li>
               <li>
                 <p>그 외 희망사항</p>
-                <p id="message"></p>
+                <p id="message">${ requestinfo.message }</p>
               </li>
             </ul>
           </div>
@@ -92,9 +92,8 @@ prefix="c"%>
           </section>
         </section>
       </main>
-
       <footer><%@ include file="footer.jsp"%></footer>
     </div>
 </body>
-<script src="../js/suggest.js"></script>
+<script src="./js/suggest.js"></script>
 </html>

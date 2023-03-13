@@ -15,16 +15,16 @@ pageEncoding="UTF-8"%>
         <section id="banner">
           <section class="container">
             <article id="fields">
-              <a href="#"><img src="./img/cpt.png" />PT</a>
-              <a href="#"><img src="./img/ccrossfit.png" />크로스핏</a>
-              <a href="#"><img src="./img/cpilates.png" />필라테스</a>
-              <a href="#"><img src="./img/cyoga.png" />요가</a>
-              <a href="#"><img src="./img/cclimbing.png" />클라이밍</a>
-              <a href="#"><img src="./img/cbicycle.png" />스피닝</a>
-              <a href="#"><img src="./img/cballet.png" />발레</a>
-              <a href="#"><img src="./img/cswim.png" />수영</a>
-              <a href="#"><img src="./img/chealth.png" />헬스</a>
-              <a href="#"><img src="./img/cetc.png" />기타</a>
+              <a href="./userreq?category=e1"><img src="./img/cpt.png" />PT</a>
+              <a href="./userreq?category=e2"><img src="./img/ccrossfit.png" />크로스핏</a>
+              <a href="./userreq?category=e3"><img src="./img/cpilates.png" />필라테스</a>
+              <a href="./userreq?category=e4"><img src="./img/cyoga.png" />요가</a>
+              <a href="./userreq?category=e5"><img src="./img/cclimbing.png" />클라이밍</a>
+              <a href="./userreq?category=e6"><img src="./img/cbicycle.png" />스피닝</a>
+              <a href="./userreq?category=e7"><img src="./img/cballet.png" />발레</a>
+              <a href="./userreq?category=e8"><img src="./img/cswim.png" />수영</a>
+              <a href="./userreq?category=e9"><img src="./img/chealth.png" />헬스</a>
+              <a href="./userreq?category=e10"><img src="./img/cetc.png" />기타</a>
             </article>
           </section>
         </section>
