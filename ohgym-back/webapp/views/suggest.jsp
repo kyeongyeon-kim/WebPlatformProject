@@ -1,22 +1,20 @@
-<%@page import="ohgym.request.Request"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"
-prefix="c"%>
+<%@page import="ohgym.request.Request"%> <%@ page language="java"
+contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
+uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
     <link rel="stylesheet" type="text/css" href="./css/suggest.css" />
     <script src="./js/include.js"></script>
     <script src="./js/header.js"></script>
-</head>
-<body>
-<div class="container">
+  </head>
+  <body>
+    <div class="container">
       <header><%@ include file="header.jsp"%></header>
       <main>
         <aside id="request">
@@ -88,12 +86,12 @@ prefix="c"%>
                 placeholder="요청사항에 대한 답변, 서비스 진행방식, 근선생님만의 강점이나 특징 등을 작성하세요."
               ></textarea>
             </div>
-            <a href="#" id="send-suggest">견적보내기</a>
+            <a href="./" id="send-suggest">견적보내기</a>
           </section>
         </section>
       </main>
       <footer><%@ include file="footer.jsp"%></footer>
     </div>
-</body>
-<script src="./js/suggest.js"></script>
+  </body>
+  <script src="./js/suggest.js"></script>
 </html>

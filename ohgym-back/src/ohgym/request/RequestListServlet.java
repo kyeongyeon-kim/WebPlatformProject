@@ -39,7 +39,6 @@ public class RequestListServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
 		List<TeacherProfile> teacherProfile = teacherService.readTeacherProfile(id);
-
 		List<Request> requestList = service.selectRequest();
 		for (Request request : requestList) {
 			System.out.println(request);
@@ -49,10 +48,8 @@ public class RequestListServlet extends HttpServlet {
 				}
 			}
 		}
-		System.out.println(FilteredtList);
 		req.setAttribute("list", FilteredtList);
 		req.getRequestDispatcher("/views/mypageTeacher.jsp").forward(req, resp);
-
 	}
 
 	private boolean isValidRequest(Request request, RequestInfo requestInfo, TeacherProfile teacherProfile) {
@@ -63,7 +60,7 @@ public class RequestListServlet extends HttpServlet {
 					&& dateFormat.parse(requestInfo.getRequest_date()).compareTo(cal.getTime()) <= 0
 					&& dateFormat.parse(requestInfo.getDeadline_date()).compareTo(cal.getTime()) >= 0
 					&& request.getExerciseType().equals(teacherProfile.getExercise())
-					&& requestInfo.getAnswer7().equals(teacherProfile.getLocation().substring(0, 2))
+					&& (requestInfo.getAnswer7().substring(0, 2)).equals(teacherProfile.getLocation().substring(0, 2))
 					&& request.getId() != teacherProfile.getId()) {
 				return true;
 			}
