@@ -22,7 +22,7 @@
 		%>
 		<div id="login">
 			<p id="jsessionid" hidden><%= session.getAttribute("id") %></p>
-			<a href="">요청보기</a>
+			<a href="./requestList">요청보기</a>
 			<span id="i" class="alarm">
 			<i class="fa-regular fa-bell"></i><span id="num">3</span></span>
 			<div class="background">
