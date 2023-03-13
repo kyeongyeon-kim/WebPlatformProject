@@ -11,67 +11,49 @@
 
 #reviewcontent {
   position: relative;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 20px;
   background-color: #fefefe;
   margin: 10% auto;
   border: 1px solid #888;
-  width: 550px;
-  height: 600px;
+  width: 420px;
+  height: 500px;
 }
 
 #closebtn {
   color: #aaa;
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 0px;
+  right: 10px;
   margin: 0px;
   font-size: 28px;
   font-weight: bold;
 }
 
-#reviewquestiondiv {
-  margin-top: 50px;
-  margin-left: 125px;
-  background-color: rgb(234, 250, 249);
-  border: 1px solid rgb(91, 206, 184);
-  border-radius: 5px;
-  width: 300px;
-  height: 80px;
-}
-
-#reviewquestion1 {
+#reviewquestion {
   position: absolute;
-  top: 80px;
-  left: 260px;
+  top: 40px;
+  left: 150px;
   font-size: 18px;
   font-weight: bold;
-  color: rgb(91, 206, 184);
-  text-align: center;
-}
-
-#reviewquestion2 {
-  position: absolute;
-  top: 115px;
-  left: 190px;
-  font-size: 15px;
-  color: rgb(91, 206, 184);
+  color: #00c7ae;
   text-align: center;
 }
 
 #reviewid {
   font-size: 18px;
-  font-weight: bold;
-  margin-top: 40px;
+  margin-top: 80px;
   text-align: center;
-}
-
-#teacherid {
-  margin-right: 30px;
+  color: #00c7ae;
 }
 
 #exercisetype {
-  margin-left: 30px;
+  font-size: 14px;
+}
+
+#teacherid {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 #reviewtext {
@@ -80,18 +62,10 @@
   border-radius: 5px;
   resize: none;
   position: absolute;
-  top: 250px;
-  left: 65px;
-  width: 450px;
-  height: 200px;
-}
-
-#reviewscorediv {
-  font-size: 18px;
-  font-weight: bold;
-  position: absolute;
-  top: 490px;
-  left: 120px;
+  top: 270px;
+  left: 55px;
+  width: 350px;
+  height: 160px;
 }
 
 #cancelokdiv {
@@ -136,3 +110,37 @@
 #okreviewbtn:focus {
   background-color: #008080;
 }
+
+
+
+
+.starpoint_wrap{
+	display:inline-block;
+	margin: 30px 0px 0px 50px;
+}
+.starpoint_box{position:relative;background:url(../img/starreview.png) 0 0 no-repeat;font-size:0;}
+.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:61px;background:url(../img/starreview.png) 0 -61px no-repeat;pointer-events:none;}
+.starpoint_box .label_star{display:inline-block;width:32px;height:61px;box-sizing:border-box;}
+.starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
+.starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
+.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
+.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
+.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
+.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
+.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
+.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
+.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
+.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
+.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
+.starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
+
+.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
