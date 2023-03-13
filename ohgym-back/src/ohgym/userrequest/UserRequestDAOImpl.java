@@ -12,7 +12,7 @@ public class UserRequestDAOImpl implements UserRequestDAO {
 		LocalDateTime RequestDate = LocalDateTime.now();
         LocalDateTime DeadlineDate = RequestDate.plusHours(72);
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String RequestDateStr = RequestDate.format(formatter);
         String DeadlineDateaStr = DeadlineDate.format(formatter);
         
