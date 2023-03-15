@@ -1,77 +1,52 @@
 package ohgym.request;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
-import ohgym.dbutil.ConnectionProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import ohgym.teacher.TeacherProfile;
+import ohgym.userrequest.RequestInfo;
+
+@Service
 public class RequestServiceImpl implements RequestService {
+	@Autowired
 	private RequestDAO dao;
-	
-	public RequestServiceImpl(RequestDAO dao) {
-		super();
-		this.dao = dao;
-	}
 
 	@Override
 	public List<Request> selectRequest() {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectRequest(conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+		return dao.selectRequest();
 	}
 
 	@Override
 	public List<Request> selectRequestById(String id) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestById(conn, id);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+		return dao.selectRequestById(id);
 	}
 
 	@Override
 	public Request selectRequestByNo(int no) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestByNo(conn, no);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+		return dao.selectRequestByNo(no);
 	}
 
+	@Override
+	public boolean isValidRequest(Request request, RequestInfo requestInfo, TeacherProfile teacherProfile) {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			if(requestInfo.getAnswer7() != null
+					&& dateFormat.parse(requestInfo.getRequest_date()).compareTo(cal.getTime()) <= 0
+					&& dateFormat.parse(requestInfo.getDeadline_date()).compareTo(cal.getTime()) >= 0
+					&& request.getExerciseType().equals(teacherProfile.getExercise())
+					&& (requestInfo.getAnswer7().substring(0, 2)).equals(teacherProfile.getLocation().substring(0, 2))
+					&& request.getId() != teacherProfile.getId()) {
+				return true;
+			}
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		} 
+		return false;
+	}
 }

@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class RequestInfoDAOImpl implements RequestInfoDAO {
 	@Override
 	public List<RequestInfo> selectRequestInfo(Connection conn, String user_id) throws SQLException {

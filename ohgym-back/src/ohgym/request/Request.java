@@ -1,5 +1,7 @@
 package ohgym.request;
 
+import org.springframework.stereotype.Component;
+
 public class Request {
 	private int no;
 	private String id;

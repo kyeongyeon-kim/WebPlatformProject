@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import ohgym.dbutil.ConnectionProvider;
 
+@Service
 public class TeacherServiceImpl implements TeacherService {
 	private TeacherDAO dao;
 

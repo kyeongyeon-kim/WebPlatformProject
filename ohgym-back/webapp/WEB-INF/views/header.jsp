@@ -11,7 +11,7 @@
 	<form action="./find" method="POST">
 	<div id="menu">
 		<div id="logo">
-			<a href="./"><img src="./img/logo.png" alt="logo"></a>
+			<a href="./"><img src="./resource/img/logo.png" alt="logo"></a>
 		</div>
 		<div id="menu-bar">
 			<a href="">근선생매칭</a> <a href="./find">근선생찾기</a> <a href="/">커뮤니티</a> 

@@ -4,11 +4,11 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+    <title>Oh!gym</title>
+    <link rel="stylesheet" type="text/css" href="./resource/css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./resource/css/login.css" />
 
-    <script src="./js/signup.js" defer></script>
+    <script src="./resource/js/login.js" defer></script>
   </head>
   <body>
     <div class="container">

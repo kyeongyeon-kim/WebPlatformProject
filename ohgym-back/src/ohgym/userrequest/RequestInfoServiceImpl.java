@@ -4,8 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import ohgym.dbutil.ConnectionProvider;
 
+@Service
 public class RequestInfoServiceImpl implements RequestInfoService {
 	private RequestInfoDAO dao;
 	public RequestInfoServiceImpl(RequestInfoDAO dao) {

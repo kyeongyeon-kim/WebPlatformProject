@@ -15,12 +15,11 @@ public class LoginServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
 	}
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("POST");
 		String userId = request.getParameter("userId");
 		String userPassword = request.getParameter("userPassword");
 
@@ -28,7 +27,6 @@ public class LoginServlet extends HttpServlet {
 		if (authenticated) {
 			LoginUser user = new LoginUser(userId, userPassword, 1);
 			HttpSession session = request.getSession();
-			System.out.println(user.getUserId());
 			session.setAttribute("id", user.getUserId());
 			session.setAttribute("usercheck", user.getUserCheck());
 			session.setMaxInactiveInterval(30*60);
@@ -37,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 		    response.sendRedirect(redirectUrl);	   
 		} else {
 			request.setAttribute("errorMessage", "아이디와 비밀번호를 확인해주세요.");
-			request.getRequestDispatcher("/views/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 
 		}
 	}
