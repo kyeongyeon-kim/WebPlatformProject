@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-	private final LoginService loginService = new LoginService(new LoginDAOImpl());
+	@Autowired
+	private LoginService loginService;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPassword = request.getParameter("userPassword");
-
+		System.out.println(userId);
 		boolean authenticated = loginService.authenticate(userId, userPassword);		
 		if (authenticated) {
 			LoginUser user = new LoginUser(userId, userPassword, 1);

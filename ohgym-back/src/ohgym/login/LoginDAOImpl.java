@@ -1,30 +1,20 @@
 package ohgym.login;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class LoginDAOImpl implements LoginDAO {
+	@Autowired
+	private JdbcTemplate jdbctemplate;
+	
+	
 	@Override
-	public boolean authenticate(Connection conn, String userId, String userPassword) {
-		boolean result = false;
-		try (PreparedStatement pstmt = conn
-				.prepareStatement("SELECT COUNT(*) FROM user WHERE id = ? AND pw = ?")) {
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userPassword);
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				int count = rs.getInt(1);
-				if (count == 1) {
-					result = true;
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
+	public boolean authenticate(String userId, String userPassword) {
+		System.out.println("dao");
+		Integer result = jdbctemplate.queryForObject("SELECT COUNT(*) FROM user WHERE id = ? AND pw = ?", Integer.class, userId, userPassword);
+		System.out.println("dao");
+		return result != null && result == 1;
 	}
 }

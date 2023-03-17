@@ -8,7 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import ohgym.login.LoginService;
 import ohgym.request.Request;
 import ohgym.request.RequestDAOImpl;
 import ohgym.request.RequestService;
@@ -21,6 +24,10 @@ import ohgym.userrequest.RequestInfoServiceImpl;
 
 
 public class TestKyeongYeon {
+		@Autowired
+		private LoginService loginService;
+		@Autowired
+		private JdbcTemplate jdbcTemplate;
 		// 견적서 필터링 테스트
 		@Test
 		public void filterTest() throws ParseException {
@@ -51,5 +58,10 @@ public class TestKyeongYeon {
 			for (Request request : afterFilterList) {
 				System.out.println(request);
 			}
+		}
+		@Test
+		public void login() {
+			int result = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM user WHERE id = ? AND pw = ?", Integer.class);
+			System.out.println(result);
 		}
 }
