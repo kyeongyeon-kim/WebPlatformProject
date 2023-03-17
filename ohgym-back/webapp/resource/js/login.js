@@ -9,6 +9,8 @@ idInput.addEventListener("input", function () {
     this.setCustomValidity("아이디는 10자 이하여야 합니다.");
   } else if (!/^[ㄱ-힣a-zA-Z0-9_-]{1,10}$/.test(valueId)) {
     this.setCustomValidity("아이디를 잘못 입력했습니다.");
+  } else {
+    this.setCustomValidity("");
   }
 });
 
