@@ -7,8 +7,8 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <title>Oh!gym</title>
-    <link rel="stylesheet" type="text/css" href="./css/framestyle.css" />
-    <link rel="stylesheet" type="text/css" href="./css/profilestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./resource/css/framestyle.css" />
+    <link rel="stylesheet" type="text/css" href="./resource/css/profilestyle.css" />
   </head>
   <body>
   <%
@@ -198,7 +198,7 @@ pageEncoding="UTF-8"%>
       </div>
     </template>
   </body>
-  <script src="./js/profile.js"></script>
+  <script src="./resource/js/profile.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
     window.onload = function() {

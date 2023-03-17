@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css" href="./css/framestyle.css">
-<link rel="stylesheet" type="text/css" href="./css/searchstyle.css">
+<link rel="stylesheet" type="text/css" href="./resource/css/framestyle.css">
+<link rel="stylesheet" type="text/css" href="./resource/css/searchstyle.css">
 <script src="https://kit.fontawesome.com/367bc8d5b8.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -148,7 +148,7 @@ if (area != null) {
 								<p id="centerLocation"><%=t.getLocation()%></p>
 							</div>
 							<div class="score">
-								<img src="./img/star.png" alt=""> <span id="score">4.8</span>
+								<img src="./resource/img/star.png" alt=""> <span id="score">4.8</span>
 							</div>
 						</div>
 						<div class="profile-img">
@@ -164,5 +164,5 @@ if (area != null) {
 		<footer><%@ include file="footer.jsp"%></footer>
 	</div>
 </body>
-<script src="./js/find.js"></script>
+<script src="./resource/js/find.js"></script>
 </html>

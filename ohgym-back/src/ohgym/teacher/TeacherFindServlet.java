@@ -27,7 +27,7 @@ public class TeacherFindServlet extends HttpServlet {
 			req.setAttribute("inputText", inputText);
 		}
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("/views/find.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/find.jsp").forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,6 +43,6 @@ public class TeacherFindServlet extends HttpServlet {
 			req.setAttribute("inputText", inputText);
 		}
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("/views/find.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/find.jsp").forward(req, resp);
 	}
 }

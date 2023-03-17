@@ -16,7 +16,7 @@ public class RequestDAOImpl implements RequestDAO {
 	
 	@Override
 	public List<Request> selectRequest() {
-		return jdbcTemplate.query("select * from request as A left outer join exercise_type as B on A.exercise_type = B.no;"
+		return jdbcTemplate.query("select * from request as A left outer join exercise_type as B on A.exercise_type = B.no"
 				, rowMapper);
 	}
 	

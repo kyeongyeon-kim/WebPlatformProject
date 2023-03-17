@@ -213,7 +213,7 @@ function numberToCareer(yearNumber, monthNumber) {
 
 // 프로필 전송
 function sendProfile() {
-  fetch("http://localhost:8080/ohgym/profile", {
+  fetch("./profile", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

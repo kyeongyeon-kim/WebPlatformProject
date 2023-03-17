@@ -1,56 +1,22 @@
 package ohgym.suggest;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
-import ohgym.dbutil.ConnectionProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SuggestServiceImpl implements SuggestService {
+	@Autowired
 	public SuggestDAO dao;
-	
-	public SuggestServiceImpl(SuggestDAO dao) {
-		super();
-		this.dao = dao;
-	}
-	
+
 	@Override
 	public List<Suggest> selectSuggest() {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectSuggest(conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+		return dao.selectSuggest();
 	}
 
 	@Override
 	public int insertSuggest(Suggest suggest) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.insertSuggest(conn, suggest);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return 0;
+		return dao.insertSuggest(suggest);
 	}
 }

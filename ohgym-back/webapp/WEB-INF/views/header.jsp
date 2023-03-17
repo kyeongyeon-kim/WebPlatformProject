@@ -17,6 +17,7 @@
 			<a href="">근선생매칭</a> <a href="./find">근선생찾기</a> <a href="/">커뮤니티</a> 
 			<input type="search" id="search-input" name="search" placeholder="어떤 서비스가 필요하세요?"><input type="submit" style="display: none"></input>
 		</div>
+		</form>
 		<%
 			// session 객체에 memberId라는 session이 있으면,
 		if (session.getAttribute("id") != null) {
@@ -39,7 +40,6 @@
 		<a id="i" href="./profile"><i class="fa-regular fa-circle-user"></i></a>
 		<a href="./logout">로그아웃</a>
 	</div>
-	</form>
 	<%
 		} else { // 로그인 상태
 	%>

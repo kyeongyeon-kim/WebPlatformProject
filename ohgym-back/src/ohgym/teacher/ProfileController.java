@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,10 +26,10 @@ public class ProfileController {
 	}
 	
 	@PostMapping("/profile")
-	public void profile(@RequestBody TeacherProfile teacherProfile) {
-		System.out.println(teacherProfile);
-//		String exerciseType = service.convertExerciseToExerciseType(teacherProfile.getExercise());
-//		teacherProfile.setExercise(exerciseType);
-//		service.updateTeacherProfile(teacherProfile);
+	public ResponseEntity<String> profile(@RequestBody TeacherProfile teacherProfile) {
+		String exerciseType = service.convertExerciseToExerciseType(teacherProfile.getExercise());
+		teacherProfile.setExercise(exerciseType);
+		service.updateTeacherProfile(teacherProfile);
+		return ResponseEntity.ok("OK");
 	}
 }
