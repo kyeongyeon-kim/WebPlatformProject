@@ -4,17 +4,16 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ohgym.dbutil.ConnectionProvider;
 
 @Service
 public class RequestInfoServiceImpl implements RequestInfoService {
+	@Autowired
 	private RequestInfoDAO dao;
-	public RequestInfoServiceImpl(RequestInfoDAO dao) {
-		super();
-		this.dao = dao;
-	}
+	
 	@Override
 	public List<RequestInfo> selectRequestInfo(String user_id) {
 		Connection conn = null;

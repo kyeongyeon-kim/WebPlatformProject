@@ -10,7 +10,7 @@ public class suggestController {
 	@Autowired
 	SuggestService suggestService;
 	
-	@PostMapping("sendSuggest")
+	@PostMapping("/sendSuggest")
 	public String sendSuggest(@RequestBody Suggest suggest) {
 		suggestService.insertSuggest(suggest);
 		return "requestList";

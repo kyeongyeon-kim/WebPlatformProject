@@ -9,8 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @WebServlet("/commentrequest")
 public class CommentRequestServlet extends HttpServlet {
+	@Autowired
+	CommentService service;
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
@@ -30,8 +35,7 @@ public class CommentRequestServlet extends HttpServlet {
 		    commentInfo.setTeacher_id((String) values[1]);
 		    commentInfo.setScore(Double.parseDouble(values[2]));
 		    commentInfo.setReview((String) values[3]);
-
-		    CommentService service = new CommentServiceImpl(new CommentDAOImpl());
+		    
 		    service.commentInsert(commentInfo);
 	    	System.out.println(commentInfo.toString());
 	    } catch (Exception e) {
