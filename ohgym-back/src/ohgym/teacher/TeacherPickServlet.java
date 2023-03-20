@@ -17,7 +17,9 @@ import ohgym.request.RequestDAOImpl;
 import ohgym.request.RequestService;
 import ohgym.request.RequestServiceImpl;
 
-@WebServlet("/teacherPick")
+
+// TeacherController에 메서드로 정의했음 => 확인되면 삭제하기!!!
+@WebServlet("/teacherPick") 
 public class TeacherPickServlet extends HttpServlet {
 
 	@Override

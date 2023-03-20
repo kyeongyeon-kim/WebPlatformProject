@@ -12,6 +12,5 @@ public interface TeacherService {
 	
 	// etc
 	String convertExerciseTypeToExercise(String exerciseType);
-	String convertExerciseToExerciseType(String exercise);
-	
+	String convertExerciseToExerciseType(String exercise);	
 }
