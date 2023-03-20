@@ -12,9 +12,7 @@ public class LoginDAOImpl implements LoginDAO {
 	
 	@Override
 	public boolean authenticate(String userId, String userPassword) {
-		System.out.println("dao");
 		Integer result = jdbctemplate.queryForObject("SELECT COUNT(*) FROM user WHERE id = ? AND pw = ?", Integer.class, userId, userPassword);
-		System.out.println("dao");
 		return result != null && result == 1;
 	}
 }

@@ -9,7 +9,6 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDAO loginDAO;
 
 	public boolean authenticate(String userId, String userPassword) {
-		System.out.println("service");
 		return loginDAO.authenticate(userId, userPassword);
 	}
 }
