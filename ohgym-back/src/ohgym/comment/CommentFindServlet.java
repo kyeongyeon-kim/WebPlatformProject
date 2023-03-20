@@ -13,11 +13,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebServlet("/commentfind")
 public class CommentFindServlet extends HttpServlet {
-	List<CommentInfo> commentInfoList;
+	@Autowired
+	private CommentService service;
+	private List<CommentInfo> commentInfoList;
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		BufferedReader reader = req.getReader();
@@ -29,7 +33,6 @@ public class CommentFindServlet extends HttpServlet {
 		String user_id = sb.toString();
 		
 		commentInfoList = new ArrayList<>();
-		CommentService service = new CommentServiceImpl(new CommentDAOImpl());
 		
 		// 전체 댓글 목록 조회
 		commentInfoList = service.allComment();
