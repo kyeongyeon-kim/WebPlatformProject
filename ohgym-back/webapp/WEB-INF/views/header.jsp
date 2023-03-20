@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Oh!GYM</title>
+<link rel="icon" href="./resource/img/favicon.png">
 <script src="https://kit.fontawesome.com/367bc8d5b8.js" crossorigin="anonymous"></script>
 </head>
 <body>

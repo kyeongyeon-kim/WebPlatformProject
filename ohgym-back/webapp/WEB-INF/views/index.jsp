@@ -4,7 +4,8 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Oh!gym</title>
+    <title>Oh!GYM</title>
+	<link rel="icon" href="./resource/img/favicon.png">
     <link rel="stylesheet" type="text/css" href="./resource/css/framestyle.css"/>
     <link rel="stylesheet" type="text/css" href="./resource/css/indexstyle.css"/>
   </head>

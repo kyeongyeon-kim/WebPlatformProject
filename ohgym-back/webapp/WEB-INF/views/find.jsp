@@ -7,7 +7,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>Oh!GYM</title>
+<link rel="icon" href="./resource/img/favicon.png">
 <link rel="stylesheet" type="text/css" href="./resource/css/framestyle.css">
 <link rel="stylesheet" type="text/css" href="./resource/css/searchstyle.css">
 <script src="https://kit.fontawesome.com/367bc8d5b8.js"
