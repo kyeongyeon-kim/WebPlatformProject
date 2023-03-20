@@ -1,7 +1,6 @@
 
 package ohgym.teacher;
 
-import java.net.URL;
 
 public class TeacherProfile {
 	
