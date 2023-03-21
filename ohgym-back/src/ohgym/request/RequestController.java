@@ -16,7 +16,7 @@ import ohgym.userrequest.RequestInfo;
 import ohgym.userrequest.RequestInfoService;
 
 @Controller
-public class RequestListController {
+public class RequestController {
 	@Autowired
 	RequestService requestService;
 	@Autowired
@@ -41,5 +41,11 @@ public class RequestListController {
 		mv.addObject("list", FilteredtList);
 		mv.setViewName("mypageTeacher");
 		return mv;
+	}
+	
+	@GetMapping("/requestNo")
+	public String requestNo() {
+		Request request = requestService.selectRequestByNo(no);
+		return "suggest";
 	}
 }

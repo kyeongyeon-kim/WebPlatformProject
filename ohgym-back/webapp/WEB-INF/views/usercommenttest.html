@@ -28,21 +28,23 @@
 
     // request 테스트
     let a = document.getElementById("a");
-    let reqarr = [];
-    reqarr.push('1');
-    reqarr.push('2');
-    reqarr.push(2.5);
-    reqarr.push('테스트');
+    
+    let commentInfo = {
+    		user_id: '1',
+    		teacher_id: '2',
+    		score: 2.5,
+    		review: '테스트'
+    }
 
-    console.log(reqarr);
+    console.log(commentInfo);
 
-    let reqdata = JSON.stringify(reqarr);
+    let commentInfoStr = JSON.stringify(commentInfo);
     fetch('http://localhost:8080/ohgym/commentrequest', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
         },
-        body: reqdata
+        body: commentInfoStr
     });
 </script>
 </html>

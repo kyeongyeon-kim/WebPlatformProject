@@ -1,6 +1,5 @@
 package ohgym.teacher;
 
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
