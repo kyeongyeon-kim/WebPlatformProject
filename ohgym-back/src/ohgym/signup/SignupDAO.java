@@ -7,5 +7,5 @@ public interface SignupDAO {
 	public int insertUser(SignupUser user);
 	
 	//아이디 중복체크
-	public boolean isDuplicatedId(Connection conn, String userId);
+	public boolean isDuplicatedId(String userId);
 }

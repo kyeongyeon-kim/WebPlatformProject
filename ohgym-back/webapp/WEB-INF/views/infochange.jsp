@@ -21,17 +21,18 @@
                         <div id="userChangeTitle">
                               <h2>회원정보수정</h2>
                         </div>
+                        ${ userchange }
                         <form method="get" id="signup-form" action="../html/test.html" class="infochange">
                               <h4> 아이디 </h4>
-                              <input type="text" id="userId" value="" readonly />
+                              <input type="text" id="userId" value="${userchange.id}" readonly />
                               <h4> 비밀번호 </h4>
-                              <input type="text" id="userPassword" value="">
+                              <input type="text" id="userPassword" value="${userchange.pw}">
                               <h4> 비밀번호 재확인 </h4>
-                              <input type="text" id="userPasswordTest" value="">
+                              <input type="text" id="userPasswordTest" value="${userchange.pw}">
                               <h4> 이름</h4>
-                              <input type="text" id="userName" value="">
+                              <input type="text" id="userName" value="${userchange.name}">
                               <h4> 전화번호 </h4>
-                              <input type="text" id="userPhone" value="">
+                              <input type="text" id="userPhone" value="${userchange.phone}">
                               <h4> 생년월일 </h4>
                               <div class="field gender" style="width: 100%; height: 80px;">
                                     <div>

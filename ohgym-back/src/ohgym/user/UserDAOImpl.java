@@ -7,122 +7,67 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
+import ohgym.request.Request;
+
+@Repository
 public class UserDAOImpl implements UserDAO {
-
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	private RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+	
+	
 	@Override
-	public int insert(Connection conn, User user) {
+	public int insert(User user) {
 		String sql = "INSERT INTO user (id, name, pw, phone, birthday, gender, usercheck) VALUES (?, ?, ?, ?, ?, ?, ?)";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, user.getId());
-			stmt.setString(2, user.getName());
-			stmt.setString(3, user.getPw());
-			stmt.setString(4, user.getPhone());
-			stmt.setString(5, user.getBirthday());
-			stmt.setString(6, user.getGender());
-			stmt.setInt(7, user.getUsercheck());
-			
-			return stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("추가 작업 중 예외 발생", e);
-		}
+		return jdbcTemplate.update(sql, rowMapper
+				, user.getId()
+				, user.getName()
+				, user.getPw()
+				, user.getPhone()
+				, user.getBirthday()
+				, user.getGender()
+				, user.getUsercheck());
 	}
 
 	@Override
-	public List<User> select(Connection conn) {
-		String sql = "SELECT * FROM user";
-		try (PreparedStatement stmt = conn.prepareStatement(sql);
-				ResultSet rs = stmt.executeQuery()) {
-			List<User> list = new ArrayList<>();
-			while (rs.next()) {
-				list.add(resultMapping(rs));
-			}
-			return list;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("조회 작업 중 예외 발생", e);
-		}
+	public List<User> select() {
+		return jdbcTemplate.query("SELECT * FROM user",rowMapper);
 	}
 	
-	private User resultMapping(ResultSet rs) throws SQLException {
-		User user = new User();
-		user.setId(rs.getString("id"));
-		user.setName(rs.getString("name"));
-		user.setPw(rs.getString("pw"));
-		user.setPhone(rs.getString("phone"));
-		user.setBirthday(rs.getString("birthday"));
-		user.setGender(rs.getString("gender"));
-		user.setUsercheck(rs.getInt("usercheck"));
-		return user;
+	@Override
+	public User selectByUsercheck(int usercheck) {
+		String sql = "SELECT * FROM user WHERE usercheck = '"+usercheck+"';";
+		return (User) jdbcTemplate.query(sql, rowMapper); 
 	}
 
 	@Override
-	public User selectByUsercheck(Connection conn, int usercheck) {
-		String sql = "SELECT * FROM user WHERE usercheck = ?";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setInt(1, usercheck);
-			
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
-					return resultMapping(rs);
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("조회 작업 중 예외 발생", e);
-		}
-		return null;
+	public User selectById(String id) {
+		String sql = "SELECT * FROM user WHERE id = '"+id+"';";
+		return (User) jdbcTemplate.query(sql, rowMapper);
+		
 	}
 
 	@Override
-	public User selectById(Connection conn, String id) {
-		String sql = "SELECT * FROM user WHERE id = ?";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, id);
-			
-			try (ResultSet rs = stmt.executeQuery()) {
-				if (rs.next()) {
-					return resultMapping(rs);
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("조회 작업 중 예외 발생", e);
-		}
-		return null;
-	}
-
-	@Override
-	public int update(Connection conn, User user) {
+	public int update(User user) {
 		String sql = "UPDATE user SET name = ?,pw = ?,phone = ?,birthday = ?,gender =? WHERE id = ?";
-		try(PreparedStatement stmt = conn.prepareStatement(sql)){
-				stmt.setString(1, user.getName());
-				stmt.setString(2, user.getPw());
-				stmt.setString(3, user.getPhone());
-				stmt.setString(4, user.getBirthday());
-				stmt.setString(5, user.getGender());
-				stmt.setString(6, user.getId());
-				
-				
-				return stmt.executeUpdate();
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-			return -1;
-		}
-	
-
+		return jdbcTemplate.update(sql, rowMapper
+				, user.getName()
+				, user.getPw()
+				, user.getPhone()
+				, user.getBirthday()
+				, user.getGender()
+				, user.getId());	
+	}	
+		
 	@Override
-	public int delete(Connection conn, String id) {
+	public int delete(String id) {
 		String sql = "DELETE FROM user WHERE id = ?";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-			stmt.setString(1, id);
-			
-			return stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException("삭제 작업 중 예외 발생", e);
-		}
+		return jdbcTemplate.update(sql, id);
 	}
 }

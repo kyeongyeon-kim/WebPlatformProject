@@ -3,107 +3,37 @@ package ohgym.userresponse;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import ohgym.dbutil.ConnectionProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserResponseServiceImpl implements UserResponseService {
+	@Autowired
 	private UserResponseDAO dao;
-	public UserResponseServiceImpl(UserResponseDAO dao) {
-		super();
-		this.dao = dao;
-	}
+	
 	@Override
 	public String categoryName(String str) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.categoryName(str, conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+		return dao.categoryName(str);
 	}
+	
 	@Override
 	public String scoreNum(String str) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.scoreNum(str, conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.scoreNum(str);
 	}
+	
 	@Override
 	public String requestNum(String str) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.requestNum(str, conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.requestNum(str);
 	}
+	
 	@Override
 	public String activeNum(String str) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.activeNum(str, conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.activeNum(str);
 	}
+	
 	@Override
 	public String reviewNum(String str) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.reviewNum(str, conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.reviewNum(str);
+		
 	}
 }
