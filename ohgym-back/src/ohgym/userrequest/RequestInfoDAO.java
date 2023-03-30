@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface RequestInfoDAO {
-	List<RequestInfo> selectRequestInfo(Connection conn, String user_id) throws SQLException;
-	List<RequestInfo> selectRequestInfoNoAll(Connection conn) throws SQLException;
-	RequestInfo selectRequestInfoByNo(Connection conn,int no) throws  SQLException;
+	List<RequestInfo> selectRequestInfo(String user_id) ;
+	List<RequestInfo> selectRequestInfoNoAll() ;
+	RequestInfo selectRequestInfoByNo(int no) ;
 }

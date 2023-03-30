@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ohgym.dbutil.ConnectionProvider;
 
 @Service
 public class RequestInfoServiceImpl implements RequestInfoService {
@@ -16,59 +15,16 @@ public class RequestInfoServiceImpl implements RequestInfoService {
 	
 	@Override
 	public List<RequestInfo> selectRequestInfo(String user_id) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestInfo(conn, user_id);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.selectRequestInfo(user_id);	
 	}
+	
 	@Override
 	public List<RequestInfo> selectRequestInfoNoAll() {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestInfoNoAll(conn);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.selectRequestInfoNoAll();
 	}
+	
 	@Override
 	public RequestInfo selectRequestInfoByNo(int no) {
-		Connection conn = null;
-		try {
-			conn = ConnectionProvider.getConnection();
-			return dao.selectRequestInfoByNo(conn,no);
-		} catch (RuntimeException | SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (conn != null) {
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return null;
+			return dao.selectRequestInfoByNo(no);	
 	}
 }
