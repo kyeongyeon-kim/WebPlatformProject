@@ -1,69 +1,43 @@
 package ohgym.userresponse;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class UserResponseDAOImpl implements UserResponseDAO {
-	// 종목명
-	@Override
-	public String categoryName(String str, Connection conn) throws SQLException {
-		String sql = "SELECT exercise FROM exercise_type WHERE no = '" + str + "'";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)){
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				return rs.getString("exercise");
-			}
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	private RowMapper<String> rowMapper = new RowMapper<String>() {
+		@Override
+		public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+			List<String> list = new ArrayList<>();
+			list.add(rs.getString("categoryName"));
+			list.add(rs.getString("requestNum"));
+			list.add(rs.getString("scoreNum"));
+			list.add(rs.getString("reviewNum"));
+			list.add(rs.getString("activeNum"));
+			return String.join(", ", list);
 		}
-		return null;
-	}
-	// 평점
+	};
+	
 	@Override
-	public String scoreNum(String str, Connection conn) throws SQLException {
-		String sql = "SELECT avg(score) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = '" + str + "')";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)){
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				return String.valueOf(rs.getDouble("avg(score)"));
-			}
-		}
-		return null;
-	}
-	// 요청서 수
-	@Override
-	public String requestNum(String str, Connection conn) throws SQLException {
-		String sql = "SELECT count(*) FROM request WHERE exercise_type = '" + str + "'";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)){
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				return String.valueOf(rs.getInt("count(*)"));
-			}
-		}
-		return null;
-	}
-	// 활동 선생 수
-	@Override
-	public String activeNum(String str, Connection conn) throws SQLException {
-		String sql = "SELECT count(*) FROM teacher_exercise WHERE exercise_type = '" + str + "'";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)){
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				return String.valueOf(rs.getInt("count(*)"));
-			}
-		}
-		return null;
-	}
-	// 리뷰 수
-	@Override
-	public String reviewNum(String str, Connection conn) throws SQLException {
-		String sql = "SELECT count(*) FROM comment WHERE teacher_id IN (SELECT id FROM teacher_exercise WHERE exercise_type = '" + str + "')";
-		try (PreparedStatement stmt = conn.prepareStatement(sql)){
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				return String.valueOf(rs.getInt("count(*)"));
-			}
-		}
-		return null;
+	public List<String> responseList(String str){
+		String sql = "SELECT exercise_type.exercise AS categoryName, " 
+		+ "(SELECT avg(score)FROM ohgym.comment WHERE ohgym.comment.teacher_id IN "
+			+ "(SELECT teacher_exercise.id FROM teacher_exercise WHERE exercise_type = " + str + "))  AS scoreNum, " 
+		+ "(SELECT count(*) FROM request WHERE request.exercise_type = " + str + ") AS requestNum, "
+		+ "(SELECT count(*) FROM teacher_exercise WHERE teacher_exercise.exercise_type = " + str + ") AS activeNum, " 
+		+ "(SELECT count(*) FROM ohgym.comment WHERE ohgym.comment.teacher_id IN "
+			+ "(SELECT teacher_exercise.id FROM teacher_exercise WHERE exercise_type = " + str + ")) AS reviewNum " 
+		+ "FROM exercise_type WHERE exercise_type.no = " + str;
+		return jdbcTemplate.query(sql, rowMapper);
 	}
 }
