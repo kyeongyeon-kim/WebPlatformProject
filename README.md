@@ -55,4 +55,4 @@
 결과 : 팀원들에게 공유하여 불필요한 시간을 소모하지 않도록 함<br><br>
 
 
-<h2><a href="#">💌 더보기</a></h2><br><br>
+<h2><a href="https://yeon96.tistory.com/30">💌 더보기</a></h2><br><br>
